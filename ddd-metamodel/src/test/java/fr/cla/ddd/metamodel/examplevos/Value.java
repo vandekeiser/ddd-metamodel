@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.pbt.examplevos;
+package fr.cla.ddd.metamodel.examplevos;
 
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
 

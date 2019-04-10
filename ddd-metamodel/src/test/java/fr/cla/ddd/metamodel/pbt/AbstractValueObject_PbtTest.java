@@ -3,7 +3,6 @@ package fr.cla.ddd.metamodel.pbt;
 
 import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
-import fr.cla.ddd.metamodel.pbt.*;
 import org.assertj.core.api.Assertions;
 import org.junit.runner.RunWith;
 

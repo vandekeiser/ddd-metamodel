@@ -1,23 +1,24 @@
-package fr.cla.ddd.metamodel.pbt.examplevos;
+package fr.cla.ddd.metamodel.examplevos.canequal;
 
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
 import fr.cla.ddd.metamodel.AbstractValueObject;
+import fr.cla.ddd.metamodel.examplevos.Value;
 
 import java.util.Arrays;
 import java.util.List;
 
 //@formatter:off
-public class VO2B extends VO2 {
+public class CeVO2B extends CeVO2 {
 
     private final Value y;
 
-    public VO2B(Value y, Value x) {
+    public CeVO2B(Value y, Value x) {
         super(x);
         this.y = y;
     }
 
-    public static VO2B random(SourceOfRandomness rand) {
-        return new VO2B(
+    public static CeVO2B random(SourceOfRandomness rand) {
+        return new CeVO2B(
             Value.random(rand),
             Value.random(rand)
         );
@@ -30,7 +31,7 @@ public class VO2B extends VO2 {
 
     @Override
     protected boolean canEqual(AbstractValueObject<?> that) {
-        return that instanceof VO2B;
+        return that instanceof CeVO2B;
     }
 
 }
