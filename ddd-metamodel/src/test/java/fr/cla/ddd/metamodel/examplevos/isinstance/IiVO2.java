@@ -27,10 +27,5 @@ public class IiVO2 extends AbstractValueObject<IiVO2> {
         return singletonList(x);
     }
 
-    @Override
-    protected boolean canEqual(AbstractValueObject<?> that) {
-        return that instanceof IiVO2;
-    }
-
 }
 //@formatter:on

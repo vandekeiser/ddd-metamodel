@@ -1,8 +1,10 @@
-package fr.cla.ddd.metamodel.pbt;
+package fr.cla.ddd.metamodel.pbt.sameconcreteclass;
 
 
 import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
+import fr.cla.ddd.metamodel.pbt.VoPair;
+import fr.cla.ddd.metamodel.pbt.VoTriplet;
 import org.junit.runner.RunWith;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -10,19 +12,19 @@ import static org.junit.Assume.assumeThat;
 
 //@formatter:off
 @RunWith(JUnitQuickcheck.class)
-public class VoGeneratorsSanityCheck_PbtTest {
+public class SccVoGeneratorsSanityCheck_PbtTest {
 
     private static final int TRIALS = 10_000;
 
     @Property(trials = TRIALS)
     public void random_pairs_should_sometimes_contain_equal_xy(
-        @RandomVoPair VoPair p
+        @RandomSccVoPair VoPair p
     ) {
         random_pairs_should_sometimes_contain_equal_xy0(p, true);
     }
     @Property(trials = TRIALS)
     public void random_pairs_should_sometimes_contain_not_equal_xy(
-        @RandomVoPair VoPair p
+        @RandomSccVoPair VoPair p
     ) {
         random_pairs_should_sometimes_contain_equal_xy0(p, true);
     }
@@ -34,13 +36,13 @@ public class VoGeneratorsSanityCheck_PbtTest {
 
     @Property(trials = TRIALS)
     public void random_triplets_should_sometimes_contain_equal_xy(
-        @RandomVoTriplet VoTriplet t
+        @RandomSccVoTriplet VoTriplet t
     ) {
         random_triplets_should_sometimes_contain_equal_xy0(t, true);
     }
     @Property(trials = TRIALS)
     public void random_triplets_should_sometimes_not_contain_equal_xy(
-        @RandomVoTriplet VoTriplet t
+        @RandomSccVoTriplet VoTriplet t
     ) {
         random_triplets_should_sometimes_contain_equal_xy0(t, false);
     }
@@ -52,13 +54,13 @@ public class VoGeneratorsSanityCheck_PbtTest {
 
     @Property(trials = TRIALS)
     public void random_triplets_should_sometimes_contain_equal_yz(
-        @RandomVoTriplet VoTriplet t
+        @RandomSccVoTriplet VoTriplet t
     ) {
         random_triplets_should_sometimes_contain_equal_yz0(t, true);
     }
     @Property(trials = TRIALS)
     public void random_triplets_should_sometimes_not_contain_equal_yz(
-        @RandomVoTriplet VoTriplet t
+        @RandomSccVoTriplet VoTriplet t
     ) {
         random_triplets_should_sometimes_contain_equal_yz0(t, false);
     }
@@ -70,13 +72,13 @@ public class VoGeneratorsSanityCheck_PbtTest {
 
     @Property(trials = TRIALS)
     public void random_triplets_should_sometimes_contain_equal_xz(
-        @RandomVoTriplet VoTriplet t
+        @RandomSccVoTriplet VoTriplet t
     ) {
         random_triplets_should_sometimes_contain_equal_xz0(t, true);
     }
     @Property(trials = TRIALS)
     public void random_triplets_should_sometimes_not_contain_equal_xz(
-        @RandomVoTriplet VoTriplet t
+        @RandomSccVoTriplet VoTriplet t
     ) {
         random_triplets_should_sometimes_contain_equal_xz0(t, false);
     }
@@ -88,13 +90,13 @@ public class VoGeneratorsSanityCheck_PbtTest {
 
     @Property(trials = TRIALS)
     public void random_triplets_should_sometimes_contain_equal_xyz(
-        @RandomVoTriplet VoTriplet t
+        @RandomSccVoTriplet VoTriplet t
     ) {
         random_triplets_should_sometimes_contain_equal_xyz0(t, true);
     }
     @Property(trials = TRIALS)
     public void random_triplets_should_sometimes_not_contain_equal_xyz(
-        @RandomVoTriplet VoTriplet t
+        @RandomSccVoTriplet VoTriplet t
     ) {
         random_triplets_should_sometimes_contain_equal_xyz0(t, false);
     }

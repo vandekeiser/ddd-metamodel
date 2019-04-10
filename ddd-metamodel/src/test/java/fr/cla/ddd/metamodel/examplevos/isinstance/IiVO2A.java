@@ -29,10 +29,5 @@ public class IiVO2A extends IiVO2 {
         return Arrays.asList(super.x, y);
     }
 
-    @Override
-    protected boolean canEqual(AbstractValueObject<?> that) {
-        return that instanceof IiVO2A;
-    }
-
 }
 //@formatter:on

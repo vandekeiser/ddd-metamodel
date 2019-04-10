@@ -1,8 +1,14 @@
-package fr.cla.ddd.metamodel.pbt;
+package fr.cla.ddd.metamodel.pbt.sameconcreteclass;
 
 
 import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
+import fr.cla.ddd.metamodel.pbt.VoPair;
+import fr.cla.ddd.metamodel.pbt.VoSingleton;
+import fr.cla.ddd.metamodel.pbt.VoTriplet;
+import fr.cla.ddd.metamodel.pbt.sameconcreteclass.RandomSccVo;
+import fr.cla.ddd.metamodel.pbt.sameconcreteclass.RandomSccVoPair;
+import fr.cla.ddd.metamodel.pbt.sameconcreteclass.RandomSccVoTriplet;
 import org.assertj.core.api.Assertions;
 import org.junit.runner.RunWith;
 
@@ -12,13 +18,13 @@ import static org.junit.Assert.assertTrue;
 
 //@formatter:off
 @RunWith(JUnitQuickcheck.class)
-public class AbstractValueObject_PbtTest {
+public class AbstractSccValueObject_PbtTest {
 
     private static final int TRIALS = 100_000;
 
     @Property(trials = TRIALS)
     public void equals_should_be_reflexive(
-        @RandomVo VoSingleton s
+        @RandomSccVo VoSingleton s
     ) {
         Assertions.assertThat(
             s.x.equals(s.x)
@@ -27,7 +33,7 @@ public class AbstractValueObject_PbtTest {
 
     @Property(trials = TRIALS)
     public void equals_should_be_symmetric(
-        @RandomVoPair VoPair p
+        @RandomSccVoPair VoPair p
     ) {
         assertThat(
             p.x.equals(p.y)
@@ -38,7 +44,7 @@ public class AbstractValueObject_PbtTest {
 
     @Property(trials = TRIALS)
     public void equals_should_be_transitive(
-        @RandomVoTriplet VoTriplet t
+        @RandomSccVoTriplet VoTriplet t
     ) {
         if(t.x.equals(t.y) && t.y.equals(t.z)){
             assertTrue(t.x.equals(t.z));
@@ -47,7 +53,7 @@ public class AbstractValueObject_PbtTest {
 
     @Property(trials = TRIALS)
     public void equals_null_should_be_false(
-    @RandomVo VoSingleton s
+    @RandomSccVo VoSingleton s
     ) {
         Assertions.assertThat(
            s.x.equals(null)
@@ -56,7 +62,7 @@ public class AbstractValueObject_PbtTest {
 
     @Property(trials = TRIALS)
     public void equals_should_be_consistent(
-        @RandomVoPair VoPair p
+        @RandomSccVoPair VoPair p
     ) {
         assertThat(
             p.x.equals(p.y)
@@ -67,7 +73,7 @@ public class AbstractValueObject_PbtTest {
 
     @Property(trials = TRIALS)
     public void equals_implies_same_hashCode(
-        @RandomVoPair VoPair p
+        @RandomSccVoPair VoPair p
     ) {
         if(p.x.equals(p.y)){
             assertEquals(p.x.hashCode(), p.y.hashCode());
@@ -76,7 +82,7 @@ public class AbstractValueObject_PbtTest {
 
     @Property(trials = TRIALS)
     public void hashCode_should_be_consistent(
-        @RandomVo VoSingleton s
+        @RandomSccVo VoSingleton s
     ) {
         Assertions.assertThat(
             s.x.hashCode()
@@ -96,7 +102,7 @@ public class AbstractValueObject_PbtTest {
     //@Ignore
     @Property(trials = TRIALS)
     public void equals_should_be_false_for_different_types(
-        @RandomVoPair VoPair p
+        @RandomSccVoPair VoPair p
     ) {
         if(!p.x.equals(p.y)) return;
 

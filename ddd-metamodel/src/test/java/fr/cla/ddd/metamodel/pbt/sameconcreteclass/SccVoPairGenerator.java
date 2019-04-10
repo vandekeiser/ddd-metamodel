@@ -1,21 +1,23 @@
-package fr.cla.ddd.metamodel.pbt;
+package fr.cla.ddd.metamodel.pbt.sameconcreteclass;
 
 import com.pholser.junit.quickcheck.generator.GenerationStatus;
 import com.pholser.junit.quickcheck.generator.Generator;
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
+import fr.cla.ddd.metamodel.pbt.VoPair;
+import fr.cla.ddd.metamodel.pbt.sameconcreteclass.SccVoGenerator;
 
 //@formatter:off
-public class VoPairGenerator extends Generator<VoPair> {
+public class SccVoPairGenerator extends Generator<VoPair> {
 
-    public VoPairGenerator() {
+    public SccVoPairGenerator() {
         super(VoPair.class);
     }
 
     @Override
     public VoPair generate(SourceOfRandomness rand, GenerationStatus status) {
         return new VoPair(
-            VoGenerator.generate(rand),
-            VoGenerator.generate(rand)
+            SccVoGenerator.generate(rand),
+            SccVoGenerator.generate(rand)
         );
     }
 

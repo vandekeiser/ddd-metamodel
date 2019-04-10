@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 //@formatter:off
-public class SccVO1B extends SccVO1 {
+public final class SccVO1B extends SccVO1 {
 
     private final Value y;
 
@@ -27,11 +27,6 @@ public class SccVO1B extends SccVO1 {
     @Override
     protected List<Object> equalityCriteria() {
         return Arrays.asList(super.x, y);
-    }
-
-    @Override
-    protected boolean canEqual(AbstractValueObject<?> that) {
-        return that instanceof SccVO1B;
     }
 
 }

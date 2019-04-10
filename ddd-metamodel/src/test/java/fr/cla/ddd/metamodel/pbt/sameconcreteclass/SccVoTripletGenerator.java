@@ -1,22 +1,24 @@
-package fr.cla.ddd.metamodel.pbt;
+package fr.cla.ddd.metamodel.pbt.sameconcreteclass;
 
 import com.pholser.junit.quickcheck.generator.GenerationStatus;
 import com.pholser.junit.quickcheck.generator.Generator;
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
+import fr.cla.ddd.metamodel.pbt.VoTriplet;
+import fr.cla.ddd.metamodel.pbt.sameconcreteclass.SccVoGenerator;
 
 //@formatter:off
-public class VoTripletGenerator extends Generator<VoTriplet> {
+public class SccVoTripletGenerator extends Generator<VoTriplet> {
 
-    public VoTripletGenerator() {
+    public SccVoTripletGenerator() {
         super(VoTriplet.class);
     }
 
     @Override
     public VoTriplet generate(SourceOfRandomness rand, GenerationStatus status) {
         return new VoTriplet(
-            VoGenerator.generate(rand),
-            VoGenerator.generate(rand),
-            VoGenerator.generate(rand)
+            SccVoGenerator.generate(rand),
+            SccVoGenerator.generate(rand),
+            SccVoGenerator.generate(rand)
         );
     }
 

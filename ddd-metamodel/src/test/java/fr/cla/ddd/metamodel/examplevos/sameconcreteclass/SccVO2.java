@@ -14,7 +14,7 @@ public class SccVO2 extends AbstractValueObject<SccVO2> {
     protected final Value x;
 
     public SccVO2(Value x) {
-        super(SccVO2.class);
+        super(SccVO2.class, Equatability.SAME_CONCRETE_CLASS);
         this.x = x;
     }
 
@@ -25,11 +25,6 @@ public class SccVO2 extends AbstractValueObject<SccVO2> {
     @Override
     protected List<Object> equalityCriteria() {
         return singletonList(x);
-    }
-
-    @Override
-    protected boolean canEqual(AbstractValueObject<?> that) {
-        return that instanceof SccVO2;
     }
 
 }

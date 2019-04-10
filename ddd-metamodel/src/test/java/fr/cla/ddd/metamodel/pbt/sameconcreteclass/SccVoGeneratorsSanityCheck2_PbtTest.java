@@ -1,8 +1,9 @@
-package fr.cla.ddd.metamodel.pbt;
+package fr.cla.ddd.metamodel.pbt.sameconcreteclass;
 
 
 import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
+import fr.cla.ddd.metamodel.pbt.VoPair;
 import org.junit.runner.RunWith;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -10,19 +11,19 @@ import static org.junit.Assume.assumeThat;
 
 //@formatter:off
 @RunWith(JUnitQuickcheck.class)
-public class VoGeneratorsSanityCheck2_PbtTest {
+public class SccVoGeneratorsSanityCheck2_PbtTest {
 
     private static final int TRIALS = 10_000;
 
     @Property(trials = TRIALS)
     public void random_pairs_should_sometimes_contain_xy_of_same_type(
-        @RandomVoPair VoPair p
+        @RandomSccVoPair VoPair p
     ) {
         random_pairs_should_sometimes_contain_xy_of_type0(p, true);
     }
     @Property(trials = TRIALS)
     public void random_pairs_should_sometimes_contain_xy_of_different_types(
-        @RandomVoPair VoPair p
+        @RandomSccVoPair VoPair p
     ) {
         random_pairs_should_sometimes_contain_xy_of_type0(p, true);
     }
@@ -34,13 +35,13 @@ public class VoGeneratorsSanityCheck2_PbtTest {
 
     @Property(trials = TRIALS)
     public void random_pairs_should_sometimes_contain_xy_of_related_types(
-        @RandomVoPair VoPair p
+        @RandomSccVoPair VoPair p
     ) {
         random_pairs_should_sometimes_contain_xy_of_related_types0(p, true);
     }
     @Property(trials = TRIALS)
     public void random_pairs_should_sometimes_contain_xy_of_unrelated_types(
-        @RandomVoPair VoPair p
+        @RandomSccVoPair VoPair p
     ) {
         random_pairs_should_sometimes_contain_xy_of_related_types0(p, true);
     }
