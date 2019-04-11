@@ -14,5 +14,9 @@ public class VoPair {
         this.y = requireNonNull(y);
     }
 
+    @Override
+    public String toString() {
+        return String.format("(%s, %s)", x, y);
+    }
 }
 //@formatter:oN

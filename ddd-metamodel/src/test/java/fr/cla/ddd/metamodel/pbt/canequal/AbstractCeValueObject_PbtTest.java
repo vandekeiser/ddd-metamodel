@@ -11,6 +11,8 @@ import fr.cla.ddd.metamodel.pbt.VoTriplet;
 import org.assertj.core.api.Assertions;
 import org.junit.runner.RunWith;
 
+import java.util.logging.Logger;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
 
@@ -18,10 +20,12 @@ import static org.junit.Assert.assertTrue;
 @RunWith(JUnitQuickcheck.class)
 public class AbstractCeValueObject_PbtTest {
 
+    private static final Logger log = Logger.getLogger(AbstractCeValueObject_PbtTest.class.getName());
     private static final int TRIALS = 100_000;
 
     @Property(trials = TRIALS)
     public void equals_should_be_reflexive(@RandomCeVo VoSingleton s) {
+        log.fine(() -> s.toString());
         Assertions.assertThat(
             s.x.equals(s.x)
         ).isTrue();
@@ -29,6 +33,7 @@ public class AbstractCeValueObject_PbtTest {
 
     @Property(trials = TRIALS)
     public void equals_should_be_symmetric(@RandomCeVoPair VoPair p) {
+        log.fine(() -> p.toString());
         assertThat(
             p.x.equals(p.y)
         ).isEqualTo(
@@ -38,6 +43,7 @@ public class AbstractCeValueObject_PbtTest {
 
     @Property(trials = TRIALS)
     public void equals_should_be_transitive(@RandomCeVoTriplet VoTriplet t) {
+        log.fine(() -> t.toString());
         if(t.x.equals(t.y) && t.y.equals(t.z)){
             assertTrue(t.x.equals(t.z));
         }
@@ -45,6 +51,7 @@ public class AbstractCeValueObject_PbtTest {
 
     @Property(trials = TRIALS)
     public void equals_null_should_be_false(@RandomCeVo VoSingleton s) {
+        log.fine(() -> s.toString());
         assertThat(
            s.x.equals(null)
         ).isFalse();
@@ -52,6 +59,7 @@ public class AbstractCeValueObject_PbtTest {
 
     @Property(trials = TRIALS)
     public void equals_should_be_consistent(@RandomCeVoPair VoPair p) {
+        log.fine(() -> p.toString());
         assertThat(
             p.x.equals(p.y)
         ).isEqualTo(
@@ -61,6 +69,7 @@ public class AbstractCeValueObject_PbtTest {
 
     @Property(trials = TRIALS)
     public void equals_implies_same_hashCode(@RandomCeVoPair VoPair p) {
+        log.fine(() -> p.toString());
         if(p.x.equals(p.y)){
             assertThat(
                 p.x.hashCode()
@@ -72,6 +81,7 @@ public class AbstractCeValueObject_PbtTest {
 
     @Property(trials = TRIALS)
     public void hashCode_should_be_consistent(@RandomCeVo VoSingleton s) {
+        log.fine(() -> s.toString());
         assertThat(
             s.x.hashCode()
         ).isEqualTo(

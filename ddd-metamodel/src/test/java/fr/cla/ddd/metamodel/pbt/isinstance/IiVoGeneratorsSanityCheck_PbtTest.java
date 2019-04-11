@@ -7,6 +7,8 @@ import fr.cla.ddd.metamodel.pbt.VoPair;
 import fr.cla.ddd.metamodel.pbt.VoTriplet;
 import org.junit.runner.RunWith;
 
+import java.util.logging.Logger;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assume.assumeThat;
 
@@ -14,18 +16,21 @@ import static org.junit.Assume.assumeThat;
 @RunWith(JUnitQuickcheck.class)
 public class IiVoGeneratorsSanityCheck_PbtTest {
 
+    private static final Logger log = Logger.getLogger(IiVoGeneratorsSanityCheck_PbtTest.class.getName());
     private static final int TRIALS = 10_000;
 
     @Property(trials = TRIALS)
     public void random_pairs_should_sometimes_contain_equal_xy(
         @RandomIiVoPair VoPair p
     ) {
+        log.fine(() -> p.toString());
         random_pairs_should_sometimes_contain_equal_xy0(p, true);
     }
     @Property(trials = TRIALS)
     public void random_pairs_should_sometimes_contain_not_equal_xy(
         @RandomIiVoPair VoPair p
     ) {
+        log.fine(() -> p.toString());
         random_pairs_should_sometimes_contain_equal_xy0(p, true);
     }
     private void random_pairs_should_sometimes_contain_equal_xy0(
@@ -38,12 +43,14 @@ public class IiVoGeneratorsSanityCheck_PbtTest {
     public void random_triplets_should_sometimes_contain_equal_xy(
         @RandomIiVoTriplet VoTriplet t
     ) {
+        log.fine(() -> t.toString());
         random_triplets_should_sometimes_contain_equal_xy0(t, true);
     }
     @Property(trials = TRIALS)
     public void random_triplets_should_sometimes_not_contain_equal_xy(
         @RandomIiVoTriplet VoTriplet t
     ) {
+        log.fine(() -> t.toString());
         random_triplets_should_sometimes_contain_equal_xy0(t, false);
     }
     private void random_triplets_should_sometimes_contain_equal_xy0(
@@ -56,12 +63,14 @@ public class IiVoGeneratorsSanityCheck_PbtTest {
     public void random_triplets_should_sometimes_contain_equal_yz(
         @RandomIiVoTriplet VoTriplet t
     ) {
+        log.fine(() -> t.toString());
         random_triplets_should_sometimes_contain_equal_yz0(t, true);
     }
     @Property(trials = TRIALS)
     public void random_triplets_should_sometimes_not_contain_equal_yz(
         @RandomIiVoTriplet VoTriplet t
     ) {
+        log.fine(() -> t.toString());
         random_triplets_should_sometimes_contain_equal_yz0(t, false);
     }
     private void random_triplets_should_sometimes_contain_equal_yz0(
@@ -74,12 +83,14 @@ public class IiVoGeneratorsSanityCheck_PbtTest {
     public void random_triplets_should_sometimes_contain_equal_xz(
         @RandomIiVoTriplet VoTriplet t
     ) {
+        log.fine(() -> t.toString());
         random_triplets_should_sometimes_contain_equal_xz0(t, true);
     }
     @Property(trials = TRIALS)
     public void random_triplets_should_sometimes_not_contain_equal_xz(
         @RandomIiVoTriplet VoTriplet t
     ) {
+        log.fine(() -> t.toString());
         random_triplets_should_sometimes_contain_equal_xz0(t, false);
     }
     private void random_triplets_should_sometimes_contain_equal_xz0(
@@ -92,12 +103,14 @@ public class IiVoGeneratorsSanityCheck_PbtTest {
     public void random_triplets_should_sometimes_contain_equal_xyz(
         @RandomIiVoTriplet VoTriplet t
     ) {
+        log.fine(() -> t.toString());
         random_triplets_should_sometimes_contain_equal_xyz0(t, true);
     }
     @Property(trials = TRIALS)
     public void random_triplets_should_sometimes_not_contain_equal_xyz(
         @RandomIiVoTriplet VoTriplet t
     ) {
+        log.fine(() -> t.toString());
         random_triplets_should_sometimes_contain_equal_xyz0(t, false);
     }
     private void random_triplets_should_sometimes_contain_equal_xyz0(

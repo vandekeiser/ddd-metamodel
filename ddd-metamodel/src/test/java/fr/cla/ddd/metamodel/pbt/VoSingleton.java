@@ -13,5 +13,10 @@ public class VoSingleton {
         this.x = requireNonNull(x);
     }
 
+    @Override
+    public String toString() {
+        return x.toString();
+    }
+
 }
 //@formatter:oN

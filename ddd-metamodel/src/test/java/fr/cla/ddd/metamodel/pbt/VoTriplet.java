@@ -15,5 +15,10 @@ public class VoTriplet {
         this.z = requireNonNull(z);
     }
 
+    @Override
+    public String toString() {
+        return String.format("(%s, %s, %s)", x, y, z);
+    }
+
 }
 //@formatter:oN
