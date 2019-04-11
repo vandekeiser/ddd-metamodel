@@ -8,7 +8,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>ddd-metamodel-blackbox-test</artifactId>
+    <artifactId>ddd-metamodel-test</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 

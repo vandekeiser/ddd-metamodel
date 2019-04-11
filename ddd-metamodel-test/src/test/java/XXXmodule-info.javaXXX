@@ -1,0 +1,12 @@
+//See PackagePrivateTest for why this is commented
+
+module fr.cla.ddd.metamodel.test {
+    requires fr.cla.ddd.metamodel;
+
+    requires java.logging;
+    requires junit;
+    requires hamcrest.core;
+    requires assertj.core;
+    requires junit.quickcheck.core;
+
+}

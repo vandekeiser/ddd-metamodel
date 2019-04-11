@@ -1,10 +1,18 @@
 -faudrait splitter le Equatability et le abstract VO!
--splitter tst en 2: whitebox ds le mm, blackbox ds un module séparé?
 -JUnit 5
--updte dependencies
+-updte dependencies: OK
+-vf que mon pattern whitebox&blackbox marche avec test-deps
+
 
 //System.out.println(getClass().getClassLoader().getResource("logging.properties"));
         //System.out.println(log.getLevel());
         //System.out.println(au.com.forward.logging.Logging.currentConfiguration());
 
 requires java.logging;
+--> split en blackbox
+"[ERROR] the unnamed module
+reads package com.pholser.junit.quickcheck.generator
+from both junit.quickcheck.generators and junit.quickcheck.core"
+-->peut pas utiliser le module path si split package ds 1 des libs..
+
+jdeps -s out
