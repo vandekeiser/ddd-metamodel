@@ -1,7 +1,7 @@
 package fr.cla.ddd.metamodel.unit;
 
 import fr.cla.ddd.metamodel.AbstractValueObject;
-import fr.cla.ddd.metamodel.Equatable;
+import fr.cla.ddd.oo.Equatable;
 import org.junit.Test;
 
 import java.util.List;

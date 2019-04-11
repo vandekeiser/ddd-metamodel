@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel;
+package fr.cla.ddd.oo;
 
 import java.util.List;
 import java.util.Objects;

@@ -1,6 +1,9 @@
 package fr.cla.ddd.metamodel;
 
 //@formatter:off
+
+import fr.cla.ddd.oo.Equatable;
+
 /**
  * A DDD Value Object: immutable object with no identity (equality defined by a set of fields).
  * (here it doesn't include mandatory validation).

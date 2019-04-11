@@ -11,6 +11,7 @@
     </description>
     <url>https://github.com/vandekeiser/ddd-metamodel</url>
     <modules>
+        <module>ddd-oo</module>
         <module>ddd-metamodel</module>
         <module>ddd-metamodel-test</module>
     </modules>

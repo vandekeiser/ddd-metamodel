@@ -1,9 +1,8 @@
 package fr.cla.ddd.metamodel.examplevos.canequal;
 
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
-import fr.cla.ddd.metamodel.AbstractValueObject;
-import fr.cla.ddd.metamodel.Equatable;
 import fr.cla.ddd.metamodel.examplevos.Value;
+import fr.cla.ddd.oo.Equatable;
 
 import java.util.Arrays;
 import java.util.List;
