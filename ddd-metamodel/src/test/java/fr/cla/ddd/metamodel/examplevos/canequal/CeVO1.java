@@ -14,7 +14,7 @@ public class CeVO1 extends AbstractValueObject<CeVO1> {
     protected final Value x;
 
     public CeVO1(Value x) {
-        super(CeVO1.class);
+        super(CeVO1.class, Equatability.CAN_EQUAL);
         this.x = x;
     }
 
