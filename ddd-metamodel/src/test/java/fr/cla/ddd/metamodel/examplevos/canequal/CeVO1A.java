@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 //@formatter:off
-public class CeVO1A extends CeVO1 {
+public final class CeVO1A extends CeVO1 {
 
     private final Value y;
 
