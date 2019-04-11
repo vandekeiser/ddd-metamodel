@@ -8,6 +8,7 @@ import java.util.Arrays;
 public enum Value {
     V1,
     V2,
+//Only 2 values, so that they're equal half the time for PBT
 //    V3,
 //    V4,
     ;
