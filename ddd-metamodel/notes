@@ -1,8 +1,14 @@
--3 sujets: equatable/modules/DDD metamodel (E/Vo/DDD)/DDD walking skel/DDD walking skel spring et tt
--faudrait splitter le Equatability et le abstract VO!
+-N sujets:
+    -equatable
+    -modules + whitebox testing + test-dependencies
+    -DDD metamodel (E/Vo/DDD)
+    -DDD walking skel
+    -DDD walking skel spring et tt
+
+-faudrait splitter le Equatability et le abstract VO! OK
 -JUnit 5
 -updte dependencies: OK
--vf que mon pattern whitebox&blackbox marche avec test-deps
+-vf que mon pattern whitebox&blackbox marche avec test-deps OK
 -IS_INSTANCE pas doc fausse? "also allows a derived VO to compare equal to its parent" VS "2 * isInstance"
 -VO: ce qui rest a VF pas fait par javac c'est surtt l'immutabilite
 

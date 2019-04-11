@@ -1,7 +1,7 @@
 package fr.cla.ddd.oo.unit;
 
 import fr.cla.ddd.oo.Equatable;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 

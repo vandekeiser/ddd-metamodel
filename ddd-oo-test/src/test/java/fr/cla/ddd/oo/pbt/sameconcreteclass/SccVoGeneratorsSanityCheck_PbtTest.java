@@ -5,6 +5,7 @@ import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
 import fr.cla.ddd.oo.pbt.VoPair;
 import fr.cla.ddd.oo.pbt.VoTriplet;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 
 import java.util.logging.Logger;
