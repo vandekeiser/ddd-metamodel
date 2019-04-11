@@ -14,7 +14,7 @@ public class IiVO2 extends AbstractValueObject<IiVO2> {
     protected final Value x;
 
     public IiVO2(Value x) {
-        super(IiVO2.class);
+        super(IiVO2.class, Equatability.IS_INSTANCE);
         this.x = x;
     }
 

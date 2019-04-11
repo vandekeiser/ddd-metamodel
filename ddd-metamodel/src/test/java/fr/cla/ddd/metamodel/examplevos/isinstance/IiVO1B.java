@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 //@formatter:off
-public class IiVO1B extends IiVO1 {
+public final class IiVO1B extends IiVO1 {
 
     private final Value y;
 

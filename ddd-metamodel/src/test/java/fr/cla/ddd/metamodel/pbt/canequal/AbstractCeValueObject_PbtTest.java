@@ -3,6 +3,8 @@ package fr.cla.ddd.metamodel.pbt.canequal;
 
 import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
+import fr.cla.ddd.metamodel.examplevos.canequal.CeVO1;
+import fr.cla.ddd.metamodel.examplevos.canequal.CeVO1A;
 import fr.cla.ddd.metamodel.pbt.VoPair;
 import fr.cla.ddd.metamodel.pbt.VoSingleton;
 import fr.cla.ddd.metamodel.pbt.VoTriplet;
@@ -75,30 +77,6 @@ public class AbstractCeValueObject_PbtTest {
         ).isEqualTo(
             s.x.hashCode()
         );
-    }
-
-    /**
-     * Not part of the equals contract, but part of the Equatability.SAME_CONCRETE_CLASS contract.
-     */
-    @Property(trials = TRIALS)
-    public void equals_should_be_false_for_different_types(@RandomCeVoPair VoPair p) {
-        if(!p.x.equals(p.y)) return;
-
-        assertThat(
-            p.x.getClass().equals(p.y.getClass())
-        )
-        .as(
-            "Expected only VOs of same time to be equal. Actual: %n" +
-            "    p.x: %s%n" +
-            "    p.y: %s%n" +
-            "    p.x.equals(p.y): %b%n" +
-            "    p.x.getClass(): %s%n" +
-            "    p.y.getClass(): %s%n" +
-            "    p.x.getClass().equals(p.y.getClass(): %b",
-            p.x, p.y, p.x.equals(p.y),
-            p.x.getClass(), p.y.getClass(), p.x.getClass().equals(p.y.getClass())
-        )
-        .isTrue();
     }
 
 }
