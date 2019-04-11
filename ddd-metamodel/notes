@@ -18,3 +18,5 @@ from both junit.quickcheck.generators and junit.quickcheck.core"
 -->peut pas utiliser le module path si split package ds 1 des libs..
 
 jdeps -s out
+
+https://stackoverflow.com/questions/53477690/properly-implementing-java-modules-in-a-maven-build-with-inter-module-test-depen/55635924#55635924
