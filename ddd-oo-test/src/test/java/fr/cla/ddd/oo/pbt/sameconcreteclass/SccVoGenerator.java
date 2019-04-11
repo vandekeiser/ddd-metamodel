@@ -5,18 +5,18 @@ import com.pholser.junit.quickcheck.generator.Generator;
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
 import fr.cla.ddd.oo.Equatable;
 import fr.cla.ddd.oo.example.equatables.sameconcreteclass.*;
-import fr.cla.ddd.oo.pbt.VoSingleton;
+import fr.cla.ddd.oo.pbt.EquatableSingleton;
 
 //@formatter:off
-public class SccVoGenerator extends Generator<VoSingleton> {
+public class SccVoGenerator extends Generator<EquatableSingleton> {
 
     public SccVoGenerator() {
-        super(VoSingleton.class);
+        super(EquatableSingleton.class);
     }
 
     @Override
-    public VoSingleton generate(SourceOfRandomness rand, GenerationStatus status) {
-        return new VoSingleton(generate(rand));
+    public EquatableSingleton generate(SourceOfRandomness rand, GenerationStatus status) {
+        return new EquatableSingleton(generate(rand));
     }
 
     static Equatable<?> generate(SourceOfRandomness rand) {

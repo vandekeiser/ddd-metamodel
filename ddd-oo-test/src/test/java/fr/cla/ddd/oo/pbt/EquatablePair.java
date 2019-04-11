@@ -5,11 +5,11 @@ import fr.cla.ddd.oo.Equatable;
 import static java.util.Objects.requireNonNull;
 
 //@formatter:off
-public class VoPair {
+public class EquatablePair {
 
     public final Equatable<?> x, y;
 
-    public VoPair(Equatable<?> x, Equatable<?> y) {
+    public EquatablePair(Equatable<?> x, Equatable<?> y) {
         this.x = requireNonNull(x);
         this.y = requireNonNull(y);
     }

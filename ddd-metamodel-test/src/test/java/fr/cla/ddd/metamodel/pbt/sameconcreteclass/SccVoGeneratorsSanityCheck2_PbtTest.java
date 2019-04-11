@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 
 import java.util.logging.Logger;
 
+import static fr.cla.ddd.metamodel.pbt.MetamodelPbt.SANITY_CHECK_TRIALS;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assume.assumeThat;
 
@@ -16,16 +17,15 @@ import static org.junit.Assume.assumeThat;
 public class SccVoGeneratorsSanityCheck2_PbtTest {
 
     private static final Logger log = Logger.getLogger(SccVoGeneratorsSanityCheck2_PbtTest.class.getName());
-    private static final int TRIALS = 10_000;
 
-    @Property(trials = TRIALS)
+    @Property(trials = SANITY_CHECK_TRIALS)
     public void random_pairs_should_sometimes_contain_xy_of_same_type(
         @RandomSccVoPair VoPair p
     ) {
         log.fine(() -> p.toString());
         random_pairs_should_sometimes_contain_xy_of_type0(p, true);
     }
-    @Property(trials = TRIALS)
+    @Property(trials = SANITY_CHECK_TRIALS)
     public void random_pairs_should_sometimes_contain_xy_of_different_types(
         @RandomSccVoPair VoPair p
     ) {
@@ -38,14 +38,14 @@ public class SccVoGeneratorsSanityCheck2_PbtTest {
         assumeThat(p.x.getClass().equals(p.y.getClass()), is(should));
     }
 
-    @Property(trials = TRIALS)
+    @Property(trials = SANITY_CHECK_TRIALS)
     public void random_pairs_should_sometimes_contain_xy_of_related_types(
         @RandomSccVoPair VoPair p
     ) {
         log.fine(() -> p.toString());
         random_pairs_should_sometimes_contain_xy_of_related_types0(p, true);
     }
-    @Property(trials = TRIALS)
+    @Property(trials = SANITY_CHECK_TRIALS)
     public void random_pairs_should_sometimes_contain_xy_of_unrelated_types(
         @RandomSccVoPair VoPair p
     ) {

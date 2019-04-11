@@ -5,11 +5,11 @@ import fr.cla.ddd.oo.Equatable;
 import static java.util.Objects.requireNonNull;
 
 //@formatter:off
-public class VoTriplet {
+public class EquatableTriplet {
 
     public final Equatable<?> x, y, z;
 
-    public VoTriplet(Equatable<?> x, Equatable<?> y, Equatable<?> z) {
+    public EquatableTriplet(Equatable<?> x, Equatable<?> y, Equatable<?> z) {
         this.x = requireNonNull(x);
         this.y = requireNonNull(y);
         this.z = requireNonNull(z);

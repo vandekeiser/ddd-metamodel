@@ -3,18 +3,18 @@ package fr.cla.ddd.oo.pbt.sameconcreteclass;
 import com.pholser.junit.quickcheck.generator.GenerationStatus;
 import com.pholser.junit.quickcheck.generator.Generator;
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
-import fr.cla.ddd.oo.pbt.VoTriplet;
+import fr.cla.ddd.oo.pbt.EquatableTriplet;
 
 //@formatter:off
-public class SccVoTripletGenerator extends Generator<VoTriplet> {
+public class SccVoTripletGenerator extends Generator<EquatableTriplet> {
 
     public SccVoTripletGenerator() {
-        super(VoTriplet.class);
+        super(EquatableTriplet.class);
     }
 
     @Override
-    public VoTriplet generate(SourceOfRandomness rand, GenerationStatus status) {
-        return new VoTriplet(
+    public EquatableTriplet generate(SourceOfRandomness rand, GenerationStatus status) {
+        return new EquatableTriplet(
             SccVoGenerator.generate(rand),
             SccVoGenerator.generate(rand),
             SccVoGenerator.generate(rand)

@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 
 import java.util.logging.Logger;
 
+import static fr.cla.ddd.metamodel.pbt.MetamodelPbt.PROPERTY_TRIALS;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
 
@@ -19,9 +20,8 @@ import static org.junit.Assert.assertTrue;
 public class AbstractSccValueObject_PbtTest {
 
     private static final Logger log = Logger.getLogger(AbstractSccValueObject_PbtTest.class.getName());
-    private static final int TRIALS = 100_000;
 
-    @Property(trials = TRIALS)
+    @Property(trials = PROPERTY_TRIALS)
     public void equals_should_be_reflexive(@RandomSccVo VoSingleton s) {
         log.fine(() -> s.toString());
         Assertions.assertThat(
@@ -29,7 +29,7 @@ public class AbstractSccValueObject_PbtTest {
         ).isTrue();
     }
 
-    @Property(trials = TRIALS)
+    @Property(trials = PROPERTY_TRIALS)
     public void equals_should_be_symmetric(@RandomSccVoPair VoPair p) {
         log.fine(() -> p.toString());
         assertThat(
@@ -39,7 +39,7 @@ public class AbstractSccValueObject_PbtTest {
         );
     }
 
-    @Property(trials = TRIALS)
+    @Property(trials = PROPERTY_TRIALS)
     public void equals_should_be_transitive(@RandomSccVoTriplet VoTriplet t) {
         log.fine(() -> t.toString());
         if(t.x.equals(t.y) && t.y.equals(t.z)){
@@ -47,7 +47,7 @@ public class AbstractSccValueObject_PbtTest {
         }
     }
 
-    @Property(trials = TRIALS)
+    @Property(trials = PROPERTY_TRIALS)
     public void equals_null_should_be_false(@RandomSccVo VoSingleton s) {
         log.fine(() -> s.toString());
         assertThat(
@@ -55,7 +55,7 @@ public class AbstractSccValueObject_PbtTest {
         ).isFalse();
     }
 
-    @Property(trials = TRIALS)
+    @Property(trials = PROPERTY_TRIALS)
     public void equals_should_be_consistent(@RandomSccVoPair VoPair p) {
         log.fine(() -> p.toString());
         assertThat(
@@ -65,7 +65,7 @@ public class AbstractSccValueObject_PbtTest {
         );
     }
 
-    @Property(trials = TRIALS)
+    @Property(trials = PROPERTY_TRIALS)
     public void equals_implies_same_hashCode(@RandomSccVoPair VoPair p) {
         log.fine(() -> p.toString());
         if(p.x.equals(p.y)){
@@ -77,7 +77,7 @@ public class AbstractSccValueObject_PbtTest {
         }
     }
 
-    @Property(trials = TRIALS)
+    @Property(trials = PROPERTY_TRIALS)
     public void hashCode_should_be_consistent(@RandomSccVo VoSingleton s) {
         log.fine(() -> s.toString());
         assertThat(
@@ -90,7 +90,7 @@ public class AbstractSccValueObject_PbtTest {
     /**
      * Not part of the equals contract, but part of the Equatability.SAME_CONCRETE_CLASS contract.
      */
-    @Property(trials = TRIALS)
+    @Property(trials = PROPERTY_TRIALS)
     public void equals_should_be_false_for_different_types(@RandomSccVoPair VoPair p) {
         log.fine(() -> p.toString());
         if(!p.x.equals(p.y)) return;

@@ -3,18 +3,18 @@ package fr.cla.ddd.oo.pbt.canequal;
 import com.pholser.junit.quickcheck.generator.GenerationStatus;
 import com.pholser.junit.quickcheck.generator.Generator;
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
-import fr.cla.ddd.oo.pbt.VoPair;
+import fr.cla.ddd.oo.pbt.EquatablePair;
 
 //@formatter:off
-public class CeVoPairGenerator extends Generator<VoPair> {
+public class CeVoPairGenerator extends Generator<EquatablePair> {
 
     public CeVoPairGenerator() {
-        super(VoPair.class);
+        super(EquatablePair.class);
     }
 
     @Override
-    public VoPair generate(SourceOfRandomness rand, GenerationStatus status) {
-        return new VoPair(
+    public EquatablePair generate(SourceOfRandomness rand, GenerationStatus status) {
+        return new EquatablePair(
             CeVoGenerator.generate(rand),
             CeVoGenerator.generate(rand)
         );

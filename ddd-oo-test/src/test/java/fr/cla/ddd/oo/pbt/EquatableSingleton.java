@@ -5,11 +5,11 @@ import fr.cla.ddd.oo.Equatable;
 import static java.util.Objects.requireNonNull;
 
 //@formatter:off
-public class VoSingleton {
+public class EquatableSingleton {
 
     public final Equatable<?> x;
 
-    public VoSingleton(Equatable<?> x) {
+    public EquatableSingleton(Equatable<?> x) {
         this.x = requireNonNull(x);
     }
 
