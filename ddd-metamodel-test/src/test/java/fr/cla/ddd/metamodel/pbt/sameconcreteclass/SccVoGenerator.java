@@ -3,8 +3,8 @@ package fr.cla.ddd.metamodel.pbt.sameconcreteclass;
 import com.pholser.junit.quickcheck.generator.GenerationStatus;
 import com.pholser.junit.quickcheck.generator.Generator;
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
+import fr.cla.ddd.metamodel.example.vos.sameconcreteclass.*;
 import fr.cla.ddd.metamodel.AbstractValueObject;
-import fr.cla.ddd.metamodel.examplevos.sameconcreteclass.*;
 import fr.cla.ddd.metamodel.pbt.VoSingleton;
 
 //@formatter:off

@@ -4,7 +4,6 @@ package fr.cla.ddd.metamodel.pbt.canequal;
 import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
 import fr.cla.ddd.metamodel.pbt.VoPair;
-import fr.cla.ddd.metamodel.pbt.sameconcreteclass.AbstractSccValueObject_PbtTest;
 import org.junit.runner.RunWith;
 
 import java.util.logging.Logger;

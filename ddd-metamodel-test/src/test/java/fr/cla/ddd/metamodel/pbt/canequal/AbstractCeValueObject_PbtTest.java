@@ -3,8 +3,6 @@ package fr.cla.ddd.metamodel.pbt.canequal;
 
 import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
-import fr.cla.ddd.metamodel.examplevos.canequal.CeVO1;
-import fr.cla.ddd.metamodel.examplevos.canequal.CeVO1A;
 import fr.cla.ddd.metamodel.pbt.VoPair;
 import fr.cla.ddd.metamodel.pbt.VoSingleton;
 import fr.cla.ddd.metamodel.pbt.VoTriplet;

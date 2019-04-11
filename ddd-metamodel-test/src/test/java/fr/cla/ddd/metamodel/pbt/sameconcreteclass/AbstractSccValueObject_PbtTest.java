@@ -6,7 +6,6 @@ import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
 import fr.cla.ddd.metamodel.pbt.VoPair;
 import fr.cla.ddd.metamodel.pbt.VoSingleton;
 import fr.cla.ddd.metamodel.pbt.VoTriplet;
-import fr.cla.ddd.metamodel.pbt.isinstance.AbstractIiValueObject_PbtTest;
 import org.assertj.core.api.Assertions;
 import org.junit.runner.RunWith;
 

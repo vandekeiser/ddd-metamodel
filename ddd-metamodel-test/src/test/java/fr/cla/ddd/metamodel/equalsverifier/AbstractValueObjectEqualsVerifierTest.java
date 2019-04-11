@@ -1,6 +1,6 @@
 package fr.cla.ddd.metamodel.equalsverifier;
 
-import fr.cla.ddd.metamodel.examplevos.sameconcreteclass.SccVO1;
+import fr.cla.ddd.metamodel.example.vos.sameconcreteclass.SccVO1;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Ignore;
 import org.junit.Test;

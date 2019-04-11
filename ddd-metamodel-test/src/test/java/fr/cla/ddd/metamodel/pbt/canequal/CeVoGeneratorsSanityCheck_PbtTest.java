@@ -5,7 +5,6 @@ import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
 import fr.cla.ddd.metamodel.pbt.VoPair;
 import fr.cla.ddd.metamodel.pbt.VoTriplet;
-import fr.cla.ddd.metamodel.pbt.isinstance.IiVoGeneratorsSanityCheck2_PbtTest;
 import org.junit.runner.RunWith;
 
 import java.util.logging.Logger;

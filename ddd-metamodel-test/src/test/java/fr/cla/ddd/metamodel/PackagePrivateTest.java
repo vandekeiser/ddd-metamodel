@@ -1,6 +1,6 @@
 package fr.cla.ddd.metamodel;
 
-import fr.cla.ddd.metamodel.unit.AbstractValueObjectTest;
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -24,8 +24,8 @@ public class PackagePrivateTest {
 
     @Test
     public void should_not_fail_because_of_jpms() {
-        assertThat(
-            PackagePrivate.nameOfTheCaptain()
+        Assertions.assertThat(
+            PackagePrivateMetamodel.nameOfTheCaptain()
         ).isEqualTo("Du Guesclin");
     }
 
