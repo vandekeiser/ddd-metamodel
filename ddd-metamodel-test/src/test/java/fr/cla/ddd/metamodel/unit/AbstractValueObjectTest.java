@@ -1,7 +1,7 @@
 package fr.cla.ddd.metamodel.unit;
 
 import fr.cla.ddd.metamodel.AbstractValueObject;
-import org.assertj.core.api.Assertions;
+import fr.cla.ddd.metamodel.Equatable;
 import org.junit.Test;
 
 import java.util.List;
@@ -34,7 +34,7 @@ public class AbstractValueObjectTest {
         }
 
         @Override
-        protected boolean canEqual(AbstractValueObject<?> that) {
+        protected boolean canEqual(Equatable<?> that) {
             return that instanceof ValueObject1;
         }
     }
@@ -53,7 +53,7 @@ public class AbstractValueObjectTest {
         }
 
         @Override
-        protected boolean canEqual(AbstractValueObject<?> that) {
+        protected boolean canEqual(Equatable<?> that) {
             return that instanceof ValueObject2;
         }
     }

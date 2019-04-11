@@ -2,6 +2,7 @@ package fr.cla.ddd.metamodel.examplevos.canequal;
 
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
 import fr.cla.ddd.metamodel.AbstractValueObject;
+import fr.cla.ddd.metamodel.Equatable;
 import fr.cla.ddd.metamodel.examplevos.Value;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public class CeVO2 extends AbstractValueObject<CeVO2> {
     }
 
     @Override
-    protected boolean canEqual(AbstractValueObject<?> that) {
+    protected boolean canEqual(Equatable<?> that) {
         return that instanceof CeVO2;
     }
 

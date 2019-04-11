@@ -2,6 +2,8 @@
 -JUnit 5
 -updte dependencies: OK
 -vf que mon pattern whitebox&blackbox marche avec test-deps
+-IS_INSTANCE pas doc fausse? "also allows a derived VO to compare equal to its parent" VS "2 * isInstance"
+-VO: ce qui rest a VF pas fait par javac c'est surtt l'immutabilite
 
 
 //System.out.println(getClass().getClassLoader().getResource("logging.properties"));
