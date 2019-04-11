@@ -1,7 +1,10 @@
 -faudrait splitter le Equatability et le abstract VO!
+-splitter tst en 2: whitebox ds le mm, blackbox ds un module séparé?
+-JUnit 5
+-updte dependencies
 
 //System.out.println(getClass().getClassLoader().getResource("logging.properties"));
         //System.out.println(log.getLevel());
         //System.out.println(au.com.forward.logging.Logging.currentConfiguration());
 
-requires java.logging;        
+requires java.logging;

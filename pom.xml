@@ -21,7 +21,7 @@
         <quickcheck.version>0.7</quickcheck.version>
         <equalsverifier.version>3.1.8</equalsverifier.version>
 
-        <maven-failsafe-surefire-plugin.version>3.0.0-M2</maven-failsafe-surefire-plugin.version>
+        <maven-failsafe-surefire-plugin.version>3.0.0-M3</maven-failsafe-surefire-plugin.version>
         <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
