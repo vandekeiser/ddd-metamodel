@@ -5,25 +5,16 @@
     -DDD walking skel
     -DDD walking skel spring et tt
 
--faudrait splitter le Equatability et le abstract VO! OK
--JUnit 5
--updte dependencies: OK
--vf que mon pattern whitebox&blackbox marche avec test-deps OK
 -IS_INSTANCE pas doc fausse? "also allows a derived VO to compare equal to its parent" VS "2 * isInstance"
 -VO: ce qui rest a VF pas fait par javac c'est surtt l'immutabilite
+-equalsverifier: j'aime pas comment ils changent les chps prives
 
-
-//System.out.println(getClass().getClassLoader().getResource("logging.properties"));
-        //System.out.println(log.getLevel());
-        //System.out.println(au.com.forward.logging.Logging.currentConfiguration());
-
+ex:
 requires java.logging;
 --> split en blackbox
 "[ERROR] the unnamed module
 reads package com.pholser.junit.quickcheck.generator
 from both junit.quickcheck.generators and junit.quickcheck.core"
 -->peut pas utiliser le module path si split package ds 1 des libs..
-
 jdeps -s out
-
 https://stackoverflow.com/questions/53477690/properly-implementing-java-modules-in-a-maven-build-with-inter-module-test-depen/55635924#55635924
