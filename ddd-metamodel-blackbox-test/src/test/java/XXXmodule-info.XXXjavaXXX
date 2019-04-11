@@ -1,0 +1,5 @@
+module fr.cla.ddd.metamodel.test {
+    requires fr.cla.ddd.metamodel;
+
+    requires java.logging;
+}

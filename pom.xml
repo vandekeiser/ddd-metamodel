@@ -12,6 +12,7 @@
     <url>https://github.com/vandekeiser/ddd-metamodel</url>
     <modules>
         <module>ddd-metamodel</module>
+        <module>ddd-metamodel-blackbox-test</module>
     </modules>
 
     <properties>
