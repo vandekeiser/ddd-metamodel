@@ -54,74 +54,59 @@
                         <executable>${JAVA_HOME}/bin/java</executable>
                     </configuration>
                 </plugin>
-            </plugins>
-        </pluginManagement>
 
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-failsafe-surefire-plugin.version}</version>
-                <configuration>
-                    <forkCount>0</forkCount>
-                </configuration>
-            </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-failsafe-surefire-plugin.version}</version>
+                    <configuration>
+                        <forkCount>0</forkCount>
+                    </configuration>
+                </plugin>
 
-            <!--<plugin>-->
+                <!--<plugin>-->
                 <!--<groupId>org.apache.maven.plugins</groupId>-->
                 <!--<artifactId>maven-jmod-plugin</artifactId>-->
                 <!--<version>3.0.0-alpha-1</version>-->
                 <!--<extensions>true</extensions>-->
-            <!--</plugin>-->
+                <!--</plugin>-->
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jlink-plugin</artifactId>
-                <version>${maven-jlink-plugin.version}</version>
-                <extensions>true</extensions>
-                <configuration>
-                </configuration>
-            </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jlink-plugin</artifactId>
+                    <version>${maven-jlink-plugin.version}</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                    </configuration>
+                </plugin>
 
 
-            <!--Runs integration tests and binds to the integration-test and verify phases by default-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>${maven-failsafe-surefire-plugin.version}</version>
-            </plugin>
+                <!--Runs integration tests and binds to the integration-test and verify phases by default-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${maven-failsafe-surefire-plugin.version}</version>
+                </plugin>
 
-            <!--Create a jar artifact for the tests too.-->
-            <!--This is useful if you want to have a child project where tests reuse test classes-->
-            <!-- of this parent project.-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>${maven-jar-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>test-jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+                <!--Create a jar artifact for the tests too.-->
+                <!--This is useful if you want to have a child project where tests reuse test classes-->
+                <!-- of this parent project.-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>test-jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>${maven-source-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!--Configure javac-->
+        <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -139,13 +124,19 @@
                     <source>11</source>
                     <target>11</target>
                 </configuration>
-                <!--<dependencies>-->
-                    <!--<dependency>-->
-                        <!--<groupId>org.ow2.asm</groupId>-->
-                        <!--<artifactId>asm</artifactId>-->
-                        <!--<version>6.2</version> &lt;!&ndash; Use newer version of ASM &ndash;&gt;-->
-                    <!--</dependency>-->
-                <!--</dependencies>-->
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

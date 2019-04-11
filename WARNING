@@ -2,10 +2,6 @@
 [WARNING] JAR will be empty - no content was marked for inclusion!
 [WARNING] JAR will be empty - no content was marked for inclusion!
 [WARNING] useSystemClassloader setting has no effect when not forking
-[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.001 s - in fr.cla.ddd.oo.equalsverifier.EquatableEqualsVerifierTest
-[WARNING] Tests run: 71, Failures: 0, Errors: 0, Skipped: 1
 [WARNING] JAR will be empty - no content was marked for inclusion!
 [WARNING] useSystemClassloader setting has no effect when not forking
-[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.001 s - in fr.cla.ddd.metamodel.equalsverifier.AbstractValueObjectEqualsVerifierTest
-[WARNING] Tests run: 72, Failures: 0, Errors: 0, Skipped: 1
 [WARNING] JAR will be empty - no content was marked for inclusion!
