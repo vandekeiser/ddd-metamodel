@@ -22,6 +22,10 @@ public class IiVO1 extends Equatable<IiVO1> {
         return new IiVO1(Value.random(rand));
     }
 
+    public static IiVO1 random() {
+        return new IiVO1(Value.random());
+    }
+
     @Override
     protected List<Object> equalityCriteria() {
         return singletonList(x);

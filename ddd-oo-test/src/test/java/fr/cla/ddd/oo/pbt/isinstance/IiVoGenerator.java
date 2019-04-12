@@ -7,26 +7,23 @@ import fr.cla.ddd.oo.Equatable;
 import fr.cla.ddd.oo.example.equatables.isinstance.*;
 import fr.cla.ddd.oo.pbt.EquatableSingleton;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 //@formatter:off
-public class IiVoGenerator extends Generator<EquatableSingleton> {
+public class IiVoGenerator {
 
-    public IiVoGenerator() {
-        super(EquatableSingleton.class);
+    public static EquatableSingleton generate() {
+        return new EquatableSingleton(generateValue());
     }
 
-    @Override
-    public EquatableSingleton generate(SourceOfRandomness rand, GenerationStatus status) {
-        return new EquatableSingleton(generate(rand));
-    }
-
-    static Equatable<?> generate(SourceOfRandomness rand) {
-        switch (rand.nextInt(6)) {
-            case 0: return IiVO1.random(rand);
-            case 1: return IiVO2.random(rand);
-            case 2: return IiVO1A.random(rand);
-            case 3: return IiVO1B.random(rand);
-            case 4: return IiVO2A.random(rand);
-            case 5: return IiVO2B.random(rand);
+    static Equatable<?> generateValue() {
+        switch (ThreadLocalRandom.current().nextInt(6)) {
+            case 0: return IiVO1.random();
+            case 1: return IiVO2.random();
+            case 2: return IiVO1A.random();
+            case 3: return IiVO1B.random();
+            case 4: return IiVO2A.random();
+            case 5: return IiVO2B.random();
             default: throw new AssertionError();
         }
     }

@@ -24,6 +24,13 @@ public final class IiVO1B extends IiVO1 {
         );
     }
 
+    public static IiVO1B random() {
+        return new IiVO1B(
+            Value.random(),
+            Value.random()
+        );
+    }
+
     @Override
     protected List<Object> equalityCriteria() {
         return Arrays.asList(super.x, y);

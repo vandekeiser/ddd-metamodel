@@ -8,14 +8,20 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import static fr.cla.ddd.oo.pbt.SanityCheck.SANITY_CHECK_MAX_DISCARD_RATIO;
 import static fr.cla.ddd.oo.pbt.SanityCheck.SANITY_CHECK_TRIALS;
 
 @Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-@Property(tries = SANITY_CHECK_TRIALS, generation = GenerationMode.RANDOMIZED)
+@Property(
+    generation = GenerationMode.RANDOMIZED,
+    tries = SANITY_CHECK_TRIALS,
+    maxDiscardRatio = SANITY_CHECK_MAX_DISCARD_RATIO
+)
 public @interface SanityCheck {
 
     int SANITY_CHECK_TRIALS = 10_000;
+    int SANITY_CHECK_MAX_DISCARD_RATIO = SANITY_CHECK_TRIALS/10;
 
     //If we need N trials to be sure to have non trivial input, we need more to test the funtionnality
     int PROPERTY_TRIALS = 10 * SANITY_CHECK_TRIALS;
