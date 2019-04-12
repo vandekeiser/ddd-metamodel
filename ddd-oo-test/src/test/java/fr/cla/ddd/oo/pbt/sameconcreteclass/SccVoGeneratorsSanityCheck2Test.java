@@ -12,10 +12,10 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assume.assumeThat;
 
 //@formatter:off
-public class SccVoGeneratorsSanityCheck2TestXX
-extends ArbitrarySccEquatablesX {
+public class SccVoGeneratorsSanityCheck2Test
+extends ArbitrarySccEquatables {
 
-    private static final Logger log = Logger.getLogger(SccVoGeneratorsSanityCheck2TestXX.class.getName());
+    private static final Logger log = Logger.getLogger(SccVoGeneratorsSanityCheck2Test.class.getName());
 
     @SanityCheck
     public void random_pairs_should_sometimes_contain_xy_of_same_type(

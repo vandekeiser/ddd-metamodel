@@ -9,10 +9,10 @@ import net.jqwik.api.ForAll;
 import java.util.logging.Logger;
 
 //@formatter:off
-public class SccVoGeneratorsSanityCheckTestXX
-extends ArbitrarySccEquatablesX {
+public class SccVoGeneratorsSanityCheckTest
+extends ArbitrarySccEquatables {
 
-    private static final Logger log = Logger.getLogger(SccVoGeneratorsSanityCheckTestXX.class.getName());
+    private static final Logger log = Logger.getLogger(SccVoGeneratorsSanityCheckTest.class.getName());
 
     @SanityCheck
     public void random_pairs_should_sometimes_contain_xy_of_same_type(

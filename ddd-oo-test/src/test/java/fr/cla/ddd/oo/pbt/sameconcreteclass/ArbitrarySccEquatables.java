@@ -9,21 +9,21 @@ import net.jqwik.api.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 //@formatter:off
-public class ArbitrarySccEquatablesX {
+public class ArbitrarySccEquatables {
 
     @Provide
     Arbitrary<EquatableSingleton> equatableSingletons() {
-        return Arbitraries.create(SccVoGeneratorX::generate);
+        return Arbitraries.create(SccVoGenerator::generate);
     }
 
     @Provide
     Arbitrary<EquatablePair> equatablePairs() {
-        return Arbitraries.create(SccVoPairGeneratorX::generate);
+        return Arbitraries.create(SccVoPairGenerator::generate);
     }
 
     @Provide
     Arbitrary<EquatableTriplet> equatableTriplets() {
-        return Arbitraries.create(SccVoTripletGeneratorX::generate);
+        return Arbitraries.create(SccVoTripletGenerator::generate);
     }
 
 }

@@ -10,7 +10,7 @@ import fr.cla.ddd.oo.pbt.EquatableSingleton;
 import java.util.concurrent.ThreadLocalRandom;
 
 //@formatter:off
-public class SccVoGeneratorX {
+public class SccVoGenerator {
 
     public static EquatableSingleton generate() {
         return new EquatableSingleton(generateValue());

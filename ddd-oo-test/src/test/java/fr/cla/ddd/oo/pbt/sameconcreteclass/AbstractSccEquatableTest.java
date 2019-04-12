@@ -13,10 +13,10 @@ import static fr.cla.ddd.oo.pbt.SanityCheck.PROPERTY_TRIALS;
 import static org.assertj.core.api.Assertions.assertThat;
 
 //@formatter:off
-public class AbstractSccEquatableTestXX
-extends ArbitrarySccEquatablesX {
+public class AbstractSccEquatableTest
+extends ArbitrarySccEquatables {
 
-    private static final Logger log = Logger.getLogger(AbstractSccEquatableTestXX.class.getName());
+    private static final Logger log = Logger.getLogger(AbstractSccEquatableTest.class.getName());
 
     @Property(tries = PROPERTY_TRIALS)
     public void equals_should_be_reflexive(@ForAll("equatableSingletons") EquatableSingleton s) {
