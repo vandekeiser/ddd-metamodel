@@ -1,7 +1,5 @@
 package fr.cla.ddd.metamodel;
 
-//@formatter:off
-
 import fr.cla.ddd.oo.Equatable;
 
 import java.util.List;
@@ -9,7 +7,7 @@ import java.util.List;
 import static java.util.Collections.singletonList;
 import static java.util.Objects.requireNonNull;
 
-//@formatter:on
+//@formatter:off
 /**
  * A DDD Entity: mutable object with a stable identity (doesn't change after construction).
  * Compared to Equatable, it also adds to the contract that the id is the only equality criterion,

@@ -1,8 +1,6 @@
 package fr.cla.ddd.metamodel;
 
 //@formatter:off
-
-//@formatter:on
 @DDD.AggregateRoot
 public abstract class AbstractAggregateRoot<
     T extends AbstractAggregateRoot<T, I, V>,

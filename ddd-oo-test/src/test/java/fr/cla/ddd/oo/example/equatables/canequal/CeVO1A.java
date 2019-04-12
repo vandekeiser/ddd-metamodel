@@ -5,7 +5,6 @@ import fr.cla.ddd.oo.example.equatables.Value;
 import fr.cla.ddd.oo.Equatable;
 
 //@formatter:off
-
 /**
  * Extends CeVO1 but doesn't add state so it can equal the base class without breaking the symmetry of equals.
  */
