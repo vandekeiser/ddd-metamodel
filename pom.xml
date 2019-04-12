@@ -115,7 +115,8 @@
                     <!--The "missing serialVersionUID" warning is useless in this project,
                     as in all projects that dont need a serialization compatibility policy
                     more advanced than the default one (see Effective Java).-->
-                    <compilerArgument>-Xlint:all,-serial</compilerArgument>
+                    <!--"processing is about annotation processors, which we don't use here"-->
+                    <compilerArgument>-Xlint:all,-serial,-processing</compilerArgument>
                     <showDeprecation>true</showDeprecation>
                     <showWarnings>true</showWarnings>
                     <source>11</source>
