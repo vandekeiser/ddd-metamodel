@@ -1,6 +1,5 @@
 package fr.cla.ddd.oo.example.equatables.canequal;
 
-import com.pholser.junit.quickcheck.random.SourceOfRandomness;
 import fr.cla.ddd.oo.example.equatables.Value;
 import fr.cla.ddd.oo.Equatable;
 

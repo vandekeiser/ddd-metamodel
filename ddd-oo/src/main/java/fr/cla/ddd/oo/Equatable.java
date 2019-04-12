@@ -77,6 +77,12 @@ public abstract class Equatable<T extends Equatable<T>> {
                 Equatable<?> thatObj, Class<?> thatObjType
             ) {
                 return Objects.equals(thisObj.getClass(), thatObj.getClass());
+                //return Objects.equals(thisObj.getClass(), thatObj.getClass()); //PASSES
+                //return thisObj.getClass() == thatObj.getClass());//PASSES
+                //return false;//FAILS
+                //return true;//FAILS
+                //return thisObj.getClass().isAssignableFrom(thatObj.getClass());//PASSES(shouldn't)
+                //return thatObj.getClass().isAssignableFrom(thisObj.getClass());//PASSES(shouldn't)
             }
         },
 

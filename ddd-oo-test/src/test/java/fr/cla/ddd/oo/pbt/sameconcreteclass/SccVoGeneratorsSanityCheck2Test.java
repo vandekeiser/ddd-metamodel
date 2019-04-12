@@ -8,9 +8,6 @@ import net.jqwik.api.ForAll;
 
 import java.util.logging.Logger;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assume.assumeThat;
-
 //@formatter:off
 public class SccVoGeneratorsSanityCheck2Test
 extends ArbitrarySccEquatables {

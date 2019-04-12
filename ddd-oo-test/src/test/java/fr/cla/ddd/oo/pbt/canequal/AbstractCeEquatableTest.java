@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 import static fr.cla.ddd.oo.pbt.SanityCheck.PROPERTY_TRIALS;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 //@formatter:off
 public class AbstractCeEquatableTest

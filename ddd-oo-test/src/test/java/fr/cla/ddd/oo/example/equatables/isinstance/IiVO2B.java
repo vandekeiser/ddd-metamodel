@@ -1,7 +1,5 @@
 package fr.cla.ddd.oo.example.equatables.isinstance;
 
-import com.pholser.junit.quickcheck.random.SourceOfRandomness;
-import fr.cla.ddd.oo.Equatable;
 import fr.cla.ddd.oo.example.equatables.Value;
 
 import java.util.Arrays;
@@ -15,13 +13,6 @@ public final class IiVO2B extends IiVO2 {
     public IiVO2B(Value y, Value x) {
         super(x);
         this.y = y;
-    }
-
-    public static IiVO2B random(SourceOfRandomness rand) {
-        return new IiVO2B(
-            Value.random(rand),
-            Value.random(rand)
-        );
     }
 
     public static IiVO2B random() {

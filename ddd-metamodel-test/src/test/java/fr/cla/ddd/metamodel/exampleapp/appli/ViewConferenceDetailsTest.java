@@ -4,7 +4,7 @@ import fr.cla.ddd.metamodel.exampleapp.domain.Conference;
 import fr.cla.ddd.metamodel.exampleapp.domain.Conferences;
 import fr.cla.ddd.metamodel.exampleapp.domain.InMemoryConferences;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 import java.util.Set;

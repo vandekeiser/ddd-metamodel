@@ -1,9 +1,7 @@
 package fr.cla.ddd.metamodel;
 
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 /**
  * Doing whitebox tests in JPMS is hard:

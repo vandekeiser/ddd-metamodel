@@ -1,7 +1,5 @@
 package fr.cla.ddd.oo.example.equatables.sameconcreteclass;
 
-import com.pholser.junit.quickcheck.random.SourceOfRandomness;
-import fr.cla.ddd.oo.Equatable;
 import fr.cla.ddd.oo.example.equatables.Value;
 
 import java.util.Arrays;
@@ -15,13 +13,6 @@ public final class SccVO1B extends SccVO1 {
     public SccVO1B(Value y, Value x) {
         super(x);
         this.y = y;
-    }
-
-    public static SccVO1B random(SourceOfRandomness rand) {
-        return new SccVO1B(
-            Value.random(rand),
-            Value.random(rand)
-        );
     }
 
     public static SccVO1B random() {

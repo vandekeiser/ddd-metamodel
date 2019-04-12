@@ -1,8 +1,5 @@
 package fr.cla.ddd.oo.pbt.isinstance;
 
-import com.pholser.junit.quickcheck.generator.GenerationStatus;
-import com.pholser.junit.quickcheck.generator.Generator;
-import com.pholser.junit.quickcheck.random.SourceOfRandomness;
 import fr.cla.ddd.oo.Equatable;
 import fr.cla.ddd.oo.example.equatables.isinstance.*;
 import fr.cla.ddd.oo.pbt.EquatableSingleton;

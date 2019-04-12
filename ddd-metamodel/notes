@@ -26,3 +26,13 @@ https://stackoverflow.com/questions/53477690/properly-implementing-java-modules-
 !!! aux sanity check avec 2*true
 !!! au nommages VO restant dans OO
 !!!factor @Property(tries = SANITY_CHECK_TRIALS)
+!!!pqoi j'ai encore des vo avec avec a la fois:
+     @Override
+        protected List<Object> equalityCriteria() {
+            return Arrays.asList(super.x, y);
+        }
+
+        @Override
+        protected boolean canEqual(Equatable<?> that) {
+            return that instanceof CeVO1B;
+        }
