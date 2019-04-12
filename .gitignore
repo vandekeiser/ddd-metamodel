@@ -10,3 +10,5 @@
 *.attach_pid*
 
 **/lib/*
+
+.jqwik-database

@@ -24,6 +24,13 @@ public final class SccVO1A extends SccVO1 {
         );
     }
 
+    public static SccVO1A random() {
+        return new SccVO1A(
+            Value.random(),
+            Value.random()
+        );
+    }
+
     @Override
     protected List<Object> equalityCriteria() {
         return Arrays.asList(super.x, y);

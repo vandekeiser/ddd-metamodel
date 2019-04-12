@@ -22,6 +22,10 @@ public class SccVO2 extends Equatable<SccVO2> {
         return new SccVO2(Value.random(rand));
     }
 
+    public static SccVO2 random() {
+        return new SccVO2(Value.random());
+    }
+
     @Override
     protected List<Object> equalityCriteria() {
         return singletonList(x);

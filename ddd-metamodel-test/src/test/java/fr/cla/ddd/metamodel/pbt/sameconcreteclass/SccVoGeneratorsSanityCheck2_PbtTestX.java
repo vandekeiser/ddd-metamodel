@@ -14,9 +14,9 @@ import static org.junit.Assume.assumeThat;
 
 //@formatter:off
 @RunWith(JUnitQuickcheck.class)
-public class SccVoGeneratorsSanityCheck2_PbtTest {
+public class SccVoGeneratorsSanityCheck2_PbtTestX {
 
-    private static final Logger log = Logger.getLogger(SccVoGeneratorsSanityCheck2_PbtTest.class.getName());
+    private static final Logger log = Logger.getLogger(SccVoGeneratorsSanityCheck2_PbtTestX.class.getName());
 
     @Property(trials = SANITY_CHECK_TRIALS)
     public void random_pairs_should_sometimes_contain_xy_of_same_type(

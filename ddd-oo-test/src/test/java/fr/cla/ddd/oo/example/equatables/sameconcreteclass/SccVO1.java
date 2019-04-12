@@ -5,6 +5,7 @@ import fr.cla.ddd.oo.Equatable;
 import fr.cla.ddd.oo.example.equatables.Value;
 
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import static java.util.Collections.singletonList;
 
@@ -20,6 +21,10 @@ public class SccVO1 extends Equatable<SccVO1> {
 
     public static SccVO1 random(SourceOfRandomness rand) {
         return new SccVO1(Value.random(rand));
+    }
+
+    public static SccVO1 random() {
+        return new SccVO1(Value.random());
     }
 
     @Override

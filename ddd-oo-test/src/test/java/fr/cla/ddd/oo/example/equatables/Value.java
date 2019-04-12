@@ -3,6 +3,7 @@ package fr.cla.ddd.oo.example.equatables;
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
 
 import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 
 //@formatter:off
 public enum Value {
@@ -24,6 +25,10 @@ public enum Value {
 
     public static Value random(SourceOfRandomness rnd) {
         return VALUES_PLUS_NULL[rnd.nextInt(VALUES_PLUS_NULL.length)];
+    }
+
+    public static Value random() {
+        return VALUES_PLUS_NULL[ThreadLocalRandom.current().nextInt(VALUES_PLUS_NULL.length)];
     }
 
     public static int numberOfPossibleValues() {

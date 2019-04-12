@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 
 import java.util.logging.Logger;
 
-import static fr.cla.ddd.oo.pbt.OoPbt.SANITY_CHECK_TRIALS;
+import static fr.cla.ddd.oo.pbt.SanityCheck.SANITY_CHECK_TRIALS;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assume.assumeThat;
 
