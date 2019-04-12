@@ -19,8 +19,8 @@ public class CeVO1 extends Equatable<CeVO1> {
         this.x = x;
     }
 
-    public static CeVO1 random(SourceOfRandomness rand) {
-        return new CeVO1(Value.random(rand));
+    public static CeVO1 random() {
+        return new CeVO1(Value.random());
     }
 
     @Override

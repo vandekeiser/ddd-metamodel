@@ -17,10 +17,10 @@ public class CeVO2B extends CeVO2 {
         this.y = y;
     }
 
-    public static CeVO2B random(SourceOfRandomness rand) {
+    public static CeVO2B random() {
         return new CeVO2B(
-            Value.random(rand),
-            Value.random(rand)
+            Value.random(),
+            Value.random()
         );
     }
 

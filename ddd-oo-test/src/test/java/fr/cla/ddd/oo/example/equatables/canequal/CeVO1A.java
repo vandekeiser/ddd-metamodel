@@ -14,9 +14,9 @@ public final class CeVO1A extends CeVO1 {
         super(x);
     }
 
-    public static CeVO1A random(SourceOfRandomness rand) {
+    public static CeVO1A random() {
         return new CeVO1A(
-            Value.random(rand)
+            Value.random()
         );
     }
 

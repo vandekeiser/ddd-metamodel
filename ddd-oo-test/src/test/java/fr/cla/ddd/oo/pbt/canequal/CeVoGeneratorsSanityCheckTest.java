@@ -1,34 +1,33 @@
 package fr.cla.ddd.oo.pbt.canequal;
 
 
-import com.pholser.junit.quickcheck.Property;
-import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
 import fr.cla.ddd.oo.pbt.EquatablePair;
 import fr.cla.ddd.oo.pbt.EquatableTriplet;
-import org.junit.runner.RunWith;
+import fr.cla.ddd.oo.pbt.SanityCheck;
+import net.jqwik.api.Assume;
+import net.jqwik.api.ForAll;
+import net.jqwik.api.Property;
 
 import java.util.logging.Logger;
 
 import static fr.cla.ddd.oo.pbt.SanityCheck.SANITY_CHECK_TRIALS;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assume.assumeThat;
 
 //@formatter:off
-@RunWith(JUnitQuickcheck.class)
-public class CeVoGeneratorsSanityCheck_PbtTest {
+public class CeVoGeneratorsSanityCheckTest
+extends ArbitraryCeEquatables {
 
-    private static final Logger log = Logger.getLogger(CeVoGeneratorsSanityCheck_PbtTest.class.getName());
+    private static final Logger log = Logger.getLogger(CeVoGeneratorsSanityCheckTest.class.getName());
 
-    @Property(trials = SANITY_CHECK_TRIALS)
+    @SanityCheck
     public void random_pairs_should_sometimes_contain_equal_xy(
-        @RandomCeVoPair EquatablePair p
+        @ForAll("equatablePairs") EquatablePair p
     ) {
         log.fine(() -> p.toString());
         random_pairs_should_sometimes_contain_equal_xy0(p, true);
     }
-    @Property(trials = SANITY_CHECK_TRIALS)
+    @SanityCheck
     public void random_pairs_should_sometimes_contain_not_equal_xy(
-        @RandomCeVoPair EquatablePair p
+        @ForAll("equatablePairs") EquatablePair p
     ) {
         log.fine(() -> p.toString());
         random_pairs_should_sometimes_contain_equal_xy0(p, true);
@@ -36,19 +35,19 @@ public class CeVoGeneratorsSanityCheck_PbtTest {
     private void random_pairs_should_sometimes_contain_equal_xy0(
         EquatablePair p, boolean should
     ) {
-        assumeThat(p.x.equals(p.y), is(should));
+        Assume.that(p.x.equals(p.y) == should);
     }
 
-    @Property(trials = SANITY_CHECK_TRIALS)
+    @SanityCheck
     public void random_triplets_should_sometimes_contain_equal_xy(
-        @RandomCeVoTriplet EquatableTriplet t
+        @ForAll("equatableTriplets") EquatableTriplet t
     ) {
         log.fine(() -> t.toString());
         random_triplets_should_sometimes_contain_equal_xy0(t, true);
     }
-    @Property(trials = SANITY_CHECK_TRIALS)
+    @SanityCheck
     public void random_triplets_should_sometimes_not_contain_equal_xy(
-        @RandomCeVoTriplet EquatableTriplet t
+        @ForAll("equatableTriplets") EquatableTriplet t
     ) {
         log.fine(() -> t.toString());
         random_triplets_should_sometimes_contain_equal_xy0(t, false);
@@ -56,19 +55,19 @@ public class CeVoGeneratorsSanityCheck_PbtTest {
     private void random_triplets_should_sometimes_contain_equal_xy0(
         EquatableTriplet t, boolean should
     ) {
-        assumeThat(t.x.equals(t.y), is(should));
+        Assume.that(t.x.equals(t.y) == should);
     }
 
-    @Property(trials = SANITY_CHECK_TRIALS)
+    @SanityCheck
     public void random_triplets_should_sometimes_contain_equal_yz(
-        @RandomCeVoTriplet EquatableTriplet t
+        @ForAll("equatableTriplets") EquatableTriplet t
     ) {
         log.fine(() -> t.toString());
         random_triplets_should_sometimes_contain_equal_yz0(t, true);
     }
-    @Property(trials = SANITY_CHECK_TRIALS)
+    @SanityCheck
     public void random_triplets_should_sometimes_not_contain_equal_yz(
-        @RandomCeVoTriplet EquatableTriplet t
+        @ForAll("equatableTriplets") EquatableTriplet t
     ) {
         log.fine(() -> t.toString());
         random_triplets_should_sometimes_contain_equal_yz0(t, false);
@@ -76,19 +75,19 @@ public class CeVoGeneratorsSanityCheck_PbtTest {
     private void random_triplets_should_sometimes_contain_equal_yz0(
         EquatableTriplet t, boolean should
     ) {
-        assumeThat(t.y.equals(t.z), is(should));
+        Assume.that(t.y.equals(t.z) == should);
     }
 
-    @Property(trials = SANITY_CHECK_TRIALS)
+    @SanityCheck
     public void random_triplets_should_sometimes_contain_equal_xz(
-        @RandomCeVoTriplet EquatableTriplet t
+        @ForAll("equatableTriplets") EquatableTriplet t
     ) {
         log.fine(() -> t.toString());
         random_triplets_should_sometimes_contain_equal_xz0(t, true);
     }
-    @Property(trials = SANITY_CHECK_TRIALS)
+    @SanityCheck
     public void random_triplets_should_sometimes_not_contain_equal_xz(
-        @RandomCeVoTriplet EquatableTriplet t
+        @ForAll("equatableTriplets") EquatableTriplet t
     ) {
         log.fine(() -> t.toString());
         random_triplets_should_sometimes_contain_equal_xz0(t, false);
@@ -96,19 +95,19 @@ public class CeVoGeneratorsSanityCheck_PbtTest {
     private void random_triplets_should_sometimes_contain_equal_xz0(
         EquatableTriplet t, boolean should
     ) {
-        assumeThat(t.x.equals(t.z), is(should));
+        Assume.that(t.x.equals(t.z) == should);
     }
 
-    @Property(trials = SANITY_CHECK_TRIALS)
+    @SanityCheck
     public void random_triplets_should_sometimes_contain_equal_xyz(
-        @RandomCeVoTriplet EquatableTriplet t
+        @ForAll("equatableTriplets") EquatableTriplet t
     ) {
         log.fine(() -> t.toString());
         random_triplets_should_sometimes_contain_equal_xyz0(t, true);
     }
-    @Property(trials = SANITY_CHECK_TRIALS)
+    @SanityCheck
     public void random_triplets_should_sometimes_not_contain_equal_xyz(
-        @RandomCeVoTriplet EquatableTriplet t
+        @ForAll("equatableTriplets") EquatableTriplet t
     ) {
         log.fine(() -> t.toString());
         random_triplets_should_sometimes_contain_equal_xyz0(t, false);
@@ -116,7 +115,7 @@ public class CeVoGeneratorsSanityCheck_PbtTest {
     private void random_triplets_should_sometimes_contain_equal_xyz0(
         EquatableTriplet t, boolean should
     ) {
-        assumeThat(t.x.equals(t.y) && t.y.equals(t.z), is(should));
+        Assume.that(t.x.equals(t.y) && t.y.equals(t.z) == should);
     }
 
 }

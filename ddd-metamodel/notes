@@ -23,5 +23,6 @@ https://stackoverflow.com/questions/53477690/properly-implementing-java-modules-
 -valid VO + invariant entite
 
 
-!!! aux sanity check avec 3*true
+!!! aux sanity check avec 2*true
 !!! au nommages VO restant dans OO
+!!!factor @Property(tries = SANITY_CHECK_TRIALS)

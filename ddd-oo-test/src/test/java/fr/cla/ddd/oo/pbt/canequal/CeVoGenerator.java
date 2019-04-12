@@ -7,26 +7,23 @@ import fr.cla.ddd.oo.Equatable;
 import fr.cla.ddd.oo.example.equatables.canequal.*;
 import fr.cla.ddd.oo.pbt.EquatableSingleton;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 //@formatter:off
-public class CeVoGenerator extends Generator<EquatableSingleton> {
+public class CeVoGenerator {
 
-    public CeVoGenerator() {
-        super(EquatableSingleton.class);
+    public static EquatableSingleton generate() {
+        return new EquatableSingleton(generateValue());
     }
 
-    @Override
-    public EquatableSingleton generate(SourceOfRandomness rand, GenerationStatus status) {
-        return new EquatableSingleton(generate(rand));
-    }
-
-    static Equatable<?> generate(SourceOfRandomness rand) {
-        switch (rand.nextInt(6)) {
-            case 0: return CeVO1.random(rand);
-            case 1: return CeVO2.random(rand);
-            case 2: return CeVO1A.random(rand);
-            case 3: return CeVO1B.random(rand);
-            case 4: return CeVO2A.random(rand);
-            case 5: return CeVO2B.random(rand);
+    static Equatable<?> generateValue() {
+        switch (ThreadLocalRandom.current().nextInt(6)) {
+            case 0: return CeVO1.random();
+            case 1: return CeVO2.random();
+            case 2: return CeVO1A.random();
+            case 3: return CeVO1B.random();
+            case 4: return CeVO2A.random();
+            case 5: return CeVO2B.random();
             default: throw new AssertionError();
         }
     }

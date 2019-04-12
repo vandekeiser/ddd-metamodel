@@ -1,33 +1,32 @@
 package fr.cla.ddd.oo.pbt.canequal;
 
 
-import com.pholser.junit.quickcheck.Property;
-import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
 import fr.cla.ddd.oo.pbt.EquatablePair;
-import org.junit.runner.RunWith;
+import fr.cla.ddd.oo.pbt.SanityCheck;
+import net.jqwik.api.Assume;
+import net.jqwik.api.ForAll;
+import net.jqwik.api.Property;
 
 import java.util.logging.Logger;
 
 import static fr.cla.ddd.oo.pbt.SanityCheck.SANITY_CHECK_TRIALS;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assume.assumeThat;
 
 //@formatter:off
-@RunWith(JUnitQuickcheck.class)
-public class CeVoGeneratorsSanityCheck2_PbtTest {
+public class CeVoGeneratorsSanityCheck2Test
+extends ArbitraryCeEquatables {
 
-    private static final Logger log = Logger.getLogger(CeVoGeneratorsSanityCheck2_PbtTest.class.getName());
+    private static final Logger log = Logger.getLogger(CeVoGeneratorsSanityCheck2Test.class.getName());
 
-    @Property(trials = SANITY_CHECK_TRIALS)
+    @SanityCheck
     public void random_pairs_should_sometimes_contain_xy_of_same_type(
-        @RandomCeVoPair EquatablePair p
+        @ForAll("equatablePairs") EquatablePair p
     ) {
         log.fine(() -> p.toString());
         random_pairs_should_sometimes_contain_xy_of_type0(p, true);
     }
-    @Property(trials = SANITY_CHECK_TRIALS)
+    @SanityCheck
     public void random_pairs_should_sometimes_contain_xy_of_different_types(
-        @RandomCeVoPair EquatablePair p
+        @ForAll("equatablePairs") EquatablePair p
     ) {
         log.fine(() -> p.toString());
         random_pairs_should_sometimes_contain_xy_of_type0(p, true);
@@ -35,19 +34,19 @@ public class CeVoGeneratorsSanityCheck2_PbtTest {
     private void random_pairs_should_sometimes_contain_xy_of_type0(
         EquatablePair p, boolean should
     ) {
-        assumeThat(p.x.getClass().equals(p.y.getClass()), is(should));
+        Assume.that(p.x.getClass().equals(p.y.getClass()) == should);
     }
 
-    @Property(trials = SANITY_CHECK_TRIALS)
+    @SanityCheck
     public void random_pairs_should_sometimes_contain_xy_of_related_types(
-        @RandomCeVoPair EquatablePair p
+        @ForAll("equatablePairs") EquatablePair p
     ) {
         log.fine(() -> p.toString());
         random_pairs_should_sometimes_contain_xy_of_related_types0(p, true);
     }
-    @Property(trials = SANITY_CHECK_TRIALS)
+    @SanityCheck
     public void random_pairs_should_sometimes_contain_xy_of_unrelated_types(
-        @RandomCeVoPair EquatablePair p
+        @ForAll("equatablePairs") EquatablePair p
     ) {
         log.fine(() -> p.toString());
         random_pairs_should_sometimes_contain_xy_of_related_types0(p, true);
@@ -55,7 +54,7 @@ public class CeVoGeneratorsSanityCheck2_PbtTest {
     private void random_pairs_should_sometimes_contain_xy_of_related_types0(
         EquatablePair p, boolean should
     ) {
-        assumeThat(p.x.getClass().isAssignableFrom(p.y.getClass()), is(should));
+        Assume.that(p.x.getClass().isAssignableFrom(p.y.getClass()) == should);
     }
 
 }
