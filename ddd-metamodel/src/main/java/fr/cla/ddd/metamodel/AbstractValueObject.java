@@ -1,7 +1,6 @@
 package fr.cla.ddd.metamodel;
 
 //@formatter:off
-
 import fr.cla.ddd.oo.Equatable;
 
 /**

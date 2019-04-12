@@ -48,7 +48,7 @@ public abstract class Equatable<T extends Equatable<T>> {
 
     @Override public String toString() {
         return String.format(
-            "%s%s",
+            "%s{%s}",
             getClass().getSimpleName(),
             equalityCriteria()
         );
