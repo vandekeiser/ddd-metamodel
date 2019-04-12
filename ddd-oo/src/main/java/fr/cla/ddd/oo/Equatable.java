@@ -77,12 +77,26 @@ public abstract class Equatable<T extends Equatable<T>> {
                 Equatable<?> thatObj, Class<?> thatObjType
             ) {
                 return Objects.equals(thisObj.getClass(), thatObj.getClass());
-                //return Objects.equals(thisObj.getClass(), thatObj.getClass()); //PASSES
-                //return thisObj.getClass() == thatObj.getClass());//PASSES
-                //return false;//FAILS
-                //return true;//FAILS
-                //return thisObj.getClass().isAssignableFrom(thatObj.getClass());//PASSES(shouldn't)
-                //return thatObj.getClass().isAssignableFrom(thisObj.getClass());//PASSES(shouldn't)
+//                //TODO: fix the (shouldn't)'s and do the same for the other enum constants
+//                //OTHER interpretations
+//                return Objects.equals(thisObj.getClass(), thatObj.getClass()); //PASSES
+//                return thisObj.getClass() == thatObj.getClass()); //PASSES
+//                return false;//FAILS(good)
+//                return true;//FAILS(good)
+//                return thisObj.getClass().isAssignableFrom(thatObj.getClass()); //PASSES(shouldn't)
+//                return thatObj.getClass().isAssignableFrom(thisObj.getClass()); //PASSES(shouldn't)
+
+//                //OTHER impls
+//                return //PASSES(shouldn't)
+//                    thisObjType.isInstance(thatObj)
+//                    &&
+//                    thatObjType.isInstance(thisObj)
+//                ;
+//                return //FAILS(good)
+//                    thisObj.canEqual(thatObj)
+//                    &&
+//                    thatObj.canEqual(thisObj)
+//                ;
             }
         },
 
