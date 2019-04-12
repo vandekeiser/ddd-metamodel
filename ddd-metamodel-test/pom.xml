@@ -22,7 +22,6 @@
             <groupId>fr.cla</groupId>
             <artifactId>ddd-metamodel</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>fr.cla</groupId>
