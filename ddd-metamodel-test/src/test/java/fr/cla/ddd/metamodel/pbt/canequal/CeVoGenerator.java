@@ -3,7 +3,7 @@ package fr.cla.ddd.metamodel.pbt.canequal;
 import com.pholser.junit.quickcheck.generator.GenerationStatus;
 import com.pholser.junit.quickcheck.generator.Generator;
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
-import fr.cla.ddd.metamodel.example.vos.canequal.*;
+import fr.cla.ddd.metamodel.examplevos.canequal.*;
 import fr.cla.ddd.metamodel.pbt.VoSingleton;
 import fr.cla.ddd.metamodel.AbstractValueObject;
 

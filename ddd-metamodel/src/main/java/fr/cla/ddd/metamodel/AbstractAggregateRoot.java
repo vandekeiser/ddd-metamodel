@@ -3,13 +3,12 @@ package fr.cla.ddd.metamodel;
 //@formatter:off
 @DDD.AggregateRoot
 public abstract class AbstractAggregateRoot<
-    T extends AbstractAggregateRoot<T, I, V>,
-    I extends EntityId,
-    V
+    T extends AbstractAggregateRoot<T, I>,
+    I extends EntityId
 >
 extends AbstractEntity<T, I> {
 
-    private V version;
+    private long version;
 
     protected AbstractAggregateRoot(Class<T> type, I id) {
         super(type, id);
