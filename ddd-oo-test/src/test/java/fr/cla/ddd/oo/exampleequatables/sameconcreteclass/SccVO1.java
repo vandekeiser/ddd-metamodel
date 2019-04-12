@@ -1,7 +1,7 @@
-package fr.cla.ddd.oo.example.equatables.sameconcreteclass;
+package fr.cla.ddd.oo.exampleequatables.sameconcreteclass;
 
 import fr.cla.ddd.oo.Equatable;
-import fr.cla.ddd.oo.example.equatables.Value;
+import fr.cla.ddd.oo.exampleequatables.Value;
 
 import java.util.List;
 

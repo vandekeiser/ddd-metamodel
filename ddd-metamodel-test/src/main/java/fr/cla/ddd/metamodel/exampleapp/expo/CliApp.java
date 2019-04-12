@@ -1,5 +1,6 @@
 package fr.cla.ddd.metamodel.exampleapp.expo;
 
+import fr.cla.ddd.metamodel.exampleapp.ExampleApp;
 import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConference;
 import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConferenceCommand;
 import fr.cla.ddd.metamodel.exampleapp.appli.ViewConferenceDetails;
@@ -17,7 +18,7 @@ import org.springframework.context.annotation.Bean;
 import java.util.Optional;
 import java.util.Set;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackageClasses = ExampleApp.class)
 public class CliApp {
 
     private static final Logger log = LoggerFactory.getLogger(CliApp.class);

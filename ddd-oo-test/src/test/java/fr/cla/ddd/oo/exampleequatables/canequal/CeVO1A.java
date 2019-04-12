@@ -1,6 +1,6 @@
-package fr.cla.ddd.oo.example.equatables.canequal;
+package fr.cla.ddd.oo.exampleequatables.canequal;
 
-import fr.cla.ddd.oo.example.equatables.Value;
+import fr.cla.ddd.oo.exampleequatables.Value;
 import fr.cla.ddd.oo.Equatable;
 
 //@formatter:off

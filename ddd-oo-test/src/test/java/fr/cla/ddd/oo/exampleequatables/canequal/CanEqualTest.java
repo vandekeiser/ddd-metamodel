@@ -1,6 +1,6 @@
-package fr.cla.ddd.oo.example.equatables.canequal;
+package fr.cla.ddd.oo.exampleequatables.canequal;
 
-import fr.cla.ddd.oo.example.equatables.Value;
+import fr.cla.ddd.oo.exampleequatables.Value;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

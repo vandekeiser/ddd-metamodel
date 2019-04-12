@@ -1,22 +1,22 @@
-package fr.cla.ddd.oo.example.equatables.sameconcreteclass;
+package fr.cla.ddd.oo.exampleequatables.isinstance;
 
-import fr.cla.ddd.oo.example.equatables.Value;
+import fr.cla.ddd.oo.exampleequatables.Value;
 
 import java.util.Arrays;
 import java.util.List;
 
 //@formatter:off
-public final class SccVO1A extends SccVO1 {
+public final class IiVO2A extends IiVO2 {
 
     private final Value y;
 
-    public SccVO1A(Value y, Value x) {
+    public IiVO2A(Value y, Value x) {
         super(x);
         this.y = y;
     }
 
-    public static SccVO1A random() {
-        return new SccVO1A(
+    public static IiVO2A random() {
+        return new IiVO2A(
             Value.random(),
             Value.random()
         );

@@ -11,6 +11,7 @@ import static java.util.Objects.requireNonNull;
 
 //@formatter:off
 @DDD.ApplicationService
+@org.springframework.stereotype.Service
 public class ViewConferenceDetails {
 
     private final Conferences conferences;

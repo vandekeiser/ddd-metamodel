@@ -1,23 +1,23 @@
-package fr.cla.ddd.oo.example.equatables.canequal;
+package fr.cla.ddd.oo.exampleequatables.canequal;
 
-import fr.cla.ddd.oo.example.equatables.Value;
+import fr.cla.ddd.oo.exampleequatables.Value;
 import fr.cla.ddd.oo.Equatable;
 
 import java.util.Arrays;
 import java.util.List;
 
 //@formatter:off
-public class CeVO1B extends CeVO1 {
+public class CeVO2B extends CeVO2 {
 
     private final Value y;
 
-    public CeVO1B(Value y, Value x) {
+    public CeVO2B(Value y, Value x) {
         super(x);
         this.y = y;
     }
 
-    public static CeVO1B random() {
-        return new CeVO1B(
+    public static CeVO2B random() {
+        return new CeVO2B(
             Value.random(),
             Value.random()
         );
@@ -30,7 +30,7 @@ public class CeVO1B extends CeVO1 {
 
     @Override
     protected boolean canEqual(Equatable<?> that) {
-        return that instanceof CeVO1B;
+        return that instanceof CeVO2B;
     }
 
 }

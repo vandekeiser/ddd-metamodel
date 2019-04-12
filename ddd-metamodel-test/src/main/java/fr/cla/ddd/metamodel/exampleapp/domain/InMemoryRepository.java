@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
+//@formatter:off
 public class InMemoryRepository<
     A extends AbstractAggregateRoot<A, I>,
     I extends EntityId
@@ -23,3 +24,4 @@ public class InMemoryRepository<
     }
 
 }
+//@formatter:on

@@ -1,7 +1,7 @@
 package fr.cla.ddd.oo.pbt.canequal;
 
 import fr.cla.ddd.oo.Equatable;
-import fr.cla.ddd.oo.example.equatables.canequal.*;
+import fr.cla.ddd.oo.exampleequatables.canequal.*;
 import fr.cla.ddd.oo.pbt.EquatableSingleton;
 
 import java.util.concurrent.ThreadLocalRandom;

@@ -1,7 +1,7 @@
 package fr.cla.ddd.oo.pbt.sameconcreteclass;
 
 import fr.cla.ddd.oo.Equatable;
-import fr.cla.ddd.oo.example.equatables.sameconcreteclass.*;
+import fr.cla.ddd.oo.exampleequatables.sameconcreteclass.*;
 import fr.cla.ddd.oo.pbt.EquatableSingleton;
 
 import java.util.concurrent.ThreadLocalRandom;
