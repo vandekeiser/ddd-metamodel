@@ -1,12 +1,14 @@
 package fr.cla.ddd.metamodel.example.vos.sameconcreteclass;
 
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
+import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.example.vos.Value;
 
 import java.util.Arrays;
 import java.util.List;
 
 //@formatter:off
+@DDD.ValueObject
 public final class SccVO2A extends SccVO2 {
 
     private final Value y;

@@ -2,6 +2,7 @@ package fr.cla.ddd.metamodel.example.vos.canequal;
 
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
 import fr.cla.ddd.metamodel.AbstractValueObject;
+import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.example.vos.Value;
 import fr.cla.ddd.oo.Equatable;
 
@@ -10,6 +11,7 @@ import java.util.List;
 import static java.util.Collections.singletonList;
 
 //@formatter:off
+@DDD.ValueObject
 public class CeVO2 extends AbstractValueObject<CeVO2> {
 
     protected final Value x;

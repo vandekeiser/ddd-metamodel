@@ -1,6 +1,7 @@
 package fr.cla.ddd.metamodel.unit;
 
 import fr.cla.ddd.metamodel.AbstractValueObject;
+import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.oo.Equatable;
 import org.junit.Test;
 
@@ -21,6 +22,7 @@ public class AbstractValueObjectTest {
         ).isFalse();
     }
 
+    @DDD.ValueObject
     private static class ValueObject1 extends AbstractValueObject<ValueObject1> {
         private final String value;
 
@@ -40,6 +42,7 @@ public class AbstractValueObjectTest {
         }
     }
 
+    @DDD.ValueObject
     private static class ValueObject2 extends AbstractValueObject<ValueObject1> {
         private final long value;
 

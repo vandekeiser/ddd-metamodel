@@ -1,6 +1,7 @@
 package fr.cla.ddd.metamodel.example.vos.canequal;
 
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
+import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.example.vos.Value;
 import fr.cla.ddd.oo.Equatable;
 
@@ -8,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 //@formatter:off
+@DDD.ValueObject
 public class CeVO1B extends CeVO1 {
 
     private final Value y;

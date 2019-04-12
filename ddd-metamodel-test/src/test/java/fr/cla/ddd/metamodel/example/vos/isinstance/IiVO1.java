@@ -1,6 +1,7 @@
 package fr.cla.ddd.metamodel.example.vos.isinstance;
 
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
+import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.example.vos.Value;
 import fr.cla.ddd.metamodel.AbstractValueObject;
 
@@ -9,6 +10,7 @@ import java.util.List;
 import static java.util.Collections.singletonList;
 
 //@formatter:off
+@DDD.ValueObject
 public class IiVO1 extends AbstractValueObject<IiVO1> {
 
     protected final Value x;

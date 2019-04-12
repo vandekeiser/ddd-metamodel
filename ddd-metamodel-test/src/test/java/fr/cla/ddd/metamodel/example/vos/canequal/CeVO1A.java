@@ -1,14 +1,15 @@
 package fr.cla.ddd.metamodel.example.vos.canequal;
 
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
+import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.example.vos.Value;
 import fr.cla.ddd.oo.Equatable;
 
 //@formatter:off
-
 /**
  * Extends CeVO1 but doesn't add state so it can equal the base class without breaking the symmetry of equals.
  */
+@DDD.ValueObject
 public final class CeVO1A extends CeVO1 {
 
     public CeVO1A(Value x) {
