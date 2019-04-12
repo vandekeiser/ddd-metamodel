@@ -4,13 +4,12 @@ package fr.cla.ddd.oo.pbt.canequal;
 import fr.cla.ddd.oo.pbt.EquatablePair;
 import fr.cla.ddd.oo.pbt.EquatableSingleton;
 import fr.cla.ddd.oo.pbt.EquatableTriplet;
+import fr.cla.ddd.oo.pbt.PropertyCheck;
 import net.jqwik.api.ForAll;
-import net.jqwik.api.Property;
 import org.assertj.core.api.Assertions;
 
 import java.util.logging.Logger;
 
-import static fr.cla.ddd.oo.pbt.SanityCheck.PROPERTY_TRIALS;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -20,7 +19,7 @@ extends ArbitraryCeEquatables {
 
     private static final Logger log = Logger.getLogger(AbstractCeEquatableTest.class.getName());
 
-    @Property(tries = PROPERTY_TRIALS)
+    @PropertyCheck
     public void equals_should_be_reflexive(@ForAll("equatableSingletons") EquatableSingleton s) {
         log.fine(() -> s.toString());
         Assertions.assertThat(
@@ -28,7 +27,7 @@ extends ArbitraryCeEquatables {
         ).isTrue();
     }
 
-    @Property(tries = PROPERTY_TRIALS)
+    @PropertyCheck
     public void equals_should_be_symmetric(@ForAll("equatablePairs") EquatablePair p) {
         log.fine(() -> p.toString());
         assertThat(
@@ -38,7 +37,7 @@ extends ArbitraryCeEquatables {
         );
     }
 
-    @Property(tries = PROPERTY_TRIALS)
+    @PropertyCheck
     public void equals_should_be_transitive(@ForAll("equatableTriplets") EquatableTriplet t) {
         log.fine(() -> t.toString());
         if(t.x.equals(t.y) && t.y.equals(t.z)){
@@ -46,7 +45,7 @@ extends ArbitraryCeEquatables {
         }
     }
 
-    @Property(tries = PROPERTY_TRIALS)
+    @PropertyCheck
     public void equals_null_should_be_false(@ForAll("equatableSingletons") EquatableSingleton s) {
         log.fine(() -> s.toString());
         assertThat(
@@ -54,7 +53,7 @@ extends ArbitraryCeEquatables {
         ).isFalse();
     }
 
-    @Property(tries = PROPERTY_TRIALS)
+    @PropertyCheck
     public void equals_should_be_consistent(@ForAll("equatablePairs") EquatablePair p) {
         log.fine(() -> p.toString());
         assertThat(
@@ -64,7 +63,7 @@ extends ArbitraryCeEquatables {
         );
     }
 
-    @Property(tries = PROPERTY_TRIALS)
+    @PropertyCheck
     public void equals_implies_same_hashCode(@ForAll("equatablePairs") EquatablePair p) {
         log.fine(() -> p.toString());
         if(p.x.equals(p.y)){
@@ -76,7 +75,7 @@ extends ArbitraryCeEquatables {
         }
     }
 
-    @Property(tries = PROPERTY_TRIALS)
+    @PropertyCheck
     public void hashCode_should_be_consistent(@ForAll("equatableSingletons") EquatableSingleton s) {
         log.fine(() -> s.toString());
         assertThat(
