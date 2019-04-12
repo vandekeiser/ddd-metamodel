@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.util.List;
 
+import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 //@formatter:off
@@ -30,7 +31,7 @@ public class AbstractValueObjectTest {
 
         @Override
         protected List<Object> equalityCriteria() {
-            return List.of(value);
+            return singletonList(value);
         }
 
         @Override
@@ -49,7 +50,7 @@ public class AbstractValueObjectTest {
 
         @Override
         protected List<Object> equalityCriteria() {
-            return List.of(value);
+            return singletonList(value);
         }
 
         @Override
