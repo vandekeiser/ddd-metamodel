@@ -19,5 +19,12 @@ public class Talk extends AbstractEntity<Talk, TalkId> {
         super(Talk.class, id);
         this.cost = requireNonNull(cost);
     }
+
+    //Unfortunately this is required by JPA. Don't use.
+    @SuppressWarnings("unused")
+    private Talk() {
+        super(Talk.class);
+        this.cost = null;
+    }
 }
 //@formatter:on

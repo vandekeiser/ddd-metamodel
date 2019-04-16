@@ -40,5 +40,11 @@ extends Equatable<T> {
         return id;
     }
 
+    //Unfortunately this is required by JPA. Only use to declare the no-arg constructor.
+    protected AbstractEntity(Class<T> type) {
+        super(type);
+        this.id = null;
+    }
+
 }
 //@formatter:on

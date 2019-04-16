@@ -31,5 +31,12 @@ public class Conference extends AbstractAggregateRoot<Conference, ConferenceId> 
         this.talks.addAll(talks);
     }
 
+    //Unfortunately this is required by JPA. Don't use.
+    @SuppressWarnings("unused")
+    private Conference() {
+        super(Conference.class);
+        this.budget = null;
+    }
+
 }
 //@formatter:on

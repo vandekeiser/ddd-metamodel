@@ -4,6 +4,7 @@ import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.exampleapp.domain.Conference;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.Conferences;
+import org.springframework.context.annotation.Primary;
 
 import java.util.Optional;
 
@@ -11,7 +12,7 @@ import static java.util.Objects.requireNonNull;
 
 //@formatter:off
 @DDD.RepositoryImpl
-@org.springframework.stereotype.Repository
+@Primary @org.springframework.stereotype.Repository
 public class SdjConferences implements Conferences {
 
     private final ConferencesSdj sdj;

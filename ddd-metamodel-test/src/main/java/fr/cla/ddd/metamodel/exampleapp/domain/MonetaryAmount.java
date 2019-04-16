@@ -23,5 +23,12 @@ public class MonetaryAmount extends AbstractValueObject<MonetaryAmount> {
         return singletonList(amount);
     }
 
+    //Unfortunately this is required by JPA. Don't use.
+    @SuppressWarnings("unused")
+    private MonetaryAmount() {
+        super(MonetaryAmount.class);
+        this.amount = 0;
+    }
+
 }
 //@formatter:on
