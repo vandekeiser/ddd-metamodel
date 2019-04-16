@@ -1,23 +1,26 @@
 package fr.cla.ddd.metamodel.exampleapp.infra;
 
-import fr.cla.ddd.metamodel.exampleapp.domain.*;
-import org.junit.jupiter.api.Disabled;
+import fr.cla.ddd.metamodel.exampleapp.domain.Conference;
+import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
+import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
+import fr.cla.ddd.metamodel.exampleapp.domain.Talk;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.ContextConfiguration;
 
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 //@formatter:off
-//@DataJpaTest
+@DataJpaTest
+@ContextConfiguration(classes = JpaConfig.class)
 public class SdjConferencesTest {
 
     @Autowired private SdjConferences sut;
 
     @Test
-    @Disabled //TODO
     public void should_find_persisted_entity() {
         Conference conf;
 
