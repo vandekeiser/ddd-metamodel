@@ -44,12 +44,44 @@ public class SdjConferencesTest {
         }
     }
 
+    @Test
+    public void reloaded_talk_should_be_equal_to_persisted_talk() {
+        Conference persistedConf, reloadedConf;
+        Talk persistedTalk, reloadedTalk;
+
+        given: {
+            persistedConf = scheduleConference();
+            persistedTalk = getSingleTalk(persistedConf);
+            assertThat(
+                sut.get(persistedConf.getId())
+            ).isEmpty();
+        }
+
+        when: {
+            sut.add(persistedConf);
+        }
+
+        then: {
+            reloadedConf = sut.get(persistedConf.getId()).get();
+            assertThat(reloadedConf).isEqualTo(persistedConf);
+        }
+
+        then: {
+            reloadedTalk = getSingleTalk(reloadedConf);
+            assertThat(reloadedTalk).isEqualTo(persistedTalk);
+        }
+    }
+
+    private Talk getSingleTalk(Conference conf) {
+        if (conf.getTalks().size() != 1) throw new IllegalArgumentException();
+        return conf.getTalks().iterator().next();
+    }
+
     private Conference scheduleConference() {
         return new Conference(
             new ConferenceId(),
             new MonetaryAmount(1000),
-            new Talk(new MonetaryAmount(100)),
-            new Talk(new MonetaryAmount(200))
+            new Talk(new MonetaryAmount(100))
         );
     }
 

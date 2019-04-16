@@ -38,5 +38,8 @@ public class Conference extends AbstractAggregateRoot<Conference, ConferenceId> 
         this.budget = null;
     }
 
+    public Set<Talk> getTalks() {
+        return new HashSet<>(talks);
+    }
 }
 //@formatter:on
