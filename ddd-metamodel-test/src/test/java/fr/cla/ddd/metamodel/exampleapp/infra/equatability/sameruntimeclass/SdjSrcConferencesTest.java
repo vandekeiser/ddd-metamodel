@@ -110,7 +110,6 @@ public class SdjSrcConferencesTest {
                 } else {
                     assertThat(lazyProxy).isNotEqualTo(persistedConf);
                 }
-
             }
         });
     }

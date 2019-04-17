@@ -9,7 +9,7 @@
         <mapping-file>META-INF/equatability.xml</mapping-file>
         <mapping-file>META-INF/equatability-same-runtime-class.xml</mapping-file>
         <mapping-file>META-INF/equatability-same-declared-class.xml</mapping-file>
-        <!--<mapping-file>META-INF/equatability-is-instance.xml</mapping-file>-->
+        <mapping-file>META-INF/equatability-is-instance.xml</mapping-file>
         <!--<mapping-file>META-INF/equatability-can-equal.xml</mapping-file>-->
     </persistence-unit>
 

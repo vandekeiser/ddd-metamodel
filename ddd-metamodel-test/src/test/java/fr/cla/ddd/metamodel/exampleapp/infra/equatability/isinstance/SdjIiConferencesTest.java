@@ -1,11 +1,10 @@
-package fr.cla.ddd.metamodel.exampleapp.infra.equatability.samedeclaredclass;
+package fr.cla.ddd.metamodel.exampleapp.infra.equatability.isinstance;
 
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
-import fr.cla.ddd.metamodel.exampleapp.domain.equatability.samedeclaredclass.SdcConference;
-import fr.cla.ddd.metamodel.exampleapp.domain.equatability.samedeclaredclass.SdcTalk;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.isinstance.IiConference;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.isinstance.IiTalk;
 import fr.cla.ddd.metamodel.exampleapp.infra.JpaConfig;
-import fr.cla.ddd.oo.Equatable;
 import org.hibernate.proxy.HibernateProxy;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +19,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 //@formatter:off
 @DataJpaTest
 @ContextConfiguration(classes = JpaConfig.class)
-public class SdjSdcConferencesTest {
+public class SdjIiConferencesTest {
 
-    @Autowired private SdjSdcConferences sut;
-    @Autowired private SdcConferencesSdj sdj;
+    @Autowired private SdjIiConferences sut;
+    @Autowired private IiConferencesSdj sdj;
 
     @Test
     public void should_find_persisted_entity() {
-        SdcConference conf;
+        IiConference conf;
 
         given: {
             conf = scheduleConference();
@@ -51,8 +50,8 @@ public class SdjSdcConferencesTest {
 
     @Test
     public void reloaded_talk_should_be_equal_to_persisted_talk() {
-        SdcConference persistedConf, reloadedConf;
-        SdcTalk persistedTalk, reloadedTalk;
+        IiConference persistedConf, reloadedConf;
+        IiTalk persistedTalk, reloadedTalk;
 
         given: {
             persistedConf = scheduleConference();
@@ -85,14 +84,14 @@ public class SdjSdcConferencesTest {
     private void reloaded_lazy_proxy_should_be_equal(
         boolean expectedEquals
     ) {
-        SdcConference persistedConf = scheduleConference();
+        IiConference persistedConf = scheduleConference();
 
         given: {
             doInAnotherTransaction(() -> sut.add(persistedConf));
         }
 
         doInAnotherTransaction( () -> {
-            SdcConference lazyProxy;
+            IiConference lazyProxy;
 
             when: {
                 lazyProxy = loadLazyProxy(persistedConf.getId());
@@ -112,8 +111,8 @@ public class SdjSdcConferencesTest {
         });
     }
 
-    private SdcConference loadLazyProxy(ConferenceId id) {
-        SdcConference reloadedConf = sdj.getOne(id);
+    private IiConference loadLazyProxy(ConferenceId id) {
+        IiConference reloadedConf = sdj.getOne(id);
 
         //Sanity check that it is really a lazy proxy
         assertThat(reloadedConf instanceof HibernateProxy).isTrue();
@@ -141,16 +140,16 @@ public class SdjSdcConferencesTest {
         }
     }
 
-    private SdcTalk getSingleTalk(SdcConference conf) {
+    private IiTalk getSingleTalk(IiConference conf) {
         if (conf.getTalks().size() != 1) throw new IllegalArgumentException();
         return conf.getTalks().iterator().next();
     }
 
-    private SdcConference scheduleConference() {
-        return new SdcConference(
+    private IiConference scheduleConference() {
+        return new IiConference(
             new ConferenceId(),
             new MonetaryAmount(1000),
-            new SdcTalk(new MonetaryAmount(100))
+            new IiTalk(new MonetaryAmount(100))
         );
     }
 
