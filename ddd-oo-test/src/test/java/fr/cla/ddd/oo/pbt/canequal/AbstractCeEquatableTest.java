@@ -22,7 +22,7 @@ extends ArbitraryCeEquatables {
     @PropertyCheck
     public void equals_should_be_reflexive(@ForAll("equatableSingletons") EquatableSingleton s) {
         log.fine(() -> s.toString());
-        Assertions.assertThat(
+        assertThat(
             s.x.equals(s.x)
         ).isTrue();
     }
@@ -41,7 +41,7 @@ extends ArbitraryCeEquatables {
     public void equals_should_be_transitive(@ForAll("equatableTriplets") EquatableTriplet t) {
         log.fine(() -> t.toString());
         if(t.x.equals(t.y) && t.y.equals(t.z)){
-            assertTrue(t.x.equals(t.z));
+            assertThat(t.x.equals(t.z)).isTrue();
         }
     }
 

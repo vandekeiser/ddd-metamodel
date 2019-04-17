@@ -13,8 +13,8 @@ public class EquatableTest {
 
     @Test
     public void should_not_get_classcast_when_calling_equals_on_different_types() {
-        Equatable1 vo1 = new Equatable1("foo");
-        Equatable2 vo2 = new Equatable2(33);
+        var vo1 = new Equatable1("foo");
+        var vo2 = new Equatable2(33);
         assertThat(
             vo1.equals(vo2)//shouldn't throw ClassCastException
         ).isFalse();

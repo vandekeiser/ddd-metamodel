@@ -40,9 +40,7 @@ extends ArbitrarySrcEquatables {
     public void equals_should_be_transitive(@ForAll("equatableTriplets") EquatableTriplet t) {
         log.fine(() -> t.toString());
         if(t.x.equals(t.y) && t.y.equals(t.z)){
-            assertThat(
-                t.x.equals(t.z)
-            ).isTrue();
+            assertThat(t.x.equals(t.z)).isTrue();
         }
     }
 
