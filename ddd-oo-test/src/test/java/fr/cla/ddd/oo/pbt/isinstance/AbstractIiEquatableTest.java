@@ -6,7 +6,6 @@ import fr.cla.ddd.oo.pbt.EquatableSingleton;
 import fr.cla.ddd.oo.pbt.EquatableTriplet;
 import fr.cla.ddd.oo.pbt.PropertyCheck;
 import net.jqwik.api.ForAll;
-import net.jqwik.api.Property;
 import org.assertj.core.api.Assertions;
 
 import java.util.logging.Logger;

@@ -1,9 +1,9 @@
 package fr.cla.ddd.metamodel.exampleapp.appli;
 
-import fr.cla.ddd.metamodel.exampleapp.domain.*;
+import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.InMemorySrcConferences;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConferences;
-import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.InMemorySrcConferences;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;

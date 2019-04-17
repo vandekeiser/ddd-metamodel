@@ -1,7 +1,7 @@
 package fr.cla.ddd.oo.exampleequatables.canequal;
 
-import fr.cla.ddd.oo.exampleequatables.Value;
 import fr.cla.ddd.oo.Equatable;
+import fr.cla.ddd.oo.exampleequatables.Value;
 
 import java.util.Arrays;
 import java.util.List;

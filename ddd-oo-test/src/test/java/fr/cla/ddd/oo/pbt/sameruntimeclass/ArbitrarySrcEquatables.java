@@ -4,9 +4,9 @@ package fr.cla.ddd.oo.pbt.sameruntimeclass;
 import fr.cla.ddd.oo.pbt.EquatablePair;
 import fr.cla.ddd.oo.pbt.EquatableSingleton;
 import fr.cla.ddd.oo.pbt.EquatableTriplet;
-import net.jqwik.api.*;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import net.jqwik.api.Arbitraries;
+import net.jqwik.api.Arbitrary;
+import net.jqwik.api.Provide;
 
 //@formatter:off
 public class ArbitrarySrcEquatables {

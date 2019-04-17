@@ -1,8 +1,8 @@
 package fr.cla.ddd.metamodel.exampleapp.infra.equatability.sameruntimeclass;
 
 import fr.cla.ddd.metamodel.DDD;
-import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConferences;
 import org.springframework.context.annotation.Primary;
 

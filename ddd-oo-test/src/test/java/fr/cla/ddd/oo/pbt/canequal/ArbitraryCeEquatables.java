@@ -4,7 +4,6 @@ package fr.cla.ddd.oo.pbt.canequal;
 import fr.cla.ddd.oo.pbt.EquatablePair;
 import fr.cla.ddd.oo.pbt.EquatableSingleton;
 import fr.cla.ddd.oo.pbt.EquatableTriplet;
-import fr.cla.ddd.oo.pbt.isinstance.IiVoGenerator;
 import fr.cla.ddd.oo.pbt.isinstance.IiVoPairGenerator;
 import fr.cla.ddd.oo.pbt.isinstance.IiVoTripletGenerator;
 import net.jqwik.api.Arbitraries;
