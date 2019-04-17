@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.transaction.TestTransaction;
 
+import java.util.Optional;
 import java.util.concurrent.Callable;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,6 +20,30 @@ import static org.assertj.core.api.Assertions.assertThat;
 public abstract class AbstractSdjConferencesTest<
     C extends AbstractAggregateRoot<C, ConferenceId>
 > {
+
+    @Test
+    public void should_find_persisted_entity() {
+        C conf;
+
+        given: {
+            conf = scheduleConference();
+            assertThat(
+                get(conf.getId())
+            ).isEmpty();
+        }
+
+        when: {
+            add(conf);
+        }
+
+        then: {
+            assertThat(
+                get(conf.getId())
+            ).isEqualTo(
+                Optional.of(conf)
+            );
+        }
+    }
 
     @Test
     public void reloaded_lazy_proxy_should_be_equal() {
@@ -32,7 +57,7 @@ public abstract class AbstractSdjConferencesTest<
 
         given: {
             //() -> sut.add(persistedConf)
-            persistedConf = doInAnotherTransaction(this::addConference);
+            persistedConf = doInAnotherTransaction(this::scheduleAndAddConference);
         }
 
         doInAnotherTransaction( () -> {
@@ -91,8 +116,11 @@ public abstract class AbstractSdjConferencesTest<
 
     protected abstract boolean doesEqualWorkWithProxies();
 
-    protected abstract C addConference();
+    protected abstract C scheduleAndAddConference();
+    protected abstract C scheduleConference();
+    protected abstract void add(C conf);
 
+    protected abstract Optional<C> get(ConferenceId id);
     protected abstract C loadLazyProxyFor(ConferenceId id);
 
 }

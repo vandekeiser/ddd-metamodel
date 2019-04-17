@@ -25,30 +25,6 @@ extends AbstractSdjConferencesTest<CeConference> {
     @Autowired private CeConferencesSdj sdj;
 
     @Test
-    public void should_find_persisted_entity() {
-        CeConference conf;
-
-        given: {
-            conf = scheduleConference();
-            assertThat(
-                sut.get(conf.getId())
-            ).isEmpty();
-        }
-
-        when: {
-            sut.add(conf);
-        }
-
-        then: {
-            assertThat(
-                sut.get(conf.getId())
-            ).isEqualTo(
-                Optional.of(conf)
-            );
-        }
-    }
-
-    @Test
     public void reloaded_talk_should_be_equal_to_persisted_talk() {
         CeConference persistedConf, reloadedConf;
         CeTalk persistedTalk, reloadedTalk;
@@ -81,26 +57,34 @@ extends AbstractSdjConferencesTest<CeConference> {
         return conf.getTalks().iterator().next();
     }
 
-    private CeConference scheduleConference() {
-        return new CeConference(
-            new ConferenceId(),
-            new MonetaryAmount(1000),
-            new CeTalk(new MonetaryAmount(100))
-        );
-    }
-
     @Override
     protected boolean doesEqualWorkWithProxies() {
         return true;
     }
 
     @Override
-    protected CeConference addConference() {
+    protected CeConference scheduleAndAddConference() {
         CeConference conf = scheduleConference();
         sut.add(conf);
         return conf;
     }
+    @Override
+    protected CeConference scheduleConference() {
+        return new CeConference(
+            new ConferenceId(),
+            new MonetaryAmount(1000),
+            new CeTalk(new MonetaryAmount(100))
+        );
+    }
+    @Override
+    protected void add(CeConference conf) {
+        sut.add(conf);
+    }
 
+    @Override
+    protected Optional<CeConference> get(ConferenceId id) {
+        return sut.get(id);
+    }
     @Override
     protected CeConference loadLazyProxyFor(ConferenceId id) {
         return sdj.getOne(id);

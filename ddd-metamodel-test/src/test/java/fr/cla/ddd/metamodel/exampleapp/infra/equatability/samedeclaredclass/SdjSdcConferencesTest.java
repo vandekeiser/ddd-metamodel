@@ -25,30 +25,6 @@ extends AbstractSdjConferencesTest<SdcConference> {
     @Autowired private SdcConferencesSdj sdj;
 
     @Test
-    public void should_find_persisted_entity() {
-        SdcConference conf;
-
-        given: {
-            conf = scheduleConference();
-            assertThat(
-                sut.get(conf.getId())
-            ).isEmpty();
-        }
-
-        when: {
-            sut.add(conf);
-        }
-
-        then: {
-            assertThat(
-                sut.get(conf.getId())
-            ).isEqualTo(
-                Optional.of(conf)
-            );
-        }
-    }
-
-    @Test
     public void reloaded_talk_should_be_equal_to_persisted_talk() {
         SdcConference persistedConf, reloadedConf;
         SdcTalk persistedTalk, reloadedTalk;
@@ -81,13 +57,6 @@ extends AbstractSdjConferencesTest<SdcConference> {
         return conf.getTalks().iterator().next();
     }
 
-    private SdcConference scheduleConference() {
-        return new SdcConference(
-            new ConferenceId(),
-            new MonetaryAmount(1000),
-            new SdcTalk(new MonetaryAmount(100))
-        );
-    }
 
     @Override
     protected boolean doesEqualWorkWithProxies() {
@@ -95,12 +64,28 @@ extends AbstractSdjConferencesTest<SdcConference> {
     }
 
     @Override
-    protected SdcConference addConference() {
+    protected SdcConference scheduleAndAddConference() {
         SdcConference conf = scheduleConference();
         sut.add(conf);
         return conf;
     }
+    @Override
+    protected SdcConference scheduleConference() {
+        return new SdcConference(
+            new ConferenceId(),
+            new MonetaryAmount(1000),
+            new SdcTalk(new MonetaryAmount(100))
+        );
+    }
+    @Override
+    protected void add(SdcConference conf) {
+        sut.add(conf);
+    }
 
+    @Override
+    protected Optional<SdcConference> get(ConferenceId id) {
+        return sut.get(id);
+    }
     @Override
     protected SdcConference loadLazyProxyFor(ConferenceId id) {
         return sdj.getOne(id);

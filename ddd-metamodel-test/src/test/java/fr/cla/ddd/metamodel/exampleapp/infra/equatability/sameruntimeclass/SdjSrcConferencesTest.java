@@ -25,30 +25,6 @@ extends AbstractSdjConferencesTest<SrcConference> {
     @Autowired private SrcConferencesSdj sdj;
 
     @Test
-    public void should_find_persisted_entity() {
-        SrcConference conf;
-
-        given: {
-            conf = scheduleConference();
-            assertThat(
-                sut.get(conf.getId())
-            ).isEmpty();
-        }
-
-        when: {
-            sut.add(conf);
-        }
-
-        then: {
-            assertThat(
-                sut.get(conf.getId())
-            ).isEqualTo(
-                Optional.of(conf)
-            );
-        }
-    }
-
-    @Test
     public void reloaded_talk_should_be_equal_to_persisted_talk() {
         SrcConference persistedConf, reloadedConf;
         SrcTalk persistedTalk, reloadedTalk;
@@ -81,26 +57,34 @@ extends AbstractSdjConferencesTest<SrcConference> {
         return conf.getTalks().iterator().next();
     }
 
-    private SrcConference scheduleConference() {
-        return new SrcConference(
-            new ConferenceId(),
-            new MonetaryAmount(1000),
-            new SrcTalk(new MonetaryAmount(100))
-        );
-    }
-
     @Override
     protected boolean doesEqualWorkWithProxies() {
         return false;
     }
 
     @Override
-    protected SrcConference addConference() {
+    protected SrcConference scheduleAndAddConference() {
         SrcConference conf = scheduleConference();
         sut.add(conf);
         return conf;
     }
+    @Override
+    protected SrcConference scheduleConference() {
+        return new SrcConference(
+            new ConferenceId(),
+            new MonetaryAmount(1000),
+            new SrcTalk(new MonetaryAmount(100))
+        );
+    }
+    @Override
+    protected void add(SrcConference conf) {
+        sut.add(conf);
+    }
 
+    @Override
+    protected Optional<SrcConference> get(ConferenceId id) {
+        return sut.get(id);
+    }
     @Override
     protected SrcConference loadLazyProxyFor(ConferenceId id) {
         return sdj.getOne(id);

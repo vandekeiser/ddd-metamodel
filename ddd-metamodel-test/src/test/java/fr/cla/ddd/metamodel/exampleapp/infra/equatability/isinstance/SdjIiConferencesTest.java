@@ -25,30 +25,6 @@ extends AbstractSdjConferencesTest<IiConference> {
     @Autowired private IiConferencesSdj sdj;
 
     @Test
-    public void should_find_persisted_entity() {
-        IiConference conf;
-
-        given: {
-            conf = scheduleConference();
-            assertThat(
-                sut.get(conf.getId())
-            ).isEmpty();
-        }
-
-        when: {
-            sut.add(conf);
-        }
-
-        then: {
-            assertThat(
-                sut.get(conf.getId())
-            ).isEqualTo(
-                Optional.of(conf)
-            );
-        }
-    }
-
-    @Test
     public void reloaded_talk_should_be_equal_to_persisted_talk() {
         IiConference persistedConf, reloadedConf;
         IiTalk persistedTalk, reloadedTalk;
@@ -81,24 +57,33 @@ extends AbstractSdjConferencesTest<IiConference> {
         return conf.getTalks().iterator().next();
     }
 
-    private IiConference scheduleConference() {
-        return new IiConference(
-            new ConferenceId(),
-            new MonetaryAmount(1000),
-            new IiTalk(new MonetaryAmount(100))
-        );
-    }
-
     @Override
     protected boolean doesEqualWorkWithProxies() {
         return true;
     }
 
     @Override
-    protected IiConference addConference() {
+    protected IiConference scheduleAndAddConference() {
         IiConference conf = scheduleConference();
         sut.add(conf);
         return conf;
+    }
+    @Override
+    protected IiConference scheduleConference() {
+        return new IiConference(
+            new ConferenceId(),
+            new MonetaryAmount(1000),
+            new IiTalk(new MonetaryAmount(100))
+        );
+    }
+    @Override
+    protected void add(IiConference conf) {
+        sut.add(conf);
+    }
+
+    @Override
+    protected Optional<IiConference> get(ConferenceId id) {
+        return sut.get(id);
     }
 
     @Override
