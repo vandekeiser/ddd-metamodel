@@ -33,7 +33,7 @@ public class Conference extends AbstractAggregateRoot<Conference, ConferenceId> 
 
     //Unfortunately this is required by JPA. Don't use.
     @SuppressWarnings("unused")
-    public Conference() {//TODO eqh
+    private Conference() {
         super(Conference.class);
         this.budget = null;
     }
