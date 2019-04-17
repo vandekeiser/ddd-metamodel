@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.exampleapp.domain.equatability.isinstance;
+package fr.cla.ddd.metamodel.exampleapp.domain.equatability.canequal;
 
 import fr.cla.ddd.metamodel.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.DDD;
@@ -13,33 +13,33 @@ import static java.util.Objects.requireNonNull;
 
 //@formatter:off
 @DDD.Entity
-public class IiConference extends AbstractAggregateRoot<IiConference, ConferenceId> {
+public class CeConference extends AbstractAggregateRoot<CeConference, ConferenceId> {
 
     private MonetaryAmount budget;
-    private final Set<IiTalk> talks = new HashSet<>();
+    private final Set<CeTalk> talks = new HashSet<>();
 
-    public IiConference(ConferenceId id, MonetaryAmount budget) {
+    public CeConference(ConferenceId id, MonetaryAmount budget) {
         this(id, budget, emptySet());
     }
 
-    public IiConference(ConferenceId id, MonetaryAmount budget, IiTalk... talks) {
+    public CeConference(ConferenceId id, MonetaryAmount budget, CeTalk... talks) {
         this(id, budget, Set.of(talks));
     }
 
-    public IiConference(ConferenceId id, MonetaryAmount budget, Set<IiTalk> talks) {
-        super(IiConference.class, id, Equatability.IS_INSTANCE);
+    public CeConference(ConferenceId id, MonetaryAmount budget, Set<CeTalk> talks) {
+        super(CeConference.class, id, Equatability.CAN_EQUAL);
         this.budget = requireNonNull(budget);
         this.talks.addAll(talks);
     }
 
     //Unfortunately this is required by JPA. Don't use.
     @SuppressWarnings("unused")
-    IiConference() { //TODO eqh: private KO!
-        super(IiConference.class, Equatability.IS_INSTANCE);
+    CeConference() { //TODO eqh: private KO!
+        super(CeConference.class, Equatability.CAN_EQUAL);
         this.budget = null;
     }
 
-    public Set<IiTalk> getTalks() {
+    public Set<CeTalk> getTalks() {
         return new HashSet<>(talks);
     }
 }
