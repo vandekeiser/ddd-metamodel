@@ -28,7 +28,7 @@ public class Main {
         }
     }
 
-    @DDD.ValueObject
+    @DDD.ValueObjectId
     public static class VO1 extends AbstractValueObject<VO1> {
 
         protected final String x;

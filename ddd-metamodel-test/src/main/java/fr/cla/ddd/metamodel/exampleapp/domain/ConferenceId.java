@@ -11,8 +11,9 @@ import static java.util.Objects.requireNonNull;
 import static java.util.UUID.randomUUID;
 
 //@formatter:off
-@DDD.ValueObject
-public class ConferenceId extends AbstractValueObject<ConferenceId> implements EntityId {
+@DDD.ValueObjectId
+public class ConferenceId extends AbstractValueObject<ConferenceId>
+implements EntityId {
 
     private final String value;
 

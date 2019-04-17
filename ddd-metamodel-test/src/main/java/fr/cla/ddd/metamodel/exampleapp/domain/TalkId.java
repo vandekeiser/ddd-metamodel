@@ -11,8 +11,9 @@ import static java.util.Collections.singletonList;
 import static java.util.Objects.requireNonNull;
 
 //@formatter:off
-@DDD.ValueObject
-public class TalkId extends AbstractValueObject<TalkId> implements EntityId {
+@DDD.ValueObjectId
+public class TalkId extends AbstractValueObject<TalkId>
+implements EntityId {
 
     private final String value;
 

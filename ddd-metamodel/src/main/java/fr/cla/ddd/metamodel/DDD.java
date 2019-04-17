@@ -11,6 +11,11 @@ public class DDD {
 
     }
 
+    @ValueObject
+    public @interface ValueObjectId {
+
+    }
+
     public @interface Entity {
         //Class<? extends AggregateRoot> aggregateRoot();
 
