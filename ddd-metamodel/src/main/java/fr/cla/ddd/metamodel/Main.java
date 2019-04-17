@@ -18,7 +18,7 @@ public class Main {
         protected final String x;
 
         public Eq1(String x) {
-            super(Eq1.class);
+            super(Eq1.class, Equatability.SAME_DECLARED_CLASS);
             this.x = x;
         }
 

@@ -24,7 +24,7 @@ public class EquatableTest {
         private final String value;
 
         Equatable1(String value) {
-            super(Equatable1.class);
+            super(Equatable1.class, Equatability.SAME_DECLARED_CLASS);
             this.value = value;
         }
 
@@ -43,7 +43,7 @@ public class EquatableTest {
         private final long value;
 
         Equatable2(long value) {
-            super(Equatable2.class);
+            super(Equatable2.class, Equatability.SAME_DECLARED_CLASS);
             this.value = value;
         }
 

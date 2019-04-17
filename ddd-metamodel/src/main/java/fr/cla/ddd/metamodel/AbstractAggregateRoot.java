@@ -10,6 +10,10 @@ extends AbstractEntity<T, I> {
 
     private long version;
 
+    protected AbstractAggregateRoot(Class<T> type, I id) {
+        super(type, id);
+    }
+
     protected AbstractAggregateRoot(Class<T> type, I id, Equatability equatability) {
         super(type, id, equatability);
     }

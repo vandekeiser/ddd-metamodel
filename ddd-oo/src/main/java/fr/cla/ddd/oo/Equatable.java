@@ -15,10 +15,7 @@ public abstract class Equatable<T extends Equatable<T>> {
     private final Equatability equatability;
 
     protected Equatable(Class<T> type) {
-//        this(type, Equatability.SAME_RUNTIME_CLASS);
-        this(type, Equatability.SAME_DECLARED_CLASS);
-        //this(type, Equatability.IS_INSTANCE);
-        //this(type, Equatability.CAN_EQUAL);
+        this(type, Equatability.DEFAULT);
     }
 
     protected Equatable(Class<T> type, Equatability equatability) {
@@ -163,6 +160,8 @@ public abstract class Equatable<T extends Equatable<T>> {
             }
         },
         ;
+
+        public static final Equatability DEFAULT = SAME_DECLARED_CLASS;
 
         /**
          * @throws NullPointerException iff thisObj or thisObjType is null (which is impossible from the equals method)

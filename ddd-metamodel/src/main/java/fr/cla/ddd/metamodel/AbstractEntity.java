@@ -22,6 +22,11 @@ extends Equatable<T> {
 
     private final I id;
 
+    protected AbstractEntity(Class<T> type, I id) {
+        super(type);
+        this.id = requireNonNull(id);
+    }
+
     protected AbstractEntity(Class<T> type, I id, Equatability equatability) {
         super(type, equatability);
         this.id = requireNonNull(id);
