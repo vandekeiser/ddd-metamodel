@@ -27,12 +27,6 @@ extends AbstractSdjConferencesTest<CeConference, CeTalk> {
     }
 
     @Override
-    protected CeConference scheduleAndAddConference() {
-        CeConference conf = scheduleConference();
-        sut.add(conf);
-        return conf;
-    }
-    @Override
     protected CeConference scheduleConference() {
         return new CeConference(
             new ConferenceId(),

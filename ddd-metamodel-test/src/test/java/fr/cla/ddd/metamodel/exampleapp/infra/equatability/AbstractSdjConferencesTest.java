@@ -145,9 +145,14 @@ public abstract class AbstractSdjConferencesTest<
         }
     }
 
+    private C scheduleAndAddConference() {
+        C conf = scheduleConference();
+        add(conf);
+        return conf;
+    }
+
     protected abstract boolean doesEqualWorkWithProxyClasses();
 
-    protected abstract C scheduleAndAddConference();
     protected abstract C scheduleConference();
     protected abstract void add(C conf);
 

@@ -27,12 +27,6 @@ extends AbstractSdjConferencesTest<IiConference, IiTalk> {
     }
 
     @Override
-    protected IiConference scheduleAndAddConference() {
-        IiConference conf = scheduleConference();
-        sut.add(conf);
-        return conf;
-    }
-    @Override
     protected IiConference scheduleConference() {
         return new IiConference(
             new ConferenceId(),
