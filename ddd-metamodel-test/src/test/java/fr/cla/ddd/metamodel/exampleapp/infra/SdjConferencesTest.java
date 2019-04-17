@@ -22,11 +22,6 @@ public class SdjConferencesTest {
 
     @Autowired private SdjConferences sut;
     @Autowired private ConferencesSdj sdj;
-    //    @Autowired private SessionFactory sessFactory;
-//    private Session sess;
-    //@PersistenceContext private EntityManager em;
-    //@PersistenceUnit private EntityManagerFactory emf;
-//    @Autowired private SdjEm sdjEm;
 
     @Test
     public void should_find_persisted_entity() {
@@ -128,6 +123,7 @@ public class SdjConferencesTest {
             TestTransaction.flagForCommit();
         } catch (Throwable t) {
             TestTransaction.flagForRollback();
+            throw new AssertionError(t);
         } finally {
             TestTransaction.end();
         }

@@ -32,11 +32,11 @@ extends Equatable<T> {
         this.id = requireNonNull(id);
     }
 
-    protected final List<Object> equalityCriteria() {
-        return singletonList(id);
+    protected final List<Object> equalityCriteria() {//TODO eqh: id KO!
+        return singletonList(getId());
     }
 
-    public final I getId() {
+    public /*final*/ I getId() {//TODO eqh: final KO!
         return id;
     }
 
