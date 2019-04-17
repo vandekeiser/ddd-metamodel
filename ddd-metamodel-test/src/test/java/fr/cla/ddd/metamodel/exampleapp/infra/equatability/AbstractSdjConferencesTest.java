@@ -105,15 +105,12 @@ public abstract class AbstractSdjConferencesTest<
 
                 if(expectedEquals) {
                     assertThat(lazyProxy).isEqualTo(persistedConf);
-                } else {
-                    assertThat(lazyProxy).isNotEqualTo(persistedConf);
-                }
-
-                if(expectedEquals) {
                     assertThat(getSingleTalk(lazyProxy)).isEqualTo(getSingleTalk(persistedConf));
                 } else {
+                    assertThat(lazyProxy).isNotEqualTo(persistedConf);
                     assertThat(lazyProxy).isNotEqualTo(getSingleTalk(persistedConf));
                 }
+
             }
 
             return null;//because this Callable is void
