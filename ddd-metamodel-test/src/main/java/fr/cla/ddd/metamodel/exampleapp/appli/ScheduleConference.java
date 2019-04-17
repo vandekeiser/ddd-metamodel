@@ -1,10 +1,8 @@
 package fr.cla.ddd.metamodel.exampleapp.appli;
 
 import fr.cla.ddd.metamodel.DDD;
-import fr.cla.ddd.metamodel.exampleapp.domain.Conference;
-import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
-import fr.cla.ddd.metamodel.exampleapp.domain.Conferences;
-import fr.cla.ddd.metamodel.exampleapp.domain.Talk;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConference;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConferences;
 import org.springframework.transaction.annotation.Transactional;
 
 import static java.util.Objects.requireNonNull;
@@ -14,14 +12,14 @@ import static java.util.Objects.requireNonNull;
 @Transactional @org.springframework.stereotype.Service
 public class ScheduleConference {
 
-    private final Conferences conferences;
+    private final SrcConferences conferences;
 
-    public ScheduleConference(Conferences conferences) {
+    public ScheduleConference(SrcConferences conferences) {
         this.conferences = requireNonNull(conferences);
     }
 
     public void scheduleConference(ScheduleConferenceCommand cmd) {
-        Conference conf = cmd.toConference();
+        SrcConference conf = cmd.toConference();
         conferences.add(conf);
     }
 

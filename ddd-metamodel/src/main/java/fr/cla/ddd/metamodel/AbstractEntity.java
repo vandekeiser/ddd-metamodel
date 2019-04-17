@@ -22,10 +22,10 @@ extends Equatable<T> {
 
     private final I id;
 
-    protected AbstractEntity(Class<T> type, I id) {
-        super(type);
-        this.id = requireNonNull(id);
-    }
+//    protected AbstractEntity(Class<T> type, I id) {
+//        super(type);
+//        this.id = requireNonNull(id);
+//    }
 
     protected AbstractEntity(Class<T> type, I id, Equatability equatability) {
         super(type, equatability);
@@ -41,8 +41,8 @@ extends Equatable<T> {
     }
 
     //Unfortunately this is required by JPA. Only use to declare the no-arg constructor.
-    protected AbstractEntity(Class<T> type) {
-        super(type);
+    protected AbstractEntity(Class<T> type, Equatability equatability) {
+        super(type, equatability);
         this.id = null;
     }
 

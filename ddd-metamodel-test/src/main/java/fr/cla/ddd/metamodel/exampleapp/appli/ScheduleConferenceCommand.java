@@ -2,10 +2,10 @@ package fr.cla.ddd.metamodel.exampleapp.appli;
 
 import fr.cla.ddd.metamodel.AbstractValueObject;
 import fr.cla.ddd.metamodel.DDD;
-import fr.cla.ddd.metamodel.exampleapp.domain.Conference;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
-import fr.cla.ddd.metamodel.exampleapp.domain.Talk;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcTalk;
 
 import java.util.HashSet;
 import java.util.List;
@@ -42,11 +42,11 @@ public class ScheduleConferenceCommand extends AbstractValueObject<ScheduleConfe
         return costs.stream().map(mapper).collect(toSet());
     }
 
-    public Conference toConference() {
-        return new Conference(
+    public SrcConference toConference() {
+        return new SrcConference(
             conferenceId,
             budget,
-            mapCosts(Talk::new)
+            mapCosts(SrcTalk::new)
         );
     }
 

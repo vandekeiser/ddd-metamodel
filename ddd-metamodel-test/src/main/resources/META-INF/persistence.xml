@@ -5,18 +5,12 @@
  http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
 
     <persistence-unit name="default">
-        <description>My Persistence Unit</description>
-        <!--<provider>com.objectdb.jpa.Provider</provider>-->
-        <mapping-file>META-INF/conference.xml</mapping-file>
-        <!--<jar-file>packedEntity.jar</jar-file>-->
-        <!--<class>sample.MyEntity1</class>-->
-        <!--<class>sample.MyEntity2</class>-->
-        <!--<properties>-->
-            <!--<property name="javax.persistence.jdbc.url"-->
-                      <!--value="objectdb://localhost/my.odb"/>-->
-            <!--<property name="javax.persistence.jdbc.user" value="admin"/>-->
-            <!--<property name="javax.persistence.jdbc.password" value="admin"/>-->
-        <!--</properties>-->
+        <mapping-file>META-INF/ddd-metamodel.xml</mapping-file>
+        <mapping-file>META-INF/equatability.xml</mapping-file>
+        <mapping-file>META-INF/equatability-same-runtime-class.xml</mapping-file>
+        <mapping-file>META-INF/equatability-same-declared-class.xml</mapping-file>
+        <!--<mapping-file>META-INF/equatability-is-instance.xml</mapping-file>-->
+        <!--<mapping-file>META-INF/equatability-can-equal.xml</mapping-file>-->
     </persistence-unit>
 
 </persistence>

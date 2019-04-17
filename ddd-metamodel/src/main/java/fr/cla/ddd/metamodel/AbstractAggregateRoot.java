@@ -10,17 +10,13 @@ extends AbstractEntity<T, I> {
 
     private long version;
 
-    protected AbstractAggregateRoot(Class<T> type, I id) {
-        super(type, id);
-    }
-
     protected AbstractAggregateRoot(Class<T> type, I id, Equatability equatability) {
         super(type, id, equatability);
     }
 
     //Unfortunately this is required by JPA. Only use to declare the no-arg constructor.
-    protected AbstractAggregateRoot(Class<T> type) {
-        super(type);
+    protected AbstractAggregateRoot(Class<T> type, Equatability equatability) {
+        super(type, equatability);
     }
 
 }

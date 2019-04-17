@@ -1,4 +1,4 @@
-package fr.cla.ddd.oo.pbt.isinstance;
+package fr.cla.ddd.oo.pbt.samedeclaredclass;
 
 
 import fr.cla.ddd.oo.pbt.EquatablePair;
@@ -9,21 +9,21 @@ import net.jqwik.api.Arbitrary;
 import net.jqwik.api.Provide;
 
 //@formatter:off
-public class ArbitraryIiEquatables {
+public class ArbitrarySdcEquatables {
 
     @Provide
     Arbitrary<EquatableSingleton> equatableSingletons() {
-        return Arbitraries.create(IiVoGenerator::generate);
+        return Arbitraries.create(SdcVoGenerator::generate);
     }
 
     @Provide
     Arbitrary<EquatablePair> equatablePairs() {
-        return Arbitraries.create(IiVoPairGenerator::generate);
+        return Arbitraries.create(SdcVoPairGenerator::generate);
     }
 
     @Provide
     Arbitrary<EquatableTriplet> equatableTriplets() {
-        return Arbitraries.create(IiVoTripletGenerator::generate);
+        return Arbitraries.create(SdcVoTripletGenerator::generate);
     }
 
 }

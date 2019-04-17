@@ -1,8 +1,10 @@
 package fr.cla.ddd.metamodel.exampleapp.appli;
 
 import fr.cla.ddd.metamodel.exampleapp.domain.*;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConference;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConferences;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.InMemorySrcConferences;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.Optional;
 import java.util.Set;
@@ -12,13 +14,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 //@formatter:off
 public class ScheduleConferenceTest {
 
-    private final Conferences conferences = new InMemoryConferences();
+    private final SrcConferences conferences = new InMemorySrcConferences();
     private final ScheduleConference scheduleConference = new ScheduleConference(conferences);
 
     @Test
     public void when_the_conference_is_scheduled_it_should_be_added() {
         ScheduleConferenceCommand cmd;
-        Conference scheduledConference;
+        SrcConference scheduledConference;
 
         given: {
             cmd = scheduleConferenceCommand();

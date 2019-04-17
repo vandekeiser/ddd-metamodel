@@ -1,8 +1,8 @@
 package fr.cla.ddd.metamodel.exampleapp.appli;
 
-import fr.cla.ddd.metamodel.exampleapp.domain.Conference;
-import fr.cla.ddd.metamodel.exampleapp.domain.Conferences;
-import fr.cla.ddd.metamodel.exampleapp.domain.InMemoryConferences;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConference;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConferences;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.InMemorySrcConferences;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import org.junit.jupiter.api.Test;
 
@@ -14,13 +14,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 //@formatter:off
 public class ViewConferenceDetailsTest {
 
-    private final Conferences conferences = new InMemoryConferences();
+    private final SrcConferences conferences = new InMemorySrcConferences();
     private final ViewConferenceDetails viewConferenceDetails = new ViewConferenceDetails(conferences);
 
     @Test
     public void when_there_is_a_conference_we_should_be_able_to_view_its_details() {
-        Conference addedConference;
-        Optional<Conference> conferenceDetails;
+        SrcConference addedConference;
+        Optional<SrcConference> conferenceDetails;
 
         given: {
             addedConference = createConference();
@@ -42,7 +42,7 @@ public class ViewConferenceDetailsTest {
         }
     }
 
-    private Conference createConference() {
+    private SrcConference createConference() {
         return new ScheduleConferenceCommand(
             new MonetaryAmount(1000),
             Set.of(new MonetaryAmount(200), new MonetaryAmount(300), new MonetaryAmount(500))

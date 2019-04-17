@@ -4,7 +4,7 @@ import fr.cla.ddd.metamodel.exampleapp.ScanApp;
 import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConference;
 import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConferenceCommand;
 import fr.cla.ddd.metamodel.exampleapp.appli.ViewConferenceDetails;
-import fr.cla.ddd.metamodel.exampleapp.domain.Conference;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,7 +36,7 @@ public class CliApp {
             schedConf.scheduleConference(schedCmd);
             log.info("Scheduled " + schedCmd.toConference());
 
-            Optional<Conference> reloadedConf = viewConf.viewConferenceDetails(
+            Optional<SrcConference> reloadedConf = viewConf.viewConferenceDetails(
                 schedCmd.toConference().getId()
             );
             log.info("Reloaded " + reloadedConf);
