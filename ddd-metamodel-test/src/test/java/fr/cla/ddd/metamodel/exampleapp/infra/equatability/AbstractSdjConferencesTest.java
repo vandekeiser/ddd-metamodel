@@ -1,7 +1,9 @@
 package fr.cla.ddd.metamodel.exampleapp.infra.equatability;
 
 import fr.cla.ddd.metamodel.AbstractAggregateRoot;
+import fr.cla.ddd.metamodel.AbstractEntity;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
+import fr.cla.ddd.metamodel.exampleapp.domain.TalkId;
 import fr.cla.ddd.metamodel.exampleapp.infra.JpaConfig;
 import org.hibernate.proxy.HibernateProxy;
 import org.junit.jupiter.api.Test;
@@ -18,7 +20,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DataJpaTest
 @ContextConfiguration(classes = JpaConfig.class)
 public abstract class AbstractSdjConferencesTest<
-    C extends AbstractAggregateRoot<C, ConferenceId>
+    C extends AbstractAggregateRoot<C, ConferenceId>,
+    T extends AbstractEntity<T, TalkId>
 > {
 
     @Test
@@ -42,6 +45,34 @@ public abstract class AbstractSdjConferencesTest<
             ).isEqualTo(
                 Optional.of(conf)
             );
+        }
+    }
+
+    @Test
+    public void reloaded_talk_should_be_equal_to_persisted_talk() {
+        C persistedConf, reloadedConf;
+        T persistedTalk, reloadedTalk;
+
+        given: {
+            persistedConf = scheduleConference();
+            persistedTalk = getSingleTalk(persistedConf);
+            assertThat(
+                get(persistedConf.getId())
+            ).isEmpty();
+        }
+
+        when: {
+            add(persistedConf);
+        }
+
+        then: {
+            reloadedConf = get(persistedConf.getId()).get();
+            assertThat(reloadedConf).isEqualTo(persistedConf);
+        }
+
+        then: {
+            reloadedTalk = getSingleTalk(reloadedConf);
+            assertThat(reloadedTalk).isEqualTo(persistedTalk);
         }
     }
 
@@ -122,6 +153,8 @@ public abstract class AbstractSdjConferencesTest<
 
     protected abstract Optional<C> get(ConferenceId id);
     protected abstract C loadLazyProxyFor(ConferenceId id);
+
+    protected abstract T getSingleTalk(C conf);
 
 }
 //@formatter:on
