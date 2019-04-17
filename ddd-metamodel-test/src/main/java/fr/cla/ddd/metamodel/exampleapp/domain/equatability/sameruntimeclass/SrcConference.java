@@ -34,7 +34,7 @@ public class SrcConference extends AbstractAggregateRoot<SrcConference, Conferen
 
     //Unfortunately this is required by JPA. Don't use.
     @SuppressWarnings("unused")
-    SrcConference() { //TODO eqh: private KO!
+    SrcConference() { //TODO eqh: private KO! (without lazy proxies, private is fine)
         super(SrcConference.class, Equatability.SAME_RUNTIME_CLASS);
         this.budget = null;
     }

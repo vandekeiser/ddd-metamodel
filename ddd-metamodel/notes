@@ -43,4 +43,7 @@ mvn spring-boot:run
 
 -mettre la valid a la sauce forax lambda
 
-//TODO eqh
+-documenter les //TODO eqh
+
+-attention a la distribution de mon PBT elle a l'air un peu suspecte (on devrait pouvoir mettre moins d'iterations)
+

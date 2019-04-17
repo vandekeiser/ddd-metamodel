@@ -27,11 +27,34 @@ extends Equatable<T> {
         this.id = requireNonNull(id);
     }
 
-    protected final List<Object> equalityCriteria() {//TODO eqh: id KO!
+    protected final List<Object> equalityCriteria() {
+//        TODO eqh: this doesn't work with JPA proxies as is, id will be null, ex:
+//[ERROR] Failures:
+//[ERROR]   SdjCeConferencesTest>AbstractSdjConferencesTest.reloaded_lazy_proxy_should_be_equal:81
+//    ->AbstractSdjConferencesTest.reloaded_lazy_proxy_should_be_equal:94
+//    ->AbstractSdjConferencesTest.doInAnotherTransaction:143
+//    java.lang.AssertionError:
+//    Expecting:
+//        <"CeConference{[ConferenceId{[00fe0906-47e9-4999-b529-4eb87b11354d]}]} (CeConference$HibernateProxy$m9713TWc@3e)">
+//    to be equal to:
+//        <"CeConference{[ConferenceId{[00fe0906-47e9-4999-b529-4eb87b11354d]}]} (CeConference@5909f782)">
+//    but was not.
+        //TODO mieux préciser la cause de ce !eq
+//        return singletonList(id);
+
         return singletonList(getId());
     }
 
-    public /*final*/ I getId() {//TODO eqh: final KO!
+//    TODO eqh: this doesn't work with JPA proxies as is, id will be null, ex:
+//[ERROR] Failures:
+//[ERROR]   SdjCeConferencesTest>AbstractSdjConferencesTest.reloaded_lazy_proxy_should_be_equal:81
+//        ->AbstractSdjConferencesTest.reloaded_lazy_proxy_should_be_equal:94
+//        ->AbstractSdjConferencesTest.doInAnotherTransaction:143
+//    org.junit.ComparisonFailure:
+//    expected:<ConferenceId{[3c230cb9-5219-40e5-9398-ca7c6a842a2d]}>
+//    but was:<null>
+//    public final I getId() {
+    public I getId() {
         return id;
     }
 

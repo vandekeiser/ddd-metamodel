@@ -34,7 +34,7 @@ public class IiConference extends AbstractAggregateRoot<IiConference, Conference
 
     //Unfortunately this is required by JPA. Don't use.
     @SuppressWarnings("unused")
-    IiConference() { //TODO eqh: private KO!
+    IiConference() { //TODO eqh: private KO! (without lazy proxies, private is fine)
         super(IiConference.class, Equatability.IS_INSTANCE);
         this.budget = null;
     }

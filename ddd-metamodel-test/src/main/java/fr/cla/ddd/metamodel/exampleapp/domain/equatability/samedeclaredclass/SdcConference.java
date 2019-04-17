@@ -34,7 +34,7 @@ public class SdcConference extends AbstractAggregateRoot<SdcConference, Conferen
 
     //Unfortunately this is required by JPA. Don't use.
     @SuppressWarnings("unused")
-    SdcConference() { //TODO eqh: private KO!
+    SdcConference() { //TODO eqh: private KO! (without lazy proxies, private is fine)
         super(SdcConference.class, Equatability.SAME_DECLARED_CLASS);
         this.budget = null;
     }
