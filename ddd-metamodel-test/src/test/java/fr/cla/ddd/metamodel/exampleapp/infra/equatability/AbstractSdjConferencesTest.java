@@ -91,7 +91,7 @@ public abstract class AbstractSdjConferencesTest<
             persistedConf = doInAnotherTransaction(this::scheduleAndAddConference);
         }
 
-        doInAnotherTransaction( () -> {
+        doInAnotherTransaction(() -> {
             C lazyProxy;
 
             when: {
@@ -110,7 +110,6 @@ public abstract class AbstractSdjConferencesTest<
                     assertThat(lazyProxy).isNotEqualTo(persistedConf);
                     assertThat(lazyProxy).isNotEqualTo(getSingleTalk(persistedConf));
                 }
-
             }
 
             return null;//because this Callable is void
@@ -118,7 +117,6 @@ public abstract class AbstractSdjConferencesTest<
     }
 
     private C loadLazyProxy(ConferenceId id) {
-        //C reloadedConf = sdj.getOne(id);
         C reloadedConf = loadLazyProxyFor(id);
 
         //Sanity check that it is really a lazy proxy
