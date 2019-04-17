@@ -78,7 +78,7 @@ public abstract class AbstractSdjConferencesTest<
 
     @Test
     public void reloaded_lazy_proxy_should_be_equal() {
-        reloaded_lazy_proxy_should_be_equal(doesEqualWorkWithProxies());
+        reloaded_lazy_proxy_should_be_equal(doesEqualWorkWithProxyClasses());
     }
 
     private void reloaded_lazy_proxy_should_be_equal(
@@ -145,7 +145,7 @@ public abstract class AbstractSdjConferencesTest<
         }
     }
 
-    protected abstract boolean doesEqualWorkWithProxies();
+    protected abstract boolean doesEqualWorkWithProxyClasses();
 
     protected abstract C scheduleAndAddConference();
     protected abstract C scheduleConference();

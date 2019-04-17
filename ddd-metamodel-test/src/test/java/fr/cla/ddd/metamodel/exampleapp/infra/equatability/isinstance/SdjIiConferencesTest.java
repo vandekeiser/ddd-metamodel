@@ -22,7 +22,7 @@ extends AbstractSdjConferencesTest<IiConference, IiTalk> {
     @Autowired private IiConferencesSdj sdj;
 
     @Override
-    protected boolean doesEqualWorkWithProxies() {
+    protected boolean doesEqualWorkWithProxyClasses() {
         return true;
     }
 

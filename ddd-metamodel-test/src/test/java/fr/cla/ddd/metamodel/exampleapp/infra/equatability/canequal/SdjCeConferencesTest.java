@@ -22,7 +22,7 @@ extends AbstractSdjConferencesTest<CeConference, CeTalk> {
     @Autowired private CeConferencesSdj sdj;
 
     @Override
-    protected boolean doesEqualWorkWithProxies() {
+    protected boolean doesEqualWorkWithProxyClasses() {
         return true;
     }
 
