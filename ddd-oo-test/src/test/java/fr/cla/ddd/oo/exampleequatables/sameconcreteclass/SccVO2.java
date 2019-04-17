@@ -13,7 +13,7 @@ public class SccVO2 extends Equatable<SccVO2> {
     protected final Value x;
 
     public SccVO2(Value x) {
-        super(SccVO2.class, Equatability.SAME_CONCRETE_CLASS);
+        super(SccVO2.class, Equatability.SAME_RUNTIME_CLASS);
         this.x = x;
     }
 

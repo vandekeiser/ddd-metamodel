@@ -15,7 +15,8 @@ public abstract class Equatable<T extends Equatable<T>> {
     private final Equatability equatability;
 
     protected Equatable(Class<T> type) {
-        this(type, Equatability.SAME_CONCRETE_CLASS);
+        //this(type, Equatability.SAME_RUNTIME_CLASS);
+        this(type, Equatability.SAME_DECLARED_CLASS);
         //this(type, Equatability.IS_INSTANCE);
         //this(type, Equatability.CAN_EQUAL);
     }
@@ -71,7 +72,7 @@ public abstract class Equatable<T extends Equatable<T>> {
          * On the other hand this fails if the class is replaced at load-time by a proxy (eg. by Hibernate).
          * Also of course this isn't as flexible as CAN_EQUAL, as there is now way to still be equal even without adding state.
          */
-        SAME_CONCRETE_CLASS {
+        SAME_RUNTIME_CLASS {
             @Override protected boolean areEquatable(
                 Equatable<?> thisObj, Class<?> thisObjType,
                 Equatable<?> thatObj, Class<?> thatObjType
@@ -97,6 +98,15 @@ public abstract class Equatable<T extends Equatable<T>> {
 //                    &&
 //                    thatObj.canEqual(thisObj)
 //                ;
+            }
+        },
+
+        SAME_DECLARED_CLASS {
+            @Override protected boolean areEquatable(
+                Equatable<?> thisObj, Class<?> thisObjType,
+                Equatable<?> thatObj, Class<?> thatObjType
+            ) {
+                return Objects.equals(thisObjType, thatObjType);
             }
         },
 

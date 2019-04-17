@@ -88,7 +88,7 @@ extends ArbitrarySccEquatables {
     }
 
     /**
-     * Not part of the equals contract, but part of the Equatability.SAME_CONCRETE_CLASS contract.
+     * Not part of the equals contract, but part of the Equatability.SAME_RUNTIME_CLASS contract.
      */
     @PropertyCheck
     public void equals_should_be_false_for_different_types(@ForAll("equatablePairs") EquatablePair p) {

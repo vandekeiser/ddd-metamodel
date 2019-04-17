@@ -43,11 +43,11 @@ public class AbstractValueObjectTest {
     }
 
     @DDD.ValueObject
-    private static class ValueObject2 extends AbstractValueObject<ValueObject1> {
+    private static class ValueObject2 extends AbstractValueObject<ValueObject2> {
         private final long value;
 
         ValueObject2(long value) {
-            super(ValueObject1.class);
+            super(ValueObject2.class);
             this.value = value;
         }
 

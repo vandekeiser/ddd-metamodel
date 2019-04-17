@@ -33,10 +33,10 @@ extends Equatable<T> {
     }
 
     protected final List<Object> equalityCriteria() {
-        return singletonList(id);
+        return singletonList(getId());
     }
 
-    public final I getId() {
+    public /*final*/ I getId() {//TODO eqh
         return id;
     }
 

@@ -39,11 +39,11 @@ public class EquatableTest {
         }
     }
 
-    private static class Equatable2 extends Equatable<Equatable1> {
+    private static class Equatable2 extends Equatable<Equatable2> {
         private final long value;
 
         Equatable2(long value) {
-            super(Equatable1.class);
+            super(Equatable2.class);
             this.value = value;
         }
 
