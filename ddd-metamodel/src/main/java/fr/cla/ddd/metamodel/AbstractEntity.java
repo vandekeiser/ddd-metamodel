@@ -36,7 +36,7 @@ extends Equatable<T> {
         return singletonList(id);
     }
 
-    public /*final*/ I getId() {//TODO eqh
+    public final I getId() {
         return id;
     }
 
