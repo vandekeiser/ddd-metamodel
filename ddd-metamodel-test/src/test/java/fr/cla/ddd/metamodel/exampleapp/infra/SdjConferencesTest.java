@@ -11,10 +11,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.transaction.TestTransaction;
 
-import javax.persistence.EntityManager;
 import java.util.Optional;
 
-import static java.lang.System.out;
 import static org.assertj.core.api.Assertions.assertThat;
 
 //@formatter:off
@@ -83,62 +81,57 @@ public class SdjConferencesTest {
     }
 
     @Test
-    public void xxxxxxxxx4() {//TODO eqh
-        Conference persistedConf;
-//        EntityManager em = sdjEm.get(Conference.class);
+    public void reloaded_lazy_proxy_conference_should_be_equal_to_persisted_conference() {
+        Conference persistedConf = scheduleConference();
 
         given: {
-            persistedConf = scheduleConference();
-            doInAnotherTransaction_TestTransaction(() -> sut.add(persistedConf));
-//            sut.add(persistedConf);
-//            em.detach(persistedConf);
+            doInAnotherTransaction(() -> sut.add(persistedConf));
         }
 
-        doInAnotherTransaction_TestTransaction( () -> {
-            Conference reloadedConf;
+        doInAnotherTransaction( () -> {
+            Conference lazyProxy;
 
-            given:
-            {
-                out.println("________persistedConf.id(): " + persistedConf.getId());
-                reloadedConf = sdj.getOne(persistedConf.getId());
-                assertThat(reloadedConf instanceof HibernateProxy).isTrue();
-                out.println("________reloadedConf.getClass(): " + reloadedConf.getClass());
-                out.println();
-                out.println("________reloadedConf.id(): " + reloadedConf.getId());
-                out.println("________reloadedConf.toString(): " + reloadedConf.toString());
-                out.println();
-                out.println("________reloadedConf.id(): " + reloadedConf.getId());
-                out.println("________reloadedConf.toString(): " + reloadedConf.toString());
-//                reloadedConf.id();
-//                reloadedConf.id();
-//                reloadedConf.toString();
-//                reloadedConf.toString();
-                assertThat(reloadedConf.getId()).isEqualTo(persistedConf.getId());
-//            reloadedConf = sdj.getOne(new ConferenceId(UUID.randomUUID().toString()));
-
+            when: {
+                lazyProxy = loadLazyProxy(persistedConf.getId());
             }
 
-            when_then:
-            {
-                assertThat(reloadedConf).isNotSameAs(persistedConf);
-                persistedConf.getTalks().forEach(out::println);
-                assertThat(reloadedConf).isEqualTo(persistedConf);
+            then: {
+                //It's not the same...
+                assertThat(lazyProxy).isNotSameAs(persistedConf);
+                assertThat(lazyProxy.getClass()).isNotEqualTo(persistedConf.getClass());
+                //...but it's equal
+                assertThat(lazyProxy).isEqualTo(persistedConf);
             }
         });
     }
 
-    private void doInAnotherTransaction_TestTransaction(Runnable task) {
+    private Conference loadLazyProxy(ConferenceId id) {
+        Conference reloadedConf = sdj.getOne(id);
+
+        //Sanity check that it is really a lazy proxy
+        assertThat(reloadedConf instanceof HibernateProxy).isTrue();
+
+        //Check that, because it doesn't work when getId() is final
+        assertThat(reloadedConf.getId()).isEqualTo(id);
+
+        return reloadedConf;
+    }
+
+    private void doInAnotherTransaction(Runnable task) {
         if(TestTransaction.isActive()) {
             TestTransaction.end();
         }
+
         TestTransaction.start();
-
-        task.run();
-
-        TestTransaction.flagForCommit();
-        TestTransaction.end();
+        try {
+            task.run();
+            TestTransaction.flagForCommit();
+        } catch (Throwable t) {
+            TestTransaction.flagForRollback();
+        } finally {
+            TestTransaction.end();
+        }
     }
-
 
     private Talk getSingleTalk(Conference conf) {
         if (conf.getTalks().size() != 1) throw new IllegalArgumentException();
