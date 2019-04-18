@@ -4,6 +4,7 @@ import fr.cla.ddd.metamodel.AbstractValueObject;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.EntityId;
 
+import java.io.Serializable;
 import java.util.List;
 
 import static java.util.Collections.singletonList;
@@ -13,7 +14,7 @@ import static java.util.UUID.randomUUID;
 //@formatter:off
 @DDD.ValueObjectId
 public class ConferenceId extends AbstractValueObject<ConferenceId>
-implements EntityId {
+implements EntityId, Serializable {
 
     private final String value;
 

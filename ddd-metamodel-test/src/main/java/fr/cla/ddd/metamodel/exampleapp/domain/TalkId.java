@@ -4,6 +4,7 @@ import fr.cla.ddd.metamodel.AbstractValueObject;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.EntityId;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,7 +14,7 @@ import static java.util.Objects.requireNonNull;
 //@formatter:off
 @DDD.ValueObjectId
 public class TalkId extends AbstractValueObject<TalkId>
-implements EntityId {
+implements EntityId, Serializable {
 
     private final String value;
 

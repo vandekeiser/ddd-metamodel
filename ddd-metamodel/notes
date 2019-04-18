@@ -60,4 +60,3 @@ mvn spring-boot:run
 -virer logs jul en double
 -log.fine(() -> s.toString()); ---> conf jqwik @before
 -VF equals_should_be_false_for_different_types
--J12
