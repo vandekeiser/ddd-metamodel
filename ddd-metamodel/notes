@@ -77,5 +77,4 @@ equals_should_be_false_for_different_types
         -on recommence avec le cas plus facile de Src
 
 
-
-SdcVO1B
+-reporter les chgts IiGenerator sur SrcGenerator avant de passer a l'equatability suivant
