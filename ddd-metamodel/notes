@@ -75,6 +75,3 @@ equals_should_be_false_for_different_types
         -car SdcVO1 n'a pas de cstr permettant de passer le type concret
         -cela peut-il cohabiter avec le constructeur "concret" de SdcVO1?
         -on recommence avec le cas plus facile de Src
-
-
--reporter les chgts IiGenerator sur SrcGenerator avant de passer a l'equatability suivant
