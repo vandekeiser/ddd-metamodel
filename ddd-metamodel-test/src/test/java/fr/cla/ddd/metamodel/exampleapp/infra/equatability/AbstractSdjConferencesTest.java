@@ -120,7 +120,7 @@ public abstract class AbstractSdjConferencesTest<
         C reloadedConf = loadLazyProxyFor(id);
 
         //Sanity check that it is really a lazy proxy
-        assertThat(reloadedConf instanceof HibernateProxy).isTrue();
+        assertThat(reloadedConf).isInstanceOf(HibernateProxy.class);
 
         //Check that, because it doesn't work when getId() is final
         assertThat(reloadedConf.getId()).isEqualTo(id);
