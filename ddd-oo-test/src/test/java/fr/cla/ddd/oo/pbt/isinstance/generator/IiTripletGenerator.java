@@ -7,9 +7,9 @@ public class IiTripletGenerator {
 
     public static EquatableTriplet generate() {
         return new EquatableTriplet(
-            IiGenerator.generateValue(),
-            IiGenerator.generateValue(),
-            IiGenerator.generateValue()
+            IiGenerator.generateEquatable(),
+            IiGenerator.generateEquatable(),
+            IiGenerator.generateEquatable()
         );
     }
 

@@ -7,8 +7,8 @@ public class IiPairGenerator {
 
     public static EquatablePair generate() {
         return new EquatablePair(
-            IiGenerator.generateValue(),
-            IiGenerator.generateValue()
+            IiGenerator.generateEquatable(),
+            IiGenerator.generateEquatable()
         );
     }
 

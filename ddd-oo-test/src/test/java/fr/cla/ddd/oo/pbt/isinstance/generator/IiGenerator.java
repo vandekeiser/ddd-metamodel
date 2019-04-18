@@ -12,10 +12,10 @@ import java.util.function.Supplier;
 public class IiGenerator {
 
     public static EquatableSingleton generate() {
-        return new EquatableSingleton(generateValue());
+        return new EquatableSingleton(generateEquatable());
     }
 
-    static Equatable<?> generateValue() {
+    static Equatable<?> generateEquatable() {
         switch (ThreadLocalRandom.current().nextInt(6)) {
             case 0: return IiVO1.random();
             case 1: return IiVO2.random();
