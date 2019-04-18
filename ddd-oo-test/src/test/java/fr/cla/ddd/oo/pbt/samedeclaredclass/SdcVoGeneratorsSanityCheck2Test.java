@@ -6,26 +6,22 @@ import fr.cla.ddd.oo.pbt.SanityCheck;
 import net.jqwik.api.Assume;
 import net.jqwik.api.ForAll;
 
-import java.util.logging.Logger;
+
 
 //@formatter:off
 public class SdcVoGeneratorsSanityCheck2Test
 extends ArbitrarySdcEquatables {
 
-    private static final Logger log = Logger.getLogger(SdcVoGeneratorsSanityCheck2Test.class.getName());
-
     @SanityCheck
     public void random_pairs_should_sometimes_contain_xy_of_same_type(
         @ForAll("equatablePairs") EquatablePair p
     ) {
-        log.fine(() -> p.toString());
         random_pairs_should_sometimes_contain_xy_of_type0(p, true);
     }
     @SanityCheck
     public void random_pairs_should_sometimes_contain_xy_of_different_types(
         @ForAll("equatablePairs") EquatablePair p
     ) {
-        log.fine(() -> p.toString());
         random_pairs_should_sometimes_contain_xy_of_type0(p, true);
     }
     private void random_pairs_should_sometimes_contain_xy_of_type0(
@@ -38,14 +34,12 @@ extends ArbitrarySdcEquatables {
     public void random_pairs_should_sometimes_contain_xy_of_related_types(
         @ForAll("equatablePairs") EquatablePair p
     ) {
-        log.fine(() -> p.toString());
         random_pairs_should_sometimes_contain_xy_of_related_types0(p, true);
     }
     @SanityCheck
     public void random_pairs_should_sometimes_contain_xy_of_unrelated_types(
         @ForAll("equatablePairs") EquatablePair p
     ) {
-        log.fine(() -> p.toString());
         random_pairs_should_sometimes_contain_xy_of_related_types0(p, true);
     }
     private void random_pairs_should_sometimes_contain_xy_of_related_types0(

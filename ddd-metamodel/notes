@@ -55,8 +55,8 @@ mvn spring-boot:run
 -assertThat(reloadedConf instanceof HibernateProxy).isTrue();
      -->.isInstanceOf
 -VF JpaConfig
--le EnttyId extends Serializable devrait etre justifié ou viré...
--var/instanceof->cast
 -virer logs jul en double
+    -E System.logger() since J9
 -log.fine(() -> s.toString()); ---> conf jqwik @before
 -VF equals_should_be_false_for_different_types
+
