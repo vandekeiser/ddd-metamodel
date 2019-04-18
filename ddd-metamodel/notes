@@ -44,10 +44,8 @@ mvn spring-boot:run
 -mettre la valid a la sauce forax lambda
 -documenter les //TODO eqh
 -attention a la distribution de mon PBT elle a l'air un peu suspecte (on devrait pouvoir mettre moins d'iterations)
--E System.logger() since J9
+-(NB: E System.logger(), "since J9")
 -VF ceci:
     "Not part of the equals contract, but part of the Equatability.SAME_RUNTIME_CLASS contract."
--mv InMemoryRepository.java 2 test
--VF JpaConfig
 -VF equals_should_be_false_for_different_types
 
