@@ -52,10 +52,7 @@ mvn spring-boot:run
 -VF ceci:
 "Not part of the equals contract, but part of the Equatability.SAME_RUNTIME_CLASS contract."
 -merger les sanitycheck2
--passer a java 12 et mettre les switch expr?
 -mv InMemoryRepository.java 2 test
--assertThat(reloadedConf instanceof HibernateProxy).isTrue();
-     -->.isInstanceOf
 -VF JpaConfig
 -virer logs jul en double
 
