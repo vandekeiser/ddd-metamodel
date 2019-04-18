@@ -29,20 +29,39 @@ public class IiGenerator {
 
     static Supplier<Equatable<?>> generateDifferentButEqualEquatables() {
         int type = ThreadLocalRandom.current().nextInt(6);
+        int subtype = ThreadLocalRandom.current().nextInt(3);
         Value x = Value.random();
         Value y = Value.random();
 
-        return generateDifferentButEqualEquatables(type, x, y);
+        return generateDifferentButEqualEquatables(type, subtype, x, y);
     }
 
-    private static Supplier<Equatable<?>> generateDifferentButEqualEquatables(int type, Value x, Value y) {
+    private static Supplier<Equatable<?>> generateDifferentButEqualEquatables(int type, int subtype, Value x, Value y) {
         switch (type) {
-            case 0: return () -> new IiVO1(x);
-            case 1: return () -> new IiVO1(x);
+            case 0: return () -> randomIiVO1(subtype, x, y);
+            case 1: return () -> randomIiVO2(subtype, x, y);
             case 2: return () -> new IiVO1A(x,y);
             case 3: return () -> new IiVO1B(x,y);
             case 4: return () -> new IiVO2A(x,y);
             case 5: return () -> new IiVO2B(x,y);
+            default: throw new AssertionError();
+        }
+    }
+
+    private static Equatable<?> randomIiVO1(int subtype, Value x, Value y) {
+        switch (subtype) {
+            case 0: return new IiVO1(x);
+            case 1: return new IiVO1A(x, y);
+            case 2: return new IiVO1B(x, y);
+            default: throw new AssertionError();
+        }
+    }
+
+    private static Equatable<?> randomIiVO2(int subtype, Value x, Value y) {
+        switch (subtype) {
+            case 0: return new IiVO2(x);
+            case 1: return new IiVO2A(x, y);
+            case 2: return new IiVO2B(x, y);
             default: throw new AssertionError();
         }
     }
