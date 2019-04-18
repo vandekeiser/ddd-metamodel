@@ -45,6 +45,7 @@ mvn spring-boot:run
 -documenter les //TODO eqh
 -attention a la distribution de mon PBT elle a l'air un peu suspecte (on devrait pouvoir mettre moins d'iterations)
 -(NB: E System.logger(), "since J9")
+-desctiver explicitement open sess in view
 -VF ceci:
     -"Not part of the equals contract, but part of the Equatability.SAME_RUNTIME_CLASS contract."
     -equals_should_be_false_for_different_types
@@ -74,6 +75,7 @@ equals_should_be_false_for_different_types
         -car SdcVO1 n'a pas de cstr permettant de passer le type concret
         -cela peut-il cohabiter avec le constructeur "concret" de SdcVO1?
         -on recommence avec le cas plus facile de Src
+
 
 
 SdcVO1B

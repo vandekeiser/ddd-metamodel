@@ -1,16 +1,15 @@
-package fr.cla.ddd.oo.pbt.isinstance;
+package fr.cla.ddd.oo.pbt.isinstance.generator;
 
 
 import fr.cla.ddd.oo.pbt.EquatablePair;
 import fr.cla.ddd.oo.pbt.EquatableTriplet;
 import fr.cla.ddd.oo.pbt.SanityCheck;
-import fr.cla.ddd.oo.pbt.isinstance.generator.ArbitraryIiEquatables;
 import net.jqwik.api.Assume;
 import net.jqwik.api.ForAll;
 
 //@formatter:off
-public class IiVoGeneratorSanityCheckTest
-extends ArbitraryIiEquatables {
+public class IiGeneratorSanityCheckTest
+extends ArbitraryIis {
 
     @SanityCheck
     public void random_pairs_should_sometimes_contain_equal_xy(

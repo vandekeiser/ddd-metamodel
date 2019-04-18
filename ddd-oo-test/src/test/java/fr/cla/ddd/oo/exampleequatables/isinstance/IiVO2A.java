@@ -11,7 +11,7 @@ public final class IiVO2A extends IiVO2 {
     private final Value y;
 
     public IiVO2A(Value y, Value x) {
-        super(x);
+        super(IiVO2A.class, x);
         this.y = y;
     }
 

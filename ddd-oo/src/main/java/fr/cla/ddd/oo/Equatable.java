@@ -11,14 +11,14 @@ import static java.util.Objects.requireNonNull;
  */
 public abstract class Equatable<T extends Equatable<T>> {
 
-    private final Class<T> type;
+    private final Class<? extends T> type;
     private final Equatability equatability;
 
-    protected Equatable(Class<T> type) {
+    protected Equatable(Class<? extends T> type) {
         this(type, Equatability.DEFAULT);
     }
 
-    protected Equatable(Class<T> type, Equatability equatability) {
+    protected Equatable(Class<? extends T> type, Equatability equatability) {
         this.type = requireNonNull(type);
         this.equatability = requireNonNull(equatability);
     }
@@ -60,7 +60,9 @@ public abstract class Equatable<T extends Equatable<T>> {
         return true;
     }
 
-
+    public Class<? extends T> getDeclaredType() {
+        return this.type;
+    }
 
 
     public enum Equatability {

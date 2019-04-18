@@ -17,6 +17,11 @@ public class IiVO2 extends Equatable<IiVO2> {
         this.x = x;
     }
 
+    public IiVO2(Class<? extends IiVO2> type, Value x) {
+        super(type, Equatability.IS_INSTANCE);
+        this.x = x;
+    }
+
     public static IiVO2 random() {
         return new IiVO2(Value.random());
     }

@@ -5,14 +5,14 @@ import fr.cla.ddd.oo.pbt.EquatablePair;
 import fr.cla.ddd.oo.pbt.EquatableSingleton;
 import fr.cla.ddd.oo.pbt.EquatableTriplet;
 import fr.cla.ddd.oo.pbt.PropertyCheck;
-import fr.cla.ddd.oo.pbt.isinstance.generator.ArbitraryIiEquatables;
+import fr.cla.ddd.oo.pbt.isinstance.generator.ArbitraryIis;
 import net.jqwik.api.ForAll;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 //@formatter:off
-public class IiVoTest
-extends ArbitraryIiEquatables {
+public class IiSatisfiesGeneralEqualsAndHashcodeContractTest
+extends ArbitraryIis {
 
     @PropertyCheck
     public void equals_should_be_reflexive(@ForAll("equatableSingletons") EquatableSingleton s) {

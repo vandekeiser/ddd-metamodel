@@ -3,13 +3,13 @@ package fr.cla.ddd.oo.pbt.isinstance.generator;
 import fr.cla.ddd.oo.pbt.EquatableTriplet;
 
 //@formatter:off
-public class IiVoTripletGenerator {
+public class IiTripletGenerator {
 
     public static EquatableTriplet generate() {
         return new EquatableTriplet(
-            IiVoGenerator.generateValue(),
-            IiVoGenerator.generateValue(),
-            IiVoGenerator.generateValue()
+            IiGenerator.generateValue(),
+            IiGenerator.generateValue(),
+            IiGenerator.generateValue()
         );
     }
 
