@@ -42,20 +42,12 @@ mvn spring-boot:run
     [ERROR] No plugin found for prefix 'spring-boot' in the current project and in the plugin groups [org.apache.maven.plugins, org.codehaus.mojo] available from the repositories [local (/home/admistrateur/.m2/repository), central (https://repo.maven.apache.org/maven2)] -> [Help 1]
 
 -mettre la valid a la sauce forax lambda
-
 -documenter les //TODO eqh
-
 -attention a la distribution de mon PBT elle a l'air un peu suspecte (on devrait pouvoir mettre moins d'iterations)
-
 -E System.logger() since J9
-
 -VF ceci:
-"Not part of the equals contract, but part of the Equatability.SAME_RUNTIME_CLASS contract."
--merger les sanitycheck2
+    "Not part of the equals contract, but part of the Equatability.SAME_RUNTIME_CLASS contract."
 -mv InMemoryRepository.java 2 test
 -VF JpaConfig
--virer logs jul en double
-
--log.fine(() -> s.toString()); ---> conf jqwik @before
 -VF equals_should_be_false_for_different_types
 

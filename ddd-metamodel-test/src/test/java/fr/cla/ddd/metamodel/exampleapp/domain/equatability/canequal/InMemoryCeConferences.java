@@ -7,7 +7,7 @@ import fr.cla.ddd.metamodel.exampleapp.domain.InMemoryRepository;
 //@formatter:off
 @DDD.RepositoryImpl
 @org.springframework.stereotype.Service
-public class CeMemoryIiConferences
+public class InMemoryCeConferences
 extends InMemoryRepository<CeConference, ConferenceId>
 implements CeConferences {
 
