@@ -3,13 +3,13 @@ package fr.cla.ddd.oo.pbt.sameruntimeclass.generator;
 import fr.cla.ddd.oo.pbt.EquatableTriplet;
 
 //@formatter:off
-public class SrcVoTripletGenerator {
+public class SrcTripletGenerator {
 
     public static EquatableTriplet generate() {
         return new EquatableTriplet(
-            SrcVoGenerator.generateValue(),
-            SrcVoGenerator.generateValue(),
-            SrcVoGenerator.generateValue()
+            SrcGenerator.generateEquatable(),
+            SrcGenerator.generateEquatable(),
+            SrcGenerator.generateEquatable()
         );
     }
 

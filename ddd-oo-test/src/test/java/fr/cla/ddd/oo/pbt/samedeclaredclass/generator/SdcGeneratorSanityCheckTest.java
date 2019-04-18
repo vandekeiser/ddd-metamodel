@@ -1,16 +1,16 @@
-package fr.cla.ddd.oo.pbt.samedeclaredclass;
+package fr.cla.ddd.oo.pbt.samedeclaredclass.generator;
 
 
 import fr.cla.ddd.oo.pbt.EquatablePair;
 import fr.cla.ddd.oo.pbt.EquatableTriplet;
 import fr.cla.ddd.oo.pbt.SanityCheck;
-import fr.cla.ddd.oo.pbt.sameruntimeclass.generator.ArbitrarySrcEquatables;
+import fr.cla.ddd.oo.pbt.samedeclaredclass.generator.ArbitrarySdcEquatables;
 import net.jqwik.api.Assume;
 import net.jqwik.api.ForAll;
 
 //@formatter:off
-public class SrcVoGeneratorSanityCheckTest
-    extends ArbitrarySrcEquatables {
+public class SdcGeneratorSanityCheckTest
+extends ArbitrarySdcEquatables {
 
     @SanityCheck
     public void random_pairs_should_sometimes_contain_equal_xy(
