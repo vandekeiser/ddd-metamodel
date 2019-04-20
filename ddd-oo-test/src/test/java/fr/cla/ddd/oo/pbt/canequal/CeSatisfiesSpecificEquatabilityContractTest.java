@@ -4,7 +4,7 @@ package fr.cla.ddd.oo.pbt.canequal;
 import fr.cla.ddd.oo.pbt.EqualPair;
 import fr.cla.ddd.oo.pbt.EquatablePair;
 import fr.cla.ddd.oo.pbt.PropertyCheck;
-import fr.cla.ddd.oo.pbt.canequal.generator.ArbitraryCes;
+import fr.cla.ddd.oo.pbt.canequal.generators.ArbitraryCes;
 import net.jqwik.api.Assume;
 import net.jqwik.api.ForAll;
 

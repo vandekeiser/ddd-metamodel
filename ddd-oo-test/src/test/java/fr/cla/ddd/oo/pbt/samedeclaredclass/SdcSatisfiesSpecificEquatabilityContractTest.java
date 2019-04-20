@@ -4,7 +4,7 @@ package fr.cla.ddd.oo.pbt.samedeclaredclass;
 import fr.cla.ddd.oo.pbt.EqualPair;
 import fr.cla.ddd.oo.pbt.EquatablePair;
 import fr.cla.ddd.oo.pbt.PropertyCheck;
-import fr.cla.ddd.oo.pbt.samedeclaredclass.generator.ArbitrarySdcs;
+import fr.cla.ddd.oo.pbt.samedeclaredclass.generators.ArbitrarySdcs;
 import net.jqwik.api.Assume;
 import net.jqwik.api.ForAll;
 

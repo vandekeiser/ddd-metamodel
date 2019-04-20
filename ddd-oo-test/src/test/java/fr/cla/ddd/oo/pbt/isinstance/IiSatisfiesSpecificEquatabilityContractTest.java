@@ -4,7 +4,7 @@ package fr.cla.ddd.oo.pbt.isinstance;
 import fr.cla.ddd.oo.pbt.EqualPair;
 import fr.cla.ddd.oo.pbt.EquatablePair;
 import fr.cla.ddd.oo.pbt.PropertyCheck;
-import fr.cla.ddd.oo.pbt.isinstance.generator.ArbitraryIis;
+import fr.cla.ddd.oo.pbt.isinstance.generators.ArbitraryIis;
 import net.jqwik.api.Assume;
 import net.jqwik.api.ForAll;
 
