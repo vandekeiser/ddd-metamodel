@@ -10,9 +10,7 @@ import fr.cla.ddd.oo.pbt.Value;
 public final class CeVO1A extends CeVO1 {
 
     public CeVO1A(Value x) {
-        //Note that i pass the parent class to be able to cast both CeVO1 and CeVO1B to CeVO1
-        // (since equals must be symmetric )
-        super(CeVO1.class, x);
+        super(CeVO1A.class, x);
     }
 
     public static CeVO1A random() {

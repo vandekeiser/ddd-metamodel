@@ -12,9 +12,7 @@ public class CeVO1B extends CeVO1 {
     private final Value y;
 
     public CeVO1B(Value y, Value x) {
-        //Note that i pass the parent class to be able to cast both CeVO1 and CeVO1B to CeVO1
-        // (since equals must be symmetric )
-        super(CeVO1.class, x);
+        super(CeVO1B.class, x);
         this.y = y;
     }
 

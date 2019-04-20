@@ -29,7 +29,7 @@ public abstract class Equatable<T extends Equatable<T>> {
 
         if(! equatability.areEquatable(this, type, obj)) return false;
 
-        T that = type.cast(obj);
+        Equatable<?> that = (Equatable<?>) obj;
 
         return Objects.equals(
             this.equalityCriteria(),
