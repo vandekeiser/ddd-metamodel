@@ -56,24 +56,24 @@ extends ArbitraryIis {
         assertThat(
             p.x.equals(p.y)
         )
-            .as(
-                "Expected IS_INSTANCE Equatables that are not instances of each other's declared type to not be equal. Actual: %n" +
-                    "    p.x: %s%n" +
-                    "    p.y: %s%n" +
-                    "    p.x.equals(p.y): %b%n" +
-                    "    p.x.getDeclaredType(): %s%n" +
-                    "    p.y.getDeclaredType(): %s%n" +
-                    "    p.x.getDeclaredType().isInstance(p.y): %b" +
-                    "    p.y.getDeclaredType().isInstance(p.x): %b" +
-                    "    p.x.getDeclaredType().isInstance(p.y) && p.y.getDeclaredType().isInstance(p.x)",
-                p.x, p.y, p.x.equals(p.y),
-                p.x.getDeclaredType(),
-                p.y.getDeclaredType(),
-                p.x.getDeclaredType().isInstance(p.y),
-                p.y.getDeclaredType().isInstance(p.x),
-                p.x.getDeclaredType().isInstance(p.y) && p.y.getDeclaredType().isInstance(p.x)
-            )
-            .isFalse();
+        .as(
+            "Expected IS_INSTANCE Equatables that are not instances of each other's declared type to not be equal. Actual: %n" +
+                "    p.x: %s%n" +
+                "    p.y: %s%n" +
+                "    p.x.equals(p.y): %b%n" +
+                "    p.x.getDeclaredType(): %s%n" +
+                "    p.y.getDeclaredType(): %s%n" +
+                "    p.x.getDeclaredType().isInstance(p.y): %b" +
+                "    p.y.getDeclaredType().isInstance(p.x): %b" +
+                "    p.x.getDeclaredType().isInstance(p.y) && p.y.getDeclaredType().isInstance(p.x)",
+            p.x, p.y, p.x.equals(p.y),
+            p.x.getDeclaredType(),
+            p.y.getDeclaredType(),
+            p.x.getDeclaredType().isInstance(p.y),
+            p.y.getDeclaredType().isInstance(p.x),
+            p.x.getDeclaredType().isInstance(p.y) && p.y.getDeclaredType().isInstance(p.x)
+        )
+        .isFalse();
     }
 
 }
