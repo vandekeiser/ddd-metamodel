@@ -13,7 +13,6 @@ import static fr.cla.ddd.oo.pbt.SanityCheck.SANITY_CHECK_TRIALS;
 
 @Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
-//@Property(tries = PROPERTY_TRIALS)
 @Property(generation = GenerationMode.RANDOMIZED,
     tries = SANITY_CHECK_TRIALS,
     maxDiscardRatio = PROPERTY_CHECK_MAX_DISCARD_RATIO

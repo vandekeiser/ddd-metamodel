@@ -20,7 +20,7 @@ import static fr.cla.ddd.oo.pbt.SanityCheck.SANITY_CHECK_TRIALS;
 )
 public @interface SanityCheck {
 
-    int SANITY_CHECK_TRIALS = 100_000;
+    int SANITY_CHECK_TRIALS = 10_000;
     int SANITY_CHECK_MAX_DISCARD_RATIO = SANITY_CHECK_TRIALS/10;
 
 }
