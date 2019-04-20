@@ -11,7 +11,7 @@ public final class SrcVO1A extends SrcVO1 {
     private final Value y;
 
     public SrcVO1A(Value y, Value x) {
-        super(x);
+        super(SrcVO1A.class, x);
         this.y = y;
     }
 

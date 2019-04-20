@@ -2,6 +2,7 @@ package fr.cla.ddd.oo.exampleequatables.sameruntimeclass;
 
 import fr.cla.ddd.oo.Equatable;
 import fr.cla.ddd.oo.exampleequatables.Value;
+import fr.cla.ddd.oo.exampleequatables.samedeclaredclass.SdcVO1;
 
 import java.util.List;
 
@@ -14,6 +15,11 @@ public class SrcVO1 extends Equatable<SrcVO1> {
 
     public SrcVO1(Value x) {
         super(SrcVO1.class, Equatability.SAME_RUNTIME_CLASS);
+        this.x = x;
+    }
+
+    public SrcVO1(Class<? extends SrcVO1> type, Value x) {
+        super(type, Equatability.SAME_RUNTIME_CLASS);
         this.x = x;
     }
 

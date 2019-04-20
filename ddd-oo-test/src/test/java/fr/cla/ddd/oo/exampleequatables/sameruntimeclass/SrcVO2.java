@@ -17,6 +17,11 @@ public class SrcVO2 extends Equatable<SrcVO2> {
         this.x = x;
     }
 
+    public SrcVO2(Class<? extends SrcVO2> type, Value x) {
+        super(type, Equatability.SAME_RUNTIME_CLASS);
+        this.x = x;
+    }
+
     public static SrcVO2 random() {
         return new SrcVO2(Value.random());
     }
