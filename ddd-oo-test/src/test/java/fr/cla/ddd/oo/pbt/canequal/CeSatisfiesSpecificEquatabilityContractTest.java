@@ -4,9 +4,13 @@ package fr.cla.ddd.oo.pbt.canequal;
 import fr.cla.ddd.oo.pbt.EqualPair;
 import fr.cla.ddd.oo.pbt.EquatablePair;
 import fr.cla.ddd.oo.pbt.PropertyCheck;
+import fr.cla.ddd.oo.pbt.Value;
+import fr.cla.ddd.oo.pbt.canequal.exampleequatables.CeVO1;
+import fr.cla.ddd.oo.pbt.canequal.exampleequatables.CeVO1A;
 import fr.cla.ddd.oo.pbt.canequal.generators.ArbitraryCes;
 import net.jqwik.api.Assume;
 import net.jqwik.api.ForAll;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -66,6 +70,28 @@ extends ArbitraryCes {
             p.x.canEqual(p.y) && p.y.canEqual(p.x)
         )
         .isFalse();
+    }
+
+    @Test
+    public void equatable_of_different_declared_type_can_sometimes_be_equal() {
+        Value value = Value.random();
+        CeVO1 ceVO1 = new CeVO1(value);
+        CeVO1A ceVO1A = new CeVO1A(value);
+
+        assertThat(ceVO1A.getDeclaredType()).isNotEqualTo(ceVO1.getDeclaredType());
+        assertThat(ceVO1A).isEqualTo(ceVO1);
+        assertThat(ceVO1).isEqualTo(ceVO1A);
+    }
+
+    @Test
+    public void equatable_of_different_runtime_type_can_sometimes_be_equal() {
+        Value value = Value.random();
+        CeVO1 ceVO1 = new CeVO1(value);
+        CeVO1A ceVO1A = new CeVO1A(value);
+
+        assertThat(ceVO1A.getClass()).isNotEqualTo(ceVO1.getClass());
+        assertThat(ceVO1A).isEqualTo(ceVO1);
+        assertThat(ceVO1).isEqualTo(ceVO1A);
     }
 
 }
