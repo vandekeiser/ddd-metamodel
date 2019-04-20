@@ -56,7 +56,7 @@ public abstract class Equatable<T extends Equatable<T>> {
     /**
      * @see "Equatability.CAN_EQUAL"
      */
-    protected boolean canEqual(Equatable<?> that) {
+    public boolean canEqual(Equatable<?> that) {
         return true;
     }
 

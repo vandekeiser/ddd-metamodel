@@ -33,7 +33,7 @@ https://stackoverflow.com/questions/53477690/properly-implementing-java-modules-
         }
 
         @Override
-        protected boolean canEqual(Equatable<?> that) {
+        public boolean canEqual(Equatable<?> that) {
             return that instanceof CeVO1B;
         }
 
@@ -75,3 +75,5 @@ equals_should_be_false_for_different_types
         -car SdcVO1 n'a pas de cstr permettant de passer le type concret
         -cela peut-il cohabiter avec le constructeur "concret" de SdcVO1?
         -on recommence avec le cas plus facile de Src
+-esayter de resserrer le type de Class<extends T> en splittant en 2 types?
+-vf les msg de test "specifc" (ex. "equal"  en trop) et vf cx qui n'ont qu'1 des 2 tests

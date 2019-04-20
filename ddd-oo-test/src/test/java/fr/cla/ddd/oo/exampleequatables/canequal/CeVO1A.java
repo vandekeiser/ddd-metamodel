@@ -10,7 +10,9 @@ import fr.cla.ddd.oo.exampleequatables.Value;
 public final class CeVO1A extends CeVO1 {
 
     public CeVO1A(Value x) {
-        super(x);
+        //Note that i pass the parent class to be able to cast both CeVO1 and CeVO1B to CeVO1
+        // (since equals must be symmetric )
+        super(CeVO1.class, x);
     }
 
     public static CeVO1A random() {
@@ -29,7 +31,7 @@ public final class CeVO1A extends CeVO1 {
      * Therefore we can do this (it would rarely be useful though)
      */
     @Override
-    protected boolean canEqual(Equatable<?> that) {
+    public boolean canEqual(Equatable<?> that) {
         return that instanceof CeVO1;
     }
 

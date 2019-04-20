@@ -3,12 +3,12 @@ package fr.cla.ddd.oo.pbt.canequal.generator;
 import fr.cla.ddd.oo.pbt.EquatablePair;
 
 //@formatter:off
-public class CeVoPairGenerator {
+public class CePairGenerator {
 
     public static EquatablePair generate() {
         return new EquatablePair(
-            CeVoGenerator.generateValue(),
-            CeVoGenerator.generateValue()
+            CeGenerator.generateValue(),
+            CeGenerator.generateValue()
         );
     }
 

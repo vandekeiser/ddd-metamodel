@@ -34,7 +34,7 @@ public class EquatableTest {
         }
 
         @Override
-        protected boolean canEqual(Equatable<?> that) {
+        public boolean canEqual(Equatable<?> that) {
             return that instanceof Equatable1;
         }
     }
@@ -53,7 +53,7 @@ public class EquatableTest {
         }
 
         @Override
-        protected boolean canEqual(Equatable<?> that) {
+        public boolean canEqual(Equatable<?> that) {
             return that instanceof Equatable2;
         }
     }

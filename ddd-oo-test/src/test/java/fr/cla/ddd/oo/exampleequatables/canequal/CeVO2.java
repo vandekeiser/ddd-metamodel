@@ -17,6 +17,11 @@ public class CeVO2 extends Equatable<CeVO2> {
         this.x = x;
     }
 
+    public CeVO2(Class<? extends CeVO2> type, Value x) {
+        super(type, Equatability.CAN_EQUAL);
+        this.x = x;
+    }
+
     public static CeVO2 random() {
         return new CeVO2(Value.random());
     }
@@ -27,7 +32,7 @@ public class CeVO2 extends Equatable<CeVO2> {
     }
 
     @Override
-    protected boolean canEqual(Equatable<?> that) {
+    public boolean canEqual(Equatable<?> that) {
         return that instanceof CeVO2;
     }
 

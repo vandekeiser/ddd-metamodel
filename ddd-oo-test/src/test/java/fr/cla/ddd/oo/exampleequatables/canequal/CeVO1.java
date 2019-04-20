@@ -2,6 +2,7 @@ package fr.cla.ddd.oo.exampleequatables.canequal;
 
 import fr.cla.ddd.oo.Equatable;
 import fr.cla.ddd.oo.exampleequatables.Value;
+import fr.cla.ddd.oo.exampleequatables.isinstance.IiVO1;
 
 import java.util.List;
 
@@ -17,6 +18,11 @@ public class CeVO1 extends Equatable<CeVO1> {
         this.x = x;
     }
 
+    public CeVO1(Class<? extends CeVO1> type, Value x) {
+        super(type, Equatability.CAN_EQUAL);
+        this.x = x;
+    }
+
     public static CeVO1 random() {
         return new CeVO1(Value.random());
     }
@@ -27,7 +33,7 @@ public class CeVO1 extends Equatable<CeVO1> {
     }
 
     @Override
-    protected boolean canEqual(Equatable<?> that) {
+    public boolean canEqual(Equatable<?> that) {
         return that instanceof CeVO1;
     }
 

@@ -1,16 +1,15 @@
-package fr.cla.ddd.oo.pbt.canequal;
+package fr.cla.ddd.oo.pbt.canequal.generator;
 
 
 import fr.cla.ddd.oo.pbt.EquatablePair;
 import fr.cla.ddd.oo.pbt.EquatableTriplet;
 import fr.cla.ddd.oo.pbt.SanityCheck;
-import fr.cla.ddd.oo.pbt.canequal.generator.ArbitraryCeEquatables;
 import net.jqwik.api.Assume;
 import net.jqwik.api.ForAll;
 
 //@formatter:off
-public class CeVoGeneratorSanityCheckTest
-extends ArbitraryCeEquatables {
+public class CeGeneratorSanityCheckTest
+extends ArbitraryCes {
 
     @SanityCheck
     public void random_pairs_should_sometimes_contain_equal_xy(
