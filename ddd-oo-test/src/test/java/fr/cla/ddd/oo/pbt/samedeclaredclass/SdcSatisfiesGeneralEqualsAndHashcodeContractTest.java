@@ -5,14 +5,14 @@ import fr.cla.ddd.oo.pbt.EquatablePair;
 import fr.cla.ddd.oo.pbt.EquatableSingleton;
 import fr.cla.ddd.oo.pbt.EquatableTriplet;
 import fr.cla.ddd.oo.pbt.PropertyCheck;
-import fr.cla.ddd.oo.pbt.samedeclaredclass.generator.ArbitrarySdcEquatables;
+import fr.cla.ddd.oo.pbt.samedeclaredclass.generator.ArbitrarySdcs;
 import net.jqwik.api.ForAll;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 //@formatter:off
-public class SdcVoTest
-extends ArbitrarySdcEquatables {
+public class SdcSatisfiesGeneralEqualsAndHashcodeContractTest
+extends ArbitrarySdcs {
 
     @PropertyCheck
     public void equals_should_be_reflexive(@ForAll("equatableSingletons") EquatableSingleton s) {
@@ -72,30 +72,6 @@ extends ArbitrarySdcEquatables {
         ).isEqualTo(
             s.x.hashCode()
         );
-    }
-
-    /**
-     * Not part of the equals contract, but part of the Equatability.SAME_RUNTIME_CLASS contract.
-     */
-    @PropertyCheck
-    public void equals_should_be_false_for_different_types(@ForAll("equatablePairs") EquatablePair p) {
-        if(!p.x.equals(p.y)) return;
-
-        assertThat(
-            p.x.getClass().equals(p.y.getClass())
-        )
-        .as(
-            "Expected only VOs of same time to be equal. Actual: %n" +
-            "    p.x: %s%n" +
-            "    p.y: %s%n" +
-            "    p.x.equals(p.y): %b%n" +
-            "    p.x.getClass(): %s%n" +
-            "    p.y.getClass(): %s%n" +
-            "    p.x.getClass().equals(p.y.getClass(): %b",
-            p.x, p.y, p.x.equals(p.y),
-            p.x.getClass(), p.y.getClass(), p.x.getClass().equals(p.y.getClass())
-        )
-        .isTrue();
     }
 
 }

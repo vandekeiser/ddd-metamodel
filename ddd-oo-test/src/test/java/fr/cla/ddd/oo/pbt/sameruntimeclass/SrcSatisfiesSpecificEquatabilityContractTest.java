@@ -30,7 +30,9 @@ extends ArbitrarySrcs {
             "    p.y.getClass(): %s%n" +
             "    p.x.getClass().equals(p.y.getClass(): %b",
             p.x, p.y, p.x.equals(p.y),
-            p.x.getClass(), p.y.getClass(), p.x.getClass().equals(p.y.getClass())
+            p.x.getClass(),
+            p.y.getClass(),
+            p.x.getClass().equals(p.y.getClass())
         )
         .isTrue();
     }

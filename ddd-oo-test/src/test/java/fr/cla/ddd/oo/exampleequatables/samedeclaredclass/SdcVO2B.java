@@ -11,7 +11,7 @@ public final class SdcVO2B extends SdcVO2 {
     private final Value y;
 
     public SdcVO2B(Value y, Value x) {
-        super(x);
+        super(SdcVO2B.class, x);
         this.y = y;
     }
 

@@ -17,6 +17,11 @@ public class SdcVO2 extends Equatable<SdcVO2> {
         this.x = x;
     }
 
+    public SdcVO2(Class<? extends SdcVO2> type, Value x) {
+        super(type, Equatability.SAME_DECLARED_CLASS);
+        this.x = x;
+    }
+
     public static SdcVO2 random() {
         return new SdcVO2(Value.random());
     }

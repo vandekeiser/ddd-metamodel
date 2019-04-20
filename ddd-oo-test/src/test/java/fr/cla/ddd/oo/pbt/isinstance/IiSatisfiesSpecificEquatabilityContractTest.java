@@ -15,37 +15,6 @@ public class IiSatisfiesSpecificEquatabilityContractTest
 extends ArbitraryIis {
 
     @PropertyCheck
-    public void when_equals_is_true_then_both_should_be_instances_of_each_others_declared_type(
-        @ForAll("equalPairs") EqualPair p
-    ) {
-        Assume.that(p.x.equals(p.y));
-
-        assertThat(
-            p.x.getDeclaredType().isInstance(p.y)
-                &&
-            p.y.getDeclaredType().isInstance(p.x)
-        )
-        .as(
-            "Expected equal IS_INSTANCE Equatables to both be instances of the other's declared type. Actual: %n" +
-            "    p.x: %s%n" +
-            "    p.y: %s%n" +
-            "    p.x.equals(p.y): %b%n" +
-            "    p.x.getDeclaredType(): %s%n" +
-            "    p.y.getDeclaredType(): %s%n" +
-            "    p.x.getDeclaredType().isInstance(p.y): %b" +
-            "    p.y.getDeclaredType().isInstance(p.x): %b" +
-            "    p.x.getDeclaredType().isInstance(p.y) && p.y.getDeclaredType().isInstance(p.x)",
-            p.x, p.y, p.x.equals(p.y),
-            p.x.getDeclaredType(),
-            p.y.getDeclaredType(),
-            p.x.getDeclaredType().isInstance(p.y),
-            p.y.getDeclaredType().isInstance(p.x),
-            p.x.getDeclaredType().isInstance(p.y) && p.y.getDeclaredType().isInstance(p.x)
-        )
-        .isTrue();
-    }
-
-    @PropertyCheck
     public void when_both_are_not_instances_of_each_others_declared_type_then_equals_should_be_false(@ForAll("equatablePairs") EquatablePair p) {
         Assume.that(!(
             p.x.getDeclaredType().isInstance(p.y)
