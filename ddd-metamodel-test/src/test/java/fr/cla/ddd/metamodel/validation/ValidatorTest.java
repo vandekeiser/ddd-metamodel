@@ -1,7 +1,5 @@
-package fr.cla.ddd.metamodel;
+package fr.cla.ddd.metamodel.validation;
 
-import fr.cla.ddd.metamodel.validation.Validation;
-import fr.cla.ddd.metamodel.validation.Validator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
