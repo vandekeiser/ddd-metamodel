@@ -31,10 +31,7 @@ public class Validation<T> {
     private Validation<T> validate(Predicate<? super T> validation, String message) {
         try {
             if (!validation.test(t)) {
-                errors.add(new IllegalArgumentException(String.format(
-                    "Validation error: %s, actual value was: %s",
-                    message, t
-                )));
+                errors.add(new IllegalArgumentException("Validation error: " + message));
             }
         } catch (RuntimeException e) {
             errors.add(e);

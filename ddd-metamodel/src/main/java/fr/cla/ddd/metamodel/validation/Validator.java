@@ -16,6 +16,10 @@ public class Validator<T> {
         this.type = requireNonNull(type);
     }
 
+    public static <T> Validator<T> of(Class<T> type) {
+        return new Validator<>(type);
+    }
+
     /**
      * Validate the object as a whole
      */
@@ -32,11 +36,10 @@ public class Validator<T> {
         Predicate<? super U> validation,
         String message
     ) {
-        return validate(fieldExtractor.andThen(validation::test)::apply, message);
-    }
-
-    public static <T> Validator<T> of(Class<T> type) {
-        return new Validator<>(type);
+        return validate(
+            fieldExtractor.andThen(validation::test)::apply,
+            message
+        );
     }
 
     public Validation<T> validate(T object) {

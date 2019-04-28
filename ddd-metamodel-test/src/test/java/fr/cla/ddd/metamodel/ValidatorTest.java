@@ -19,9 +19,9 @@ public class ValidatorTest {
     @BeforeEach
     public void setupValidator() {
         sut = Validator.of(User.class)
-            .validate(User::getName, Objects::nonNull, "name is null")
-            .validate(User::getName, name -> !name.isEmpty(), "name is empty")
-            .validate(User::getAge, inBetween(0, 150)::test, "age is between 0 and 150")
+            .validate(User::getName, Objects::nonNull, "name must not be null")
+            .validate(User::getName, name -> !name.isEmpty(), "name must not be empty")
+            .validate(User::getAge, inBetween(0, 150)::test, "age must be between 0 and 150")
         ;
     }
 
@@ -62,11 +62,11 @@ public class ValidatorTest {
 
             //And
             Throwable invalidName = validationErrors[0];
-            assertThat(invalidName.getMessage()).isEqualTo("Validation error: name is empty, actual value was: {name:, age:-12}");
+            assertThat(invalidName.getMessage()).isEqualTo("Validation error: name must not be empty");
 
             //And
             Throwable invalidAge = validationErrors[1];
-            assertThat(invalidAge.getMessage()).isEqualTo("Validation error: age is between 0 and 150, actual value was: {name:, age:-12}");
+            assertThat(invalidAge.getMessage()).isEqualTo("Validation error: age must be between 0 and 150");
         }
     }
 
