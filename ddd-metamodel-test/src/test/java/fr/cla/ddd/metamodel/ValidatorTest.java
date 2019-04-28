@@ -1,11 +1,14 @@
 package fr.cla.ddd.metamodel;
 
+import fr.cla.ddd.metamodel.validation.Validation;
+import fr.cla.ddd.metamodel.validation.Validator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
 import java.util.function.IntPredicate;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.fail;
 
 
@@ -50,6 +53,20 @@ public class ValidatorTest {
             fail("Should have failed invalid user" + invalidUser);
         } catch (IllegalArgumentException expected) {
             //Then
+            expected.printStackTrace();
+            assertThat(expected.getMessage()).isEqualTo("Invalid object: {name:, age:-12}");
+
+            //And
+            Throwable[] validationErrors = expected.getSuppressed();
+            assertThat(validationErrors.length).isEqualTo(2);
+
+            //And
+            Throwable invalidName = validationErrors[0];
+            assertThat(invalidName.getMessage()).isEqualTo("Validation error: name is empty, actual value was: {name:, age:-12}");
+
+            //And
+            Throwable invalidAge = validationErrors[1];
+            assertThat(invalidAge.getMessage()).isEqualTo("Validation error: age is between 0 and 150, actual value was: {name:, age:-12}");
         }
     }
 

@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel;
+package fr.cla.ddd.metamodel.validation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,16 +16,23 @@ public class Validator<T> {
         this.type = requireNonNull(type);
     }
 
+    /**
+     * Validate the object as a whole
+     */
     public Validator<T> validate(Predicate<? super T> validation, String message) {
         validations.add(new ValidationDefinition<>(validation, message));
         return this;
     }
 
+    /**
+     * Validate a field
+     */
     public <U> Validator<T> validate(
-        Function<? super T, ? extends U> projection, Predicate<? super U> validation,
+        Function<? super T, ? extends U> fieldExtractor,
+        Predicate<? super U> validation,
         String message
     ) {
-        return validate(projection.andThen(validation::test)::apply, message);
+        return validate(fieldExtractor.andThen(validation::test)::apply, message);
     }
 
     public static <T> Validator<T> of(Class<T> type) {
@@ -33,7 +40,7 @@ public class Validator<T> {
     }
 
     public Validation<T> validate(T object) {
-        Validation<T> validation = Validation.of(object);
+        Validation<T> validation = new Validation<>(object);
         validations.forEach(validation::validate);
         return validation;
     }

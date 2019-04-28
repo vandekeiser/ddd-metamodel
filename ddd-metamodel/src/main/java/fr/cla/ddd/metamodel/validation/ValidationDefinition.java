@@ -1,24 +1,23 @@
-package fr.cla.ddd.metamodel;
+package fr.cla.ddd.metamodel.validation;
 
-import java.util.function.Function;
 import java.util.function.Predicate;
 
 import static java.util.Objects.requireNonNull;
 
-public class ValidationDefinition<T> {
+class ValidationDefinition<T> {
     private final Predicate<? super T> validation;
     private final String message;
 
-    public ValidationDefinition(Predicate<? super T> validation, String message) {
+    ValidationDefinition(Predicate<? super T> validation, String message) {
         this.validation = requireNonNull(validation);
         this.message = requireNonNull(message);
     }
 
-    public Predicate<? super T> getValidation() {
+    Predicate<? super T> getValidation() {
         return validation;
     }
 
-    public String getMessage() {
+    String getMessage() {
         return message;
     }
 
