@@ -1,4 +1,4 @@
-package fr.cla.ddd.oo.pbt.samedeclaredclass.exampleequatables;
+package fr.cla.ddd.oo.pbt.isinstance.exampleequatables;
 
 import fr.cla.ddd.oo.pbt.Value;
 
@@ -6,17 +6,17 @@ import java.util.Arrays;
 import java.util.List;
 
 //@formatter:off
-public final class SdcVO2B extends SdcVO2 {
+public final class Ii1B extends Ii1 {
 
     private final Value y;
 
-    public SdcVO2B(Value y, Value x) {
-        super(SdcVO2B.class, x);
+    public Ii1B(Value y, Value x) {
+        super(Ii1B.class, x);
         this.y = y;
     }
 
-    public static SdcVO2B random() {
-        return new SdcVO2B(
+    public static Ii1B random() {
+        return new Ii1B(
             Value.random(),
             Value.random()
         );

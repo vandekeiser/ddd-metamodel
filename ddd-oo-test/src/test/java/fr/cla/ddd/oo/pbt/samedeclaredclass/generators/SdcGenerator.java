@@ -17,12 +17,12 @@ public class SdcGenerator {
 
     static Equatable<?> generateValue() {
         switch (ThreadLocalRandom.current().nextInt(6)) {
-            case 0: return SdcVO1.random();
-            case 1: return SdcVO2.random();
-            case 2: return SdcVO1A.random();
-            case 3: return SdcVO1B.random();
-            case 4: return SdcVO2A.random();
-            case 5: return SdcVO2B.random();
+            case 0: return Sdc1.random();
+            case 1: return Sdc2.random();
+            case 2: return Sdc1A.random();
+            case 3: return Sdc1B.random();
+            case 4: return Sdc2A.random();
+            case 5: return Sdc2B.random();
             default: throw new AssertionError();
         }
     }
@@ -40,28 +40,28 @@ public class SdcGenerator {
         switch (type) {
             case 0: return () -> randomSdcVO1(subtype, x, y);
             case 1: return () -> randomSdcVO2(subtype, x, y);
-            case 2: return () -> new SdcVO1A(x,y);
-            case 3: return () -> new SdcVO1B(x,y);
-            case 4: return () -> new SdcVO2A(x,y);
-            case 5: return () -> new SdcVO2B(x,y);
+            case 2: return () -> new Sdc1A(x,y);
+            case 3: return () -> new Sdc1B(x,y);
+            case 4: return () -> new Sdc2A(x,y);
+            case 5: return () -> new Sdc2B(x,y);
             default: throw new AssertionError();
         }
     }
 
     private static Equatable<?> randomSdcVO1(int subtype, Value x, Value y) {
         switch (subtype) {
-            case 0: return new SdcVO1(x);
-            case 1: return new SdcVO1A(x, y);
-            case 2: return new SdcVO1B(x, y);
+            case 0: return new Sdc1(x);
+            case 1: return new Sdc1A(x, y);
+            case 2: return new Sdc1B(x, y);
             default: throw new AssertionError();
         }
     }
 
     private static Equatable<?> randomSdcVO2(int subtype, Value x, Value y) {
         switch (subtype) {
-            case 0: return new SdcVO2(x);
-            case 1: return new SdcVO2A(x, y);
-            case 2: return new SdcVO2B(x, y);
+            case 0: return new Sdc2(x);
+            case 1: return new Sdc2A(x, y);
+            case 2: return new Sdc2B(x, y);
             default: throw new AssertionError();
         }
     }

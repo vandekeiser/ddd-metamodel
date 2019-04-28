@@ -7,17 +7,17 @@ import java.util.Arrays;
 import java.util.List;
 
 //@formatter:off
-public class CeVO2A extends CeVO2 {
+public class Ce2A extends Ce2 {
 
     private final Value y;
 
-    public CeVO2A(Value y, Value x) {
-        super(CeVO2A.class, x);
+    public Ce2A(Value y, Value x) {
+        super(Ce2A.class, x);
         this.y = y;
     }
 
-    public static CeVO2A random() {
-        return new CeVO2A(
+    public static Ce2A random() {
+        return new Ce2A(
             Value.random(),
             Value.random()
         );
@@ -30,7 +30,7 @@ public class CeVO2A extends CeVO2 {
 
     @Override
     public boolean canEqual(Equatable<?> that) {
-        return that instanceof CeVO2A;
+        return that instanceof Ce2A;
     }
 
 }

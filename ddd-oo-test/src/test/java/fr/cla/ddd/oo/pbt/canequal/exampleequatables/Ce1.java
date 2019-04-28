@@ -8,22 +8,22 @@ import java.util.List;
 import static java.util.Collections.singletonList;
 
 //@formatter:off
-public class CeVO1 extends Equatable<CeVO1> {
+public class Ce1 extends Equatable<Ce1> {
 
     protected final Value x;
 
-    public CeVO1(Value x) {
-        super(CeVO1.class, Equatability.CAN_EQUAL);
+    public Ce1(Value x) {
+        super(Ce1.class, Equatability.CAN_EQUAL);
         this.x = x;
     }
 
-    public CeVO1(Class<? extends CeVO1> type, Value x) {
+    public Ce1(Class<? extends Ce1> type, Value x) {
         super(type, Equatability.CAN_EQUAL);
         this.x = x;
     }
 
-    public static CeVO1 random() {
-        return new CeVO1(Value.random());
+    public static Ce1 random() {
+        return new Ce1(Value.random());
     }
 
     @Override
@@ -33,7 +33,7 @@ public class CeVO1 extends Equatable<CeVO1> {
 
     @Override
     public boolean canEqual(Equatable<?> that) {
-        return that instanceof CeVO1;
+        return that instanceof Ce1;
     }
 
 }

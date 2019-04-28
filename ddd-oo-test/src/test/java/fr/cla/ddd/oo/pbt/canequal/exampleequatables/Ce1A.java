@@ -5,16 +5,16 @@ import fr.cla.ddd.oo.pbt.Value;
 
 //@formatter:off
 /**
- * Extends CeVO1 but doesn't add state so it can equal the base class without breaking the symmetry of equals.
+ * Extends Ce1 but doesn't add state so it can equal the base class without breaking the symmetry of equals.
  */
-public final class CeVO1A extends CeVO1 {
+public final class Ce1A extends Ce1 {
 
-    public CeVO1A(Value x) {
-        super(CeVO1A.class, x);
+    public Ce1A(Value x) {
+        super(Ce1A.class, x);
     }
 
-    public static CeVO1A random() {
-        return new CeVO1A(
+    public static Ce1A random() {
+        return new Ce1A(
             Value.random()
         );
     }
@@ -30,7 +30,7 @@ public final class CeVO1A extends CeVO1 {
      */
     @Override
     public boolean canEqual(Equatable<?> that) {
-        return that instanceof CeVO1;
+        return that instanceof Ce1;
     }
 
 }

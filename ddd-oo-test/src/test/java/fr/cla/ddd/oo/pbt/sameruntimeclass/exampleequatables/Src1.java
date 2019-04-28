@@ -8,22 +8,22 @@ import java.util.List;
 import static java.util.Collections.singletonList;
 
 //@formatter:off
-public class SrcVO2 extends Equatable<SrcVO2> {
+public class Src1 extends Equatable<Src1> {
 
     protected final Value x;
 
-    public SrcVO2(Value x) {
-        super(SrcVO2.class, Equatability.SAME_RUNTIME_CLASS);
+    public Src1(Value x) {
+        super(Src1.class, Equatability.SAME_RUNTIME_CLASS);
         this.x = x;
     }
 
-    public SrcVO2(Class<? extends SrcVO2> type, Value x) {
+    public Src1(Class<? extends Src1> type, Value x) {
         super(type, Equatability.SAME_RUNTIME_CLASS);
         this.x = x;
     }
 
-    public static SrcVO2 random() {
-        return new SrcVO2(Value.random());
+    public static Src1 random() {
+        return new Src1(Value.random());
     }
 
     @Override

@@ -1,4 +1,4 @@
-package fr.cla.ddd.oo.pbt.sameruntimeclass.exampleequatables;
+package fr.cla.ddd.oo.pbt.isinstance.exampleequatables;
 
 import fr.cla.ddd.oo.pbt.Value;
 
@@ -6,17 +6,17 @@ import java.util.Arrays;
 import java.util.List;
 
 //@formatter:off
-public final class SrcVO2A extends SrcVO2 {
+public final class Ii1A extends Ii1 {
 
     private final Value y;
 
-    public SrcVO2A(Value y, Value x) {
-        super(SrcVO2A.class, x);
+    public Ii1A(Value y, Value x) {
+        super(Ii1A.class, x);
         this.y = y;
     }
 
-    public static SrcVO2A random() {
-        return new SrcVO2A(
+    public static Ii1A random() {
+        return new Ii1A(
             Value.random(),
             Value.random()
         );

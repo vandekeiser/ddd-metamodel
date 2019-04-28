@@ -5,8 +5,8 @@ import fr.cla.ddd.oo.pbt.EqualPair;
 import fr.cla.ddd.oo.pbt.EquatablePair;
 import fr.cla.ddd.oo.pbt.PropertyCheck;
 import fr.cla.ddd.oo.pbt.Value;
-import fr.cla.ddd.oo.pbt.canequal.exampleequatables.CeVO1;
-import fr.cla.ddd.oo.pbt.canequal.exampleequatables.CeVO1A;
+import fr.cla.ddd.oo.pbt.canequal.exampleequatables.Ce1;
+import fr.cla.ddd.oo.pbt.canequal.exampleequatables.Ce1A;
 import fr.cla.ddd.oo.pbt.canequal.generators.ArbitraryCes;
 import net.jqwik.api.Assume;
 import net.jqwik.api.ForAll;
@@ -75,23 +75,23 @@ extends ArbitraryCes {
     @Test
     public void equatable_of_different_declared_type_can_sometimes_be_equal() {
         Value value = Value.random();
-        CeVO1 ceVO1 = new CeVO1(value);
-        CeVO1A ceVO1A = new CeVO1A(value);
+        Ce1 ce1 = new Ce1(value);
+        Ce1A ceVO1A = new Ce1A(value);
 
-        assertThat(ceVO1A.getDeclaredType()).isNotEqualTo(ceVO1.getDeclaredType());
-        assertThat(ceVO1A).isEqualTo(ceVO1);
-        assertThat(ceVO1).isEqualTo(ceVO1A);
+        assertThat(ceVO1A.getDeclaredType()).isNotEqualTo(ce1.getDeclaredType());
+        assertThat(ceVO1A).isEqualTo(ce1);
+        assertThat(ce1).isEqualTo(ceVO1A);
     }
 
     @Test
     public void equatable_of_different_runtime_type_can_sometimes_be_equal() {
         Value value = Value.random();
-        CeVO1 ceVO1 = new CeVO1(value);
-        CeVO1A ceVO1A = new CeVO1A(value);
+        Ce1 ce1 = new Ce1(value);
+        Ce1A ceVO1A = new Ce1A(value);
 
-        assertThat(ceVO1A.getClass()).isNotEqualTo(ceVO1.getClass());
-        assertThat(ceVO1A).isEqualTo(ceVO1);
-        assertThat(ceVO1).isEqualTo(ceVO1A);
+        assertThat(ceVO1A.getClass()).isNotEqualTo(ce1.getClass());
+        assertThat(ceVO1A).isEqualTo(ce1);
+        assertThat(ce1).isEqualTo(ceVO1A);
     }
 
 }

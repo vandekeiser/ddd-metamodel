@@ -63,8 +63,8 @@ equals_should_be_false_for_different_types
             p.x: SdcVO1B{[V1, null]}
             p.y: SdcVO1{[V1]}
             p.x.equals(p.y): false
-            p.x.getDeclaredType(): class fr.cla.ddd.oo.pbt.samedeclaredclass.exampleequatables.SdcVO1
-            p.y.getDeclaredType(): class fr.cla.ddd.oo.pbt.samedeclaredclass.exampleequatables.SdcVO1
+            p.x.getDeclaredType(): class fr.cla.ddd.oo.pbt.samedeclaredclass.exampleequatables.Sdc1
+            p.y.getDeclaredType(): class fr.cla.ddd.oo.pbt.samedeclaredclass.exampleequatables.Sdc1
             p.x.getDeclaredType().equals(p.y.getDeclaredType(): true]
         Expecting:
          <true>

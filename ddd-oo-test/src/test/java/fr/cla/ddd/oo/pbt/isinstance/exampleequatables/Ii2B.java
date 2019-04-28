@@ -6,17 +6,17 @@ import java.util.Arrays;
 import java.util.List;
 
 //@formatter:off
-public final class IiVO2B extends IiVO2 {
+public final class Ii2B extends Ii2 {
 
     private final Value y;
 
-    public IiVO2B(Value y, Value x) {
-        super(IiVO2B.class, x);
+    public Ii2B(Value y, Value x) {
+        super(Ii2B.class, x);
         this.y = y;
     }
 
-    public static IiVO2B random() {
-        return new IiVO2B(
+    public static Ii2B random() {
+        return new Ii2B(
             Value.random(),
             Value.random()
         );

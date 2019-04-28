@@ -17,12 +17,12 @@ public class IiGenerator {
 
     static Equatable<?> generateEquatable() {
         switch (ThreadLocalRandom.current().nextInt(6)) {
-            case 0: return IiVO1.random();
-            case 1: return IiVO2.random();
-            case 2: return IiVO1A.random();
-            case 3: return IiVO1B.random();
-            case 4: return IiVO2A.random();
-            case 5: return IiVO2B.random();
+            case 0: return Ii1.random();
+            case 1: return Ii2.random();
+            case 2: return Ii1A.random();
+            case 3: return Ii1B.random();
+            case 4: return Ii2A.random();
+            case 5: return Ii2B.random();
             default: throw new AssertionError();
         }
     }
@@ -40,28 +40,28 @@ public class IiGenerator {
         switch (type) {
             case 0: return () -> randomIiVO1(subtype, x, y);
             case 1: return () -> randomIiVO2(subtype, x, y);
-            case 2: return () -> new IiVO1A(x,y);
-            case 3: return () -> new IiVO1B(x,y);
-            case 4: return () -> new IiVO2A(x,y);
-            case 5: return () -> new IiVO2B(x,y);
+            case 2: return () -> new Ii1A(x,y);
+            case 3: return () -> new Ii1B(x,y);
+            case 4: return () -> new Ii2A(x,y);
+            case 5: return () -> new Ii2B(x,y);
             default: throw new AssertionError();
         }
     }
 
     private static Equatable<?> randomIiVO1(int subtype, Value x, Value y) {
         switch (subtype) {
-            case 0: return new IiVO1(x);
-            case 1: return new IiVO1A(x, y);
-            case 2: return new IiVO1B(x, y);
+            case 0: return new Ii1(x);
+            case 1: return new Ii1A(x, y);
+            case 2: return new Ii1B(x, y);
             default: throw new AssertionError();
         }
     }
 
     private static Equatable<?> randomIiVO2(int subtype, Value x, Value y) {
         switch (subtype) {
-            case 0: return new IiVO2(x);
-            case 1: return new IiVO2A(x, y);
-            case 2: return new IiVO2B(x, y);
+            case 0: return new Ii2(x);
+            case 1: return new Ii2A(x, y);
+            case 2: return new Ii2B(x, y);
             default: throw new AssertionError();
         }
     }

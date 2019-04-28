@@ -6,17 +6,17 @@ import java.util.Arrays;
 import java.util.List;
 
 //@formatter:off
-public final class SrcVO1A extends SrcVO1 {
+public final class Src1B extends Src1 {
 
     private final Value y;
 
-    public SrcVO1A(Value y, Value x) {
-        super(SrcVO1A.class, x);
+    public Src1B(Value y, Value x) {
+        super(Src1B.class, x);
         this.y = y;
     }
 
-    public static SrcVO1A random() {
-        return new SrcVO1A(
+    public static Src1B random() {
+        return new Src1B(
             Value.random(),
             Value.random()
         );
