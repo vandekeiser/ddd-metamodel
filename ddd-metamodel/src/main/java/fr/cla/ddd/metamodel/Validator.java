@@ -5,33 +5,19 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-import static java.util.Objects.*;
+import static java.util.Objects.requireNonNull;
 
 public class Validator<T> {
-    private final T t;
-    private final List<Throwable> errors = new ArrayList<>();
+    private final List<ValidationDefinition<T>> validations;
+    private final Class<T> type;
 
-    private Validator(T t) {
-        this.t = requireNonNull(t);
-    }
-
-    public T get() throws IllegalArgumentException {
-        if(errors.isEmpty()) {
-            return t;
-        }
-        IllegalArgumentException invalid = new IllegalArgumentException("Invalid: " + t);
-        errors.forEach(invalid::addSuppressed);
-        throw invalid;
+    private Validator(Class<T> type) {
+        this.validations = new ArrayList<>();
+        this.type = requireNonNull(type);
     }
 
     public Validator<T> validate(Predicate<? super T> validation, String message) {
-        try {
-            if (!validation.test(t)) {
-                errors.add(new IllegalArgumentException(message));
-            }
-        } catch (RuntimeException e) {
-            errors.add(e);
-        }
+        validations.add(new ValidationDefinition<>(validation, message));
         return this;
     }
 
@@ -42,8 +28,14 @@ public class Validator<T> {
         return validate(projection.andThen(validation::test)::apply, message);
     }
 
-    public static <T> Validator<T> of(T t) {
-        return new Validator<>(t);
+    public static <T> Validator<T> of(Class<T> type) {
+        return new Validator<>(type);
+    }
+
+    public Validation<T> validate(T object) {
+        Validation<T> validation = Validation.of(object);
+        validations.forEach(validation::validate);
+        return validation;
     }
 }
 

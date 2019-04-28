@@ -1,58 +1,53 @@
 package fr.cla.ddd.metamodel;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
 import java.util.function.IntPredicate;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.fail;
 
 
-    public class ValidatorTest {
+public class ValidatorTest {
 
-//    @BeforeEach
-//    public void setupValidator()
-//        sut =
+    private Validator<User> sut;
 
-    @Test//[WARNING]
-// ValidatorTest.java:[37,6] class org.junit.jupiter.api.Test in module  is not exported
-    public void should_pass_valid_user() {
-        //Given
-        User user = new User("bob", 12);
-
-        //And
-        Validator<User> sut = Validator.of(user)
+    @BeforeEach
+    public void setupValidator() {
+        sut = Validator.of(User.class)
             .validate(User::getName, Objects::nonNull, "name is null")
             .validate(User::getName, name -> !name.isEmpty(), "name is empty")
-            //.validate(User::getAge, age -> age > 0 && age < 150, "age is between 0 and 150")
             .validate(User::getAge, inBetween(0, 150)::test, "age is between 0 and 150")
         ;
+    }
 
-        //When-then
-        //User user = new User("", -12);
-        User validatedUser = sut.get();
+    @Test
+    public void should_pass_valid_user() {
+        //Given
+        User validUser = new User("bob", 12);
+
+        //And
+        Validation<User> validation = sut.validate(validUser);
+
+        //When
+        User validatedUser = validation.get();
+
+        //Then
     }
 
     @Test
     public void should_fail_invalid_user() {
         //Given
-        User user = new User("", -12);
+        User invalidUser = new User("", -12);
 
         //And
-        Validator<User> sut = Validator.of(user)
-            .validate(User::getName, Objects::nonNull, "name is null")
-            .validate(User::getName, name -> !name.isEmpty(), "name is empty")
-            //.validate(User::getAge, age -> age > 0 && age < 150, "age is between 0 and 150")
-            .validate(User::getAge, inBetween(0, 150)::test, "age is between 0 and 150")
-        ;
+        Validation<User> validation = sut.validate(invalidUser);
 
-        //When
         try {
-            sut.get();
-            fail("Should have failed invalid user" + user);
+            //When
+            validation.get();
+            fail("Should have failed invalid user" + invalidUser);
         } catch (IllegalArgumentException expected) {
             //Then
         }
@@ -60,7 +55,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 
 
-    public class User {
+    class User {
         private final String name;
         private final int age;
 
