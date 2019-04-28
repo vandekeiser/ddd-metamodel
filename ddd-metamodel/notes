@@ -77,3 +77,5 @@ equals_should_be_false_for_different_types
         -on recommence avec le cas plus facile de Src
 -esayter de resserrer le type de Class<extends T> en splittant en 2 types?
 -vf les msg de test "specifc" (ex. "equal"  en trop) et vf cx qui n'ont qu'1 des 2 tests
+
+-meilleurs exemple d'equatables (ex. cf. effectgive java pr CE?)

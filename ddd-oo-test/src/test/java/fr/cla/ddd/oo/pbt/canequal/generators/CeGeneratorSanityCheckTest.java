@@ -21,7 +21,7 @@ extends ArbitraryCes {
     public void random_pairs_should_sometimes_contain_not_equal_xy(
         @ForAll("equatablePairs") EquatablePair p
     ) {
-        random_pairs_should_sometimes_contain_equal_xy0(p, true);
+        random_pairs_should_sometimes_contain_equal_xy0(p, false);
     }
     private void random_pairs_should_sometimes_contain_equal_xy0(
         EquatablePair p, boolean should
@@ -111,7 +111,7 @@ extends ArbitraryCes {
     public void random_pairs_should_sometimes_contain_xy_of_different_types(
         @ForAll("equatablePairs") EquatablePair p
     ) {
-        random_pairs_should_sometimes_contain_xy_of_type0(p, true);
+        random_pairs_should_sometimes_contain_xy_of_type0(p, false);
     }
     private void random_pairs_should_sometimes_contain_xy_of_type0(
         EquatablePair p, boolean should
@@ -129,7 +129,7 @@ extends ArbitraryCes {
     public void random_pairs_should_sometimes_contain_xy_of_unrelated_types(
         @ForAll("equatablePairs") EquatablePair p
     ) {
-        random_pairs_should_sometimes_contain_xy_of_related_types0(p, true);
+        random_pairs_should_sometimes_contain_xy_of_related_types0(p, false);
     }
     private void random_pairs_should_sometimes_contain_xy_of_related_types0(
         EquatablePair p, boolean should
