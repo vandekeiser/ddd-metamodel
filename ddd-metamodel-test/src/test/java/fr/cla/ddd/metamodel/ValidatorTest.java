@@ -54,7 +54,7 @@ public class ValidatorTest {
         } catch (IllegalArgumentException expected) {
             //Then
             expected.printStackTrace();
-            assertThat(expected.getMessage()).isEqualTo("Invalid object: {name:, age:-12}");
+            assertThat(expected.getMessage()).isEqualTo("User{name:, age:-12}");
 
             //And
             Throwable[] validationErrors = expected.getSuppressed();
@@ -62,11 +62,11 @@ public class ValidatorTest {
 
             //And
             Throwable invalidName = validationErrors[0];
-            assertThat(invalidName.getMessage()).isEqualTo("Validation error: name must not be empty");
+            assertThat(invalidName.getMessage()).isEqualTo("name must not be empty");
 
             //And
             Throwable invalidAge = validationErrors[1];
-            assertThat(invalidAge.getMessage()).isEqualTo("Validation error: age must be between 0 and 150");
+            assertThat(invalidAge.getMessage()).isEqualTo("age must be between 0 and 150");
         }
     }
 
