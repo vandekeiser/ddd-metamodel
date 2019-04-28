@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.unit;
+package fr.cla.ddd.metamodel;
 
 import fr.cla.ddd.metamodel.AbstractValueObject;
 import fr.cla.ddd.metamodel.DDD;
