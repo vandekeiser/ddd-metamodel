@@ -1,5 +1,6 @@
 package fr.cla.ddd.metamodel;
 
+import fr.cla.ddd.metamodel.validation.Validation;
 import fr.cla.ddd.metamodel.validation.Validator;
 import fr.cla.ddd.oo.Equatable;
 
@@ -15,7 +16,7 @@ extends Equatable<T> {
 
     protected AbstractValueObject(Class<T> type) {
         super(type);
-        //
+        //TODO
 //        If you perform a virtual method call in a Base constructor
 //        and the virtual method is overridden by the Derived class,
 //        then the given override of the Derived class is executed before the Derived constructor call
@@ -24,15 +25,21 @@ extends Equatable<T> {
 //        (this is different from C#!)
 //        so the Derived class member variables still hold their zero initialized default value
 //        at the time of this method call
-//        validator().validate(type.cast(this));
+//        validate();
     }
 
     protected AbstractValueObject(Class<T> type, Equatability equatability) {
         super(type, equatability);
-//        validator().validate(type.cast(this));
+        //See above
+//        validate();
     }
 
     protected abstract Validator<T> validator();
+
+    private void validate() {
+        Validation<T> v = validator().validate(asDeclaredType());
+        v.get();
+    }
 
 }
 //@formatter:on

@@ -1,18 +1,11 @@
 package fr.cla.ddd.metamodel;
 
-import fr.cla.ddd.metamodel.AbstractValueObject;
-import fr.cla.ddd.metamodel.DDD;
-import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConferenceCommand;
 import fr.cla.ddd.metamodel.validation.Validation;
 import fr.cla.ddd.metamodel.validation.Validations;
 import fr.cla.ddd.metamodel.validation.Validator;
-import fr.cla.ddd.metamodel.validation.ValidatorTest;
-import fr.cla.ddd.oo.Equatable;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.Objects;
 
 import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -88,11 +81,6 @@ public class AbstractValueObjectTest {
             validate();
         }
 
-        private void validate() {
-            Validation<ValueObject3> v = validator().validate(getDeclaredType().cast(this));
-            v.get();
-        }
-
         @Override
         protected List<Object> equalityCriteria() {
             return singletonList(value);
@@ -107,6 +95,11 @@ public class AbstractValueObjectTest {
             return Validator.of(ValueObject3.class).validate(
                 ValueObject3::getValue, Validations::isPositive, "value must be positive")
             ;
+        }
+
+        private void validate() {
+            Validation<ValueObject3> v = validator().validate(asDeclaredType());
+            v.get();
         }
     }
 

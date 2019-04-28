@@ -53,6 +53,10 @@ public abstract class Equatable<T extends Equatable<T>> {
 
     protected abstract List<Object> equalityCriteria();
 
+    public T asDeclaredType() {
+        return type.cast(this);
+    }
+
     /**
      * @see "Equatability.CAN_EQUAL"
      */
