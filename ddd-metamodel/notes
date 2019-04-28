@@ -5,26 +5,22 @@
     -DDD walking skel
     -DDD walking skel spring et tt
 
--IS_INSTANCE pas doc fausse? "also allows a derived VO to compare equal to its parent" VS "2 * isInstance"
--VO: ce qui rest a VF pas fait par javac c'est surtt l'immutabilite
--equalsverifier: j'aime pas comment ils changent les chps prives
 
-ex:
-requires java.logging;
---> split en blackbox
-"[ERROR] the unnamed module
-reads package com.pholser.junit.quickcheck.generator
-from both junit.quickcheck.generators and junit.quickcheck.core"
--->peut pas utiliser le module path si split package ds 1 des libs..
-jdeps -s out
-https://stackoverflow.com/questions/53477690/properly-implementing-java-modules-in-a-maven-build-with-inter-module-test-depen/55635924#55635924
+modules + whitebox testing:
+    requires java.logging;
+    --> split en blackbox
+    "[ERROR] the unnamed module
+    reads package com.pholser.junit.quickcheck.generator
+    from both junit.quickcheck.generators and junit.quickcheck.core"
+    -->peut pas utiliser le module path si split package ds 1 des libs..
+    jdeps -s out
+    https://stackoverflow.com/questions/53477690/properly-implementing-java-modules-in-a-maven-build-with-inter-module-test-depen/55635924#55635924
 
 
--valid VO + invariant entite
--mettre la valid a la sauce forax lambda
--documenter les //TODO eqh
--(NB: E System.logger(), "since J9")
--VF ceci:
-    -"Not part of the equals contract, but part of the Equatability.SAME_RUNTIME_CLASS contract."
-    -equals_should_be_false_for_different_types
--meilleurs exemple d'equatables (ex. cf. effectgive java pr CE?)
+TODOs:
+    -valid VO + invariant entite (a la sauce forax lambda)
+    -documenter les //TODO eqh
+    -meilleurs exemple d'equatables (ex. cf. effectgive java pr CE?)
+    -IS_INSTANCE pas doc fausse? "also allows a derived VO to compare equal to its parent" VS "2 * isInstance"
+    -VO: ce qui rest a VF pas fait par javac c'est surtt l'immutabilite
+    -equalsverifier: j'aime pas comment ils changent les chps prives
