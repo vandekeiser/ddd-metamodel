@@ -33,10 +33,6 @@ public class EquatableTest {
             return singletonList(value);
         }
 
-        @Override
-        public boolean canEqual(Equatable<?> that) {
-            return that instanceof Equatable1;
-        }
     }
 
     private static class Equatable2 extends Equatable<Equatable2> {
@@ -52,10 +48,6 @@ public class EquatableTest {
             return singletonList(value);
         }
 
-        @Override
-        public boolean canEqual(Equatable<?> that) {
-            return that instanceof Equatable2;
-        }
     }
 
 }

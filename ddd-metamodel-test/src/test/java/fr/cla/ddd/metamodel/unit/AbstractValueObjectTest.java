@@ -35,11 +35,6 @@ public class AbstractValueObjectTest {
         protected List<Object> equalityCriteria() {
             return singletonList(value);
         }
-
-        @Override
-        public boolean canEqual(Equatable<?> that) {
-            return that instanceof ValueObject1;
-        }
     }
 
     @DDD.ValueObject
@@ -56,10 +51,6 @@ public class AbstractValueObjectTest {
             return singletonList(value);
         }
 
-        @Override
-        public boolean canEqual(Equatable<?> that) {
-            return that instanceof ValueObject2;
-        }
     }
 
 }

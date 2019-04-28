@@ -23,9 +23,6 @@ https://stackoverflow.com/questions/53477690/properly-implementing-java-modules-
 -valid VO + invariant entite
 
 
-!!! aux sanity check avec 2*true
-!!! au nommages VO restant dans OO
-!!!factor @Property(tries = SANITY_CHECK_TRIALS)
 !!!pqoi j'ai encore des vo avec avec a la fois:
      @Override
         protected List<Object> equalityCriteria() {
