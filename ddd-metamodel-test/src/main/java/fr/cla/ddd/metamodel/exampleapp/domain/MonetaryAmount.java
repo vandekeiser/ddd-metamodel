@@ -2,6 +2,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain;
 
 import fr.cla.ddd.metamodel.AbstractValueObject;
 import fr.cla.ddd.metamodel.DDD;
+import fr.cla.ddd.metamodel.validation.Validator;
 
 import java.util.List;
 
@@ -21,6 +22,11 @@ public class MonetaryAmount extends AbstractValueObject<MonetaryAmount> {
     @Override
     protected List<Object> equalityCriteria() {
         return singletonList(amount);
+    }
+
+    @Override
+    protected Validator<MonetaryAmount> validator() {
+        return Validator.none();
     }
 
     //Unfortunately this is required by JPA. Don't use.

@@ -1,5 +1,6 @@
 package fr.cla.ddd.metamodel;
 
+import fr.cla.ddd.metamodel.validation.Validator;
 import fr.cla.ddd.oo.Equatable;
 
 import java.util.List;
@@ -42,6 +43,10 @@ public class Main {
             return singletonList(x);
         }
 
+        @Override
+        protected Validator<VO1> validator() {
+            return Validator.none();
+        }
     }
 
 }

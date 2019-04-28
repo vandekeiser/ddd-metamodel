@@ -6,6 +6,7 @@ import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcTalk;
+import fr.cla.ddd.metamodel.validation.Validator;
 
 import java.util.HashSet;
 import java.util.List;
@@ -48,6 +49,11 @@ public class ScheduleConferenceCommand extends AbstractValueObject<ScheduleConfe
             budget,
             mapCosts(SrcTalk::new)
         );
+    }
+
+    @Override
+    protected Validator<ScheduleConferenceCommand> validator() {
+        return Validator.none();
     }
 
     @Override

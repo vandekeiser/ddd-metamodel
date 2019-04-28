@@ -5,19 +5,23 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-import static java.util.Objects.requireNonNull;
-
 public class Validator<T> {
     private final List<ValidationDefinition<T>> validations;
-    private final Class<T> type;
 
-    private Validator(Class<T> type) {
+    private Validator() {
         this.validations = new ArrayList<>();
-        this.type = requireNonNull(type);
     }
 
-    public static <T> Validator<T> of(Class<T> type) {
-        return new Validator<>(type);
+    public static <T> Validator<T> of() {
+        return new Validator<>();
+    }
+
+    public static <T> Validator<T> of(Class<T> typeUsedForCompilationOnly) {
+        return new Validator<>();
+    }
+
+    public static <T> Validator<T> none() {
+        return new Validator<>();
     }
 
     /**

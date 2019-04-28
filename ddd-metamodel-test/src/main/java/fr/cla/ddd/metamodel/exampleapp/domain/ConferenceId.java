@@ -3,6 +3,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain;
 import fr.cla.ddd.metamodel.AbstractValueObject;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.EntityId;
+import fr.cla.ddd.metamodel.validation.Validator;
 
 import java.io.Serializable;
 import java.util.List;
@@ -32,5 +33,9 @@ implements EntityId, Serializable {
         return singletonList(value);
     }
 
+    @Override
+    protected Validator<ConferenceId> validator() {
+        return Validator.none();
+    }
 }
 //@formatter:on

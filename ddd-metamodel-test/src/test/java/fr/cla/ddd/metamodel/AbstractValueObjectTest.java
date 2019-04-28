@@ -2,13 +2,21 @@ package fr.cla.ddd.metamodel;
 
 import fr.cla.ddd.metamodel.AbstractValueObject;
 import fr.cla.ddd.metamodel.DDD;
+import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConferenceCommand;
+import fr.cla.ddd.metamodel.validation.Validation;
+import fr.cla.ddd.metamodel.validation.Validations;
+import fr.cla.ddd.metamodel.validation.Validator;
+import fr.cla.ddd.metamodel.validation.ValidatorTest;
 import fr.cla.ddd.oo.Equatable;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Objects;
 
 import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 //@formatter:off
 public class AbstractValueObjectTest {
@@ -20,6 +28,14 @@ public class AbstractValueObjectTest {
         assertThat(
             vo1.equals(vo2)//shouldn't throw ClassCastException
         ).isFalse();
+    }
+
+    @Test
+    public void should_not_instantiate_invalid() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new ValueObject3(-1);
+        });
+
     }
 
     @DDD.ValueObject
@@ -34,6 +50,11 @@ public class AbstractValueObjectTest {
         @Override
         protected List<Object> equalityCriteria() {
             return singletonList(value);
+        }
+
+        @Override
+        protected Validator<ValueObject1> validator() {
+            return Validator.none();
         }
     }
 
@@ -51,6 +72,42 @@ public class AbstractValueObjectTest {
             return singletonList(value);
         }
 
+        @Override
+        protected Validator<ValueObject2> validator() {
+            return Validator.none();
+        }
+    }
+
+    @DDD.ValueObject
+    private static class ValueObject3 extends AbstractValueObject<ValueObject3> {
+        private final int value;
+
+        ValueObject3(int value) {
+            super(ValueObject3.class);
+            this.value = value;
+            validate();
+        }
+
+        private void validate() {
+            Validation<ValueObject3> v = validator().validate(getDeclaredType().cast(this));
+            v.get();
+        }
+
+        @Override
+        protected List<Object> equalityCriteria() {
+            return singletonList(value);
+        }
+
+        public int getValue() {
+            return value;
+        }
+
+        @Override
+        protected Validator<ValueObject3> validator() {
+            return Validator.of(ValueObject3.class).validate(
+                ValueObject3::getValue, Validations::isPositive, "value must be positive")
+            ;
+        }
     }
 
 }
