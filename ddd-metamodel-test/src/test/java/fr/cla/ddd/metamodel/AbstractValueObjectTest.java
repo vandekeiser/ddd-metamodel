@@ -37,6 +37,7 @@ public class AbstractValueObjectTest {
         ValueObject1(String value) {
             super(ValueObject1.class);
             this.value = value;
+            validate();
         }
 
         @Override
@@ -57,6 +58,7 @@ public class AbstractValueObjectTest {
         ValueObject2(long value) {
             super(ValueObject2.class);
             this.value = value;
+            validate();
         }
 
         @Override

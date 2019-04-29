@@ -46,6 +46,7 @@ public class AbstractEntityTest {
 
         Entity1(Entity1Id id) {
             super(Entity1.class, id);
+            validate();
         }
 
         @Override
@@ -60,6 +61,7 @@ public class AbstractEntityTest {
 
         Entity2(Entity2Id id) {
             super(Entity2.class, id);
+            validate();
         }
 
         @Override

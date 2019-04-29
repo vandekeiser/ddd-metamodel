@@ -37,6 +37,7 @@ public class Main {
         public VO1(String x) {
             super(VO1.class);
             this.x = x;
+            validate();
         }
         @Override
         protected List<Object> equalityCriteria() {
