@@ -55,7 +55,7 @@ public class CeConference extends AbstractAggregateRoot<CeConference, Conference
     }
 
     public MonetaryAmount totalCost() {
-        return talks.stream().map(CeTalk::getCost).collect(MonetaryAmount.adding());
+        return talks.stream().map(CeTalk::getCost).collect(MonetaryAmount.summing());
     }
 
     //Unfortunately this is required by JPA. Don't use.

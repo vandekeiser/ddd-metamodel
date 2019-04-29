@@ -4,6 +4,8 @@ import fr.cla.ddd.metamodel.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.samedeclaredclass.SdcConference;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.samedeclaredclass.SdcTalk;
 import fr.cla.ddd.metamodel.validation.Validations;
 import fr.cla.ddd.metamodel.validation.Validator;
 
@@ -43,9 +45,18 @@ public class SrcConference extends AbstractAggregateRoot<SrcConference, Conferen
 
     @Override
     public Validator<? super SrcConference> validator() {
-        return Validator.of(SrcConference.class).validate(
-            SrcConference::getBudget, Validations::isNotNull, "budget must not be null")
-        ;
+        return Validator.of(SrcConference.class)
+            .validate(SrcConference::getBudget, Validations::isNotNull, "budget must not be null")
+            .validate(SrcConference::totalCostDoesNotExceedBudget, "total cost must not exceed budget")
+            ;
+    }
+
+    private boolean totalCostDoesNotExceedBudget() {
+        return totalCost().isSmallerThanOrEqualTo(budget);
+    }
+
+    public MonetaryAmount totalCost() {
+        return talks.stream().map(SrcTalk::getCost).collect(MonetaryAmount.summing());
     }
 
     //Unfortunately this is required by JPA. Don't use.

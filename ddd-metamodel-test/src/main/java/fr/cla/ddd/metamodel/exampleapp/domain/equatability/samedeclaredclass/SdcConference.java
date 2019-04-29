@@ -44,9 +44,18 @@ public class SdcConference extends AbstractAggregateRoot<SdcConference, Conferen
 
     @Override
     public Validator<? super SdcConference> validator() {
-        return Validator.of(SdcConference.class).validate(
-            SdcConference::getBudget, Validations::isNotNull, "budget must not be null")
+        return Validator.of(SdcConference.class)
+            .validate(SdcConference::getBudget, Validations::isNotNull, "budget must not be null")
+            .validate(SdcConference::totalCostDoesNotExceedBudget, "total cost must not exceed budget")
         ;
+    }
+
+    private boolean totalCostDoesNotExceedBudget() {
+        return totalCost().isSmallerThanOrEqualTo(budget);
+    }
+
+    public MonetaryAmount totalCost() {
+        return talks.stream().map(SdcTalk::getCost).collect(MonetaryAmount.summing());
     }
 
     //Unfortunately this is required by JPA. Don't use.

@@ -28,7 +28,7 @@ public class MonetaryAmount extends AbstractValueObject<MonetaryAmount> {
         validate();
     }
 
-    public static Collector<MonetaryAmount, ?, MonetaryAmount> adding() {
+    public static Collector<MonetaryAmount, ?, MonetaryAmount> summing() {
         class MutableMonetaryAmount {
             private int amount;
 

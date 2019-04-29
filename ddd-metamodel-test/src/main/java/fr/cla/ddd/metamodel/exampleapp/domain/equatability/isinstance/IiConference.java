@@ -44,10 +44,20 @@ public class IiConference extends AbstractAggregateRoot<IiConference, Conference
 
     @Override
     public Validator<? super IiConference> validator() {
-        return Validator.of(IiConference.class).validate(
-            IiConference::getBudget, Validations::isNotNull, "budget must not be null")
+        return Validator.of(IiConference.class)
+            .validate(IiConference::getBudget, Validations::isNotNull, "budget must not be null")
+            .validate(IiConference::totalCostDoesNotExceedBudget, "total cost must not exceed budget")
         ;
     }
+
+    private boolean totalCostDoesNotExceedBudget() {
+        return totalCost().isSmallerThanOrEqualTo(budget);
+    }
+
+    public MonetaryAmount totalCost() {
+        return talks.stream().map(IiTalk::getCost).collect(MonetaryAmount.summing());
+    }
+
 
     //Unfortunately this is required by JPA. Don't use.
     @SuppressWarnings("unused")

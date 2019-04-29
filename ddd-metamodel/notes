@@ -18,14 +18,18 @@ modules + whitebox testing:
 
 
 TODOs:
+    -sdc->sdt => src->srt
     -ajouter les toStrings sur ts les VO/E
+    -get/setters en pkg-private
     -mettre des vrais validators sur les VOs nommés genre MonetaryAmount (là où return Validator.none())
     -documenter de façon centralisée les //TODO eqh
     -meilleurs exemple d'equatables? (ex. cf. EJ pr CE?)
     -VO: ce qui rest a VF pas fait par javac c'est surtt l'immutabilite
         -equalsverifier: j'aime pas comment ils changent les chps prives
-
-
+    -spring boot swagger validate schema at runtime
+        -https://springframework.guru/using-swagger-request-validator-to-validate-spring-cloud-contracts/
+        -https://stackoverflow.com/questions/39275947/validating-json-against-swagger-api-schema
+        -https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schema-object
     -valid != d'un VO depuis un AS (Try? ou la mm Valid?)
         -penser au 400 vs 500
             -domain doit lancer une exception
