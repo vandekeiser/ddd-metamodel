@@ -5,7 +5,7 @@ import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConference;
 import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConferenceCommand;
 import fr.cla.ddd.metamodel.exampleapp.appli.ViewConferenceDetails;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
-import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConference;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -35,7 +35,7 @@ public class CliApp {
             schedConf.scheduleConference(schedCmd);
             log.info("Scheduled " + schedCmd.toConference());
 
-            Optional<SrcConference> reloadedConf = viewConf.viewConferenceDetails(
+            Optional<SrtConference> reloadedConf = viewConf.viewConferenceDetails(
                 schedCmd.toConference().getId()
             );
             log.info("Reloaded " + reloadedConf);

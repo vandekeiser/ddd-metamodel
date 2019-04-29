@@ -7,7 +7,7 @@ http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
 
     <access>FIELD</access>
 
-    <entity class="fr.cla.ddd.metamodel.exampleapp.domain.equatability.samedeclaredclass.SdcConference">
+    <entity class="fr.cla.ddd.metamodel.exampleapp.domain.equatability.samedeclaredtype.SdtConference">
         <attributes>
             <one-to-many name="talks" fetch="EAGER">
                 <join-column name="CONFERENCE_ID"></join-column>
@@ -17,7 +17,7 @@ http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
         </attributes>
     </entity>
 
-    <entity class="fr.cla.ddd.metamodel.exampleapp.domain.equatability.samedeclaredclass.SdcTalk">
+    <entity class="fr.cla.ddd.metamodel.exampleapp.domain.equatability.samedeclaredtype.SdtTalk">
         <attributes>
             <embedded name="cost"></embedded>
         </attributes>

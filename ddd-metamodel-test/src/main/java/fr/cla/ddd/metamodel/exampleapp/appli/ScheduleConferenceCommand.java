@@ -4,8 +4,8 @@ import fr.cla.ddd.metamodel.AbstractValueObject;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
-import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConference;
-import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcTalk;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConference;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtTalk;
 import fr.cla.ddd.metamodel.validation.Validations;
 import fr.cla.ddd.metamodel.validation.Validator;
 
@@ -44,11 +44,11 @@ public class ScheduleConferenceCommand extends AbstractValueObject<ScheduleConfe
         return costs.stream().map(mapper).collect(toSet());
     }
 
-    public SrcConference toConference() {
-        return new SrcConference(
+    public SrtConference toConference() {
+        return new SrtConference(
             conferenceId,
             budget,
-            mapCosts(SrcTalk::new)
+            mapCosts(SrtTalk::new)
         );
     }
 

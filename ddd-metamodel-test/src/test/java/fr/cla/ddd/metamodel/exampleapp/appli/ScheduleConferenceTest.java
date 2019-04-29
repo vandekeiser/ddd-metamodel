@@ -1,9 +1,9 @@
 package fr.cla.ddd.metamodel.exampleapp.appli;
 
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
-import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.InMemorySrcConferences;
-import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConference;
-import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConferences;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.InMemorySrtConferences;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConference;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConferences;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
@@ -14,13 +14,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ScheduleConferenceTest {
 
-    private final SrcConferences conferences = new InMemorySrcConferences();
+    private final SrtConferences conferences = new InMemorySrtConferences();
     private final ScheduleConference scheduleConference = new ScheduleConference(conferences);
 
     @Test
     public void when_the_conference_is_scheduled_it_should_be_added() {
         ScheduleConferenceCommand cmd;
-        SrcConference scheduledConference;
+        SrtConference scheduledConference;
 
         given: {
             cmd = scheduleConferenceCommand();
