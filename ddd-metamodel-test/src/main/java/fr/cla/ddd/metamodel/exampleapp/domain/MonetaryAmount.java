@@ -6,15 +6,10 @@ import fr.cla.ddd.metamodel.validation.Validations;
 import fr.cla.ddd.metamodel.validation.Validator;
 
 import java.util.List;
-import java.util.function.BiConsumer;
-import java.util.function.BinaryOperator;
-import java.util.function.Function;
-import java.util.function.Supplier;
 import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 import static java.util.Collections.singletonList;
-import static java.util.stream.Collector.Characteristics.*;
+import static java.util.stream.Collector.Characteristics.UNORDERED;
 
 
 @DDD.ValueObject

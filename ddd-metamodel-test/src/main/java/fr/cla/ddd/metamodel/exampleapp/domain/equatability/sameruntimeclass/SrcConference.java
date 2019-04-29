@@ -4,8 +4,6 @@ import fr.cla.ddd.metamodel.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
-import fr.cla.ddd.metamodel.exampleapp.domain.equatability.samedeclaredclass.SdcConference;
-import fr.cla.ddd.metamodel.exampleapp.domain.equatability.samedeclaredclass.SdcTalk;
 import fr.cla.ddd.metamodel.validation.Validations;
 import fr.cla.ddd.metamodel.validation.Validator;
 
