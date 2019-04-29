@@ -18,10 +18,17 @@ modules + whitebox testing:
 
 
 TODOs:
-    -documenter les //TODO eqh
-    -meilleurs exemple d'equatables (ex. cf. effectgive java pr CE?)
+    -documenter de façon centralisée les //TODO eqh
+    -meilleurs exemple d'equatables? (ex. cf. EJ pr CE?)
     -IS_INSTANCE pas doc fausse? "also allows a derived VO to compare equal to its parent" VS "2 * isInstance"
     -VO: ce qui rest a VF pas fait par javac c'est surtt l'immutabilite
         -equalsverifier: j'aime pas comment ils changent les chps prives
     -mettre des vrais validators sur les VOs nommés genre MonetaryAmount (là où return Validator.none())
     -valid != d'un VO depuis un AS (Try? ou la mm Valid?)
+        -penser au 400 vs 500
+            -domain doit lancer une exception
+            -appli doit ...
+            -expo doit valider par un schema JSON (ou swagger?)
+                -TODO
+                -sujet necessitant de mettre du web + spring cloud contract + swagger
+                -donc a faire apres les sujets "iso-couches" cf. les "N sujets",

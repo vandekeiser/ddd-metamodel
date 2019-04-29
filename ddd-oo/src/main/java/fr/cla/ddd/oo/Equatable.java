@@ -7,7 +7,7 @@ import static java.util.Objects.requireNonNull;
 
 
 /**
- * TODO
+ * An abstract object that has an explicit policy of its instances being equal.
  */
 public abstract class Equatable<T extends Equatable<T>> {
 
@@ -27,6 +27,7 @@ public abstract class Equatable<T extends Equatable<T>> {
         //An optimization, but also avoids StackOverflows on cyclic object graphs.
         if(obj == this) return true;
 
+        //See javadoc of areEquatable
         if(! equatability.areEquatable(this, type, obj)) return false;
 
         Equatable<?> that = (Equatable<?>) obj;
@@ -69,11 +70,16 @@ public abstract class Equatable<T extends Equatable<T>> {
     }
 
 
+    /**
+     * Policies of when 2 instances can be compared for equality without breaking the equals contract (reflexive/symmetric/transitive)
+     */
     public enum Equatability {
+
         /**
-         * The most simple, we're sure to respect the Object::equals contract without collaboration from the concrete classes.
-         * On the other hand this fails if the class is replaced at load-time by a proxy (eg. by Hibernate).
-         * Also of course this isn't as flexible as CAN_EQUAL, as there is now way to still be equal even without adding state.
+         * Objects areEquatable iff they have equal {@code this.getClass()}.
+         * <p>
+         * Simple but fails if the class is replaced by a proxy (eg. by Hibernate).
+         * Also of course not as flexible as CAN_EQUAL (but that is rarely required).
          */
         SAME_RUNTIME_CLASS {
             @Override protected boolean areEquatable(
@@ -104,6 +110,12 @@ public abstract class Equatable<T extends Equatable<T>> {
             }
         },
 
+        /**
+         * Objects areEquatable iff they have equal {@code this.type}.
+         *
+         * Simple and unlike SAME_RUNTIME_CLASS, doesn't fail if the class is replaced by a proxy (eg. by Hibernate).
+         * Also of course not as flexible as CAN_EQUAL (but that is rarely required).
+         */
         SAME_DECLARED_CLASS {
             @Override protected boolean areEquatable(
                 Equatable<?> thisObj, Class<?> thisObjType,
@@ -114,22 +126,11 @@ public abstract class Equatable<T extends Equatable<T>> {
         },
 
         /**
-         * KO if we want to keep AbstractValueObject_PbtTest::equals_should_be_false_for_different_types,
-         *  as this doesn't prevent VO1A eq VO1B
-         * OK otherwise.
+         * Objects areEquatable iff they are instances of each other's {@code type}.
          *
-         * This has the advantage of working in the face of Hibernate proxies.
-         * It also allows a derived VO to compare equal to its parent while still respecting the Object::equals contract iff:
-         * -it adds no state compared to its parent class
-         *
-         * But is not always fine-grained enough, as it doesn't allow distinguishing:
-         *  -derived classes that do add state and should not compare equal to their parent
-         *  -derived classes that do not add state and could compare equal to their parent
-         * That degree of fine-grained control requires using CAN_EQUAL,
-         *  and placing canEqual overrides in coordination with adding state or not.
-         *  (this then becomes the responsibility of the derived class)
-         *
-         *  TODO: test with Hibernate-instrumented class where the concrete class is a load-type proxy
+         * Simple and unlike SAME_RUNTIME_CLASS, doesn't fail if the class is replaced by a proxy (eg. by Hibernate).
+         * Also of course not as flexible as CAN_EQUAL (but that is rarely required).
+         * TODO: vraiment moins flexible?
          */
         IS_INSTANCE{
             @Override protected boolean areEquatable(
@@ -145,13 +146,16 @@ public abstract class Equatable<T extends Equatable<T>> {
         },
 
         /**
-         * The most flexible pattern, initially from the Java bible "Effective Java".
-         * https://www.artima.com/lejava/articles/equality.html: nice article about the EJ "canEqual" pattern.
+         * Objects areEquatable iff they {@code canEqual} each other.
          *
-         * This could allow to keep strict concrete class same-type policy when Hibernate modifies our class
-         *  but we want to ignore that from an equality point of view.
+         * The most flexible pattern, initially from Effective Java (nice article about the EJ "canEqual" pattern: https://www.artima.com/lejava/articles/equality.html).
+         * Unlike SAME_RUNTIME_CLASS, doesn't fail if the class is replaced by a proxy (eg. by Hibernate).
          *
-         * TODO: test with Hibernate-instrumented class where the concrete class is a load-type proxy
+         * Allows distinguishing derived classes that:
+         * <ul>
+         * <li>do add state and should not compare equal to their parent</li>
+         * <li>do not add state and could compare equal to their parent</li>
+     *   * </ul>
          */
         CAN_EQUAL{
             @Override protected boolean areEquatable(
@@ -170,7 +174,7 @@ public abstract class Equatable<T extends Equatable<T>> {
         public static final Equatability DEFAULT = SAME_DECLARED_CLASS;
 
         /**
-         * @throws NullPointerException iff thisObj or thisObjType is null (which is impossible from the equals method)
+         * Don't allow just any concrete types to be equal, as this can break the reflexive/symmetric/transitive contract
          */
         public final boolean areEquatable(
             Equatable<?> thisObj, Class<?> thisObjType,
