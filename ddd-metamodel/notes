@@ -18,6 +18,7 @@ modules + whitebox testing:
 
 
 TODOs:
+    -ajouter les toStrings sur ts les VO/E
     -mettre des vrais validators sur les VOs nommés genre MonetaryAmount (là où return Validator.none())
     -documenter de façon centralisée les //TODO eqh
     -meilleurs exemple d'equatables? (ex. cf. EJ pr CE?)

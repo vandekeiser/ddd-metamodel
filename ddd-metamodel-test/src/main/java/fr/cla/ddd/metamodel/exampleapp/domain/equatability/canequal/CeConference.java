@@ -44,9 +44,18 @@ public class CeConference extends AbstractAggregateRoot<CeConference, Conference
 
     @Override
     public Validator<? super CeConference> validator() {
-        return Validator.of(CeConference.class).validate(
-            CeConference::getBudget, Validations::isNotNull, "budget must not be null")
+        return Validator.of(CeConference.class)
+            .validate(CeConference::getBudget, Validations::isNotNull, "budget must not be null")
+            .validate(CeConference::totalCostDoesNotExceedBudget, "total cost must not exceed budget")
         ;
+    }
+
+    private boolean totalCostDoesNotExceedBudget() {
+        return totalCost().isSmallerThanOrEqualTo(budget);
+    }
+
+    public MonetaryAmount totalCost() {
+        return talks.stream().map(CeTalk::getCost).collect(MonetaryAmount.adding());
     }
 
     //Unfortunately this is required by JPA. Don't use.
