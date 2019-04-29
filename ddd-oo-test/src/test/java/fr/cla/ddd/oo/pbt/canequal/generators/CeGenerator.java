@@ -38,8 +38,8 @@ public class CeGenerator {
 
     private static Supplier<Equatable<?>> generateDifferentButEqualEquatables(int type, int subtype, Value x, Value y) {
         switch (type) {
-            case 0: return () -> randomCeVO1(subtype, x, y);
-            case 1: return () -> randomCeVO2(subtype, x, y);
+            case 0: return () -> randomVO1(subtype, x, y);
+            case 1: return () -> randomVO2(subtype, x, y);
             case 2: return () -> new Ce1A(x);
             case 3: return () -> new Ce1B(x,y);
             case 4: return () -> new Ce2A(x,y);
@@ -48,7 +48,7 @@ public class CeGenerator {
         }
     }
 
-    private static Equatable<?> randomCeVO1(int subtype, Value x, Value y) {
+    private static Equatable<?> randomVO1(int subtype, Value x, Value y) {
         switch (subtype) {
             case 0: return new Ce1(x);
             case 1: return new Ce1A(x);
@@ -57,7 +57,7 @@ public class CeGenerator {
         }
     }
 
-    private static Equatable<?> randomCeVO2(int subtype, Value x, Value y) {
+    private static Equatable<?> randomVO2(int subtype, Value x, Value y) {
         switch (subtype) {
             case 0: return new Ce2(x);
             case 1: return new Ce2A(x, y);

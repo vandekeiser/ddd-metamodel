@@ -38,8 +38,8 @@ public class IiGenerator {
 
     private static Supplier<Equatable<?>> generateDifferentButEqualEquatables(int type, int subtype, Value x, Value y) {
         switch (type) {
-            case 0: return () -> randomIiVO1(subtype, x, y);
-            case 1: return () -> randomIiVO2(subtype, x, y);
+            case 0: return () -> randomVO1(subtype, x, y);
+            case 1: return () -> randomVO2(subtype, x, y);
             case 2: return () -> new Ii1A(x,y);
             case 3: return () -> new Ii1B(x,y);
             case 4: return () -> new Ii2A(x,y);
@@ -48,7 +48,7 @@ public class IiGenerator {
         }
     }
 
-    private static Equatable<?> randomIiVO1(int subtype, Value x, Value y) {
+    private static Equatable<?> randomVO1(int subtype, Value x, Value y) {
         switch (subtype) {
             case 0: return new Ii1(x);
             case 1: return new Ii1A(x, y);
@@ -57,7 +57,7 @@ public class IiGenerator {
         }
     }
 
-    private static Equatable<?> randomIiVO2(int subtype, Value x, Value y) {
+    private static Equatable<?> randomVO2(int subtype, Value x, Value y) {
         switch (subtype) {
             case 0: return new Ii2(x);
             case 1: return new Ii2A(x, y);
