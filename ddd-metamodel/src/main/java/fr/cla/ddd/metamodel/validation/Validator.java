@@ -35,9 +35,9 @@ public class Validator<T> {
     /**
      * Validate a field
      */
-    public <U> Validator<T> validate(
-        Function<? super T, ? extends U> fieldExtractor,
-        Predicate<? super U> validation,
+    public <F> Validator<T> validate(
+        Function<? super T, ? extends F> fieldExtractor,
+        Predicate<? super F> validation,
         String message
     ) {
         return validate(
@@ -46,10 +46,11 @@ public class Validator<T> {
         );
     }
 
-    public Validation<T> validate(T object) {
-        Validation<T> validation = new Validation<>(object);
+    public <S extends T> Validation<S> validate(S object) {
+        Validation<S> validation = new Validation<>(object);
         validations.forEach(validation::validate);
         return validation;
     }
+
 }
 

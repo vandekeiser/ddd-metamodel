@@ -16,30 +16,20 @@ extends Equatable<T> {
 
     protected AbstractValueObject(Class<T> type) {
         super(type);
-        //TODO
-//        If you perform a virtual method call in a Base constructor
-//        and the virtual method is overridden by the Derived class,
-//        then the given override of the Derived class is executed before the Derived constructor call
-//        (like in case of C#)
-//        and before the initialization of any Derived class member variables
-//        (this is different from C#!)
-//        so the Derived class member variables still hold their zero initialized default value
-//        at the time of this method call
-//        validate();
+        //Can't call validate here unfortunately, since one must not call a virtual method from the constructor.
     }
 
     protected AbstractValueObject(Class<T> type, Equatability equatability) {
         super(type, equatability);
-        //See above
-//        validate();
+        //See above.
     }
 
-    protected abstract Validator<T> validator();
-
-    private void validate() {
+    protected final void validate() {
         Validation<T> v = validator().validate(asDeclaredType());
         v.get();
     }
+
+    protected abstract Validator<? super T> validator();
 
 }
 //@formatter:on

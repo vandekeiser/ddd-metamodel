@@ -38,7 +38,7 @@ public class Validation<T> {
         return false;
     }
 
-    Validation<T> validate(ValidationDefinition<T> def) {
+    Validation<T> validate(ValidationDefinition<? super T> def) {
         return validate(def.getValidation(), def.getMessage());
     }
 

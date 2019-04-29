@@ -97,10 +97,6 @@ public class AbstractValueObjectTest {
             ;
         }
 
-        private void validate() {
-            Validation<ValueObject3> v = validator().validate(asDeclaredType());
-            v.get();
-        }
     }
 
 }
