@@ -25,9 +25,9 @@ public class AbstractEntityTest {
 
     @Test
     public void should_not_instantiate_with_invalid_value() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            new Entity3(new Entity3Id(randomUUID().toString()), -1);
-        });
+        assertThrows(IllegalArgumentException.class, () ->
+            new Entity3(new Entity3Id(randomUUID().toString()), -1)
+        );
 
     }
 
@@ -35,9 +35,9 @@ public class AbstractEntityTest {
     public void should_not_set_invalid_value() {
         Entity3 e3 = new Entity3(new Entity3Id(randomUUID().toString()), 0);
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            e3.setValue(-1);
-        });
+        assertThrows(IllegalArgumentException.class, () ->
+            e3.setValue(-1)
+        );
 
     }
 

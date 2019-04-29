@@ -24,3 +24,4 @@ TODOs:
     -VO: ce qui rest a VF pas fait par javac c'est surtt l'immutabilite
         -equalsverifier: j'aime pas comment ils changent les chps prives
     -mettre des vrais validators sur les VOs nommés genre MonetaryAmount (là où return Validator.none())
+    -valid != d'un VO depuis un AS (Try? ou la mm Valid?)
