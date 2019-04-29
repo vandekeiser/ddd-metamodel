@@ -18,6 +18,12 @@ public class ScheduleConference {
         this.conferences = requireNonNull(conferences);
     }
 
+    //choose later
+    //public SrcConference scheduleConference(ScheduleConferenceCommand cmd) throws Illegal {
+    //public SrcConferenceId scheduleConference(ScheduleConferenceCommand cmd) throws Illegal {
+    //public Optional<SrcConference> scheduleConference(ScheduleConferenceCommand cmd) {
+    //public Optional<Id> scheduleConference(ScheduleConferenceCommand cmd) {
+    //public Outcome scheduleConference(ScheduleConferenceCommand cmd) {
     public void scheduleConference(ScheduleConferenceCommand cmd) {
         SrcConference conf = cmd.toConference();
         conferences.add(conf);
