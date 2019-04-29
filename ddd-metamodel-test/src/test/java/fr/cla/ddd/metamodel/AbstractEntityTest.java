@@ -2,14 +2,11 @@ package fr.cla.ddd.metamodel;
 
 import fr.cla.ddd.metamodel.validation.Validations;
 import fr.cla.ddd.metamodel.validation.Validator;
-import fr.cla.ddd.metamodel.validation.ValidatorTest;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.Objects;
 
 import static java.util.Collections.singletonList;
-import static java.util.Objects.requireNonNull;
 import static java.util.UUID.randomUUID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -107,7 +104,12 @@ public class AbstractEntityTest {
 
         Entity1Id(String value) {
             super(Entity1Id.class);
-            this.value = requireNonNull(value);
+            this.value = value;
+            validate();
+        }
+
+        String getValue() {
+            return value;
         }
 
         @Override
@@ -117,8 +119,11 @@ public class AbstractEntityTest {
 
         @Override
         public Validator<Entity1Id> validator() {
-            return Validator.none();
+            return Validator.of(Entity1Id.class).validate(
+                Entity1Id::getValue, Validations::isNotNull, "value must not be null")
+            ;
         }
+
     }
 
     @DDD.ValueObjectId
@@ -128,7 +133,12 @@ public class AbstractEntityTest {
 
         Entity2Id(String value) {
             super(Entity2Id.class);
-            this.value = requireNonNull(value);
+            this.value = value;
+            validate();
+        }
+
+        String getValue() {
+            return value;
         }
 
         @Override
@@ -138,7 +148,9 @@ public class AbstractEntityTest {
 
         @Override
         public Validator<Entity2Id> validator() {
-            return Validator.none();
+            return Validator.of(Entity2Id.class).validate(
+                Entity2Id::getValue, Validations::isNotNull, "value must not be null")
+            ;
         }
     }
 
@@ -149,7 +161,12 @@ public class AbstractEntityTest {
 
         Entity3Id(String value) {
             super(Entity3Id.class);
-            this.value = requireNonNull(value);
+            this.value = value;
+            validate();
+        }
+
+        String getValue() {
+            return value;
         }
 
         @Override
@@ -159,7 +176,9 @@ public class AbstractEntityTest {
 
         @Override
         public Validator<Entity3Id> validator() {
-            return Validator.none();
+            return Validator.of(Entity3Id.class).validate(
+                Entity3Id::getValue, Validations::isNotNull, "value must not be null")
+            ;
         }
     }
 

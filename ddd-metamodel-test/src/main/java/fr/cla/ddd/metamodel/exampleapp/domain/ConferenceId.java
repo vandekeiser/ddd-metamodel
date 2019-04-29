@@ -3,13 +3,13 @@ package fr.cla.ddd.metamodel.exampleapp.domain;
 import fr.cla.ddd.metamodel.AbstractValueObject;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.EntityId;
+import fr.cla.ddd.metamodel.validation.Validations;
 import fr.cla.ddd.metamodel.validation.Validator;
 
 import java.io.Serializable;
 import java.util.List;
 
 import static java.util.Collections.singletonList;
-import static java.util.Objects.requireNonNull;
 import static java.util.UUID.randomUUID;
 
 
@@ -21,11 +21,16 @@ implements EntityId, Serializable {
 
     public ConferenceId(String value) {
         super(ConferenceId.class);
-        this.value = requireNonNull(value);
+        this.value = value;
+        validate();
     }
 
     public ConferenceId() {
         this(randomUUID().toString());
+    }
+
+    public String getValue() {
+        return value;
     }
 
     @Override
@@ -35,7 +40,9 @@ implements EntityId, Serializable {
 
     @Override
     public Validator<ConferenceId> validator() {
-        return Validator.none();
+        return Validator.of(ConferenceId.class).validate(
+            ConferenceId::getValue, Validations::isNotNull, "value must not be null")
+        ;
     }
 
 }

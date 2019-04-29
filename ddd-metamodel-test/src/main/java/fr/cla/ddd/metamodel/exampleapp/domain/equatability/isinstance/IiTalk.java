@@ -4,10 +4,8 @@ import fr.cla.ddd.metamodel.AbstractEntity;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import fr.cla.ddd.metamodel.exampleapp.domain.TalkId;
+import fr.cla.ddd.metamodel.validation.Validations;
 import fr.cla.ddd.metamodel.validation.Validator;
-
-import static java.util.Objects.requireNonNull;
-
 
 @DDD.Entity
 public class IiTalk extends AbstractEntity<IiTalk, TalkId> {
@@ -20,7 +18,19 @@ public class IiTalk extends AbstractEntity<IiTalk, TalkId> {
 
     public IiTalk(TalkId id, MonetaryAmount cost) {
         super(IiTalk.class, id, Equatability.IS_INSTANCE);
-        this.cost = requireNonNull(cost);
+        this.cost = cost;
+        validate();
+    }
+
+    public MonetaryAmount getCost() {
+        return cost;
+    }
+
+    @Override
+    public Validator<? super IiTalk> validator() {
+        return Validator.of(IiTalk.class).validate(
+            IiTalk::getCost, Validations::isNotNull, "cost must not be null")
+        ;
     }
 
     //Unfortunately this is required by JPA. Don't use.
@@ -28,11 +38,6 @@ public class IiTalk extends AbstractEntity<IiTalk, TalkId> {
     private IiTalk() {
         super(IiTalk.class, Equatability.IS_INSTANCE);
         this.cost = null;
-    }
-
-    @Override
-    public Validator<? super IiTalk> validator() {
-        return Validator.none();
     }
 
 }

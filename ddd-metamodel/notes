@@ -25,4 +25,3 @@ TODOs:
         -equalsverifier: j'aime pas comment ils changent les chps prives
     -refact le try/fail avec un lambda j5
     -mettre des vrais validators sur les VOs nommés genre MonetaryAmount (là où return Validator.none())
-    -requireNonNull -> validator

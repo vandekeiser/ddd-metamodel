@@ -4,13 +4,13 @@ import fr.cla.ddd.metamodel.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
+import fr.cla.ddd.metamodel.validation.Validations;
 import fr.cla.ddd.metamodel.validation.Validator;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import static java.util.Collections.emptySet;
-import static java.util.Objects.requireNonNull;
 
 
 @DDD.Entity
@@ -29,8 +29,24 @@ public class CeConference extends AbstractAggregateRoot<CeConference, Conference
 
     public CeConference(ConferenceId id, MonetaryAmount budget, Set<CeTalk> talks) {
         super(CeConference.class, id, Equatability.CAN_EQUAL);
-        this.budget = requireNonNull(budget);
+        this.budget = budget;
         this.talks.addAll(talks);
+        validate();
+    }
+
+    public MonetaryAmount getBudget() {
+        return budget;
+    }
+
+    public Set<CeTalk> getTalks() {
+        return new HashSet<>(talks);
+    }
+
+    @Override
+    public Validator<? super CeConference> validator() {
+        return Validator.of(CeConference.class).validate(
+            CeConference::getBudget, Validations::isNotNull, "budget must not be null")
+        ;
     }
 
     //Unfortunately this is required by JPA. Don't use.
@@ -53,15 +69,6 @@ public class CeConference extends AbstractAggregateRoot<CeConference, Conference
     CeConference() {
         super(CeConference.class, Equatability.CAN_EQUAL);
         this.budget = null;
-    }
-
-    public Set<CeTalk> getTalks() {
-        return new HashSet<>(talks);
-    }
-
-    @Override
-    public Validator<? super CeConference> validator() {
-        return Validator.none();
     }
 
 }

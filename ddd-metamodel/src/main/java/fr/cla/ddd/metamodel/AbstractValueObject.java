@@ -1,8 +1,6 @@
 package fr.cla.ddd.metamodel;
 
 import fr.cla.ddd.metamodel.validation.Validable;
-import fr.cla.ddd.metamodel.validation.Validation;
-import fr.cla.ddd.metamodel.validation.Validator;
 import fr.cla.ddd.oo.Equatable;
 
 

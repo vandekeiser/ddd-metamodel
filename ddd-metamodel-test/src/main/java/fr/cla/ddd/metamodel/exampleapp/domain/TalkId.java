@@ -3,7 +3,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain;
 import fr.cla.ddd.metamodel.AbstractValueObject;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.EntityId;
-import fr.cla.ddd.metamodel.Main;
+import fr.cla.ddd.metamodel.validation.Validations;
 import fr.cla.ddd.metamodel.validation.Validator;
 
 import java.io.Serializable;
@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.UUID;
 
 import static java.util.Collections.singletonList;
-import static java.util.Objects.requireNonNull;
 
 
 @DDD.ValueObjectId
@@ -26,7 +25,12 @@ implements EntityId, Serializable {
 
     public TalkId(String value) {
         super(TalkId.class);
-        this.value = requireNonNull(value);
+        this.value = value;
+        validate();
+    }
+
+    public String getValue() {
+        return value;
     }
 
     @Override
@@ -36,7 +40,9 @@ implements EntityId, Serializable {
 
     @Override
     public Validator<TalkId> validator() {
-        return Validator.none();
+        return Validator.of(TalkId.class).validate(
+            TalkId::getValue, Validations::isNotNull, "value must not be null")
+        ;
     }
 
 }

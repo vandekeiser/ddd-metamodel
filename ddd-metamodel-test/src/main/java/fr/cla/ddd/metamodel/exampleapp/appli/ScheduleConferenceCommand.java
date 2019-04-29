@@ -6,6 +6,7 @@ import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimeclass.SrcTalk;
+import fr.cla.ddd.metamodel.validation.Validations;
 import fr.cla.ddd.metamodel.validation.Validator;
 
 import java.util.HashSet;
@@ -14,7 +15,6 @@ import java.util.Set;
 import java.util.function.Function;
 
 import static java.util.Arrays.asList;
-import static java.util.Objects.requireNonNull;
 import static java.util.stream.Collectors.toSet;
 
 @DDD.ValueObject
@@ -25,9 +25,10 @@ public class ScheduleConferenceCommand extends AbstractValueObject<ScheduleConfe
 
     public ScheduleConferenceCommand(MonetaryAmount budget, Set<MonetaryAmount> costs) {
         super(ScheduleConferenceCommand.class);
-        this.budget = requireNonNull(budget);
+        this.budget = budget;
         this.costs = new HashSet<>(costs);
         this.conferenceId = new ConferenceId();
+        validate();
     }
 
     @Override
@@ -53,7 +54,9 @@ public class ScheduleConferenceCommand extends AbstractValueObject<ScheduleConfe
 
     @Override
     public Validator<ScheduleConferenceCommand> validator() {
-        return Validator.none();
+        return Validator.of(ScheduleConferenceCommand.class).validate(
+            ScheduleConferenceCommand::getBudget, Validations::isNotNull, "budget must not be null")
+        ;
     }
 
     @Override

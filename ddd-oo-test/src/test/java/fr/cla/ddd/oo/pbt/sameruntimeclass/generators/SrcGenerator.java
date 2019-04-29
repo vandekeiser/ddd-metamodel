@@ -1,8 +1,8 @@
 package fr.cla.ddd.oo.pbt.sameruntimeclass.generators;
 
 import fr.cla.ddd.oo.Equatable;
-import fr.cla.ddd.oo.pbt.Value;
 import fr.cla.ddd.oo.pbt.EquatableSingleton;
+import fr.cla.ddd.oo.pbt.Value;
 import fr.cla.ddd.oo.pbt.sameruntimeclass.exampleequatables.*;
 
 import java.util.concurrent.ThreadLocalRandom;

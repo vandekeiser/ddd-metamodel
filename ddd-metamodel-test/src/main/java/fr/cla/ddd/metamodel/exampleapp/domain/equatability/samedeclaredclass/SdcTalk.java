@@ -4,10 +4,8 @@ import fr.cla.ddd.metamodel.AbstractEntity;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import fr.cla.ddd.metamodel.exampleapp.domain.TalkId;
+import fr.cla.ddd.metamodel.validation.Validations;
 import fr.cla.ddd.metamodel.validation.Validator;
-
-import static java.util.Objects.requireNonNull;
-
 
 @DDD.Entity
 public class SdcTalk extends AbstractEntity<SdcTalk, TalkId> {
@@ -20,7 +18,19 @@ public class SdcTalk extends AbstractEntity<SdcTalk, TalkId> {
 
     public SdcTalk(TalkId id, MonetaryAmount cost) {
         super(SdcTalk.class, id, Equatability.SAME_DECLARED_CLASS);
-        this.cost = requireNonNull(cost);
+        this.cost = cost;
+        validate();
+    }
+
+    public MonetaryAmount getCost() {
+        return cost;
+    }
+
+    @Override
+    public Validator<? super SdcTalk> validator() {
+        return Validator.of(SdcTalk.class).validate(
+            SdcTalk::getCost, Validations::isNotNull, "cost must not be null")
+        ;
     }
 
     //Unfortunately this is required by JPA. Don't use.
@@ -28,11 +38,6 @@ public class SdcTalk extends AbstractEntity<SdcTalk, TalkId> {
     private SdcTalk() {
         super(SdcTalk.class, Equatability.SAME_DECLARED_CLASS);
         this.cost = null;
-    }
-
-    @Override
-    public Validator<? super SdcTalk> validator() {
-        return Validator.none();
     }
 
 }

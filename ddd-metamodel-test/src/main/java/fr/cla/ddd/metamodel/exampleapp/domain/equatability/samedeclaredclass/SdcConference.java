@@ -4,13 +4,13 @@ import fr.cla.ddd.metamodel.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
+import fr.cla.ddd.metamodel.validation.Validations;
 import fr.cla.ddd.metamodel.validation.Validator;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import static java.util.Collections.emptySet;
-import static java.util.Objects.requireNonNull;
 
 
 @DDD.Entity
@@ -29,15 +29,13 @@ public class SdcConference extends AbstractAggregateRoot<SdcConference, Conferen
 
     public SdcConference(ConferenceId id, MonetaryAmount budget, Set<SdcTalk> talks) {
         super(SdcConference.class, id, Equatability.SAME_DECLARED_CLASS);
-        this.budget = requireNonNull(budget);
+        this.budget = budget;
         this.talks.addAll(talks);
+        validate();
     }
 
-    //Unfortunately this is required by JPA. Don't use.
-    @SuppressWarnings("unused")
-    SdcConference() { //TODO eqh: private KO! (without lazy proxies, private is fine)
-        super(SdcConference.class, Equatability.SAME_DECLARED_CLASS);
-        this.budget = null;
+    public MonetaryAmount getBudget() {
+        return budget;
     }
 
     public Set<SdcTalk> getTalks() {
@@ -46,7 +44,16 @@ public class SdcConference extends AbstractAggregateRoot<SdcConference, Conferen
 
     @Override
     public Validator<? super SdcConference> validator() {
-        return Validator.none();
+        return Validator.of(SdcConference.class).validate(
+            SdcConference::getBudget, Validations::isNotNull, "budget must not be null")
+        ;
+    }
+
+    //Unfortunately this is required by JPA. Don't use.
+    @SuppressWarnings("unused")
+    SdcConference() { //TODO eqh: private KO! (without lazy proxies, private is fine)
+        super(SdcConference.class, Equatability.SAME_DECLARED_CLASS);
+        this.budget = null;
     }
 
 }

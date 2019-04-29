@@ -6,4 +6,7 @@ public class Validations {
         return i >= 0;
     }
 
+    public static boolean isNotNull(Object o) {
+        return o != null;
+    }
 }

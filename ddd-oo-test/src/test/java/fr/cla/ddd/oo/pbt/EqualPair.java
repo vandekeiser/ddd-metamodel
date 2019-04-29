@@ -4,9 +4,6 @@ import fr.cla.ddd.oo.Equatable;
 
 import java.util.Objects;
 
-import static java.util.Objects.requireNonNull;
-
-
 public class EqualPair extends EquatablePair {
 
     public EqualPair(Equatable<?> x, Equatable<?> y) {
