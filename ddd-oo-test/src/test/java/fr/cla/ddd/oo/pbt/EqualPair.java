@@ -6,7 +6,7 @@ import java.util.Objects;
 
 import static java.util.Objects.requireNonNull;
 
-//@formatter:off
+
 public class EqualPair extends EquatablePair {
 
     public EqualPair(Equatable<?> x, Equatable<?> y) {
@@ -21,4 +21,3 @@ public class EqualPair extends EquatablePair {
     }
 
 }
-//@formatter:oN

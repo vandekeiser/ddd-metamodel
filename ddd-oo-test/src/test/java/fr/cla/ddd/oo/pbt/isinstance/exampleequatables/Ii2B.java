@@ -5,7 +5,7 @@ import fr.cla.ddd.oo.pbt.Value;
 import java.util.Arrays;
 import java.util.List;
 
-//@formatter:off
+
 public final class Ii2B extends Ii2 {
 
     private final Value y;
@@ -28,4 +28,3 @@ public final class Ii2B extends Ii2 {
     }
 
 }
-//@formatter:on

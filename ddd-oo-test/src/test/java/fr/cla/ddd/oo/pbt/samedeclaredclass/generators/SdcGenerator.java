@@ -8,7 +8,7 @@ import fr.cla.ddd.oo.pbt.samedeclaredclass.exampleequatables.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Supplier;
 
-//@formatter:off
+
 public class SdcGenerator {
 
     public static EquatableSingleton generate() {
@@ -67,4 +67,3 @@ public class SdcGenerator {
     }
 
 }
-//@formatter:on

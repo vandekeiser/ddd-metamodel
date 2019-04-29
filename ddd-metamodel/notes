@@ -18,15 +18,11 @@ modules + whitebox testing:
 
 
 TODOs:
-    -valid VO + invariant entite (a la sauce forax lambda)
     -documenter les //TODO eqh
     -meilleurs exemple d'equatables (ex. cf. effectgive java pr CE?)
     -IS_INSTANCE pas doc fausse? "also allows a derived VO to compare equal to its parent" VS "2 * isInstance"
     -VO: ce qui rest a VF pas fait par javac c'est surtt l'immutabilite
-    -equalsverifier: j'aime pas comment ils changent les chps prives
-    -exception+suppressed vs validerrors, comment declencher la valid
-        (chp validator?)
+        -equalsverifier: j'aime pas comment ils changent les chps prives
     -refact le try/fail avec un lambda j5
     -mettre des vrais validators sur les VOs nommés genre MonetaryAmount (là où return Validator.none())
     -requireNonNull -> validator
-    -rm //@formatter:off si inutile

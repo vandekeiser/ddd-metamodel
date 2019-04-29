@@ -16,7 +16,7 @@ import java.util.concurrent.Callable;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//@formatter:off
+
 @DataJpaTest
 @ContextConfiguration(classes = JpaConfig.class)
 public abstract class AbstractSdjConferencesTest<
@@ -163,4 +163,3 @@ public abstract class AbstractSdjConferencesTest<
     protected abstract T getSingleTalk(C conf);
 
 }
-//@formatter:on

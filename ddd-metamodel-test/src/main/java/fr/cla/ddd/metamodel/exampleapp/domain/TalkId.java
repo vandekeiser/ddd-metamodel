@@ -13,7 +13,7 @@ import java.util.UUID;
 import static java.util.Collections.singletonList;
 import static java.util.Objects.requireNonNull;
 
-//@formatter:off
+
 @DDD.ValueObjectId
 public class TalkId extends AbstractValueObject<TalkId>
 implements EntityId, Serializable {
@@ -40,4 +40,3 @@ implements EntityId, Serializable {
     }
 
 }
-//@formatter:on

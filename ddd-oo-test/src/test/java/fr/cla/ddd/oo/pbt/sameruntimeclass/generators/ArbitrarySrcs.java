@@ -9,7 +9,7 @@ import net.jqwik.api.Arbitraries;
 import net.jqwik.api.Arbitrary;
 import net.jqwik.api.Provide;
 
-//@formatter:off
+
 public class ArbitrarySrcs {
 
     @Provide
@@ -33,4 +33,4 @@ public class ArbitrarySrcs {
     }
 
 }
-//@formatter:on
+

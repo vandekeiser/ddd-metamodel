@@ -12,7 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 import java.util.Optional;
 
-//@formatter:off
+
 @DataJpaTest
 @ContextConfiguration(classes = JpaConfig.class)
 public class SdjCeConferencesTest
@@ -54,4 +54,3 @@ extends AbstractSdjConferencesTest<CeConference, CeTalk> {
         return conf.getTalks().iterator().next();
     }
 }
-//@formatter:on

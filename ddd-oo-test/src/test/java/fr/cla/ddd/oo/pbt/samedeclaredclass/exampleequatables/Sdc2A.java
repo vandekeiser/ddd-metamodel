@@ -5,7 +5,7 @@ import fr.cla.ddd.oo.pbt.Value;
 import java.util.Arrays;
 import java.util.List;
 
-//@formatter:off
+
 public final class Sdc2A extends Sdc2 {
 
     private final Value y;
@@ -28,4 +28,3 @@ public final class Sdc2A extends Sdc2 {
     }
 
 }
-//@formatter:on

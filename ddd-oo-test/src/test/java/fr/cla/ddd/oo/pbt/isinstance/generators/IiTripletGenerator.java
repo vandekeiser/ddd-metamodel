@@ -2,7 +2,7 @@ package fr.cla.ddd.oo.pbt.isinstance.generators;
 
 import fr.cla.ddd.oo.pbt.EquatableTriplet;
 
-//@formatter:off
+
 public class IiTripletGenerator {
 
     public static EquatableTriplet generate() {
@@ -14,4 +14,3 @@ public class IiTripletGenerator {
     }
 
 }
-//@formatter:on

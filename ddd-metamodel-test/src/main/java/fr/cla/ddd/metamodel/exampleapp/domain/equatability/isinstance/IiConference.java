@@ -13,7 +13,7 @@ import java.util.Set;
 import static java.util.Collections.emptySet;
 import static java.util.Objects.requireNonNull;
 
-//@formatter:off
+
 @DDD.Entity
 public class IiConference extends AbstractAggregateRoot<IiConference, ConferenceId> {
 
@@ -51,4 +51,3 @@ public class IiConference extends AbstractAggregateRoot<IiConference, Conference
     }
 
 }
-//@formatter:on

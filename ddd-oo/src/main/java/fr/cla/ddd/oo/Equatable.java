@@ -5,7 +5,7 @@ import java.util.Objects;
 
 import static java.util.Objects.requireNonNull;
 
-//@formatter:off
+
 /**
  * TODO
  */
@@ -193,4 +193,4 @@ public abstract class Equatable<T extends Equatable<T>> {
     }
 
 }
-//@formatter:on
+

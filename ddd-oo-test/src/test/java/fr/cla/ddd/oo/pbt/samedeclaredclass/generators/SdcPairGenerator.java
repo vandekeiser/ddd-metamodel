@@ -2,7 +2,7 @@ package fr.cla.ddd.oo.pbt.samedeclaredclass.generators;
 
 import fr.cla.ddd.oo.pbt.EquatablePair;
 
-//@formatter:off
+
 public class SdcPairGenerator {
 
     public static EquatablePair generate() {
@@ -13,4 +13,3 @@ public class SdcPairGenerator {
     }
 
 }
-//@formatter:on

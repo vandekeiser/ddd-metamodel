@@ -8,7 +8,7 @@ import fr.cla.ddd.oo.pbt.canequal.exampleequatables.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Supplier;
 
-//@formatter:off
+
 public class CeGenerator {
 
     public static EquatableSingleton generate() {
@@ -67,4 +67,3 @@ public class CeGenerator {
     }
 
 }
-//@formatter:on

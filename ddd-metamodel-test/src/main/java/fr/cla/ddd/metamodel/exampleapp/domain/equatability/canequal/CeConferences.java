@@ -5,7 +5,7 @@ import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 
 import java.util.Optional;
 
-//@formatter:off
+
 @DDD.Repository
 public interface CeConferences {
 
@@ -14,4 +14,3 @@ public interface CeConferences {
     void add(CeConference conf);
     
 }
-//@formatter:on

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 import static java.util.Objects.requireNonNull;
 
-//@formatter:off
+
 @DDD.ApplicationService
 @Transactional @org.springframework.stereotype.Service
 public class ViewConferenceDetails {
@@ -27,4 +27,3 @@ public class ViewConferenceDetails {
 
 
 }
-//@formatter:on

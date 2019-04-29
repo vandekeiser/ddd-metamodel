@@ -10,7 +10,7 @@ import net.jqwik.api.ForAll;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//@formatter:off
+
 public class IiSatisfiesGeneralEqualsAndHashcodeContractTest
 extends ArbitraryIis {
 
@@ -74,4 +74,4 @@ extends ArbitraryIis {
     }
 
 }
-//@formatter:on
+

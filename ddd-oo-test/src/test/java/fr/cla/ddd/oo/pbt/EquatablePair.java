@@ -4,7 +4,7 @@ import fr.cla.ddd.oo.Equatable;
 
 import static java.util.Objects.requireNonNull;
 
-//@formatter:off
+
 public class EquatablePair {
 
     public final Equatable<?> x, y;
@@ -19,4 +19,3 @@ public class EquatablePair {
         return String.format("(%s, %s)", x, y);
     }
 }
-//@formatter:oN

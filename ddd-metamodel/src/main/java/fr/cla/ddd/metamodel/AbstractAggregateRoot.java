@@ -1,6 +1,6 @@
 package fr.cla.ddd.metamodel;
 
-//@formatter:off
+
 @DDD.AggregateRoot
 public abstract class AbstractAggregateRoot<
     T extends AbstractAggregateRoot<T, I>,
@@ -24,4 +24,4 @@ extends AbstractEntity<T, I> {
     }
 
 }
-//@formatter:on
+

@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//@formatter:off
+
 @DataJpaTest
 @ContextConfiguration(classes = JpaConfig.class)
 public class EntityManagerFactoryTest {
@@ -22,4 +22,3 @@ public class EntityManagerFactoryTest {
     }
 
 }
-//@formatter:on

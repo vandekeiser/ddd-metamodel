@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static java.util.Objects.requireNonNull;
 
-//@formatter:off
+
 @DDD.ApplicationService
 @Transactional @org.springframework.stereotype.Service
 public class ScheduleConference {
@@ -25,4 +25,3 @@ public class ScheduleConference {
 
 
 }
-//@formatter:on

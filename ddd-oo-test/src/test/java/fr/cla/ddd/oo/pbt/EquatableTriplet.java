@@ -4,7 +4,7 @@ import fr.cla.ddd.oo.Equatable;
 
 import static java.util.Objects.requireNonNull;
 
-//@formatter:off
+
 public class EquatableTriplet {
 
     public final Equatable<?> x, y, z;
@@ -21,4 +21,3 @@ public class EquatableTriplet {
     }
 
 }
-//@formatter:oN

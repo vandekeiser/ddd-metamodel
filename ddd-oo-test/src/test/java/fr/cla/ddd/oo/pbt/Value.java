@@ -3,7 +3,7 @@ package fr.cla.ddd.oo.pbt;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
-//@formatter:off
+
 public enum Value {
     V1,
     V2,
@@ -28,4 +28,3 @@ public enum Value {
     }
 
 }
-//@formatter:on

@@ -6,7 +6,7 @@ import fr.cla.ddd.oo.pbt.Value;
 import java.util.Arrays;
 import java.util.List;
 
-//@formatter:off
+
 public class Ce1B extends Ce1 {
 
     private final Value y;
@@ -34,4 +34,3 @@ public class Ce1B extends Ce1 {
     }
 
 }
-//@formatter:on

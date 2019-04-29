@@ -10,7 +10,7 @@ import java.util.Optional;
 
 import static java.util.Objects.requireNonNull;
 
-//@formatter:off
+
 @DDD.RepositoryImpl
 @Primary @org.springframework.stereotype.Repository
 public class SdjIiConferences implements IiConferences {
@@ -32,4 +32,3 @@ public class SdjIiConferences implements IiConferences {
     }
 
 }
-//@formatter:on

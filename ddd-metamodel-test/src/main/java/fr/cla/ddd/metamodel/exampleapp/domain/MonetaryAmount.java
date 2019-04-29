@@ -8,7 +8,7 @@ import java.util.List;
 
 import static java.util.Collections.singletonList;
 
-//@formatter:off
+
 @DDD.ValueObject
 public class MonetaryAmount extends AbstractValueObject<MonetaryAmount> {
 
@@ -37,4 +37,3 @@ public class MonetaryAmount extends AbstractValueObject<MonetaryAmount> {
     }
 
 }
-//@formatter:on

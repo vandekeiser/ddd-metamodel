@@ -3,7 +3,7 @@ package fr.cla.ddd.oo.pbt.canequal.exampleequatables;
 import fr.cla.ddd.oo.Equatable;
 import fr.cla.ddd.oo.pbt.Value;
 
-//@formatter:off
+
 /**
  * Extends Ce1 but doesn't add state so it can equal the base class without breaking the symmetry of equals.
  */
@@ -34,4 +34,3 @@ public final class Ce1A extends Ce1 {
     }
 
 }
-//@formatter:on

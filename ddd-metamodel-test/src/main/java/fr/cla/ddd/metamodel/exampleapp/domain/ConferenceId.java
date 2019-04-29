@@ -12,7 +12,7 @@ import static java.util.Collections.singletonList;
 import static java.util.Objects.requireNonNull;
 import static java.util.UUID.randomUUID;
 
-//@formatter:off
+
 @DDD.ValueObjectId
 public class ConferenceId extends AbstractValueObject<ConferenceId>
 implements EntityId, Serializable {
@@ -39,4 +39,3 @@ implements EntityId, Serializable {
     }
 
 }
-//@formatter:on

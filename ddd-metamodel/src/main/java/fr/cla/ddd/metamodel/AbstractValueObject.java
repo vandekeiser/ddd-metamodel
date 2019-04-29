@@ -5,7 +5,7 @@ import fr.cla.ddd.metamodel.validation.Validation;
 import fr.cla.ddd.metamodel.validation.Validator;
 import fr.cla.ddd.oo.Equatable;
 
-//@formatter:off
+
 /**
  * A DDD Value Object: immutable object with no identity (equality defined by a set of fields).
  * (here it doesn't include mandatory validation).
@@ -27,4 +27,4 @@ implements Validable<T> {
     }
 
 }
-//@formatter:on
+

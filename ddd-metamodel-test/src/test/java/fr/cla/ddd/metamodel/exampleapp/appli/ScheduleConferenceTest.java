@@ -11,7 +11,7 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//@formatter:off
+
 public class ScheduleConferenceTest {
 
     private final SrcConferences conferences = new InMemorySrcConferences();
@@ -51,4 +51,3 @@ public class ScheduleConferenceTest {
     }
 
 }
-//@formatter:on

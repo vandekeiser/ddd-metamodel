@@ -5,7 +5,7 @@ import fr.cla.ddd.oo.pbt.EqualPair;
 
 import java.util.function.Supplier;
 
-//@formatter:off
+
 public class SdcEqualPairGenerator {
 
     public static EqualPair generate() {
@@ -18,4 +18,3 @@ public class SdcEqualPairGenerator {
     }
 
 }
-//@formatter:on

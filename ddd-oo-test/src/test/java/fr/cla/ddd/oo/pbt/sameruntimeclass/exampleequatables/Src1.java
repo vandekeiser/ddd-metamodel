@@ -7,7 +7,7 @@ import java.util.List;
 
 import static java.util.Collections.singletonList;
 
-//@formatter:off
+
 public class Src1 extends Equatable<Src1> {
 
     protected final Value x;
@@ -32,4 +32,3 @@ public class Src1 extends Equatable<Src1> {
     }
 
 }
-//@formatter:on

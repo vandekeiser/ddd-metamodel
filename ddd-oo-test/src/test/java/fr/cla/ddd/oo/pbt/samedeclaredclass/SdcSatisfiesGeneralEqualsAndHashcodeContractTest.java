@@ -10,7 +10,7 @@ import net.jqwik.api.ForAll;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//@formatter:off
+
 public class SdcSatisfiesGeneralEqualsAndHashcodeContractTest
 extends ArbitrarySdcs {
 
@@ -75,4 +75,4 @@ extends ArbitrarySdcs {
     }
 
 }
-//@formatter:on
+

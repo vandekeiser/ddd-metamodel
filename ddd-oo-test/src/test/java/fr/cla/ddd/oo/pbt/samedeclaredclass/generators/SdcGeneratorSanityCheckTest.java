@@ -7,7 +7,7 @@ import fr.cla.ddd.oo.pbt.SanityCheck;
 import net.jqwik.api.Assume;
 import net.jqwik.api.ForAll;
 
-//@formatter:off
+
 public class SdcGeneratorSanityCheckTest
 extends ArbitrarySdcs {
 
@@ -138,4 +138,4 @@ extends ArbitrarySdcs {
     }
 
 }
-//@formatter:on
+

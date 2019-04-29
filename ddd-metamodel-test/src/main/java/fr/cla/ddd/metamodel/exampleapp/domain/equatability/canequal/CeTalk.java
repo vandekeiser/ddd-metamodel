@@ -8,7 +8,7 @@ import fr.cla.ddd.metamodel.validation.Validator;
 
 import static java.util.Objects.requireNonNull;
 
-//@formatter:off
+
 @DDD.Entity
 public class CeTalk extends AbstractEntity<CeTalk, TalkId> {
 
@@ -36,4 +36,3 @@ public class CeTalk extends AbstractEntity<CeTalk, TalkId> {
     }
 
 }
-//@formatter:on

@@ -1,6 +1,6 @@
 package fr.cla.ddd.metamodel;
 
-//@formatter:off
+
 public class DDD {
 
     public enum Layer {
@@ -50,4 +50,3 @@ public class DDD {
     }
 
 }
-//@formatter:on

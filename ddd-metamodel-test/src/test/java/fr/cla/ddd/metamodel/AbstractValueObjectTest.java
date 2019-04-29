@@ -10,7 +10,7 @@ import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-//@formatter:off
+
 public class AbstractValueObjectTest {
 
     @Test
@@ -99,4 +99,3 @@ public class AbstractValueObjectTest {
     }
 
 }
-//@formatter:on
