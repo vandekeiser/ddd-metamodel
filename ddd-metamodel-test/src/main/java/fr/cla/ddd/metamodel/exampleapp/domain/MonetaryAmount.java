@@ -71,13 +71,6 @@ public class MonetaryAmount extends AbstractValueObject<MonetaryAmount> {
         ;
     }
 
-    //Unfortunately this is required by JPA. Don't use.
-    @SuppressWarnings("unused")
-    private MonetaryAmount() {
-        super(MonetaryAmount.class);
-        this.amount = 0;
-    }
-
     public boolean isSmallerThanOrEqualTo(MonetaryAmount that) {
         return this.amount <= that.amount;
     }
@@ -86,4 +79,12 @@ public class MonetaryAmount extends AbstractValueObject<MonetaryAmount> {
     public String toString() {
         return String.valueOf(amount);
     }
+
+    //Unfortunately this is required by JPA. Don't use.
+    @SuppressWarnings("unused")
+    private MonetaryAmount() {
+        super(MonetaryAmount.class);
+        this.amount = 0;
+    }
+
 }
