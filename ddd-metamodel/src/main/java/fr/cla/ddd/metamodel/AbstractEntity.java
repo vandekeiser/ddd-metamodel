@@ -1,5 +1,6 @@
 package fr.cla.ddd.metamodel;
 
+import fr.cla.ddd.metamodel.validation.Validable;
 import fr.cla.ddd.oo.Equatable;
 
 import java.util.List;
@@ -18,7 +19,8 @@ public abstract class AbstractEntity<
     T extends AbstractEntity<T, I>,
     I extends EntityId
 >
-extends Equatable<T> {
+extends Equatable<T>
+implements Validable<T> {
 
     private final I id;
 

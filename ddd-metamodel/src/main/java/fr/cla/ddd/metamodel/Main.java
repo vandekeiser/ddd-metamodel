@@ -44,7 +44,7 @@ public class Main {
         }
 
         @Override
-        protected Validator<VO1> validator() {
+        public Validator<VO1> validator() {
             return Validator.none();
         }
     }

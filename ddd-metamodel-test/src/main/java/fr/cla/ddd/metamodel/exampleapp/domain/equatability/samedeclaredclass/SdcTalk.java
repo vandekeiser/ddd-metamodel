@@ -4,6 +4,7 @@ import fr.cla.ddd.metamodel.AbstractEntity;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import fr.cla.ddd.metamodel.exampleapp.domain.TalkId;
+import fr.cla.ddd.metamodel.validation.Validator;
 
 import static java.util.Objects.requireNonNull;
 
@@ -28,5 +29,11 @@ public class SdcTalk extends AbstractEntity<SdcTalk, TalkId> {
         super(SdcTalk.class, Equatability.SAME_DECLARED_CLASS);
         this.cost = null;
     }
+
+    @Override
+    public Validator<? super SdcTalk> validator() {
+        return Validator.none();
+    }
+
 }
 //@formatter:on

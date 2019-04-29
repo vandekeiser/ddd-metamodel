@@ -25,7 +25,7 @@ public class MonetaryAmount extends AbstractValueObject<MonetaryAmount> {
     }
 
     @Override
-    protected Validator<MonetaryAmount> validator() {
+    public Validator<MonetaryAmount> validator() {
         return Validator.none();
     }
 

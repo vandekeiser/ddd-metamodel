@@ -34,8 +34,9 @@ implements EntityId, Serializable {
     }
 
     @Override
-    protected Validator<ConferenceId> validator() {
+    public Validator<ConferenceId> validator() {
         return Validator.none();
     }
+
 }
 //@formatter:on

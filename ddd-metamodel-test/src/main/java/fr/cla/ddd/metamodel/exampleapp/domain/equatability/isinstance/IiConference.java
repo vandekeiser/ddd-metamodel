@@ -1,9 +1,11 @@
 package fr.cla.ddd.metamodel.exampleapp.domain.equatability.isinstance;
 
+import com.sun.jdi.Value;
 import fr.cla.ddd.metamodel.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
+import fr.cla.ddd.metamodel.validation.Validator;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -42,5 +44,11 @@ public class IiConference extends AbstractAggregateRoot<IiConference, Conference
     public Set<IiTalk> getTalks() {
         return new HashSet<>(talks);
     }
+
+    @Override
+    public Validator<? super IiConference> validator() {
+        return Validator.none();
+    }
+
 }
 //@formatter:on

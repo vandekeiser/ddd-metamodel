@@ -35,8 +35,9 @@ implements EntityId, Serializable {
     }
 
     @Override
-    protected Validator<TalkId> validator() {
+    public Validator<TalkId> validator() {
         return Validator.none();
     }
+
 }
 //@formatter:on

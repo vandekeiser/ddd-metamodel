@@ -1,6 +1,5 @@
 package fr.cla.ddd.metamodel;
 
-import fr.cla.ddd.metamodel.validation.Validation;
 import fr.cla.ddd.metamodel.validation.Validations;
 import fr.cla.ddd.metamodel.validation.Validator;
 import org.junit.jupiter.api.Test;
@@ -24,7 +23,7 @@ public class AbstractValueObjectTest {
     }
 
     @Test
-    public void should_not_instantiate_invalid() {
+    public void should_not_instantiate_invalid_vo() {
         assertThrows(IllegalArgumentException.class, () -> {
             new ValueObject3(-1);
         });
@@ -46,7 +45,7 @@ public class AbstractValueObjectTest {
         }
 
         @Override
-        protected Validator<ValueObject1> validator() {
+        public Validator<ValueObject1> validator() {
             return Validator.none();
         }
     }
@@ -66,7 +65,7 @@ public class AbstractValueObjectTest {
         }
 
         @Override
-        protected Validator<ValueObject2> validator() {
+        public Validator<ValueObject2> validator() {
             return Validator.none();
         }
     }
@@ -91,7 +90,7 @@ public class AbstractValueObjectTest {
         }
 
         @Override
-        protected Validator<ValueObject3> validator() {
+        public Validator<ValueObject3> validator() {
             return Validator.of(ValueObject3.class).validate(
                 ValueObject3::getValue, Validations::isPositive, "value must be positive")
             ;

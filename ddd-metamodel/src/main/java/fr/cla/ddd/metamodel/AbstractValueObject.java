@@ -1,5 +1,6 @@
 package fr.cla.ddd.metamodel;
 
+import fr.cla.ddd.metamodel.validation.Validable;
 import fr.cla.ddd.metamodel.validation.Validation;
 import fr.cla.ddd.metamodel.validation.Validator;
 import fr.cla.ddd.oo.Equatable;
@@ -12,7 +13,8 @@ import fr.cla.ddd.oo.Equatable;
  */
 @DDD.ValueObject
 public abstract class AbstractValueObject<T extends AbstractValueObject<T>>
-extends Equatable<T> {
+extends Equatable<T>
+implements Validable<T> {
 
     protected AbstractValueObject(Class<T> type) {
         super(type);
@@ -23,13 +25,6 @@ extends Equatable<T> {
         super(type, equatability);
         //See above.
     }
-
-    protected final void validate() {
-        Validation<T> v = validator().validate(asDeclaredType());
-        v.get();
-    }
-
-    protected abstract Validator<? super T> validator();
 
 }
 //@formatter:on

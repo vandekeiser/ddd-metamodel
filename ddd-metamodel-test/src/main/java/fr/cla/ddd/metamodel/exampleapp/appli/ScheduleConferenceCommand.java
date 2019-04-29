@@ -52,7 +52,7 @@ public class ScheduleConferenceCommand extends AbstractValueObject<ScheduleConfe
     }
 
     @Override
-    protected Validator<ScheduleConferenceCommand> validator() {
+    public Validator<ScheduleConferenceCommand> validator() {
         return Validator.none();
     }
 
@@ -60,4 +60,5 @@ public class ScheduleConferenceCommand extends AbstractValueObject<ScheduleConfe
     public String toString() {
         return String.format("{budget:%s, cost:%s}", budget, costs);
     }
+
 }

@@ -4,6 +4,7 @@ import fr.cla.ddd.metamodel.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
+import fr.cla.ddd.metamodel.validation.Validator;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -57,5 +58,11 @@ public class CeConference extends AbstractAggregateRoot<CeConference, Conference
     public Set<CeTalk> getTalks() {
         return new HashSet<>(talks);
     }
+
+    @Override
+    public Validator<? super CeConference> validator() {
+        return Validator.none();
+    }
+
 }
 //@formatter:on
