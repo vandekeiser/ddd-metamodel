@@ -20,6 +20,7 @@ modules + whitebox testing:
 TODOs:
     -sdc->sdt => src->srt
     -ajouter les toStrings sur ts les VO/E
+    -est-ce que mon summing gere bien les arithmeticex?
     -get/setters en pkg-private
     -mettre des vrais validators sur les VOs nommés genre MonetaryAmount (là où return Validator.none())
     -documenter de façon centralisée les //TODO eqh

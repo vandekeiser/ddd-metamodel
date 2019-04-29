@@ -30,12 +30,10 @@ public class MonetaryAmount extends AbstractValueObject<MonetaryAmount> {
 
     public static Collector<MonetaryAmount, ?, MonetaryAmount> summing() {
         class MutableMonetaryAmount {
-            private int amount;
-
+            int amount;
             MutableMonetaryAmount() {
                 this(0);
             }
-
             MutableMonetaryAmount(int amount) {
                 this.amount = amount;
             }
@@ -58,7 +56,7 @@ public class MonetaryAmount extends AbstractValueObject<MonetaryAmount> {
             MutableMonetaryAmount::add,
             MutableMonetaryAmount::add,
             MutableMonetaryAmount::toImmutable,
-            CONCURRENT, UNORDERED
+            UNORDERED
         );
     }
 
