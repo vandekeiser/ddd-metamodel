@@ -18,7 +18,6 @@ modules + whitebox testing:
 
 
 TODOs:
-    -sdc->sdt => src->srt
     -ajouter les toStrings sur ts les VO/E
     -est-ce que mon summing gere bien les arithmeticex?
     -get/setters en pkg-private
@@ -39,5 +38,3 @@ TODOs:
                 -TODO
                 -sujet necessitant de mettre du web + spring cloud contract + swagger
                 -donc a faire apres les sujets "iso-couches" cf. les "N sujets",
-
-renae SdtGenerator --> XxxGenerator::randomXxx

@@ -126,6 +126,11 @@ public class AbstractEntityTest {
             ;
         }
 
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
     }
 
     @DDD.ValueObjectId
@@ -154,6 +159,11 @@ public class AbstractEntityTest {
                 Entity2Id::getValue, Validations::isNotNull, "value must not be null")
             ;
         }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
     }
 
     @DDD.ValueObjectId
@@ -181,6 +191,11 @@ public class AbstractEntityTest {
             return Validator.of(Entity3Id.class).validate(
                 Entity3Id::getValue, Validations::isNotNull, "value must not be null")
             ;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
         }
     }
 

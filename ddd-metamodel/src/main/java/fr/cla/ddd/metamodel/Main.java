@@ -27,6 +27,11 @@ public class Main {
         protected List<Object> equalityCriteria() {
             return singletonList(x);
         }
+
+        @Override
+        public String toString() {
+            return String.valueOf(x);
+        }
     }
 
     @DDD.ValueObjectId
@@ -47,6 +52,11 @@ public class Main {
         @Override
         public Validator<VO1> validator() {
             return Validator.none();
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(x);
         }
     }
 

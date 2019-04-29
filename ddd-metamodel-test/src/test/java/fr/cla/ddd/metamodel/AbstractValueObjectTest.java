@@ -49,6 +49,11 @@ public class AbstractValueObjectTest {
         public Validator<ValueObject1> validator() {
             return Validator.none();
         }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
     }
 
     @DDD.ValueObject
@@ -69,6 +74,11 @@ public class AbstractValueObjectTest {
         @Override
         public Validator<ValueObject2> validator() {
             return Validator.none();
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
         }
     }
 
@@ -98,6 +108,10 @@ public class AbstractValueObjectTest {
             ;
         }
 
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
     }
 
 }

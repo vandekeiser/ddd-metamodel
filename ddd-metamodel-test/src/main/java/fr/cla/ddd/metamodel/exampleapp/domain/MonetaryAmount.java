@@ -81,4 +81,9 @@ public class MonetaryAmount extends AbstractValueObject<MonetaryAmount> {
     public boolean isSmallerThanOrEqualTo(MonetaryAmount that) {
         return this.amount <= that.amount;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(amount);
+    }
 }
