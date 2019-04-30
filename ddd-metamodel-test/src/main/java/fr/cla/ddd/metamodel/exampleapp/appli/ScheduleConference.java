@@ -16,7 +16,7 @@ import static java.util.Objects.requireNonNull;
 @Transactional @org.springframework.stereotype.Service
 public class ScheduleConference {
 
-    private static final Logger log = LoggerFactory.getLogger(SrtConference.class);
+    private static final Logger log = LoggerFactory.getLogger(ScheduleConference.class);
 
     private final SrtConferences conferences;
 
@@ -36,11 +36,12 @@ public class ScheduleConference {
      * (eg. translate them to 400)
      */
     public void scheduleConference(ScheduleConferenceCommand cmd) {
-        log.info("Received {}", cmd);
+        log.info("Received command {}", cmd);
         SrtConference conf;
         try {
             conf = cmd.createConference();
         } catch (ValidationException err) {
+            log.error("Invalid command {}", cmd);
             throw new InvalidCommandOrQueryException(err, cmd);
         }
 

@@ -18,7 +18,7 @@ public class Exception2HttpStatus extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = InvalidCommandOrQueryException.class)
     protected ResponseEntity<Object> handleInvalidCommandOrQueryException(RuntimeException ex, WebRequest request) {
-        log.info("Handling {}", ex);
+        log.info("Handling {}", ex.toString());
         String bodyOfResponse = ex.toString();
 
         return handleExceptionInternal(
