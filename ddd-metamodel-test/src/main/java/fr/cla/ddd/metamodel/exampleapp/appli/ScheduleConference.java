@@ -29,5 +29,4 @@ public class ScheduleConference {
         conferences.add(conf);
     }
 
-
 }
