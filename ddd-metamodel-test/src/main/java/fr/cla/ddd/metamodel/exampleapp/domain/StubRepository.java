@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 
-public abstract class InMemoryRepository<
+public abstract class StubRepository<
     A extends AbstractAggregateRoot<A, I>,
     I extends EntityId
 > {

@@ -5,6 +5,7 @@ import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConferences;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 
 import java.util.Optional;
 
@@ -12,7 +13,7 @@ import static java.util.Objects.requireNonNull;
 
 
 @DDD.RepositoryImpl
-@Primary @org.springframework.stereotype.Repository
+@Primary @Profile("!STUBBED_REPOS") @org.springframework.stereotype.Repository
 public class SdjSrtConferences implements SrtConferences {
 
     private final SrtConferencesSdj sdj;
