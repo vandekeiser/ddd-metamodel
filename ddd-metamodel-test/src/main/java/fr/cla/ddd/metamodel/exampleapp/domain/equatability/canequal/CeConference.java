@@ -76,13 +76,13 @@ public class CeConference extends AbstractAggregateRoot<CeConference, Conference
 //    at org.hibernate.proxy.pojo.bytebuddy.ByteBuddyProxyFactory.getProxy(ByteBuddyProxyFactory.java:90)
 //    at org.hibernate.tuple.entity.AbstractEntityTuplizer.createProxy(AbstractEntityTuplizer.java:701)
 //    at org.springframework.data.jpa.repository.support.SimpleJpaRepository.getOne(SimpleJpaRepository.java:255)
-//    at fr.cla.ddd.metamodel.exampleapp.infra.equatability.canequal.SdjCeConferencesTest.loadLazyProxyFor(SdjCeConferencesTest.java:48)
-//    at fr.cla.ddd.metamodel.exampleapp.infra.equatability.canequal.SdjCeConferencesTest.loadLazyProxyFor(SdjCeConferencesTest.java:16)
-//    at fr.cla.ddd.metamodel.exampleapp.infra.equatability.AbstractSdjConferencesTest.loadLazyProxy(AbstractSdjConferencesTest.java:120)
-//    at fr.cla.ddd.metamodel.exampleapp.infra.equatability.AbstractSdjConferencesTest.lambda$reloaded_lazy_proxy_should_be_equal$0(AbstractSdjConferencesTest.java:98)
-//    at fr.cla.ddd.metamodel.exampleapp.infra.equatability.AbstractSdjConferencesTest.doInAnotherTransaction(AbstractSdjConferencesTest.java:138)
-//    at fr.cla.ddd.metamodel.exampleapp.infra.equatability.AbstractSdjConferencesTest.reloaded_lazy_proxy_should_be_equal(AbstractSdjConferencesTest.java:94)
-//    at fr.cla.ddd.metamodel.exampleapp.infra.equatability.AbstractSdjConferencesTest.reloaded_lazy_proxy_should_be_equal(AbstractSdjConferencesTest.java:81)
+//    at fr.cla.ddd.metamodel.exampleapp.infra.jpa.equatability.canequal.SdjCeConferencesTest.loadLazyProxyFor(SdjCeConferencesTest.java:48)
+//    at fr.cla.ddd.metamodel.exampleapp.infra.jpa.equatability.canequal.SdjCeConferencesTest.loadLazyProxyFor(SdjCeConferencesTest.java:16)
+//    at fr.cla.ddd.metamodel.exampleapp.infra.jpa.equatability.AbstractSdjConferencesTest.loadLazyProxy(AbstractSdjConferencesTest.java:120)
+//    at fr.cla.ddd.metamodel.exampleapp.infra.jpa.equatability.AbstractSdjConferencesTest.lambda$reloaded_lazy_proxy_should_be_equal$0(AbstractSdjConferencesTest.java:98)
+//    at fr.cla.ddd.metamodel.exampleapp.infra.jpa.equatability.AbstractSdjConferencesTest.doInAnotherTransaction(AbstractSdjConferencesTest.java:138)
+//    at fr.cla.ddd.metamodel.exampleapp.infra.jpa.equatability.AbstractSdjConferencesTest.reloaded_lazy_proxy_should_be_equal(AbstractSdjConferencesTest.java:94)
+//    at fr.cla.ddd.metamodel.exampleapp.infra.jpa.equatability.AbstractSdjConferencesTest.reloaded_lazy_proxy_should_be_equal(AbstractSdjConferencesTest.java:81)
     CeConference() {
         super(CeConference.class, Equatability.CAN_EQUAL);
         this.budget = null;

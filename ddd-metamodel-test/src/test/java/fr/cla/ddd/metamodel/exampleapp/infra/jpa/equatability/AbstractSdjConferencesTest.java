@@ -1,10 +1,10 @@
-package fr.cla.ddd.metamodel.exampleapp.infra.equatability;
+package fr.cla.ddd.metamodel.exampleapp.infra.jpa.equatability;
 
 import fr.cla.ddd.metamodel.domain.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.domain.AbstractEntity;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.TalkId;
-import fr.cla.ddd.metamodel.exampleapp.infra.JpaConfig;
+import fr.cla.ddd.metamodel.exampleapp.infra.jpa.JpaConfig;
 import org.hibernate.proxy.HibernateProxy;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

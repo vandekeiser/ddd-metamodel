@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.exampleapp.expo;
+package fr.cla.ddd.metamodel.exampleapp.expo.conference;
 
 import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConference;
 import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConferenceCommand;

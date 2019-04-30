@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.exampleapp.infra.equatability.isinstance;
+package fr.cla.ddd.metamodel.exampleapp.infra.jpa.equatability.isinstance;
 
 import fr.cla.ddd.metamodel.domain.DDD;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;

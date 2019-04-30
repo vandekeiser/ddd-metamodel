@@ -1,11 +1,11 @@
-package fr.cla.ddd.metamodel.exampleapp.infra.equatability.sameruntimetype;
+package fr.cla.ddd.metamodel.exampleapp.infra.jpa.equatability.sameruntimetype;
 
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtTalk;
-import fr.cla.ddd.metamodel.exampleapp.infra.JpaConfig;
-import fr.cla.ddd.metamodel.exampleapp.infra.equatability.AbstractSdjConferencesTest;
+import fr.cla.ddd.metamodel.exampleapp.infra.jpa.JpaConfig;
+import fr.cla.ddd.metamodel.exampleapp.infra.jpa.equatability.AbstractSdjConferencesTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ContextConfiguration;

@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.exampleapp.infra.equatability.sameruntimetype;
+package fr.cla.ddd.metamodel.exampleapp.infra.jpa.equatability.sameruntimetype;
 
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConference;

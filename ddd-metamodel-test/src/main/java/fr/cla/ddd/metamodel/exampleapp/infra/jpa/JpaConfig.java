@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.exampleapp.infra;
+package fr.cla.ddd.metamodel.exampleapp.infra.jpa;
 
 import fr.cla.ddd.metamodel.exampleapp.ExampleApp;
 import org.springframework.context.annotation.ComponentScan;

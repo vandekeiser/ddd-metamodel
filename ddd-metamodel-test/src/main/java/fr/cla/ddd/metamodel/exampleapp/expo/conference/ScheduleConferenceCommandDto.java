@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.exampleapp.expo;
+package fr.cla.ddd.metamodel.exampleapp.expo.conference;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.exampleapp.infra.equatability.canequal;
+package fr.cla.ddd.metamodel.exampleapp.infra.jpa.equatability.canequal;
 
 import fr.cla.ddd.metamodel.domain.DDD;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
