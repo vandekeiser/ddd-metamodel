@@ -14,7 +14,7 @@ import java.util.Optional;
 import static java.util.Objects.requireNonNull;
 
 @RestController
-@RequestMapping("/v1/conferences")
+@RequestMapping("/example-app/conferences")
 public class ConferenceResource {
 
     private final ScheduleConference scheduleConference;

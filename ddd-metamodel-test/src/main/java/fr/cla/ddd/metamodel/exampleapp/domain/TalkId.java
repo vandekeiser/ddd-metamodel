@@ -40,8 +40,9 @@ implements EntityId, Serializable {
 
     @Override
     public Validator<TalkId> validator() {
-        return Validator.of(TalkId.class).validate(
-            TalkId::getValue, Validations::isNotNull, "value must not be null")
+        return Validator.of(TalkId.class)
+            .validate(TalkId::getValue, Validations::isNotNull, "value must not be null")
+            .validate(TalkId::getValue, Validations::isUuid, "value must be a Uuid")
         ;
     }
 

@@ -1,0 +1,122 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Example App API",
+    "description": "An example app API to be validated with OpenAPI Specification"
+  },
+  "schemes": [
+    "http"
+  ],
+  "host": "localhost:8080",
+  "basePath": "/example-app",
+  "paths": {
+    "/conferences/{conferenceId}": {
+      "get": {
+        "summary": "Gets detailed information about the conference",
+        "description": "Gets detailed information about the conference.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/conferenceId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Detailed information about the Conference",
+            "schema": {
+              "$ref": "#/definitions/ConferenceDetails"
+            }
+          },
+          "404": {
+            "description": "The Conference does not exists"
+          },
+          "500": {
+            "$ref": "#/responses/Standard500ErrorResponse"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Talk": {
+      "required": [
+        "id",
+        "cost"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}"
+        },
+        "cost": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      }
+    },
+    "ConferenceDetails": {
+      "required": [
+        "id",
+        "budget",
+        "totalCost",
+        "talks"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "[A-Z0-9]",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "budget": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "totalCost": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "talks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Talk"
+          }
+        }
+      }
+    },
+    "Error": {
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "[A-Z0-9]",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "responses": {
+    "Standard500ErrorResponse": {
+      "description": "An unexpected error occured.",
+      "schema": {
+        "$ref": "#/definitions/Error"
+      }
+    }
+  },
+  "parameters": {
+    "conferenceId": {
+      "name": "conferenceId",
+      "in": "path",
+      "required": true,
+      "description": "The id of the conference",
+      "type": "string",
+      "pattern": "[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}"
+    }
+  }
+}

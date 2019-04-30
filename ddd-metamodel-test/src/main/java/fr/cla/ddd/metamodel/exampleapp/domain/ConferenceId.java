@@ -40,8 +40,9 @@ implements EntityId, Serializable {
 
     @Override
     public Validator<ConferenceId> validator() {
-        return Validator.of(ConferenceId.class).validate(
-            ConferenceId::getValue, Validations::isNotNull, "value must not be null")
+        return Validator.of(ConferenceId.class)
+            .validate(ConferenceId::getValue, Validations::isNotNull, "value must not be null")
+            .validate(ConferenceId::getValue, Validations::isUuid, "value must be a Uuid")
         ;
     }
 

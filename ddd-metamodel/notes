@@ -30,10 +30,9 @@ TODOs:
         -penser au 400 vs 500
             -domain doit lancer une exception
             -appli doit ...
-            -expo doit valider par un schema JSON (ou swagger?)
-                -TODO
-                -sujet necessitant de mettre du web + spring cloud contract + swagger
-                -donc a faire apres les sujets "iso-couches" cf. les "N sujets",
+            -expo doit valider par un schema openapi
 
 *****swagger*****
 localhost:8080/swagger-ui.html
+SPRING_PROFILES_ACTIVE=STUBBED_REPOS mvn spring-boot:run
+curl -v "localhost:8080/example-app/conferences/3a370dbe-13d3-4a85-b60e-632a2f4c44b6"

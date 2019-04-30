@@ -18,7 +18,7 @@ implements SrtConferences {
 
     public StubSrtConferences() {
         super.add(new SrtConference(
-            new ConferenceId("33"),
+            new ConferenceId("3a370dbe-13d3-4a85-b60e-632a2f4c44b6"),
             new MonetaryAmount(1000),
             new SrtTalk(new MonetaryAmount(100))
         ));

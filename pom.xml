@@ -24,6 +24,8 @@
         <quickcheck.version>0.7</quickcheck.version>
         <equalsverifier.version>3.1.8</equalsverifier.version>
         <jqwik.version>1.1.2</jqwik.version>
+        <swagger-request-validator.version>2.2.2</swagger-request-validator.version>
+
 
         <maven-failsafe-surefire-plugin.version>3.0.0-M3</maven-failsafe-surefire-plugin.version>
         <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
