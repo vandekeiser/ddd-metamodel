@@ -23,7 +23,7 @@ public class AbstractValueObjectTest {
     }
 
     @Test
-    public void should_not_instantiate_invalid_vo() {
+    public void should_not_instantiate_invalid() {
         assertThrows(IllegalArgumentException.class, () ->
             new ValueObject3(-1)
         );

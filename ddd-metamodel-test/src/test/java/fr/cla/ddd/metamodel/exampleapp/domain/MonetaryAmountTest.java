@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class MonetaryAmountTest {
 
     @Test
-    public void should_not_instantiate_invalid_MonetaryAmount() {
+    public void should_not_instantiate_invalid() {
         assertThrows(IllegalArgumentException.class, () ->
             new MonetaryAmount(-1)
         );
@@ -17,7 +17,7 @@ public class MonetaryAmountTest {
     }
 
     @Test
-    public void should_instantiate_valid_MonetaryAmount() {
+    public void should_instantiate_valid() {
         assertDoesNotThrow(() ->
             new MonetaryAmount(0)
         );
