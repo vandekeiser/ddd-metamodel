@@ -1,6 +1,6 @@
 package fr.cla.ddd.metamodel.exampleapp.domain;
 
-import fr.cla.ddd.metamodel.validation.ValidationException;
+import fr.cla.ddd.metamodel.domain.validation.ValidationException;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

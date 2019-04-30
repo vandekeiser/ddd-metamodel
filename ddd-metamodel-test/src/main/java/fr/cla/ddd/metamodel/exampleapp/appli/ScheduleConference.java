@@ -1,14 +1,13 @@
 package fr.cla.ddd.metamodel.exampleapp.appli;
 
-import fr.cla.ddd.metamodel.DDD;
-import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
+import fr.cla.ddd.metamodel.appli.InvalidCommandOrQueryException;
+import fr.cla.ddd.metamodel.domain.DDD;
+import fr.cla.ddd.metamodel.domain.validation.ValidationException;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConferences;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 import static java.util.Objects.requireNonNull;
 
@@ -36,11 +35,15 @@ public class ScheduleConference {
      * The rest api might have validated the schema, but it also must take into account
      * (eg. translate them to 400)
      */
-    //TODO Optional<ConferenceId>
-    //     ou throws ValidationException
     public void scheduleConference(ScheduleConferenceCommand cmd) {
         log.info("Received {}", cmd);
-        SrtConference conf = cmd.createConference();
+        SrtConference conf;
+        try {
+            conf = cmd.createConference();
+        } catch (ValidationException err) {
+            throw new InvalidCommandOrQueryException(err, cmd);
+        }
+
         log.info("Created {} to add it", conf);
         conferences.add(conf);
         log.info("Added {}", conf);

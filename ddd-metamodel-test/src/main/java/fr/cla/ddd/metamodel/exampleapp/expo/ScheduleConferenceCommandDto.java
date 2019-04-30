@@ -6,9 +6,8 @@ import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConferenceCommand;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.*;
+import static java.util.stream.Collectors.toList;
 
 public class ScheduleConferenceCommandDto {
 

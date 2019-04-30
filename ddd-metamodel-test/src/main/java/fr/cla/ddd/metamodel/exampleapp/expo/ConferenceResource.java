@@ -4,15 +4,14 @@ import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConference;
 import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConferenceCommand;
 import fr.cla.ddd.metamodel.exampleapp.appli.ViewConferenceDetails;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 import static java.util.Objects.requireNonNull;
-import static org.springframework.http.HttpStatus.*;
-import static org.springframework.http.MediaType.*;
+import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
 @RestController
 @RequestMapping("/example-app/conferences")

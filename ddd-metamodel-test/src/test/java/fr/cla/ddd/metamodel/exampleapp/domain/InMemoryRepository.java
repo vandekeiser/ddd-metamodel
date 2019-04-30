@@ -1,7 +1,7 @@
 package fr.cla.ddd.metamodel.exampleapp.domain;
 
-import fr.cla.ddd.metamodel.AbstractAggregateRoot;
-import fr.cla.ddd.metamodel.EntityId;
+import fr.cla.ddd.metamodel.domain.AbstractAggregateRoot;
+import fr.cla.ddd.metamodel.domain.EntityId;
 
 import java.util.Map;
 import java.util.Optional;

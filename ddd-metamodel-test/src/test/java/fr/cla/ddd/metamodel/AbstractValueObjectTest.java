@@ -1,8 +1,10 @@
 package fr.cla.ddd.metamodel;
 
-import fr.cla.ddd.metamodel.validation.ValidationException;
-import fr.cla.ddd.metamodel.validation.Validations;
-import fr.cla.ddd.metamodel.validation.Validator;
+import fr.cla.ddd.metamodel.domain.AbstractValueObject;
+import fr.cla.ddd.metamodel.domain.DDD;
+import fr.cla.ddd.metamodel.domain.validation.ValidationException;
+import fr.cla.ddd.metamodel.domain.validation.Validations;
+import fr.cla.ddd.metamodel.domain.validation.Validator;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

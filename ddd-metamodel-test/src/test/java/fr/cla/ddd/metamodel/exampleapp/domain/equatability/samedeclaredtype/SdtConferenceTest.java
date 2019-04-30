@@ -1,10 +1,8 @@
 package fr.cla.ddd.metamodel.exampleapp.domain.equatability.samedeclaredtype;
 
+import fr.cla.ddd.metamodel.domain.validation.ValidationException;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
-import fr.cla.ddd.metamodel.exampleapp.domain.equatability.isinstance.IiConference;
-import fr.cla.ddd.metamodel.exampleapp.domain.equatability.isinstance.IiTalk;
-import fr.cla.ddd.metamodel.validation.ValidationException;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel;
+package fr.cla.ddd.metamodel.domain;
 
 /**
  * Package-private class to check that I can do whitebox tests in JPMS.

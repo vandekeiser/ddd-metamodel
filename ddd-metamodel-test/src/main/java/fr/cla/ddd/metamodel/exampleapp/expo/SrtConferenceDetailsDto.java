@@ -1,9 +1,7 @@
 package fr.cla.ddd.metamodel.exampleapp.expo;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.cla.ddd.metamodel.exampleapp.appli.SrtConferenceDetails;
-import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConference;
 
 import java.util.Set;
 

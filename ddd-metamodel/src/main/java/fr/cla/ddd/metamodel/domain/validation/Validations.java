@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.validation;
+package fr.cla.ddd.metamodel.domain.validation;
 
 import java.util.UUID;
 

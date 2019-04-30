@@ -1,6 +1,6 @@
-package fr.cla.ddd.metamodel;
+package fr.cla.ddd.metamodel.domain;
 
-import fr.cla.ddd.metamodel.validation.Validable;
+import fr.cla.ddd.metamodel.domain.validation.Validable;
 import fr.cla.ddd.oo.Equatable;
 
 import java.util.List;

@@ -7,13 +7,13 @@ http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
 
     <access>FIELD</access>
 
-    <mapped-superclass class="fr.cla.ddd.metamodel.AbstractEntity">
+    <mapped-superclass class="fr.cla.ddd.metamodel.domain.AbstractEntity">
         <attributes>
             <embedded-id name="id"></embedded-id>
         </attributes>
     </mapped-superclass>
 
-    <mapped-superclass class="fr.cla.ddd.metamodel.AbstractAggregateRoot">
+    <mapped-superclass class="fr.cla.ddd.metamodel.domain.AbstractAggregateRoot">
         <attributes>
             <version name="version"></version>
         </attributes>

@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.validation;
+package fr.cla.ddd.metamodel.domain.validation;
 
 import java.util.ArrayList;
 import java.util.List;

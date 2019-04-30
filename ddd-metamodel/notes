@@ -38,9 +38,47 @@ TODOs:
 
 *****swagger*****
 localhost:8080/swagger-ui.html
+
 SPRING_PROFILES_ACTIVE=STUBBED_REPOS mvn spring-boot:run
+
 curl -v -XGET -H "Content-Type: application/json;charset=UTF-8" -H "Accept: application/json;charset=UTF-8" "localhost:8080/example-app/conferences/3a370dbe-13d3-4a85-b60e-632a2f4c44b6"
+    < HTTP/1.1 200
+    < Content-Type: application/json;charset=UTF-8
+    < Content-Length: 142
+    < Date: Tue, 30 Apr 2019 20:44:56 GMT
+    <
+    * Connection #0 to host localhost left intact
+    {"id":"3a370dbe-13d3-4a85-b60e-632a2f4c44b6","budget":1000,"totalCost":100,"talks":[{"id":"d837eff0-ec57-4e7f-aaa8-46cdda2cd9db","cost":100}]}
+
 curl -v -XPOST -H "Content-Type: application/json;charset=UTF-8" -H "Accept: application/json;charset=UTF-8" --data '{"budget":1000, "costs":[400, 600]}'  "localhost:8080/example-app/conferences/"
+    < HTTP/1.1 201
+    < Content-Length: 0
+    < Date: Tue, 30 Apr 2019 20:45:35 GMT
+    <
+    * Connection #0 to host localhost left intact
+
 
 *****valid applicative TODO ds ScheduleConference (pr l'instant: 500)*****
+-Exception provoquée par OpenApiValidationConfig
+curl -v -XPOST -H "Content-Type: application/json;charset=UTF-8" -H "Accept: application/json;charset=UTF-8" --data '{"budget":1000, "costs":[400, -1]}'  "localhost:8080/example-app/conferences/"
+    < HTTP/1.1 400
+    < Content-Type: application/json;charset=UTF-8
+    < Transfer-Encoding: chunked
+    < Date: Tue, 30 Apr 2019 20:49:25 GMT
+    < Connection: close
+    <
+    * Closing connection 0
+    {"timestamp":"2019-04-30T20:49:25.117+0000","status":400,"error":"Bad Request","message":"{\n  \"messages\" : [ {\n    \"key\" : \"validation.request.body.schema.minimum\",\n    \"level\" : \"ERROR\",\n    \"message\" : \"[Path '/costs/1'] Numeric instance is lower than the required minimum (minimum: 0, found: -1)\",\n    \"context\" : {\n      \"requestPath\" : \"/example-app/conferences/\",\n      \"apiRequestContentType\" : \"*/*\",\n      \"location\" : \"REQUEST\",\n      \"requestMethod\" : \"POST\"\n    }\n  } ]\n}","path":"/example-app/conferences/"}
+
+**VS**
+
+-ValidationException
 curl -v -XPOST -H "Content-Type: application/json;charset=UTF-8" -H "Accept: application/json;charset=UTF-8" --data '{"budget":1000, "costs":[400, 700]}'  "localhost:8080/example-app/conferences/"
+    < HTTP/1.1 400
+    < Content-Type: application/json;charset=UTF-8
+    < Content-Length: 51
+    < Date: Tue, 30 Apr 2019 20:47:11 GMT
+    < Connection: close
+    <
+    * Closing connection 0
+    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

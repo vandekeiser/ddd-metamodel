@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.validation;
+package fr.cla.ddd.metamodel.domain.validation;
 
 public interface Validable<T> {
 

@@ -1,11 +1,11 @@
 package fr.cla.ddd.metamodel.exampleapp.domain.equatability.isinstance;
 
-import fr.cla.ddd.metamodel.AbstractAggregateRoot;
-import fr.cla.ddd.metamodel.DDD;
+import fr.cla.ddd.metamodel.domain.AbstractAggregateRoot;
+import fr.cla.ddd.metamodel.domain.DDD;
+import fr.cla.ddd.metamodel.domain.validation.Validations;
+import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
-import fr.cla.ddd.metamodel.validation.Validations;
-import fr.cla.ddd.metamodel.validation.Validator;
 
 import java.util.HashSet;
 import java.util.Set;

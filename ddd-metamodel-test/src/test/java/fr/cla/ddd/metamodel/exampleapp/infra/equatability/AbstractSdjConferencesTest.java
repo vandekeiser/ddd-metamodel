@@ -1,7 +1,7 @@
 package fr.cla.ddd.metamodel.exampleapp.infra.equatability;
 
-import fr.cla.ddd.metamodel.AbstractAggregateRoot;
-import fr.cla.ddd.metamodel.AbstractEntity;
+import fr.cla.ddd.metamodel.domain.AbstractAggregateRoot;
+import fr.cla.ddd.metamodel.domain.AbstractEntity;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.TalkId;
 import fr.cla.ddd.metamodel.exampleapp.infra.JpaConfig;

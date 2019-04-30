@@ -1,13 +1,13 @@
 package fr.cla.ddd.metamodel.exampleapp.appli;
 
-import fr.cla.ddd.metamodel.AbstractValueObject;
-import fr.cla.ddd.metamodel.DDD;
+import fr.cla.ddd.metamodel.domain.AbstractValueObject;
+import fr.cla.ddd.metamodel.domain.DDD;
+import fr.cla.ddd.metamodel.domain.validation.Validations;
+import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtTalk;
-import fr.cla.ddd.metamodel.validation.Validations;
-import fr.cla.ddd.metamodel.validation.Validator;
 
 import java.util.ArrayList;
 import java.util.HashSet;

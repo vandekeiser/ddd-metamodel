@@ -1,6 +1,6 @@
 package fr.cla.ddd.metamodel.exampleapp.domain.equatability.isinstance;
 
-import fr.cla.ddd.metamodel.DDD;
+import fr.cla.ddd.metamodel.domain.DDD;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.InMemoryRepository;
 

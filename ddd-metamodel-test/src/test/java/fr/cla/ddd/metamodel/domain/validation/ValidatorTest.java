@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.validation;
+package fr.cla.ddd.metamodel.domain.validation;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -52,7 +52,11 @@ public class ValidatorTest {
         } catch (ValidationException expected) {
             //Then
             expected.printStackTrace();
-            assertThat(expected.getMessage()).isEqualTo("User{name:, age:-12}");
+            //assertThat(expected.getMessage()).isEqualTo("User{name:, age:-12}");
+            assertThat(expected.getMessage()).isEqualTo("Invalid object");
+
+            //And
+            assertThat(expected.getInvalid()).isEqualTo(invalidUser);
 
             //And
             Throwable[] validationErrors = expected.getSuppressed();

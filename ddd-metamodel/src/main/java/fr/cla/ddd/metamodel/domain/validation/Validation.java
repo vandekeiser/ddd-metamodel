@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.validation;
+package fr.cla.ddd.metamodel.domain.validation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,23 +19,9 @@ public class Validation<T> {
             return t;
         }
 
-        ValidationException invalid = new ValidationException(errorMessageFor(t));
+        ValidationException invalid = ValidationException.invalidObject(t);
         errors.forEach(invalid::addSuppressed);
         throw invalid;
-    }
-
-    private String errorMessageFor(T t) {
-        String toString = String.valueOf(t);
-        return alreadyHasClassPrefix(toString) ?
-            toString :
-            t.getClass().getSimpleName() + toString
-        ;
-    }
-
-    private boolean alreadyHasClassPrefix(String toString) {
-        if(toString.startsWith(t.getClass().getSimpleName())) return true;
-        if(toString.startsWith(t.getClass().getName())) return true;
-        return false;
     }
 
     Validation<T> validate(ValidationDefinition<? super T> def) {
@@ -45,7 +31,7 @@ public class Validation<T> {
     private Validation<T> validate(Predicate<? super T> validation, String message) {
         try {
             if (!validation.test(t)) {
-                errors.add(new ValidationException(message));
+                errors.add(ValidationException.invalidPredicate(message));
             }
         } catch (RuntimeException e) {
             errors.add(e);
