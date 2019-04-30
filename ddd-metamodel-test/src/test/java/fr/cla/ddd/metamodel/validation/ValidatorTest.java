@@ -49,7 +49,7 @@ public class ValidatorTest {
             //When
             validation.get();
             fail("Should have failed invalid user" + invalidUser);
-        } catch (IllegalArgumentException expected) {
+        } catch (ValidationException expected) {
             //Then
             expected.printStackTrace();
             assertThat(expected.getMessage()).isEqualTo("User{name:, age:-12}");

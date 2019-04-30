@@ -58,6 +58,14 @@ public class SdtConference extends AbstractAggregateRoot<SdtConference, Conferen
         return talks.stream().map(SdtTalk::getCost).collect(MonetaryAmount.summing());
     }
 
+    @Override
+    public String toString() {
+        return String.format(
+            "%s{id: %s, version: %s, budget: %s, talks: %s}",
+            getClass().getSimpleName(), getId(), getVersion(), getBudget(), getTalks()
+        );
+    }
+
     //Unfortunately this is required by JPA. Don't use.
     @SuppressWarnings("unused")
     SdtConference() { //TODO eqh: private KO! (without lazy proxies, private is fine)

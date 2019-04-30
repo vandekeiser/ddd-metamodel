@@ -1,5 +1,6 @@
 package fr.cla.ddd.metamodel;
 
+import fr.cla.ddd.metamodel.validation.ValidationException;
 import fr.cla.ddd.metamodel.validation.Validations;
 import fr.cla.ddd.metamodel.validation.Validator;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,7 @@ public class AbstractValueObjectTest {
 
     @Test
     public void should_not_instantiate_invalid() {
-        assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(ValidationException.class, () ->
             new ValueObject3(-1)
         );
 

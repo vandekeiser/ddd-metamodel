@@ -2,6 +2,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain.equatability.canequal;
 
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
+import fr.cla.ddd.metamodel.validation.ValidationException;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -11,7 +12,7 @@ public class CeConferenceTest {
 
     @Test
     public void should_not_instantiate_invalid() {
-        assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(ValidationException.class, () ->
             new CeConference(
                 new ConferenceId(),
                 new MonetaryAmount(1000),
@@ -36,7 +37,7 @@ public class CeConferenceTest {
             );
 
             fail("Should have failed invalid CeConference" + invalid);
-        } catch (IllegalArgumentException expected) {
+        } catch (ValidationException expected) {
             //Then
             expected.printStackTrace();
 

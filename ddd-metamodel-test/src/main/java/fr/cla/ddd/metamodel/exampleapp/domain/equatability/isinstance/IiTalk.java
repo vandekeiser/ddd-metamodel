@@ -33,6 +33,14 @@ public class IiTalk extends AbstractEntity<IiTalk, TalkId> {
         ;
     }
 
+    @Override
+    public String toString() {
+        return String.format(
+            "%s{cost: %s}",
+            getClass().getSimpleName(), cost
+        );
+    }
+
     //Unfortunately this is required by JPA. Don't use.
     @SuppressWarnings("unused")
     private IiTalk() {

@@ -1,5 +1,6 @@
 package fr.cla.ddd.metamodel.exampleapp.domain;
 
+import fr.cla.ddd.metamodel.validation.ValidationException;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,7 +11,7 @@ public class MonetaryAmountTest {
 
     @Test
     public void should_not_instantiate_invalid() {
-        assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(ValidationException.class, () ->
             new MonetaryAmount(-1)
         );
 

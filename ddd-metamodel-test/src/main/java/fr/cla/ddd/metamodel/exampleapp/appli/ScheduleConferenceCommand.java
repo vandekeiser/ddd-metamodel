@@ -61,7 +61,10 @@ public class ScheduleConferenceCommand extends AbstractValueObject<ScheduleConfe
 
     @Override
     public String toString() {
-        return String.format("{budget:%s, cost:%s}", budget, costs);
+        return String.format(
+            "%s{conferenceId:%s, budget:%s, costs:%s}",
+            getClass().getSimpleName(), conferenceId, budget, costs
+        );
     }
 
 }

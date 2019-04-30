@@ -14,12 +14,12 @@ public class Validation<T> {
         this.t = requireNonNull(t);
     }
 
-    public T get() throws IllegalArgumentException {
+    public T get() throws ValidationException {
         if(errors.isEmpty()) {
             return t;
         }
 
-        IllegalArgumentException invalid = new IllegalArgumentException(errorMessageFor(t));
+        ValidationException invalid = new ValidationException(errorMessageFor(t));
         errors.forEach(invalid::addSuppressed);
         throw invalid;
     }
@@ -45,7 +45,7 @@ public class Validation<T> {
     private Validation<T> validate(Predicate<? super T> validation, String message) {
         try {
             if (!validation.test(t)) {
-                errors.add(new IllegalArgumentException(message));
+                errors.add(new ValidationException(message));
             }
         } catch (RuntimeException e) {
             errors.add(e);

@@ -58,6 +58,13 @@ public class IiConference extends AbstractAggregateRoot<IiConference, Conference
         return talks.stream().map(IiTalk::getCost).collect(MonetaryAmount.summing());
     }
 
+    @Override
+    public String toString() {
+        return String.format(
+            "%s{id: %s, version: %s, budget: %s, talks: %s}",
+            getClass().getSimpleName(), getId(), getVersion(), getBudget(), getTalks()
+        );
+    }
 
     //Unfortunately this is required by JPA. Don't use.
     @SuppressWarnings("unused")

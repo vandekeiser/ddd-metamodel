@@ -4,6 +4,7 @@ import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.canequal.CeConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.canequal.CeTalk;
+import fr.cla.ddd.metamodel.validation.ValidationException;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -13,7 +14,7 @@ public class IiConferenceTest {
 
     @Test
     public void should_not_instantiate_invalid() {
-        assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(ValidationException.class, () ->
             new IiConference(
                 new ConferenceId(),
                 new MonetaryAmount(1000),
@@ -38,7 +39,7 @@ public class IiConferenceTest {
             );
 
             fail("Should have failed invalid CeConference" + invalid);
-        } catch (IllegalArgumentException expected) {
+        } catch (ValidationException expected) {
             //Then
             expected.printStackTrace();
 

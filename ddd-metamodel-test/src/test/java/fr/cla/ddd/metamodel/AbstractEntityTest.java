@@ -1,5 +1,6 @@
 package fr.cla.ddd.metamodel;
 
+import fr.cla.ddd.metamodel.validation.ValidationException;
 import fr.cla.ddd.metamodel.validation.Validations;
 import fr.cla.ddd.metamodel.validation.Validator;
 import org.junit.jupiter.api.Test;
@@ -25,7 +26,7 @@ public class AbstractEntityTest {
 
     @Test
     public void should_not_instantiate_with_invalid_value() {
-        assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(ValidationException.class, () ->
             new Entity3(new Entity3Id(randomUUID().toString()), -1)
         );
 
@@ -35,7 +36,7 @@ public class AbstractEntityTest {
     public void should_not_set_invalid_value() {
         Entity3 e3 = new Entity3(new Entity3Id(randomUUID().toString()), 0);
 
-        assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(ValidationException.class, () ->
             e3.setValue(-1)
         );
 

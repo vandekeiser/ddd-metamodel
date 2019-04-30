@@ -18,6 +18,10 @@ extends AbstractEntity<T, I> {
         super(type, id, equatability);
     }
 
+    public long getVersion() {
+        return version;
+    }
+
     //Unfortunately this is required by JPA. Only use to declare the no-arg constructor.
     protected AbstractAggregateRoot(Class<T> type, Equatability equatability) {
         super(type, equatability);

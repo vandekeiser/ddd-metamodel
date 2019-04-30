@@ -46,7 +46,7 @@ public class SrtConference extends AbstractAggregateRoot<SrtConference, Conferen
         return Validator.of(SrtConference.class)
             .validate(SrtConference::getBudget, Validations::isNotNull, "budget must not be null")
             .validate(SrtConference::totalCostDoesNotExceedBudget, "total cost must not exceed budget")
-            ;
+        ;
     }
 
     private boolean totalCostDoesNotExceedBudget() {
@@ -56,6 +56,15 @@ public class SrtConference extends AbstractAggregateRoot<SrtConference, Conferen
     public MonetaryAmount totalCost() {
         return talks.stream().map(SrtTalk::getCost).collect(MonetaryAmount.summing());
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+            "%s{id: %s, version: %s, budget: %s, talks: %s}",
+            getClass().getSimpleName(), getId(), getVersion(), getBudget(), getTalks()
+        );
+    }
+
 
     //Unfortunately this is required by JPA. Don't use.
     @SuppressWarnings("unused")

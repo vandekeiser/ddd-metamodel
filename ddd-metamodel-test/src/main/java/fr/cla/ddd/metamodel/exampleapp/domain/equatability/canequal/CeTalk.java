@@ -34,6 +34,14 @@ public class CeTalk extends AbstractEntity<CeTalk, TalkId> {
         ;
     }
 
+    @Override
+    public String toString() {
+        return String.format(
+            "%s{cost: %s}",
+            getClass().getSimpleName(), cost
+        );
+    }
+
     //Unfortunately this is required by JPA. Don't use.
     @SuppressWarnings("unused")
     private CeTalk() {

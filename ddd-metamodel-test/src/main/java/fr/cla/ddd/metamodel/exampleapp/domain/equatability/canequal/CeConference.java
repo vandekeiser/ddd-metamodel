@@ -58,6 +58,14 @@ public class CeConference extends AbstractAggregateRoot<CeConference, Conference
         return talks.stream().map(CeTalk::getCost).collect(MonetaryAmount.summing());
     }
 
+    @Override
+    public String toString() {
+        return String.format(
+            "%s{id: %s, version: %s, budget: %s, talks: %s}",
+            getClass().getSimpleName(), getId(), getVersion(), getBudget(), getTalks()
+        );
+    }
+
     //Unfortunately this is required by JPA. Don't use.
     @SuppressWarnings("unused")
 //    TODO eqh: private constructor KO with lazy proxies (without lazy proxies, private is fine),
