@@ -18,7 +18,6 @@ modules + whitebox testing:
 
 
 TODOs:
-    -est-ce que mon summing gere bien les arithmeticex?
     -documenter de façon centralisée les //TODO eqh
     -meilleurs exemple d'equatables? (ex. cf. EJ pr CE?)
     -VO: ce qui rest a VF pas fait par javac c'est surtt l'immutabilite
