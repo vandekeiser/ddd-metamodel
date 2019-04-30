@@ -12,28 +12,12 @@ import static java.util.stream.Collectors.*;
 
 public class ScheduleConferenceCommandDto {
 
-    @JsonProperty public /*final*/ int budget;
+    @JsonProperty private final int budget;
+    @JsonProperty private final List<Integer> costs;
 
-    public int getBudget() {
-        return budget;
-    }
-
-    public void setBudget(int budget) {
-        this.budget = budget;
-    }
-
-    public List<Integer> getCosts() {
-        return costs;
-    }
-
-    public void setCosts(List<Integer> costs) {
-        this.costs = costs;
-    }
-
-    @JsonProperty public /*final*/ List<Integer> costs;
-
-    @JsonCreator
+    @JsonCreator //Request DTOs are constructed by jackson
     public ScheduleConferenceCommandDto(
+        //@JsonProperty required to not get unfriendly 415 from spring..
         @JsonProperty("budget") int budget,
         @JsonProperty("costs") List<Integer> costs)
     {
@@ -47,4 +31,5 @@ public class ScheduleConferenceCommandDto {
             costs.stream().map(MonetaryAmount::new).collect(toList())
         );
     }
+
 }
