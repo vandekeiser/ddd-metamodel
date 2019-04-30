@@ -36,7 +36,9 @@ public class ScheduleConference {
      * The rest api might have validated the schema, but it also must take into account
      * (eg. translate them to 400)
      */
-    public /*TODO Optional<ConferenceId>*/void scheduleConference(ScheduleConferenceCommand cmd) {
+    //TODO Optional<ConferenceId>
+    //     ou throws ValidationException
+    public void scheduleConference(ScheduleConferenceCommand cmd) {
         log.info("Received {}", cmd);
         SrtConference conf = cmd.createConference();
         log.info("Created {} to add it", conf);
