@@ -24,13 +24,6 @@ public class ScheduleConference {
         this.conferences = requireNonNull(conferences);
     }
 
-    //choose later
-    //public SrtConference scheduleConference(ScheduleConferenceCommand cmd) throws Illegal {
-    //public SrtConferenceId scheduleConference(ScheduleConferenceCommand cmd) throws Illegal {
-    //public Optional<SrtConference> scheduleConference(ScheduleConferenceCommand cmd) {
-    //public Optional<Id> scheduleConference(ScheduleConferenceCommand cmd) {
-    //public Outcome scheduleConference(ScheduleConferenceCommand cmd) {
-
     /**
      * The rest api might have validated the schema, but it also must take into account
      * (eg. translate them to 400)
