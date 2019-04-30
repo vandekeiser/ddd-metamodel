@@ -25,7 +25,7 @@ public class ScheduleConference {
     //public Optional<Id> scheduleConference(ScheduleConferenceCommand cmd) {
     //public Outcome scheduleConference(ScheduleConferenceCommand cmd) {
     public void scheduleConference(ScheduleConferenceCommand cmd) {
-        SrtConference conf = cmd.toConference();
+        SrtConference conf = cmd.createConference();
         conferences.add(conf);
     }
 

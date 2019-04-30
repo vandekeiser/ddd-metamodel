@@ -24,9 +24,4 @@ implements SrtConferences {
         ));
     }
 
-    @Override
-    public void add(SrtConference conf) {
-        throw new UnsupportedOperationException();
-    }
-
 }

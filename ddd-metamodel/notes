@@ -35,4 +35,9 @@ TODOs:
 *****swagger*****
 localhost:8080/swagger-ui.html
 SPRING_PROFILES_ACTIVE=STUBBED_REPOS mvn spring-boot:run
-curl -v "localhost:8080/example-app/conferences/3a370dbe-13d3-4a85-b60e-632a2f4c44b6"
+curl -v -XGET "localhost:8080/example-app/conferences/3a370dbe-13d3-4a85-b60e-632a2f4c44b6"
+curl -v -XPOST -H "Content-Type: application/json;charset=UTF-8" --data '{"budget":"1000", "costs":["400", "600"]}'  "localhost:8080/example-app/conferences/"
+curl -v -XPOST -H "Accept: application/json" -H "Content-Type: application/json" --data '{"budget":"1000", costs:["400", "600"]}' "localhost:8080/example-app/conferences/"
+curl -v -XPOST -H "Content-Type: application/json" --data '{"budget":"1000", costs:["400", "600"]}'  "localhost:8080/example-app/conferences/"
+
+curl -v -XPOST -H "Content-Type: application/json;charset=UTF-8" --data '{"budget":"1000", "costs":["400", "600"]}'  "localhost:8080/example-app/conferences/"

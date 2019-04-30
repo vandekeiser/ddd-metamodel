@@ -6,8 +6,8 @@ import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtCo
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConferences;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -45,8 +45,8 @@ public class ViewConferenceDetailsTest {
     private SrtConference createConference() {
         return new ScheduleConferenceCommand(
             new MonetaryAmount(1000),
-            Set.of(new MonetaryAmount(200), new MonetaryAmount(300), new MonetaryAmount(500))
-        ).toConference();
+            List.of(new MonetaryAmount(200), new MonetaryAmount(300), new MonetaryAmount(500))
+        ).createConference();
     }
 
 }

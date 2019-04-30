@@ -6,8 +6,8 @@ import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtCo
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConferences;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -24,7 +24,7 @@ public class ScheduleConferenceTest {
 
         given: {
             cmd = scheduleConferenceCommand();
-            scheduledConference = cmd.toConference();
+            scheduledConference = cmd.createConference();
             assertThat(
                 conferences.get(scheduledConference.getId())
             ).isEmpty();
@@ -46,7 +46,7 @@ public class ScheduleConferenceTest {
     private ScheduleConferenceCommand scheduleConferenceCommand() {
         return new ScheduleConferenceCommand(
             new MonetaryAmount(1000),
-            Set.of(new MonetaryAmount(200), new MonetaryAmount(300), new MonetaryAmount(500))
+            List.of(new MonetaryAmount(200), new MonetaryAmount(300), new MonetaryAmount(500))
         );
     }
 
