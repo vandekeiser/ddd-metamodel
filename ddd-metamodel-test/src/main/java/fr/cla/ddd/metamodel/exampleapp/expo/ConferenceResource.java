@@ -32,7 +32,9 @@ public class ConferenceResource {
 //    }
 
     @GetMapping(value = "/{conferenceId}")
-    public ResponseEntity<SrtConferenceDetailsDto> getPayor(@PathVariable("conferenceId") String conferenceId){
+    public ResponseEntity<SrtConferenceDetailsDto> viewConferenceDetails(
+        @PathVariable("conferenceId") String conferenceId
+    ){
         ConferenceId id = new ConferenceId(conferenceId);
         Optional<SrtConferenceDetailsDto> maybeConf = viewConferenceDetails.viewConferenceDetails(id).map(SrtConferenceDetailsDto::new);
         return ResponseEntity.of(maybeConf);
