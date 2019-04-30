@@ -20,7 +20,7 @@ public class ViewConferenceDetailsTest {
     @Test
     public void when_there_is_a_conference_we_should_be_able_to_view_its_details() {
         SrtConference addedConference;
-        Optional<SrtConference> conferenceDetails;
+        Optional<SrtConferenceDetails> conferenceDetails;
 
         given: {
             addedConference = createConference();
@@ -37,7 +37,7 @@ public class ViewConferenceDetailsTest {
             assertThat(
                 conferenceDetails
             ).isEqualTo(
-                Optional.of(addedConference)
+                Optional.of(new SrtConferenceDetails(addedConference))
             );
         }
     }

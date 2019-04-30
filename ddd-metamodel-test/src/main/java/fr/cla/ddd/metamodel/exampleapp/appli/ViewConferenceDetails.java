@@ -21,8 +21,8 @@ public class ViewConferenceDetails {
         this.conferences = requireNonNull(conferences);
     }
 
-    public Optional<SrtConference> viewConferenceDetails(ConferenceId id) {
-        return conferences.get(id);
+    public Optional<SrtConferenceDetails> viewConferenceDetails(ConferenceId id) {
+        return conferences.get(id).map(SrtConferenceDetails::new);
     }
 
 
