@@ -33,7 +33,7 @@ public class ScheduleConferenceCommand extends AbstractValueObject<ScheduleConfe
 
     @Override
     protected List<Object> equalityCriteria() {
-        return asList(budget, costs);
+        return asList(conferenceId, budget, costs);
     }
 
     public MonetaryAmount getBudget() {
