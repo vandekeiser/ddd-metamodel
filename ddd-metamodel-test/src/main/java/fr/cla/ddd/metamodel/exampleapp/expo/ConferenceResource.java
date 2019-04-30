@@ -26,7 +26,7 @@ public class ConferenceResource {
         this.viewConferenceDetails = requireNonNull(viewConferenceDetails);
     }
 
-    @GetMapping(value = "/{conferenceId}", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{conferenceId}", consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<SrtConferenceDetailsDto> viewConferenceDetails(
         @PathVariable("conferenceId") String conferenceId
     ){
@@ -35,7 +35,7 @@ public class ConferenceResource {
         return ResponseEntity.of(maybeConf);
     }
 
-    @PostMapping(value = "/", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/", consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
     @ResponseStatus(CREATED)
     public void scheduleConferenceCommand(
         @RequestBody ScheduleConferenceCommandDto scheduleConferenceCommandDto
