@@ -12,8 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.servlet.Filter;
 import java.io.IOException;
 
-//@Configuration
-//@Profile("oa3-validate")
+@Configuration
 public class OpenApiValidationConfig implements WebMvcConfigurer {
 
     private final OpenApiValidationInterceptor validationInterceptor;

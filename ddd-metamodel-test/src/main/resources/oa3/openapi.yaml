@@ -1,16 +1,21 @@
 swagger: '2.0'
+
 info:
   version: 1.0.0
   title: Example App API
   description: An example app API to be validated with OpenAPI Specification
+
 schemes:
   - http
+
 host: 'localhost:8080'
+
 basePath: /example-app
+
 paths:
   '/conferences/{conferenceId}':
     get:
-      summary: Gets detailed information about the conference
+      summary: Gets conference information
       description: Gets detailed information about the conference.
       parameters:
         - $ref: '#/parameters/conferenceId'
@@ -23,6 +28,19 @@ paths:
           description: The Conference does not exists
         '500':
           $ref: '#/responses/Standard500ErrorResponse'
+
+  '/conferences/':
+    post:
+      summary: Schedules conference
+      description: Schedules conference with talks.
+      parameters:
+        - $ref: '#/parameters/scheduleConferenceCommand'
+      responses:
+        '201':
+          description: Conference scheduled
+        '500':
+          $ref: '#/responses/Standard500ErrorResponse'
+
 definitions:
   Talk:
     required:
@@ -36,6 +54,7 @@ definitions:
         type: integer
         minimum: 0
         maximum: 2147483647
+
   ConferenceDetails:
     required:
       - id
@@ -60,6 +79,23 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Talk'
+
+  ScheduleConferenceCommand:
+    required:
+      - budget
+      - costs
+    properties:
+      budget:
+        type: integer
+        minimum: 0
+        maximum: 2147483647
+      costs:
+        type: array
+        items:
+          type: integer
+          minimum: 0
+          maximum: 2147483647
+            
   Error:
     properties:
       code:
@@ -69,11 +105,13 @@ definitions:
         maxLength: 64
       message:
         type: string
+
 responses:
   Standard500ErrorResponse:
     description: An unexpected error occured.
     schema:
       $ref: '#/definitions/Error'
+
 parameters:
   conferenceId:
     name: conferenceId
@@ -82,3 +120,10 @@ parameters:
     description: The id of the conference
     type: string
     pattern: '[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}'
+  scheduleConferenceCommand:
+    name: scheduleConferenceCommand
+    in: body
+    required: true
+    description: The budget and costs of the conference to schedule
+    schema:
+      $ref: '#/definitions/ScheduleConferenceCommand'

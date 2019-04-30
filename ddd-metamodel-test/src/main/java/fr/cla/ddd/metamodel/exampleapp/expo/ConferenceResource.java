@@ -4,12 +4,14 @@ import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConference;
 import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConferenceCommand;
 import fr.cla.ddd.metamodel.exampleapp.appli.ViewConferenceDetails;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 import static java.util.Objects.requireNonNull;
+import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.MediaType.*;
 
 @RestController
@@ -34,6 +36,7 @@ public class ConferenceResource {
     }
 
     @PostMapping(value = "/", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    @ResponseStatus(CREATED)
     public void scheduleConferenceCommand(
         @RequestBody ScheduleConferenceCommandDto scheduleConferenceCommandDto
     ){

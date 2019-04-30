@@ -13,7 +13,7 @@
   "paths": {
     "/conferences/{conferenceId}": {
       "get": {
-        "summary": "Gets detailed information about the conference",
+        "summary": "Gets conference information",
         "description": "Gets detailed information about the conference.",
         "parameters": [
           {
@@ -29,6 +29,25 @@
           },
           "404": {
             "description": "The Conference does not exists"
+          },
+          "500": {
+            "$ref": "#/responses/Standard500ErrorResponse"
+          }
+        }
+      }
+    },
+    "/conferences/": {
+      "post": {
+        "summary": "Schedules conference",
+        "description": "Schedules conference with talks.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/scheduleConferenceCommand"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Conference scheduled"
           },
           "500": {
             "$ref": "#/responses/Standard500ErrorResponse"
@@ -87,6 +106,27 @@
         }
       }
     },
+    "ScheduleConferenceCommand": {
+      "required": [
+        "budget",
+        "costs"
+      ],
+      "properties": {
+        "budget": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "costs": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
     "Error": {
       "properties": {
         "code": {
@@ -117,6 +157,15 @@
       "description": "The id of the conference",
       "type": "string",
       "pattern": "[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}"
+    },
+    "scheduleConferenceCommand": {
+      "name": "scheduleConferenceCommand",
+      "in": "body",
+      "required": true,
+      "description": "The budget and costs of the conference to schedule",
+      "schema": {
+        "$ref": "#/definitions/ScheduleConferenceCommand"
+      }
     }
   }
 }
