@@ -8,19 +8,19 @@ import java.util.List;
 import static java.util.Objects.requireNonNull;
 
 public class Validation<T> {
-    private final T t;
+    private final T validatedObject;
     private final List<ValidationException> errors;
 
-    Validation(T t) {
-        this.t = requireNonNull(t);
+    Validation(T validatedObject) {
+        this.validatedObject = requireNonNull(validatedObject);
         this.errors = new ArrayList<>();
     }
 
     public T get() throws InvalidObjectException {
         if(errors.isEmpty()) {
-            return t;
+            return validatedObject;
         } else {
-            InvalidObjectException invalid = new InvalidObjectException(t);
+            InvalidObjectException invalid = new InvalidObjectException(validatedObject);
             errors.forEach(invalid::addSuppressed);
             throw invalid;
         }
@@ -28,7 +28,7 @@ public class Validation<T> {
 
     Validation<T> validate(Constraint<? super T> constraint) {
         try {
-            if (!constraint.getPredicate().test(t)) {
+            if (!constraint.getPredicate().test(validatedObject)) {
                 errors.add(new ConstraintViolatedException(constraint.getMessageIfViolated()));
             }
         } catch (RuntimeException e) {

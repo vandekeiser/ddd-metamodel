@@ -71,7 +71,8 @@ public abstract class Equatable<T extends Equatable<T>> {
 
 
     /**
-     * Policies of when 2 instances can be compared for equality without breaking the equals contract (reflexive/symmetric/transitive)
+     * Policies of when 2 instances can be compared for equality without breaking the equals contract (reflexive/symmetric/transitive).
+     * Since it's difficult to test for that (an attempt is made), each implementation tries to be written in a way that it "looks obvious" that it respects the eqhash contract (do propose counter-examples).
      */
     public enum Equatability {
 

@@ -46,6 +46,7 @@ TODOs:
     -codes pr les errs de validation
     -documenter pqoi on met Serializable seulement au niveau le plus concret
     -valider pr nonnull les collections dt on fait une copie ds le cstr
+    -
 
 
 

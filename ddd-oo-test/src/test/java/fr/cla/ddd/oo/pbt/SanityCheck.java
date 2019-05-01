@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 import static fr.cla.ddd.oo.pbt.SanityCheck.SANITY_CHECK_MAX_DISCARD_RATIO;
 import static fr.cla.ddd.oo.pbt.SanityCheck.SANITY_CHECK_TRIALS;
 
-@Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD})
+@Target({ElementType.ANNOTATION_TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Property(
     generation = GenerationMode.RANDOMIZED,
