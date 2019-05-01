@@ -2,6 +2,7 @@ package fr.cla.ddd.metamodel.exampleapp.appli;
 
 import fr.cla.ddd.metamodel.domain.AbstractValueObject;
 import fr.cla.ddd.metamodel.domain.validation.Constraints;
+import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
@@ -20,7 +21,7 @@ public class SrtConferenceDetails extends AbstractValueObject<SrtConferenceDetai
     private final MonetaryAmount totalCost;
     private final Set<SrtTalk> talks;
 
-    public SrtConferenceDetails(SrtConference conf) {
+    public SrtConferenceDetails(SrtConference conf) throws InvalidObjectException {
         this(
             conf.getId(),
             conf.getBudget(),
@@ -29,12 +30,15 @@ public class SrtConferenceDetails extends AbstractValueObject<SrtConferenceDetai
         );
     }
 
-    public SrtConferenceDetails(ConferenceId id, MonetaryAmount budget, MonetaryAmount totalCost, Set<SrtTalk> talks) {
+    public SrtConferenceDetails(
+        ConferenceId id, MonetaryAmount budget, MonetaryAmount totalCost, Set<SrtTalk> talks
+    ) throws InvalidObjectException {
         super(SrtConferenceDetails.class);
         this.id = id;
         this.budget = budget;
         this.totalCost = totalCost;
         this.talks = talks;
+        validate();
     }
 
     @Override

@@ -3,6 +3,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.domain.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.domain.validation.Constraints;
+import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
@@ -18,15 +19,15 @@ public class SrtConference extends AbstractAggregateRoot<SrtConference, Conferen
     private MonetaryAmount budget;
     private final Set<SrtTalk> talks = new HashSet<>();
 
-    public SrtConference(ConferenceId id, MonetaryAmount budget) {
+    public SrtConference(ConferenceId id, MonetaryAmount budget) throws InvalidObjectException {
         this(id, budget, emptySet());
     }
 
-    public SrtConference(ConferenceId id, MonetaryAmount budget, SrtTalk... talks) {
+    public SrtConference(ConferenceId id, MonetaryAmount budget, SrtTalk... talks) throws InvalidObjectException {
         this(id, budget, Set.of(talks));
     }
 
-    public SrtConference(ConferenceId id, MonetaryAmount budget, Set<SrtTalk> talks) {
+    public SrtConference(ConferenceId id, MonetaryAmount budget, Set<SrtTalk> talks) throws InvalidObjectException {
         super(SrtConference.class, id, Equatability.SAME_RUNTIME_CLASS);
         this.budget = budget;
         this.talks.addAll(talks);

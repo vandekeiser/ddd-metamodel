@@ -3,6 +3,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain.equatability.isinstance;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.domain.AbstractEntity;
 import fr.cla.ddd.metamodel.domain.validation.Constraints;
+import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import fr.cla.ddd.metamodel.exampleapp.domain.TalkId;
@@ -12,11 +13,11 @@ public class IiTalk extends AbstractEntity<IiTalk, TalkId> {
 
     private MonetaryAmount cost;
 
-    public IiTalk(MonetaryAmount cost) {
+    public IiTalk(MonetaryAmount cost) throws InvalidObjectException {
         this(new TalkId(), cost);
     }
 
-    public IiTalk(TalkId id, MonetaryAmount cost) {
+    public IiTalk(TalkId id, MonetaryAmount cost) throws InvalidObjectException {
         super(IiTalk.class, id, Equatability.IS_INSTANCE);
         this.cost = cost;
         validate();

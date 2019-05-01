@@ -48,7 +48,7 @@ public class AbstractEntityTest {
     @DDD.ValueObject
     private static class Entity1 extends AbstractEntity<Entity1, Entity1Id> {
 
-        Entity1(Entity1Id id) {
+        Entity1(Entity1Id id) throws InvalidObjectException {
             super(Entity1.class, id);
             validate();
         }
@@ -63,7 +63,7 @@ public class AbstractEntityTest {
     @DDD.ValueObject
     private static class Entity2 extends AbstractEntity<Entity2, Entity2Id> {
 
-        Entity2(Entity2Id id) {
+        Entity2(Entity2Id id) throws InvalidObjectException {
             super(Entity2.class, id);
             validate();
         }
@@ -79,7 +79,7 @@ public class AbstractEntityTest {
 
         private int value;
 
-        Entity3(Entity3Id id, int value) {
+        Entity3(Entity3Id id, int value) throws InvalidObjectException {
             super(Entity3.class, id);
             this.value = value;
             validate();
@@ -108,7 +108,7 @@ public class AbstractEntityTest {
 
         private final String value;
 
-        Entity1Id(String value) {
+        Entity1Id(String value) throws InvalidObjectException {
             super(Entity1Id.class);
             this.value = value;
             validate();
@@ -142,7 +142,7 @@ public class AbstractEntityTest {
 
         private final String value;
 
-        Entity2Id(String value) {
+        Entity2Id(String value) throws InvalidObjectException {
             super(Entity2Id.class);
             this.value = value;
             validate();
@@ -175,7 +175,7 @@ public class AbstractEntityTest {
 
         private final String value;
 
-        Entity3Id(String value) {
+        Entity3Id(String value) throws InvalidObjectException {
             super(Entity3Id.class);
             this.value = value;
             validate();

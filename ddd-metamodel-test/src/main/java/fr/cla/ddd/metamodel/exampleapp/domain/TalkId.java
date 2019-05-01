@@ -4,6 +4,7 @@ import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.domain.AbstractValueObject;
 import fr.cla.ddd.metamodel.domain.EntityId;
 import fr.cla.ddd.metamodel.domain.validation.Constraints;
+import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 
 import java.io.Serializable;
@@ -19,11 +20,11 @@ implements EntityId, Serializable {
 
     private final String value;
 
-    public TalkId() {
+    public TalkId() throws InvalidObjectException {
         this(UUID.randomUUID().toString());
     }
 
-    public TalkId(String value) {
+    public TalkId(String value) throws InvalidObjectException {
         super(TalkId.class);
         this.value = value;
         validate();

@@ -3,6 +3,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.domain.AbstractEntity;
 import fr.cla.ddd.metamodel.domain.validation.Constraints;
+import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import fr.cla.ddd.metamodel.exampleapp.domain.TalkId;
@@ -12,11 +13,11 @@ public class SrtTalk extends AbstractEntity<SrtTalk, TalkId> {
 
     private MonetaryAmount cost;
 
-    public SrtTalk(MonetaryAmount cost) {
+    public SrtTalk(MonetaryAmount cost) throws InvalidObjectException {
         this(new TalkId(), cost);
     }
 
-    public SrtTalk(TalkId id, MonetaryAmount cost) {
+    public SrtTalk(TalkId id, MonetaryAmount cost) throws InvalidObjectException {
         super(SrtTalk.class, id, Equatability.SAME_RUNTIME_CLASS);
         this.cost = cost;
         validate();

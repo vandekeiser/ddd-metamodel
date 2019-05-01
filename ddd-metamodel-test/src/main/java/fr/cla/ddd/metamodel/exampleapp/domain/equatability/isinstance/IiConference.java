@@ -3,6 +3,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain.equatability.isinstance;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.domain.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.domain.validation.Constraints;
+import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
@@ -19,15 +20,15 @@ public class IiConference extends AbstractAggregateRoot<IiConference, Conference
     private MonetaryAmount budget;
     private final Set<IiTalk> talks = new HashSet<>();
 
-    public IiConference(ConferenceId id, MonetaryAmount budget) {
+    public IiConference(ConferenceId id, MonetaryAmount budget) throws InvalidObjectException {
         this(id, budget, emptySet());
     }
 
-    public IiConference(ConferenceId id, MonetaryAmount budget, IiTalk... talks) {
+    public IiConference(ConferenceId id, MonetaryAmount budget, IiTalk... talks) throws InvalidObjectException {
         this(id, budget, Set.of(talks));
     }
 
-    public IiConference(ConferenceId id, MonetaryAmount budget, Set<IiTalk> talks) {
+    public IiConference(ConferenceId id, MonetaryAmount budget, Set<IiTalk> talks) throws InvalidObjectException {
         super(IiConference.class, id, Equatability.IS_INSTANCE);
         this.budget = budget;
         this.talks.addAll(talks);

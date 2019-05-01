@@ -24,7 +24,9 @@ public class ScheduleConferenceCommand extends AbstractValueObject<ScheduleConfe
     private final MonetaryAmount budget;
     private final List<MonetaryAmount> costs;
 
-    public ScheduleConferenceCommand(MonetaryAmount budget, List<MonetaryAmount> costs) {
+    public ScheduleConferenceCommand(
+        MonetaryAmount budget, List<MonetaryAmount> costs
+    ) throws InvalidObjectException {
         super(ScheduleConferenceCommand.class);
         this.budget = budget;
         this.costs = new ArrayList<>(costs);

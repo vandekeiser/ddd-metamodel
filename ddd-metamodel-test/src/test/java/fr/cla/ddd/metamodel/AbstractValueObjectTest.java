@@ -36,7 +36,7 @@ public class AbstractValueObjectTest {
     private static class ValueObject1 extends AbstractValueObject<ValueObject1> {
         private final String value;
 
-        ValueObject1(String value) {
+        ValueObject1(String value) throws InvalidObjectException {
             super(ValueObject1.class);
             this.value = value;
             validate();
@@ -62,7 +62,7 @@ public class AbstractValueObjectTest {
     private static class ValueObject2 extends AbstractValueObject<ValueObject2> {
         private final long value;
 
-        ValueObject2(long value) {
+        ValueObject2(long value) throws InvalidObjectException {
             super(ValueObject2.class);
             this.value = value;
             validate();
@@ -88,7 +88,7 @@ public class AbstractValueObjectTest {
     private static class ValueObject3 extends AbstractValueObject<ValueObject3> {
         private final int value;
 
-        ValueObject3(int value) {
+        ValueObject3(int value) throws InvalidObjectException {
             super(ValueObject3.class);
             this.value = value;
             validate();

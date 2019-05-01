@@ -3,6 +3,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain.equatability.canequal;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.domain.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.domain.validation.Constraints;
+import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
@@ -19,15 +20,15 @@ public class CeConference extends AbstractAggregateRoot<CeConference, Conference
     private MonetaryAmount budget;
     private final Set<CeTalk> talks = new HashSet<>();
 
-    public CeConference(ConferenceId id, MonetaryAmount budget) {
+    public CeConference(ConferenceId id, MonetaryAmount budget) throws InvalidObjectException {
         this(id, budget, emptySet());
     }
 
-    public CeConference(ConferenceId id, MonetaryAmount budget, CeTalk... talks) {
+    public CeConference(ConferenceId id, MonetaryAmount budget, CeTalk... talks) throws InvalidObjectException {
         this(id, budget, Set.of(talks));
     }
 
-    public CeConference(ConferenceId id, MonetaryAmount budget, Set<CeTalk> talks) {
+    public CeConference(ConferenceId id, MonetaryAmount budget, Set<CeTalk> talks) throws InvalidObjectException {
         super(CeConference.class, id, Equatability.CAN_EQUAL);
         this.budget = budget;
         this.talks.addAll(talks);

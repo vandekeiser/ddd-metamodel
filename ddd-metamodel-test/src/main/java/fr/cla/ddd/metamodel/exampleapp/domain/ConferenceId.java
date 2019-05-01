@@ -4,6 +4,7 @@ import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.domain.AbstractValueObject;
 import fr.cla.ddd.metamodel.domain.EntityId;
 import fr.cla.ddd.metamodel.domain.validation.Constraints;
+import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 
 import java.io.Serializable;
@@ -19,7 +20,7 @@ implements EntityId, Serializable {
 
     private final String value;
 
-    public ConferenceId(String value) {
+    public ConferenceId(String value) throws InvalidObjectException {
         super(ConferenceId.class);
         this.value = value;
         validate();

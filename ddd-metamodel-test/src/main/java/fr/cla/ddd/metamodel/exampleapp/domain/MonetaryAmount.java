@@ -3,6 +3,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.domain.AbstractValueObject;
 import fr.cla.ddd.metamodel.domain.validation.Constraints;
+import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class MonetaryAmount extends AbstractValueObject<MonetaryAmount> {
 
     private final int amount;
 
-    public MonetaryAmount(int amount) {
+    public MonetaryAmount(int amount) throws InvalidObjectException {
         super(MonetaryAmount.class);
         this.amount = amount;
         validate();
