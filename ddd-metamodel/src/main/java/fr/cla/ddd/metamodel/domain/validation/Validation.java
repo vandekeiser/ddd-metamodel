@@ -19,11 +19,11 @@ public class Validation<T> {
     public T get() throws InvalidObjectException {
         if(errors.isEmpty()) {
             return t;
+        } else {
+            InvalidObjectException invalid = new InvalidObjectException(t);
+            errors.forEach(invalid::addSuppressed);
+            throw invalid;
         }
-
-        InvalidObjectException invalid = new InvalidObjectException(t);
-        errors.forEach(invalid::addSuppressed);
-        throw invalid;
     }
 
     Validation<T> validate(Constraint<? super T> constraint) {

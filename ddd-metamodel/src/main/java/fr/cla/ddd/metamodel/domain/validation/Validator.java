@@ -23,8 +23,8 @@ public class Validator<T> {
     /**
      * Cross-field (or general-case) validation
      */
-    public Validator<T> validate(Predicate<? super T> validation, String message) {
-        constraints.add(new Constraint<>(validation, message));
+    public Validator<T> validate(Predicate<? super T> predicate, String message) {
+        constraints.add(new Constraint<>(predicate, message));
         return this;
     }
 
@@ -33,21 +33,19 @@ public class Validator<T> {
      */
     public <F> Validator<T> validate(
         Function<? super T, ? extends F> fieldExtractor,
-        Predicate<? super F> validation,
+        Predicate<? super F> predicate,
         String message
     ) {
         return validate(
-            //Rémi Forax technique to convert a lambda from one SAMI to another,
-            // from his presentation "Les design patterns à la sauce lambda",
-            fieldExtractor.andThen(validation::test)::apply,
+            fieldExtractor.andThen(predicate::test)::apply,
             message
         );
     }
 
     public <S extends T> Validation<S> validate(S object) {
-        Validation<S> validation = new Validation<>(object);
-        constraints.forEach(validation::validate);
-        return validation;
+        Validation<S> v = new Validation<>(object);
+        constraints.forEach(v::validate);
+        return v;
     }
 
 }
