@@ -18,12 +18,12 @@ import org.junit.jupiter.api.Test;
  * ,is to split the maven project into two, one for main and one for test.
  * This way the lib can be used in a modular way (except its test modules though)
  */
-public class PackagePrivateMetamodelTest {
+public class MetamodelPackagePrivateJpmsCanaryTest {
 
     @Test
     public void should_not_fail_because_of_jpms() {
         Assertions.assertThat(
-            PackagePrivateMetamodel.nameOfTheCaptain()
+            MetamodelPackagePrivateJpmsCanary.nameOfTheCaptain()
         ).isEqualTo("Du Guesclin");
     }
 

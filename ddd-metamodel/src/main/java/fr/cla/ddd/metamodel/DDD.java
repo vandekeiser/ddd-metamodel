@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.domain;
+package fr.cla.ddd.metamodel;
 
 
 public class DDD {

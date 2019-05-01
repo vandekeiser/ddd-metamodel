@@ -1,7 +1,7 @@
 package fr.cla.ddd.metamodel.exampleapp.appli;
 
 import fr.cla.ddd.metamodel.domain.AbstractValueObject;
-import fr.cla.ddd.metamodel.domain.DDD;
+import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.domain.validation.Validations;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;

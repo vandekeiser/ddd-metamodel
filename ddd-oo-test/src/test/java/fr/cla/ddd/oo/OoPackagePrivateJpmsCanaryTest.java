@@ -1,8 +1,8 @@
-package fr.cla.ddd.metamodel;
+package fr.cla.ddd.oo;
 
-import fr.cla.ddd.oo.OoTestDependency;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Doing whitebox tests in JPMS is hard:
@@ -19,13 +19,13 @@ import org.junit.jupiter.api.Test;
  * ,is to split the maven project into two, one for main and one for test.
  * This way the lib can be used in a modular way (except its test modules though)
  */
-public class OoTestDependencyTest {
+public class OoPackagePrivateJpmsCanaryTest {
 
     @Test
     public void should_not_fail_because_of_jpms() {
-        Assertions.assertThat(
-            OoTestDependency.ageOfTheCaptain()
-        ).isEqualTo(33);
+        assertThat(
+            OoPackagePrivateJpmsCanary.nameOfTheCaptain()
+        ).isEqualTo("Du Guesclin");
     }
 
 }

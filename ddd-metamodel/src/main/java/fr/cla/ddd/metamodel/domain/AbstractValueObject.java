@@ -1,5 +1,6 @@
 package fr.cla.ddd.metamodel.domain;
 
+import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.domain.validation.Validable;
 import fr.cla.ddd.oo.Equatable;
 
