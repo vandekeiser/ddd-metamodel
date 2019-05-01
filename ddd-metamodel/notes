@@ -27,6 +27,7 @@ TODOs:
     -"should_not_instantiate" -> "should_throw"
     -spring boot contract
     -Constraint.messageIfViolated: String -> Supplier<String> pr ouvrir la porte à de l'interpolation
+    -split AbstractValidationEx -> global/individual? mais et le app-level?
 
 *****swagger*****
 localhost:8080/swagger-ui.html

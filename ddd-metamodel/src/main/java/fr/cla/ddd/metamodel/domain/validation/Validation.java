@@ -8,10 +8,11 @@ import static java.util.Objects.requireNonNull;
 
 public class Validation<T> {
     private final T t;
-    private final List<AbstractValidationException> errors = new ArrayList<>();
+    private final List<AbstractValidationException> errors;
 
     Validation(T t) {
         this.t = requireNonNull(t);
+        this.errors = new ArrayList<>();
     }
 
     public T get() throws InvalidObjectException {
