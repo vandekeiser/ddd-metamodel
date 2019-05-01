@@ -14,7 +14,7 @@ public class CeConferenceTest {
 
     @Test
     public void should_not_instantiate_invalid() {
-        assertThrows(AbstractValidationException.class, () ->
+        assertThrows(InvalidObjectException.class, () ->
             new CeConference(
                 new ConferenceId(),
                 new MonetaryAmount(1000),

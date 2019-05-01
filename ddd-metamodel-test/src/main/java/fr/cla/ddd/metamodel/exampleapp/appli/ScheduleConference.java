@@ -2,7 +2,7 @@ package fr.cla.ddd.metamodel.exampleapp.appli;
 
 import fr.cla.ddd.metamodel.appli.InvalidCommandOrQueryException;
 import fr.cla.ddd.metamodel.domain.DDD;
-import fr.cla.ddd.metamodel.domain.validation.AbstractValidationException;
+import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConferences;
 import org.slf4j.Logger;
@@ -30,17 +30,22 @@ public class ScheduleConference {
      */
     public void scheduleConference(ScheduleConferenceCommand cmd) {
         log.info("Received command {}", cmd);
-        SrtConference conf;
-        try {
-            conf = cmd.createConference();
-        } catch (AbstractValidationException err) {
-            log.error("Invalid command {}", cmd);
-            throw new InvalidCommandOrQueryException(err, cmd);
-        }
+        SrtConference conf = validateApplicatively(cmd);
 
         log.info("Created {} to add it", conf);
         conferences.add(conf);
         log.info("Added {}", conf);
+    }
+
+    private SrtConference validateApplicatively(ScheduleConferenceCommand cmd) {
+        SrtConference conf;
+        try {
+            conf = cmd.createConference();
+        } catch (InvalidObjectException err) {
+            log.error("Invalid command {}", cmd);
+            throw new InvalidCommandOrQueryException(err, cmd);
+        }
+        return conf;
     }
 
 }

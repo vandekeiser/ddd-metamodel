@@ -32,10 +32,10 @@ public class InvalidObjectException extends AbstractValidationException {
     public final AbstractValidationException[] getSuppressedValidationException() {
         return Stream.of(super.getSuppressed())
             //In case someone else called addSuppressd
-            .filter(UnexpectedExceptionDuringValidationException.class::isInstance)
-            .map(UnexpectedExceptionDuringValidationException.class::cast)
+            .filter(AbstractValidationException.class::isInstance)
+            .map(AbstractValidationException.class::cast)
             .collect(toList())
-            .toArray(new UnexpectedExceptionDuringValidationException[0])
+            .toArray(new AbstractValidationException[0])
         ;
     }
 

@@ -1,6 +1,6 @@
 package fr.cla.ddd.metamodel.exampleapp.domain;
 
-import fr.cla.ddd.metamodel.domain.validation.AbstractValidationException;
+import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -11,7 +11,7 @@ public class MonetaryAmountTest {
 
     @Test
     public void should_not_instantiate_invalid() {
-        assertThrows(AbstractValidationException.class, () ->
+        assertThrows(InvalidObjectException.class, () ->
             new MonetaryAmount(-1)
         );
 

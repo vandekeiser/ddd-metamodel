@@ -14,7 +14,7 @@ public class SdtConferenceTest {
 
     @Test
     public void should_not_instantiate_invalid() {
-        assertThrows(AbstractValidationException.class, () ->
+        assertThrows(InvalidObjectException.class, () ->
             new SdtConference(
                 new ConferenceId(),
                 new MonetaryAmount(1000),

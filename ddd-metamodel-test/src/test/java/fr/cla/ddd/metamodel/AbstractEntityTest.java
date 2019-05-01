@@ -4,7 +4,7 @@ import fr.cla.ddd.metamodel.domain.AbstractEntity;
 import fr.cla.ddd.metamodel.domain.AbstractValueObject;
 import fr.cla.ddd.metamodel.domain.DDD;
 import fr.cla.ddd.metamodel.domain.EntityId;
-import fr.cla.ddd.metamodel.domain.validation.AbstractValidationException;
+import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 import fr.cla.ddd.metamodel.domain.validation.Validations;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import org.junit.jupiter.api.Test;
@@ -30,7 +30,7 @@ public class AbstractEntityTest {
 
     @Test
     public void should_not_instantiate_with_invalid_value() {
-        assertThrows(AbstractValidationException.class, () ->
+        assertThrows(InvalidObjectException.class, () ->
             new Entity3(new Entity3Id(randomUUID().toString()), -1)
         );
 
@@ -40,7 +40,7 @@ public class AbstractEntityTest {
     public void should_not_set_invalid_value() {
         Entity3 e3 = new Entity3(new Entity3Id(randomUUID().toString()), 0);
 
-        assertThrows(AbstractValidationException.class, () ->
+        assertThrows(InvalidObjectException.class, () ->
             e3.setValue(-1)
         );
 
