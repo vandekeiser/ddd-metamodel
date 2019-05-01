@@ -21,21 +21,10 @@ TODOs:
     -documenter de façon centralisée les //TODO eqh
     -meilleurs exemple d'equatables? (ex. cf. EJ pr CE?)
     -VO: ce qui rest a VF pas fait par javac c'est surtt l'immutabilite
-        -equalsverifier: j'aime pas comment ils changent les chps prives
-    -spring boot swagger validate schema at runtime
-        -https://springframework.guru/using-swagger-request-validator-to-validate-spring-cloud-contracts/
-        -https://stackoverflow.com/questions/39275947/validating-json-against-swagger-api-schema
-        -https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schema-object
-    -valid != d'un VO depuis un AS (Try? ou la mm Valid?)
-        -penser au 400 vs 500
-            -domain doit lancer une exception
-            -appli doit ...
-            -expo doit valider par un schema openapi
+        -equalsverifier: j'aime pas comment ils changent les chps prives..
     -factor types ds openapi
     -fix jigsaw runtime warning (wasn't here with j11)
-    -TODO Optional<ConferenceId>
     -"should_not_instantiate" -> "should_throw"
-
     -spring boot contract
 
 *****swagger*****
