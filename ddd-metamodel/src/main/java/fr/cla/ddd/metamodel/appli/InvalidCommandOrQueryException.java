@@ -1,6 +1,6 @@
 package fr.cla.ddd.metamodel.appli;
 
-import fr.cla.ddd.metamodel.domain.validation.ValidationException;
+import fr.cla.ddd.metamodel.domain.validation.AbstractValidationException;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -17,12 +17,12 @@ public class InvalidCommandOrQueryException extends IllegalArgumentException {
 
     private final Object commandOrQuery;
 
-    public InvalidCommandOrQueryException(ValidationException cause, Object commandOrQuery) {
+    public InvalidCommandOrQueryException(AbstractValidationException cause, Object commandOrQuery) {
         super(DEFAULT_MSG, cause);
         this.commandOrQuery = commandOrQuery;
     }
 
-    public InvalidCommandOrQueryException(String msg, ValidationException cause, Object commandOrQuery) {
+    public InvalidCommandOrQueryException(String msg, AbstractValidationException cause, Object commandOrQuery) {
         super(msg, cause);
         this.commandOrQuery = commandOrQuery;
     }
@@ -31,8 +31,8 @@ public class InvalidCommandOrQueryException extends IllegalArgumentException {
         return Optional.ofNullable(commandOrQuery);
     }
 
-    public ValidationException getValidationCause() {
-        return (ValidationException) super.getCause();
+    public AbstractValidationException getValidationCause() {
+        return (AbstractValidationException) super.getCause();
     }
 
     @Override

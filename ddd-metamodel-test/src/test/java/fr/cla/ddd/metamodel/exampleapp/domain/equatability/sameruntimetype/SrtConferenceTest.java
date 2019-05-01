@@ -1,6 +1,8 @@
 package fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype;
 
-import fr.cla.ddd.metamodel.domain.validation.ValidationException;
+import fr.cla.ddd.metamodel.domain.validation.AbstractValidationException;
+import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
+import fr.cla.ddd.metamodel.domain.validation.UnexpectedExceptionDuringValidationException;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import org.junit.jupiter.api.Test;
@@ -12,7 +14,7 @@ public class SrtConferenceTest {
 
     @Test
     public void should_not_instantiate_invalid() {
-        assertThrows(ValidationException.class, () ->
+        assertThrows(AbstractValidationException.class, () ->
             new SrtConference(
                 new ConferenceId(),
                 new MonetaryAmount(1000),
@@ -37,17 +39,18 @@ public class SrtConferenceTest {
             );
 
             fail("Should have failed invalid CeConference" + invalid);
-        } catch (ValidationException expected) {
+        } catch (InvalidObjectException expected) {
             //Then
             expected.printStackTrace();
 
             //And
-            ValidationException[] validationErrors = expected.getSuppressedValidationException();
+            AbstractValidationException[] validationErrors = expected.getSuppressedValidationException();
             assertThat(validationErrors.length).isEqualTo(1);
 
             //And
-            ValidationException overflow = validationErrors[0];
-            assertThat(overflow.getMessage()).isEqualTo("integer overflow");
+            AbstractValidationException overflow = validationErrors[0];
+            assertThat(overflow).isInstanceOf(UnexpectedExceptionDuringValidationException.class);
+            assertThat(overflow.getMessage()).isEqualTo("java.lang.ArithmeticException: integer overflow");
             assertThat(overflow.getCause()).isInstanceOf(ArithmeticException.class);
         }
     }

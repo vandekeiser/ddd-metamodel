@@ -2,7 +2,7 @@ package fr.cla.ddd.metamodel;
 
 import fr.cla.ddd.metamodel.domain.AbstractValueObject;
 import fr.cla.ddd.metamodel.domain.DDD;
-import fr.cla.ddd.metamodel.domain.validation.ValidationException;
+import fr.cla.ddd.metamodel.domain.validation.AbstractValidationException;
 import fr.cla.ddd.metamodel.domain.validation.Validations;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ public class AbstractValueObjectTest {
 
     @Test
     public void should_not_instantiate_invalid() {
-        assertThrows(ValidationException.class, () ->
+        assertThrows(AbstractValidationException.class, () ->
             new ValueObject3(-1)
         );
 

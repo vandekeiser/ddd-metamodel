@@ -35,7 +35,7 @@ TODOs:
     -fix jigsaw runtime warning (wasn't here with j11)
     -TODO Optional<ConferenceId>
     -"should_not_instantiate" -> "should_throw"
-    -split ValidationException -> AbstarctValidationException+Domain(object+predicate)+Appli
+
     -spring boot contract
 
 *****swagger*****
