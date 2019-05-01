@@ -6,7 +6,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class Validator<T> {
-    private final List<ValidationDefinition<T>> validations;
+    private final List<Constraint<T>> validations;
 
     private Validator() {
         this.validations = new ArrayList<>();
@@ -28,7 +28,7 @@ public class Validator<T> {
      * Validate the object as a whole
      */
     public Validator<T> validate(Predicate<? super T> validation, String message) {
-        validations.add(new ValidationDefinition<>(validation, message));
+        validations.add(new Constraint<>(validation, message));
         return this;
     }
 

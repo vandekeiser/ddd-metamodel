@@ -42,13 +42,13 @@ public class CeConferenceTest {
             expected.printStackTrace();
 
             //And
-            Throwable[] validationErrors = expected.getSuppressed();
+            ValidationException[] validationErrors = expected.getSuppressedValidationException();
             assertThat(validationErrors.length).isEqualTo(1);
 
             //And
-            Throwable overflow = validationErrors[0];
-            assertThat(overflow).isInstanceOf(ArithmeticException.class);
+            ValidationException overflow = validationErrors[0];
             assertThat(overflow.getMessage()).isEqualTo("integer overflow");
+            assertThat(overflow.getCause()).isInstanceOf(ArithmeticException.class);
         }
     }
 

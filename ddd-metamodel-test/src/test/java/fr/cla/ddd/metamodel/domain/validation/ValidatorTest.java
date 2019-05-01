@@ -52,11 +52,10 @@ public class ValidatorTest {
         } catch (ValidationException expected) {
             //Then
             expected.printStackTrace();
-            //assertThat(expected.getMessage()).isEqualTo("User{name:, age:-12}");
             assertThat(expected.getMessage()).isEqualTo("Invalid object");
 
             //And
-            assertThat(expected.getInvalid()).isEqualTo(invalidUser);
+            assertThat(expected.getInvalidObject()).isEqualTo(invalidUser);
 
             //And
             Throwable[] validationErrors = expected.getSuppressed();

@@ -8,7 +8,7 @@ import static java.util.Objects.requireNonNull;
 
 public class Validation<T> {
     private final T t;
-    private final List<Throwable> errors = new ArrayList<>();
+    private final List<ValidationException> errors = new ArrayList<>();
 
     Validation(T t) {
         this.t = requireNonNull(t);
@@ -24,17 +24,17 @@ public class Validation<T> {
         throw invalid;
     }
 
-    Validation<T> validate(ValidationDefinition<? super T> def) {
-        return validate(def.getValidation(), def.getMessage());
+    Validation<T> validate(Constraint<? super T> constraint) {
+        return validate(constraint.getPredicate(), constraint.getMessageIfViolated());
     }
 
-    private Validation<T> validate(Predicate<? super T> validation, String message) {
+    private Validation<T> validate(Predicate<? super T> predicate, String messageIfViolated) {
         try {
-            if (!validation.test(t)) {
-                errors.add(ValidationException.invalidPredicate(message));
+            if (!predicate.test(t)) {
+                errors.add(ValidationException.invalidPredicate(messageIfViolated));
             }
         } catch (RuntimeException e) {
-            errors.add(e);
+            errors.add(ValidationException.unexpectedExceptionDuringValidation(e));
         }
         return this;
     }

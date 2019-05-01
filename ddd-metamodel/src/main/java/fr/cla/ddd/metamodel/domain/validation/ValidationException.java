@@ -1,36 +1,55 @@
 package fr.cla.ddd.metamodel.domain.validation;
 
+import java.util.Arrays;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
+
 public class ValidationException extends IllegalArgumentException {
 
-    private final Object invalid;
+    private final Object invalidObject;
 
-    private ValidationException(Object invalid, String msg) {
-        super(msg);
-        this.invalid = invalid;
+    private ValidationException(String msg, Throwable cause, Object invalidObject) {
+        super(msg, cause);
+        this.invalidObject = invalidObject;
     }
 
     public static ValidationException invalidObject(Object invalid) {
-        return new ValidationException(invalid, "Invalid object");
+        return new ValidationException("Invalid object", null, invalid);
     }
 
     public static ValidationException invalidPredicate(String msg) {
-        return new ValidationException(null, msg);
+        return new ValidationException(msg, null, null);
     }
 
-    public Object getInvalid() {
-        return invalid;
+    public static ValidationException unexpectedExceptionDuringValidation(RuntimeException e) {
+        return new ValidationException(e.getMessage(), e, null);
+    }
+
+    public Object getInvalidObject() {
+        return invalidObject;
     }
 
     @Override
     public String toString() {
-        if(invalid==null) {
+        if(invalidObject ==null) {
             return getMessage();
         } else {
             return String.format(
-                "{invalid: %s, message: %s}",
-                invalid, getMessage()
+                "{invalidObject: %s, message: %s}",
+                invalidObject, getMessage()
             );
         }
+    }
+
+    public final ValidationException[] getSuppressedValidationException() {
+        return Stream.of(super.getSuppressed())
+            //In case someone else called addSuppressd
+            .filter(ValidationException.class::isInstance)
+            .map(ValidationException.class::cast)
+            .collect(toList())
+            .toArray(new ValidationException[0])
+        ;
     }
 
 }
