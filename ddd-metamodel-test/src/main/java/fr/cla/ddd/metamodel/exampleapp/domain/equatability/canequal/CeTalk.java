@@ -38,7 +38,7 @@ public class CeTalk extends AbstractEntity<CeTalk, TalkId> {
     public String toString() {
         return String.format(
             "%s{cost: %s}",
-            getClass().getSimpleName(), cost
+            getDeclaredType().getSimpleName(), cost
         );
     }
 

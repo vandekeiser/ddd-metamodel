@@ -61,6 +61,7 @@ public class SrtConference extends AbstractAggregateRoot<SrtConference, Conferen
     public String toString() {
         return String.format(
             "%s{id: %s, version: %s, budget: %s, talks: %s}",
+            //Use getClass (instead of getDeclaredType) in toString as well to be coherent with Equatability.SAME_RUNTIME_CLASS
             getClass().getSimpleName(), getId(), getVersion(), getBudget(), getTalks()
         );
     }

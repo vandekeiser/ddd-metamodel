@@ -2,6 +2,7 @@ package fr.cla.ddd.metamodel.exampleapp.appli;
 
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.appli.validation.ApplicativeValidations;
+import fr.cla.ddd.metamodel.appli.validation.InvalidCommandOrQueryException;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConferences;
 import org.slf4j.Logger;
@@ -23,7 +24,12 @@ public class ScheduleConference {
         this.conferences = requireNonNull(conferences);
     }
 
-    public void scheduleConference(ScheduleConferenceCommand cmd) {
+    /**
+     * Schedules a SrtConference.
+     * @param cmd Describes the SrtConference to be scheduled
+     * @throws InvalidCommandOrQueryException if {@code cmd.createConference()} throws {@code InvalidObjectException}
+     */
+    public void scheduleConference(ScheduleConferenceCommand cmd) throws InvalidCommandOrQueryException {
         log.info("Received command {}", cmd);
         //The rest api might have validated the schema,
         // but we also must take into account validations that can only be done in the backend

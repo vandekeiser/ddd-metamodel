@@ -13,6 +13,8 @@ public class Constraints {
     }
 
     public static boolean isUuid(String s) {
+        if(s == null) return false;
+
         try {
             UUID.fromString(s);
             return true;

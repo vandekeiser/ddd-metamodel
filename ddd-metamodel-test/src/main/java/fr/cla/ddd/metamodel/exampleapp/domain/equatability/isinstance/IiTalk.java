@@ -37,7 +37,7 @@ public class IiTalk extends AbstractEntity<IiTalk, TalkId> {
     public String toString() {
         return String.format(
             "%s{cost: %s}",
-            getClass().getSimpleName(), cost
+            getDeclaredType().getSimpleName(), cost
         );
     }
 

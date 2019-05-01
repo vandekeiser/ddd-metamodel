@@ -62,7 +62,7 @@ public class CeConference extends AbstractAggregateRoot<CeConference, Conference
     public String toString() {
         return String.format(
             "%s{id: %s, version: %s, budget: %s, talks: %s}",
-            getClass().getSimpleName(), getId(), getVersion(), getBudget(), getTalks()
+            getDeclaredType().getSimpleName(), getId(), getVersion(), getBudget(), getTalks()
         );
     }
 

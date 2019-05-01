@@ -37,6 +37,7 @@ public class SrtTalk extends AbstractEntity<SrtTalk, TalkId> {
     public String toString() {
         return String.format(
             "%s{cost: %s}",
+            //Use getClass (instead of getDeclaredType) in toString as well to be coherent with Equatability.SAME_RUNTIME_CLASS
             getClass().getSimpleName(), cost
         );
     }

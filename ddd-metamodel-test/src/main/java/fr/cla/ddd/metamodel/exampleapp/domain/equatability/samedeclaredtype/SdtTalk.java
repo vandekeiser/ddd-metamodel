@@ -37,7 +37,7 @@ public class SdtTalk extends AbstractEntity<SdtTalk, TalkId> {
     public String toString() {
         return String.format(
             "%s{cost: %s}",
-            getClass().getSimpleName(), cost
+            getDeclaredType().getSimpleName(), cost
         );
     }
 

@@ -28,13 +28,19 @@ TODOs:
     -spring boot contract
     -Constraint.messageIfViolated: String -> Supplier<String> pr ouvrir la porte à de l'interpolation
     -split AbstractValidationEx -> global/individual? mais et le app-level?
-    -tst de concurrence
+    -tst de concurrence/agregat!
     -documenter les trafeoffs:
         -la raison (pragmatique) pr laquelle on préfère des getters au pattern interest/inform
+            -rexp de moi et de 1 ou 2 collegues
+            -de mm que les exceptions, on fait à rome comme les romains: on throw
+             (mais pas n'importe comment.., cf. ApplicativeValidations::validateApplicatively)
         -on accepte le WET validate(); à la fin de chq cstr
         -on accepte le private/pkg-private default cstr
     -unification des exceptions 400? avec un test contrat pr les 2 cas
-            
+    -codes pr les errs de validation
+    -documenter pqoi on met Serializable seulement au niveau le plus concret
+
+
 
 *****swagger*****
 localhost:8080/swagger-ui.html

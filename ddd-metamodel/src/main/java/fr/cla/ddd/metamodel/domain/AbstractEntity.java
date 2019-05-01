@@ -33,6 +33,13 @@ implements Validable<T> {
         this.id = requireNonNull(id);
     }
 
+    @Override public String toString() {
+        return String.format(
+            "%s{id=%s}",
+            getDeclaredType(), id
+        );
+    }
+
     protected final List<Object> equalityCriteria() {
 //        TODO eqh: this doesn't work with JPA proxies as is, id will be null, ex:
 //[ERROR] Failures:
