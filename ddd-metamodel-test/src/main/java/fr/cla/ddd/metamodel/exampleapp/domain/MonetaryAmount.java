@@ -12,6 +12,9 @@ import static java.util.Collections.singletonList;
 import static java.util.stream.Collector.Characteristics.UNORDERED;
 
 
+/**
+ * An unrealistic (without a currency) MonetaryAmount.
+ */
 @DDD.ValueObject
 public class MonetaryAmount extends AbstractValueObject<MonetaryAmount> {
 
