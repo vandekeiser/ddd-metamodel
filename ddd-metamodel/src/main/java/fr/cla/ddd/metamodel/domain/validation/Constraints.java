@@ -2,7 +2,7 @@ package fr.cla.ddd.metamodel.domain.validation;
 
 import java.util.UUID;
 
-public class Validations {
+public class Constraints {
 
     public static boolean isPositive(int i) {
         return i >= 0;

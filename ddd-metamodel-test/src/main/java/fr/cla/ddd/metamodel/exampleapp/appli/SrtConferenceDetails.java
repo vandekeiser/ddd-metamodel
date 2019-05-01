@@ -1,7 +1,7 @@
 package fr.cla.ddd.metamodel.exampleapp.appli;
 
 import fr.cla.ddd.metamodel.domain.AbstractValueObject;
-import fr.cla.ddd.metamodel.domain.validation.Validations;
+import fr.cla.ddd.metamodel.domain.validation.Constraints;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
@@ -40,9 +40,9 @@ public class SrtConferenceDetails extends AbstractValueObject<SrtConferenceDetai
     @Override
     public Validator<? super SrtConferenceDetails> validator() {
         return Validator.of(SrtConferenceDetails.class)
-            .validate(SrtConferenceDetails::getId, Validations::isNotNull, "id must not be null")
-            .validate(SrtConferenceDetails::getBudget, Validations::isNotNull, "budget must not be null")
-            .validate(SrtConferenceDetails::getTotalCost, Validations::isNotNull, "total cost must not be null")
+            .validate(SrtConferenceDetails::getId, Constraints::isNotNull, "id must not be null")
+            .validate(SrtConferenceDetails::getBudget, Constraints::isNotNull, "budget must not be null")
+            .validate(SrtConferenceDetails::getTotalCost, Constraints::isNotNull, "total cost must not be null")
         ;
     }
 

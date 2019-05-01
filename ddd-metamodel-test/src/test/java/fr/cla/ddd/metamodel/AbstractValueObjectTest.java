@@ -2,7 +2,7 @@ package fr.cla.ddd.metamodel;
 
 import fr.cla.ddd.metamodel.domain.AbstractValueObject;
 import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
-import fr.cla.ddd.metamodel.domain.validation.Validations;
+import fr.cla.ddd.metamodel.domain.validation.Constraints;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import org.junit.jupiter.api.Test;
 
@@ -105,8 +105,8 @@ public class AbstractValueObjectTest {
 
         @Override
         public Validator<ValueObject3> validator() {
-            return Validator.of(ValueObject3.class).validate(
-                ValueObject3::getValue, Validations::isPositive, "value must be positive")
+            return Validator.of(ValueObject3.class)
+                .validate(ValueObject3::getValue, Constraints::isPositive, "value must be positive")
             ;
         }
 

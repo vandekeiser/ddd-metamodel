@@ -4,7 +4,7 @@ import fr.cla.ddd.metamodel.domain.AbstractEntity;
 import fr.cla.ddd.metamodel.domain.AbstractValueObject;
 import fr.cla.ddd.metamodel.domain.EntityId;
 import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
-import fr.cla.ddd.metamodel.domain.validation.Validations;
+import fr.cla.ddd.metamodel.domain.validation.Constraints;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import org.junit.jupiter.api.Test;
 
@@ -92,7 +92,7 @@ public class AbstractEntityTest {
         @Override
         public Validator<Entity3> validator() {
             return Validator.of(Entity3.class)
-                .validate(Entity3::getValue, Validations::isPositive, "value must be positive")
+                .validate(Entity3::getValue, Constraints::isPositive, "value must be positive")
             ;
         }
 
@@ -125,8 +125,8 @@ public class AbstractEntityTest {
 
         @Override
         public Validator<Entity1Id> validator() {
-            return Validator.of(Entity1Id.class).validate(
-                Entity1Id::getValue, Validations::isNotNull, "value must not be null")
+            return Validator.of(Entity1Id.class)
+                .validate(Entity1Id::getValue, Constraints::isNotNull, "value must not be null")
             ;
         }
 
@@ -159,8 +159,8 @@ public class AbstractEntityTest {
 
         @Override
         public Validator<Entity2Id> validator() {
-            return Validator.of(Entity2Id.class).validate(
-                Entity2Id::getValue, Validations::isNotNull, "value must not be null")
+            return Validator.of(Entity2Id.class)
+                .validate(Entity2Id::getValue, Constraints::isNotNull, "value must not be null")
             ;
         }
 
@@ -192,8 +192,8 @@ public class AbstractEntityTest {
 
         @Override
         public Validator<Entity3Id> validator() {
-            return Validator.of(Entity3Id.class).validate(
-                Entity3Id::getValue, Validations::isNotNull, "value must not be null")
+            return Validator.of(Entity3Id.class)
+                .validate(Entity3Id::getValue, Constraints::isNotNull, "value must not be null")
             ;
         }
 

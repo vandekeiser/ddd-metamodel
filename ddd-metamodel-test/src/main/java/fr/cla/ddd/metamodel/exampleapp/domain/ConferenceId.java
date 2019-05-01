@@ -3,7 +3,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain;
 import fr.cla.ddd.metamodel.domain.AbstractValueObject;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.domain.EntityId;
-import fr.cla.ddd.metamodel.domain.validation.Validations;
+import fr.cla.ddd.metamodel.domain.validation.Constraints;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 
 import java.io.Serializable;
@@ -41,8 +41,8 @@ implements EntityId, Serializable {
     @Override
     public Validator<ConferenceId> validator() {
         return Validator.of(ConferenceId.class)
-            .validate(ConferenceId::getValue, Validations::isNotNull, "value must not be null")
-            .validate(ConferenceId::getValue, Validations::isUuid, "value must be a Uuid")
+            .validate(ConferenceId::getValue, Constraints::isNotNull, "value must not be null")
+            .validate(ConferenceId::getValue, Constraints::isUuid, "value must be a Uuid")
         ;
     }
 

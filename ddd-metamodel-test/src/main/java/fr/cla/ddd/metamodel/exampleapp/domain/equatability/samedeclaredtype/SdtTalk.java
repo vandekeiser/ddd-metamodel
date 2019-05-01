@@ -2,7 +2,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain.equatability.samedeclaredtype;
 
 import fr.cla.ddd.metamodel.domain.AbstractEntity;
 import fr.cla.ddd.metamodel.DDD;
-import fr.cla.ddd.metamodel.domain.validation.Validations;
+import fr.cla.ddd.metamodel.domain.validation.Constraints;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import fr.cla.ddd.metamodel.exampleapp.domain.TalkId;
@@ -28,8 +28,8 @@ public class SdtTalk extends AbstractEntity<SdtTalk, TalkId> {
 
     @Override
     public Validator<? super SdtTalk> validator() {
-        return Validator.of(SdtTalk.class).validate(
-            SdtTalk::getCost, Validations::isNotNull, "cost must not be null")
+        return Validator.of(SdtTalk.class)
+            .validate(SdtTalk::getCost, Constraints::isNotNull, "cost must not be null")
         ;
     }
 

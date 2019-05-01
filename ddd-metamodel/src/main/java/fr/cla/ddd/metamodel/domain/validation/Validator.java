@@ -6,17 +6,13 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class Validator<T> {
-    private final List<Constraint<T>> validations;
+    private final List<Constraint<T>> constraints;
 
     private Validator() {
-        this.validations = new ArrayList<>();
+        this.constraints = new ArrayList<>();
     }
 
-    public static <T> Validator<T> of() {
-        return new Validator<>();
-    }
-
-    public static <T> Validator<T> of(Class<T> typeUsedForCompilationOnly) {
+    public static <T> Validator<T> of(Class<T> usedOnlyForTypeInference) {
         return new Validator<>();
     }
 
@@ -25,15 +21,15 @@ public class Validator<T> {
     }
 
     /**
-     * Validate the object as a whole
+     * Cross-field validation
      */
     public Validator<T> validate(Predicate<? super T> validation, String message) {
-        validations.add(new Constraint<>(validation, message));
+        constraints.add(new Constraint<>(validation, message));
         return this;
     }
 
     /**
-     * Validate a field
+     * Single-field validation
      */
     public <F> Validator<T> validate(
         Function<? super T, ? extends F> fieldExtractor,
@@ -48,7 +44,7 @@ public class Validator<T> {
 
     public <S extends T> Validation<S> validate(S object) {
         Validation<S> validation = new Validation<>(object);
-        validations.forEach(validation::validate);
+        constraints.forEach(validation::validate);
         return validation;
     }
 

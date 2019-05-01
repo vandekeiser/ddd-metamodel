@@ -2,7 +2,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain;
 
 import fr.cla.ddd.metamodel.domain.AbstractValueObject;
 import fr.cla.ddd.metamodel.DDD;
-import fr.cla.ddd.metamodel.domain.validation.Validations;
+import fr.cla.ddd.metamodel.domain.validation.Constraints;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 
 import java.util.List;
@@ -67,7 +67,7 @@ public class MonetaryAmount extends AbstractValueObject<MonetaryAmount> {
     @Override
     public Validator<MonetaryAmount> validator() {
         return Validator.of(MonetaryAmount.class)
-            .validate(MonetaryAmount::getAmount, Validations::isPositive, "amount must be positive")
+            .validate(MonetaryAmount::getAmount, Constraints::isPositive, "amount must be positive")
         ;
     }
 

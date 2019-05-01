@@ -2,7 +2,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain.equatability.canequal;
 
 import fr.cla.ddd.metamodel.domain.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.DDD;
-import fr.cla.ddd.metamodel.domain.validation.Validations;
+import fr.cla.ddd.metamodel.domain.validation.Constraints;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
@@ -45,7 +45,7 @@ public class CeConference extends AbstractAggregateRoot<CeConference, Conference
     @Override
     public Validator<? super CeConference> validator() {
         return Validator.of(CeConference.class)
-            .validate(CeConference::getBudget, Validations::isNotNull, "budget must not be null")
+            .validate(CeConference::getBudget, Constraints::isNotNull, "budget must not be null")
             .validate(CeConference::totalCostDoesNotExceedBudget, "total cost must not exceed budget")
         ;
     }

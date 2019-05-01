@@ -26,6 +26,7 @@ TODOs:
     -fix jigsaw runtime warning (wasn't here with j11)
     -"should_not_instantiate" -> "should_throw"
     -spring boot contract
+    -Constraint.messageIfViolated: String -> Supplier<String> pr ouvrir la porte à de l'interpolation
 
 *****swagger*****
 localhost:8080/swagger-ui.html

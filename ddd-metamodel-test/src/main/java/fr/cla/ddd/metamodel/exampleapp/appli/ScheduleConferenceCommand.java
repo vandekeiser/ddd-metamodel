@@ -2,7 +2,7 @@ package fr.cla.ddd.metamodel.exampleapp.appli;
 
 import fr.cla.ddd.metamodel.domain.AbstractValueObject;
 import fr.cla.ddd.metamodel.DDD;
-import fr.cla.ddd.metamodel.domain.validation.Validations;
+import fr.cla.ddd.metamodel.domain.validation.Constraints;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
@@ -54,8 +54,8 @@ public class ScheduleConferenceCommand extends AbstractValueObject<ScheduleConfe
 
     @Override
     public Validator<ScheduleConferenceCommand> validator() {
-        return Validator.of(ScheduleConferenceCommand.class).validate(
-            ScheduleConferenceCommand::getBudget, Validations::isNotNull, "budget must not be null")
+        return Validator.of(ScheduleConferenceCommand.class)
+            .validate(ScheduleConferenceCommand::getBudget, Constraints::isNotNull, "budget must not be null")
         ;
     }
 

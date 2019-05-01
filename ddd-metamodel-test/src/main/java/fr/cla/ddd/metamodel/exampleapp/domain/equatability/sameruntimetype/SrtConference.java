@@ -2,7 +2,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype;
 
 import fr.cla.ddd.metamodel.domain.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.DDD;
-import fr.cla.ddd.metamodel.domain.validation.Validations;
+import fr.cla.ddd.metamodel.domain.validation.Constraints;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
@@ -44,7 +44,7 @@ public class SrtConference extends AbstractAggregateRoot<SrtConference, Conferen
     @Override
     public Validator<? super SrtConference> validator() {
         return Validator.of(SrtConference.class)
-            .validate(SrtConference::getBudget, Validations::isNotNull, "budget must not be null")
+            .validate(SrtConference::getBudget, Constraints::isNotNull, "budget must not be null")
             .validate(SrtConference::totalCostDoesNotExceedBudget, "total cost must not exceed budget")
         ;
     }

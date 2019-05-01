@@ -2,7 +2,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain.equatability.isinstance;
 
 import fr.cla.ddd.metamodel.domain.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.DDD;
-import fr.cla.ddd.metamodel.domain.validation.Validations;
+import fr.cla.ddd.metamodel.domain.validation.Constraints;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
@@ -45,7 +45,7 @@ public class IiConference extends AbstractAggregateRoot<IiConference, Conference
     @Override
     public Validator<? super IiConference> validator() {
         return Validator.of(IiConference.class)
-            .validate(IiConference::getBudget, Validations::isNotNull, "budget must not be null")
+            .validate(IiConference::getBudget, Constraints::isNotNull, "budget must not be null")
             .validate(IiConference::totalCostDoesNotExceedBudget, "total cost must not exceed budget")
         ;
     }

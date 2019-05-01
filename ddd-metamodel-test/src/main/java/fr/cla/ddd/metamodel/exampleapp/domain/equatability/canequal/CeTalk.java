@@ -2,7 +2,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain.equatability.canequal;
 
 import fr.cla.ddd.metamodel.domain.AbstractEntity;
 import fr.cla.ddd.metamodel.DDD;
-import fr.cla.ddd.metamodel.domain.validation.Validations;
+import fr.cla.ddd.metamodel.domain.validation.Constraints;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import fr.cla.ddd.metamodel.exampleapp.domain.TalkId;
@@ -29,8 +29,8 @@ public class CeTalk extends AbstractEntity<CeTalk, TalkId> {
 
     @Override
     public Validator<? super CeTalk> validator() {
-        return Validator.of(CeTalk.class).validate(
-            CeTalk::getCost, Validations::isNotNull, "cost must not be null")
+        return Validator.of(CeTalk.class)
+            .validate(CeTalk::getCost, Constraints::isNotNull, "cost must not be null")
         ;
     }
 

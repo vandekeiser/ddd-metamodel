@@ -2,7 +2,7 @@ package fr.cla.ddd.metamodel.exampleapp.domain.equatability.samedeclaredtype;
 
 import fr.cla.ddd.metamodel.domain.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.DDD;
-import fr.cla.ddd.metamodel.domain.validation.Validations;
+import fr.cla.ddd.metamodel.domain.validation.Constraints;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
@@ -45,7 +45,7 @@ public class SdtConference extends AbstractAggregateRoot<SdtConference, Conferen
     @Override
     public Validator<? super SdtConference> validator() {
         return Validator.of(SdtConference.class)
-            .validate(SdtConference::getBudget, Validations::isNotNull, "budget must not be null")
+            .validate(SdtConference::getBudget, Constraints::isNotNull, "budget must not be null")
             .validate(SdtConference::totalCostDoesNotExceedBudget, "total cost must not exceed budget")
         ;
     }
