@@ -73,3 +73,11 @@ curl -v -XPOST -H "Content-Type: application/json;charset=UTF-8" -H "Accept: app
     <
     * Closing connection 0
     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
+
+++++++++++++++
+curl -v -XGET -H "Content-Type: application/json;charset=UTF-8" -H "Accept: application/json;charset=UTF-8" "localhost:8080/example-app/conferences/3a370dbe-13d3-4a85-b60e-632a2f4c44b6"
+curl -v -XPOST -H "Content-Type: application/json;charset=UTF-8" -H "Accept: application/json;charset=UTF-8" --data '{"budget":1000, "costs":[400, 600]}'  "localhost:8080/example-app/conferences/"
+curl -v -XPOST -H "Content-Type: application/json;charset=UTF-8" -H "Accept: application/json;charset=UTF-8" --data '{"budget":1000, "costs":[400, -1]}'  "localhost:8080/example-app/conferences/"
+curl -v -XPOST -H "Content-Type: application/json;charset=UTF-8" -H "Accept: application/json;charset=UTF-8" --data '{"budget":1000, "costs":[400, 700]}'  "localhost:8080/example-app/conferences/"

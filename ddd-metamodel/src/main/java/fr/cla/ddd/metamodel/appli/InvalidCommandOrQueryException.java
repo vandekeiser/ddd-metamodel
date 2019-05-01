@@ -1,5 +1,6 @@
 package fr.cla.ddd.metamodel.appli;
 
+import fr.cla.ddd.metamodel.domain.validation.AbstractValidationException;
 import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 
 import java.util.Arrays;
@@ -9,9 +10,12 @@ import java.util.Optional;
  * A validation exception occurred after the schema validation,
  * during a validation that can only be done by the application.
  * (in other words the invalid data got through the openapi validation,
- * but was detected at the application level)
+ * but was detected at the application level).
+ *
+ * It is the only concrete type of AbstractValidationException to be mapped in Exception2HttpStatus,
+ * because if the ApplicationService don't do application-level validation, that should be an internal error.
  */
-public class InvalidCommandOrQueryException extends IllegalArgumentException {
+public class InvalidCommandOrQueryException extends AbstractValidationException {
 
     private static final String DEFAULT_MSG = "Invalid command or query";
 

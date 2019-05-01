@@ -1,5 +1,6 @@
 package fr.cla.ddd.metamodel.exampleapp.appli;
 
+import fr.cla.ddd.metamodel.appli.ApplicativeValidations;
 import fr.cla.ddd.metamodel.appli.InvalidCommandOrQueryException;
 import fr.cla.ddd.metamodel.domain.DDD;
 import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
@@ -30,22 +31,10 @@ public class ScheduleConference {
      */
     public void scheduleConference(ScheduleConferenceCommand cmd) {
         log.info("Received command {}", cmd);
-        SrtConference conf = validateApplicatively(cmd);
-
+        SrtConference conf = ApplicativeValidations.validateApplicatively(cmd, ScheduleConferenceCommand::createConference);
         log.info("Created {} to add it", conf);
         conferences.add(conf);
         log.info("Added {}", conf);
-    }
-
-    private SrtConference validateApplicatively(ScheduleConferenceCommand cmd) {
-        SrtConference conf;
-        try {
-            conf = cmd.createConference();
-        } catch (InvalidObjectException err) {
-            log.error("Invalid command {}", cmd);
-            throw new InvalidCommandOrQueryException(err, cmd);
-        }
-        return conf;
     }
 
 }
