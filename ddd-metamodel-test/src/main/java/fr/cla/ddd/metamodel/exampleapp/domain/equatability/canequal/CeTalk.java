@@ -8,7 +8,7 @@ import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import fr.cla.ddd.metamodel.exampleapp.domain.TalkId;
 
 
-@DDD.Entity
+@DDD.Entity(aggregateRoot = CeConference.class)
 public class CeTalk extends AbstractEntity<CeTalk, TalkId> {
 
     private MonetaryAmount cost;

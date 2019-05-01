@@ -7,7 +7,7 @@ import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import fr.cla.ddd.metamodel.exampleapp.domain.TalkId;
 
-@DDD.Entity
+@DDD.Entity(aggregateRoot = SrtConference.class)
 public class SrtTalk extends AbstractEntity<SrtTalk, TalkId> {
 
     private MonetaryAmount cost;

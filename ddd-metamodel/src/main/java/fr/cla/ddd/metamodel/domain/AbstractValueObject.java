@@ -1,6 +1,5 @@
 package fr.cla.ddd.metamodel.domain;
 
-import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.domain.validation.Validable;
 import fr.cla.ddd.oo.Equatable;
 
@@ -10,7 +9,6 @@ import fr.cla.ddd.oo.Equatable;
  * (here it doesn't include mandatory validation).
  * Compared to Equatable, it adds to the contract that sub-types must be immutable.
  */
-@DDD.ValueObject
 public abstract class AbstractValueObject<T extends AbstractValueObject<T>>
 extends Equatable<T>
 implements Validable<T> {

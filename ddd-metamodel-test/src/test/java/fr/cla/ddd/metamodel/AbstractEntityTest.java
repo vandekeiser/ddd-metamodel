@@ -2,7 +2,6 @@ package fr.cla.ddd.metamodel;
 
 import fr.cla.ddd.metamodel.domain.AbstractEntity;
 import fr.cla.ddd.metamodel.domain.AbstractValueObject;
-import fr.cla.ddd.metamodel.domain.EntityId;
 import fr.cla.ddd.metamodel.domain.validation.Constraints;
 import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
@@ -103,8 +102,8 @@ public class AbstractEntityTest {
     }
 
 
-    @DDD.ValueObjectId
-    private static class Entity1Id extends AbstractValueObject<Entity1Id> implements EntityId {
+    @DDD.EntityId
+    private static class Entity1Id extends AbstractValueObject<Entity1Id> implements fr.cla.ddd.metamodel.domain.EntityId {
 
         private final String value;
 
@@ -137,8 +136,8 @@ public class AbstractEntityTest {
 
     }
 
-    @DDD.ValueObjectId
-    private static class Entity2Id extends AbstractValueObject<Entity2Id> implements EntityId {
+    @DDD.EntityId
+    private static class Entity2Id extends AbstractValueObject<Entity2Id> implements fr.cla.ddd.metamodel.domain.EntityId {
 
         private final String value;
 
@@ -170,8 +169,8 @@ public class AbstractEntityTest {
         }
     }
 
-    @DDD.ValueObjectId
-    private static class Entity3Id extends AbstractValueObject<Entity3Id> implements EntityId {
+    @DDD.EntityId
+    private static class Entity3Id extends AbstractValueObject<Entity3Id> implements fr.cla.ddd.metamodel.domain.EntityId {
 
         private final String value;
 

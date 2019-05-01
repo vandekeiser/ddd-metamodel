@@ -1,6 +1,8 @@
 package fr.cla.ddd.metamodel;
 
 
+import fr.cla.ddd.metamodel.domain.AbstractAggregateRoot;
+
 public class DDD {
 
     public enum Layer {
@@ -11,13 +13,12 @@ public class DDD {
 
     }
 
-    @ValueObject
-    public @interface ValueObjectId {
-
+    public @interface Entity {
+        Class<? extends AbstractAggregateRoot<?, ?>> aggregateRoot();
     }
 
-    public @interface Entity {
-        //Class<? extends AggregateRoot> aggregateRoot();
+    @ValueObject
+    public @interface EntityId {
 
     }
 

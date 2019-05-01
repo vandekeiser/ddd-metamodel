@@ -1,9 +1,6 @@
 package fr.cla.ddd.metamodel.domain;
 
 
-import fr.cla.ddd.metamodel.DDD;
-
-@DDD.AggregateRoot
 public abstract class AbstractAggregateRoot<
     T extends AbstractAggregateRoot<T, I>,
     I extends EntityId

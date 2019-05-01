@@ -1,6 +1,5 @@
 package fr.cla.ddd.metamodel.domain;
 
-import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.domain.validation.Validable;
 import fr.cla.ddd.oo.Equatable;
 
@@ -15,7 +14,6 @@ import static java.util.Objects.requireNonNull;
  * Compared to Equatable, it also adds to the contract that the id is the only equality criterion,
  * and that the id is not null.
  */
-@DDD.Entity
 public abstract class AbstractEntity<
     T extends AbstractEntity<T, I>,
     I extends EntityId

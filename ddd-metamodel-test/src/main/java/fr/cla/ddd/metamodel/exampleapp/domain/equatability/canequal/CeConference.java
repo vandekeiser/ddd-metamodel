@@ -13,7 +13,7 @@ import java.util.Set;
 import static java.util.Collections.emptySet;
 
 
-@DDD.Entity
+@DDD.AggregateRoot
 public class CeConference extends AbstractAggregateRoot<CeConference, ConferenceId> {
 
     private MonetaryAmount budget;

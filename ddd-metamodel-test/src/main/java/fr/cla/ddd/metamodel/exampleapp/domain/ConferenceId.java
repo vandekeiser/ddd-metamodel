@@ -2,7 +2,6 @@ package fr.cla.ddd.metamodel.exampleapp.domain;
 
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.domain.AbstractValueObject;
-import fr.cla.ddd.metamodel.domain.EntityId;
 import fr.cla.ddd.metamodel.domain.validation.Constraints;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 
@@ -13,9 +12,9 @@ import static java.util.Collections.singletonList;
 import static java.util.UUID.randomUUID;
 
 
-@DDD.ValueObjectId
+@DDD.EntityId
 public class ConferenceId extends AbstractValueObject<ConferenceId>
-implements EntityId, Serializable {
+implements fr.cla.ddd.metamodel.domain.EntityId, Serializable {
 
     private final String value;
 

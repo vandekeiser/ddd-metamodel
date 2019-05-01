@@ -29,6 +29,12 @@ TODOs:
     -Constraint.messageIfViolated: String -> Supplier<String> pr ouvrir la porte à de l'interpolation
     -split AbstractValidationEx -> global/individual? mais et le app-level?
     -tst de concurrence
+    -documenter les trafeoffs:
+        -la raison (pragmatique) pr laquelle on préfère des getters au pattern interest/inform
+        -on accepte le WET validate(); à la fin de chq cstr
+        -on accepte le private/pkg-private default cstr
+    -unification des exceptions 400? avec un test contrat pr les 2 cas
+            
 
 *****swagger*****
 localhost:8080/swagger-ui.html
