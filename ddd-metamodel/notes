@@ -30,6 +30,7 @@ TODOs:
     -split AbstractValidationEx -> global/individual? mais et le app-level?
     -tst de concurrence/agregat!
     -documenter les trafeoffs:
+        -(ref eqhash) que bien sûr on veut pas faire Hibernate."unproxify" ds domain...
         -la raison (pragmatique) pr laquelle on préfère des getters au pattern interest/inform
             -rexp de moi et de 1 ou 2 collegues
             -de mm que les exceptions, on fait à rome comme les romains: on throw
@@ -48,6 +49,7 @@ TODOs:
     -valider pr nonnull les collections dt on fait une copie ds le cstr
     -pagination + criteria search?
     -e2e tst sans stubs
+
 
 
 
