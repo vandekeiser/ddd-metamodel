@@ -24,5 +24,4 @@ public class ViewConferenceDetails {
         return conferences.get(id).map(SrtConferenceDetails::new);
     }
 
-
 }

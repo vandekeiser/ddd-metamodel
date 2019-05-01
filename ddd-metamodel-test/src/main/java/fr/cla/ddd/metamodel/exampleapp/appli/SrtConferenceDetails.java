@@ -37,7 +37,7 @@ public class SrtConferenceDetails extends AbstractValueObject<SrtConferenceDetai
         this.id = id;
         this.budget = budget;
         this.totalCost = totalCost;
-        this.talks = talks;
+        this.talks = new HashSet<>(talks);
         validate();
     }
 
