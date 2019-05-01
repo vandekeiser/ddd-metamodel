@@ -9,15 +9,13 @@ http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
 
     <embeddable class="fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId">
         <attributes>
-            <basic name="value">
-            </basic>
+            <basic name="value"/>
         </attributes>
     </embeddable>
 
     <embeddable class="fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount">
         <attributes>
-            <basic name="value">
-            </basic>
+            <basic name="value"/>
         </attributes>
     </embeddable>
 

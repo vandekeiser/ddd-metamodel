@@ -7,8 +7,8 @@
     <persistence-unit name="default">
         <mapping-file>META-INF/ddd-metamodel.xml</mapping-file>
         <mapping-file>META-INF/equatability.xml</mapping-file>
-        <mapping-file>META-INF/equatability-same-runtime-class.xml</mapping-file>
-        <mapping-file>META-INF/equatability-same-declared-class.xml</mapping-file>
+        <mapping-file>META-INF/equatability-same-runtime-type.xml</mapping-file>
+        <mapping-file>META-INF/equatability-same-declared-type.xml</mapping-file>
         <mapping-file>META-INF/equatability-is-instance.xml</mapping-file>
         <mapping-file>META-INF/equatability-can-equal.xml</mapping-file>
     </persistence-unit>

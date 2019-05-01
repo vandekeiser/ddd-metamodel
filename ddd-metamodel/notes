@@ -47,6 +47,7 @@ TODOs:
     -documenter pqoi on met Serializable seulement au niveau le plus concret
     -valider pr nonnull les collections dt on fait une copie ds le cstr
     -pagination + criteria search?
+    -e2e tst sans stubs
 
 
 
