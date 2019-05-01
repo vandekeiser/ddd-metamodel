@@ -29,7 +29,7 @@ public class ScheduleConference {
         log.info("Received command {}", cmd);
         //The rest api might have validated the schema,
         // but we also must take into account validations that can only be done in the backend
-        //(eg. translate them to 400).
+        // (eg. translate them to 400).
         //This is just an example, but this validation could use eg. a database unicity check or a rest-client check of existence in another bounded context.
         SrtConference conf = ApplicativeValidations.validateApplicatively(cmd, ScheduleConferenceCommand::createConference);
         log.info("Created {} to add it", conf);
