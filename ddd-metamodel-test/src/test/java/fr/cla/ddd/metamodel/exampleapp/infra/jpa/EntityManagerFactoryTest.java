@@ -1,6 +1,5 @@
 package fr.cla.ddd.metamodel.exampleapp.infra.jpa;
 
-import fr.cla.ddd.metamodel.exampleapp.infra.jpa.JpaConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ContextConfiguration;

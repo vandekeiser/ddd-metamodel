@@ -1,6 +1,5 @@
 package fr.cla.ddd.metamodel.appli.validation;
 
-import fr.cla.ddd.metamodel.appli.validation.InvalidCommandOrQueryException;
 import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 
 import java.util.function.Function;

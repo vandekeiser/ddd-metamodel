@@ -28,6 +28,7 @@ TODOs:
     -spring boot contract
     -Constraint.messageIfViolated: String -> Supplier<String> pr ouvrir la porte à de l'interpolation
     -split AbstractValidationEx -> global/individual? mais et le app-level?
+    -tst de concurrence
 
 *****swagger*****
 localhost:8080/swagger-ui.html
@@ -71,6 +72,7 @@ curl -v -XPOST -H "Content-Type: application/json;charset=UTF-8" -H "Accept: app
     < Content-Type: application/json;charset=UTF-8
     < Content-Length: 51
     < Date: Tue, 30 Apr 2019 20:47:11 GMT
+
     < Connection: close
     <
     * Closing connection 0

@@ -1,7 +1,7 @@
 package fr.cla.ddd.metamodel.exampleapp.domain.equatability.samedeclaredtype;
 
-import fr.cla.ddd.metamodel.domain.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.DDD;
+import fr.cla.ddd.metamodel.domain.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.domain.validation.Constraints;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
