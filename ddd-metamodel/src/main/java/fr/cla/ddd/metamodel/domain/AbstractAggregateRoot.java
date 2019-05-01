@@ -1,6 +1,8 @@
 package fr.cla.ddd.metamodel.domain;
 
 
+import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
+
 public abstract class AbstractAggregateRoot<
     T extends AbstractAggregateRoot<T, I>,
     I extends EntityId
@@ -9,11 +11,11 @@ extends AbstractEntity<T, I> {
 
     private long version;
 
-    protected AbstractAggregateRoot(Class<T> type, I id) {
+    protected AbstractAggregateRoot(Class<T> type, I id) throws InvalidObjectException {
         super(type, id);
     }
 
-    protected AbstractAggregateRoot(Class<T> type, I id, Equatability equatability) {
+    protected AbstractAggregateRoot(Class<T> type, I id, Equatability equatability) throws InvalidObjectException {
         super(type, id, equatability);
     }
 

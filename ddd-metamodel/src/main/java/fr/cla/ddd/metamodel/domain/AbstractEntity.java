@@ -1,5 +1,6 @@
 package fr.cla.ddd.metamodel.domain;
 
+import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 import fr.cla.ddd.metamodel.domain.validation.Validable;
 import fr.cla.ddd.oo.Equatable;
 
@@ -23,12 +24,12 @@ implements Validable<T> {
 
     private final I id;
 
-    protected AbstractEntity(Class<T> type, I id) {
+    protected AbstractEntity(Class<T> type, I id) throws InvalidObjectException {
         super(type);
         this.id = requireNonNull(id);
     }
 
-    protected AbstractEntity(Class<T> type, I id, Equatability equatability) {
+    protected AbstractEntity(Class<T> type, I id, Equatability equatability) throws InvalidObjectException {
         super(type, equatability);
         this.id = requireNonNull(id);
     }
