@@ -1,6 +1,6 @@
-package fr.cla.ddd.metamodel.appli;
+package fr.cla.ddd.metamodel.appli.validation;
 
-import fr.cla.ddd.metamodel.domain.validation.AbstractValidationException;
+import fr.cla.ddd.metamodel.ValidationException;
 import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 
 import java.util.Arrays;
@@ -12,10 +12,10 @@ import java.util.Optional;
  * (in other words the invalid data got through the openapi validation,
  * but was detected at the application level).
  *
- * It is the only concrete type of AbstractValidationException to be mapped in Exception2HttpStatus,
+ * It is the only concrete type of ValidationException to be mapped in Exception2HttpStatus,
  * because if the ApplicationService don't do application-level validation, that should be an internal error.
  */
-public class InvalidCommandOrQueryException extends AbstractValidationException {
+public class InvalidCommandOrQueryException extends ValidationException {
 
     private static final String DEFAULT_MSG = "Invalid command or query";
 

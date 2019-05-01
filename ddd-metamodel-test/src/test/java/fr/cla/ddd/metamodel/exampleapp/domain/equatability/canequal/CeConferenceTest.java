@@ -1,6 +1,6 @@
 package fr.cla.ddd.metamodel.exampleapp.domain.equatability.canequal;
 
-import fr.cla.ddd.metamodel.domain.validation.AbstractValidationException;
+import fr.cla.ddd.metamodel.ValidationException;
 import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 import fr.cla.ddd.metamodel.domain.validation.UnexpectedExceptionDuringValidationException;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
@@ -44,11 +44,11 @@ public class CeConferenceTest {
             expected.printStackTrace();
 
             //And
-            AbstractValidationException[] validationErrors = expected.getSuppressedValidationException();
+            ValidationException[] validationErrors = expected.getSuppressedValidationException();
             assertThat(validationErrors.length).isEqualTo(1);
 
             //And
-            AbstractValidationException overflow = validationErrors[0];
+            ValidationException overflow = validationErrors[0];
             assertThat(overflow).isInstanceOf(UnexpectedExceptionDuringValidationException.class);
             assertThat(overflow.getMessage()).isEqualTo("java.lang.ArithmeticException: integer overflow");
             assertThat(overflow.getCause()).isInstanceOf(ArithmeticException.class);

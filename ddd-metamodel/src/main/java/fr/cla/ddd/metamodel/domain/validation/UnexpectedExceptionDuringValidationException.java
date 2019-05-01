@@ -1,6 +1,8 @@
 package fr.cla.ddd.metamodel.domain.validation;
 
-public class UnexpectedExceptionDuringValidationException extends AbstractValidationException {
+import fr.cla.ddd.metamodel.ValidationException;
+
+public class UnexpectedExceptionDuringValidationException extends ValidationException {
 
     private UnexpectedExceptionDuringValidationException(String msg, Throwable cause) {
         super(msg, cause);

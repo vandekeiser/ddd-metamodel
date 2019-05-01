@@ -1,10 +1,12 @@
 package fr.cla.ddd.metamodel.domain.validation;
 
+import fr.cla.ddd.metamodel.ValidationException;
+
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
-public class InvalidObjectException extends AbstractValidationException {
+public class InvalidObjectException extends ValidationException {
 
     private final Object invalidObject;
 
@@ -29,13 +31,13 @@ public class InvalidObjectException extends AbstractValidationException {
         }
     }
 
-    public final AbstractValidationException[] getSuppressedValidationException() {
+    public final ValidationException[] getSuppressedValidationException() {
         return Stream.of(super.getSuppressed())
             //In case someone else called addSuppressd
-            .filter(AbstractValidationException.class::isInstance)
-            .map(AbstractValidationException.class::cast)
+            .filter(ValidationException.class::isInstance)
+            .map(ValidationException.class::cast)
             .collect(toList())
-            .toArray(new AbstractValidationException[0])
+            .toArray(new ValidationException[0])
         ;
     }
 

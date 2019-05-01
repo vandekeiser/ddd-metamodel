@@ -1,6 +1,6 @@
 package fr.cla.ddd.metamodel.exampleapp.expo;
 
-import fr.cla.ddd.metamodel.appli.InvalidCommandOrQueryException;
+import fr.cla.ddd.metamodel.appli.validation.InvalidCommandOrQueryException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;

@@ -1,6 +1,6 @@
 package fr.cla.ddd.metamodel.exampleapp.appli;
 
-import fr.cla.ddd.metamodel.appli.ApplicativeValidations;
+import fr.cla.ddd.metamodel.appli.validation.ApplicativeValidations;
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConferences;

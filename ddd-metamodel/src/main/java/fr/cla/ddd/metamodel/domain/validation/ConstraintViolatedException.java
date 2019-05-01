@@ -1,6 +1,8 @@
 package fr.cla.ddd.metamodel.domain.validation;
 
-public class ConstraintViolatedException extends AbstractValidationException {
+import fr.cla.ddd.metamodel.ValidationException;
+
+public class ConstraintViolatedException extends ValidationException {
 
     public ConstraintViolatedException(String msg) {
         super(msg);

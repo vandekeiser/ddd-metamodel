@@ -21,7 +21,7 @@ public class Validator<T> {
     }
 
     /**
-     * Cross-field validation
+     * Cross-field (or general-case) validation
      */
     public Validator<T> validate(Predicate<? super T> validation, String message) {
         constraints.add(new Constraint<>(validation, message));
@@ -37,6 +37,8 @@ public class Validator<T> {
         String message
     ) {
         return validate(
+            //Rémi Forax technique to convert a lambda from one SAMI to another,
+            // from his presentation "Les design patterns à la sauce lambda",
             fieldExtractor.andThen(validation::test)::apply,
             message
         );
