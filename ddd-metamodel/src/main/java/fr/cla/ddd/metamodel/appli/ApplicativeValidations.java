@@ -10,11 +10,14 @@ public class ApplicativeValidations {
     //private static final Logger log = LoggerFactory.getLogger(ApplicativeValidations.class);
 
     /**
-     * @param <A> Type of Application-level Command or Query
-     * @param <D> Type of resulting Domain-level Aggregate or Query
-     * @return
+     * @param <A> Type of application-level Command or Query
+     * @param <D> Type of resulting domain-level Aggregate or Query
+     * @return The domain-level object if valid
+     * @throws InvalidCommandOrQueryException if the domain-level object would be invalid
      */
-    public static <A, D> D validateApplicatively(A commandOrQuery, Function<A, D> toDomain) {
+    public static <A, D> D validateApplicatively(
+        A commandOrQuery, Function<A, D> toDomain
+    ) throws InvalidCommandOrQueryException {
         D domainObject;
         try {
             domainObject = toDomain.apply(commandOrQuery);
