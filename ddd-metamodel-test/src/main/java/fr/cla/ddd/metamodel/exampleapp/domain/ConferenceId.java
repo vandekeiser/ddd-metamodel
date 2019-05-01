@@ -20,14 +20,14 @@ implements EntityId, Serializable {
 
     private final String value;
 
+    public ConferenceId() {
+        this(randomUUID().toString());
+    }
+
     public ConferenceId(String value) throws InvalidObjectException {
         super(ConferenceId.class);
         this.value = value;
         validate();
-    }
-
-    public ConferenceId() {
-        this(randomUUID().toString());
     }
 
     public String getValue() {

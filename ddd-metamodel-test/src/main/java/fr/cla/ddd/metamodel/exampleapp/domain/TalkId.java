@@ -20,7 +20,7 @@ implements EntityId, Serializable {
 
     private final String value;
 
-    public TalkId() throws InvalidObjectException {
+    public TalkId() {
         this(UUID.randomUUID().toString());
     }
 
