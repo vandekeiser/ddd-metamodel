@@ -18,7 +18,7 @@ import static java.util.Collections.emptySet;
 public class CeConference extends AbstractAggregateRoot<CeConference, ConferenceId> {
 
     private MonetaryAmount budget;
-    private final Set<CeTalk> talks = new HashSet<>();
+    private final Set<CeTalk> talks;
 
     public CeConference(ConferenceId id, MonetaryAmount budget) throws InvalidObjectException {
         this(id, budget, emptySet());
@@ -31,7 +31,7 @@ public class CeConference extends AbstractAggregateRoot<CeConference, Conference
     public CeConference(ConferenceId id, MonetaryAmount budget, Set<CeTalk> talks) throws InvalidObjectException {
         super(CeConference.class, id, Equatability.CAN_EQUAL);
         this.budget = budget;
-        this.talks.addAll(talks);
+        this.talks = defensiveCopy(talks);
         validate();
     }
 
@@ -47,6 +47,7 @@ public class CeConference extends AbstractAggregateRoot<CeConference, Conference
     public Validator<? super CeConference> validator() {
         return Validator.of(CeConference.class)
             .validate(CeConference::getBudget, Constraints::isNotNull, "budget must not be null")
+            .validate(CeConference::getTalks, Constraints::isNotNull, "talks must not be null")
             .validate(CeConference::totalCostDoesNotExceedBudget, "total cost must not exceed budget")
         ;
     }
@@ -87,6 +88,7 @@ public class CeConference extends AbstractAggregateRoot<CeConference, Conference
     CeConference() {
         super(CeConference.class, Equatability.CAN_EQUAL);
         this.budget = null;
+        this.talks = null;
     }
 
 }

@@ -1,7 +1,6 @@
 package fr.cla.ddd.oo;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 import static java.util.Objects.requireNonNull;
 
@@ -69,6 +68,13 @@ public abstract class Equatable<T extends Equatable<T>> {
         return this.type;
     }
 
+    protected static <T> List<T> defensiveCopy(List<T> xs) {
+        return xs==null ? null : new ArrayList<>(xs);
+    }
+
+    protected static <T> Set<T> defensiveCopy(Set<T> xs) {
+        return xs==null ? null : new HashSet<>(xs);
+    }
 
     /**
      * Policies of when 2 instances can be compared for equality without breaking the equals contract (reflexive/symmetric/transitive).

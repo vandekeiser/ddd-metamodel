@@ -29,7 +29,7 @@ public class ScheduleConferenceCommand extends AbstractValueObject<ScheduleConfe
     ) throws InvalidObjectException {
         super(ScheduleConferenceCommand.class);
         this.budget = budget;
-        this.costs = new ArrayList<>(costs);
+        this.costs = defensiveCopy(costs);
         this.conferenceId = new ConferenceId();
         validate();
     }
@@ -41,6 +41,10 @@ public class ScheduleConferenceCommand extends AbstractValueObject<ScheduleConfe
 
     public MonetaryAmount getBudget() {
         return budget;
+    }
+
+    public List<MonetaryAmount> getCosts() {
+        return defensiveCopy(costs);
     }
 
     public <T> List<T> mapCosts(Function<? super MonetaryAmount, ? extends  T> mapper) {
@@ -59,6 +63,7 @@ public class ScheduleConferenceCommand extends AbstractValueObject<ScheduleConfe
     public Validator<ScheduleConferenceCommand> validator() {
         return Validator.of(ScheduleConferenceCommand.class)
             .validate(ScheduleConferenceCommand::getBudget, Constraints::isNotNull, "budget must not be null")
+            .validate(ScheduleConferenceCommand::getCosts, Constraints::isNotNull, "costs must not be null")
         ;
     }
 

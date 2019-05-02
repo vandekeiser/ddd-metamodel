@@ -18,7 +18,7 @@ import static java.util.Collections.emptySet;
 public class SdtConference extends AbstractAggregateRoot<SdtConference, ConferenceId> {
 
     private MonetaryAmount budget;
-    private final Set<SdtTalk> talks = new HashSet<>();
+    private final Set<SdtTalk> talks;
 
     public SdtConference(ConferenceId id, MonetaryAmount budget) throws InvalidObjectException {
         this(id, budget, emptySet());
@@ -31,7 +31,7 @@ public class SdtConference extends AbstractAggregateRoot<SdtConference, Conferen
     public SdtConference(ConferenceId id, MonetaryAmount budget, Set<SdtTalk> talks) throws InvalidObjectException {
         super(SdtConference.class, id, Equatability.SAME_DECLARED_CLASS);
         this.budget = budget;
-        this.talks.addAll(talks);
+        this.talks = defensiveCopy(talks);
         validate();
     }
 
@@ -47,6 +47,7 @@ public class SdtConference extends AbstractAggregateRoot<SdtConference, Conferen
     public Validator<? super SdtConference> validator() {
         return Validator.of(SdtConference.class)
             .validate(SdtConference::getBudget, Constraints::isNotNull, "budget must not be null")
+            .validate(SdtConference::getTalks, Constraints::isNotNull, "talks must not be null")
             .validate(SdtConference::totalCostDoesNotExceedBudget, "total cost must not exceed budget")
         ;
     }
@@ -72,6 +73,7 @@ public class SdtConference extends AbstractAggregateRoot<SdtConference, Conferen
     SdtConference() { //TODO eqh: private KO! (without lazy proxies, private is fine)
         super(SdtConference.class, Equatability.SAME_DECLARED_CLASS);
         this.budget = null;
+        this.talks = null;
     }
 
 }

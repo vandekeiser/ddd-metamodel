@@ -26,7 +26,7 @@ public class SrtConferenceDetails extends AbstractValueObject<SrtConferenceDetai
             conf.getId(),
             conf.getBudget(),
             conf.totalCost(),
-            new HashSet<>(conf.getTalks())
+            conf.getTalks()
         );
     }
 
@@ -37,7 +37,7 @@ public class SrtConferenceDetails extends AbstractValueObject<SrtConferenceDetai
         this.id = id;
         this.budget = budget;
         this.totalCost = totalCost;
-        this.talks = new HashSet<>(talks);
+        this.talks = defensiveCopy(talks);
         validate();
     }
 
@@ -47,6 +47,7 @@ public class SrtConferenceDetails extends AbstractValueObject<SrtConferenceDetai
             .validate(SrtConferenceDetails::getId, Constraints::isNotNull, "id must not be null")
             .validate(SrtConferenceDetails::getBudget, Constraints::isNotNull, "budget must not be null")
             .validate(SrtConferenceDetails::getTotalCost, Constraints::isNotNull, "total cost must not be null")
+            .validate(SrtConferenceDetails::getTalks, Constraints::isNotNull, "talks must not be null")
         ;
     }
 
