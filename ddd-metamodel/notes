@@ -43,9 +43,9 @@ TODOs:
             (contrairement au mapping orm... qui lui doit rester strictement ds /infra! car vraiment intrusif++!)
                 (argument supplémentaire qui marche souvent: si on accepte les annots jpa, pqoi pas hib/ehcache/jackson/...)
             (ce n'est pas l'approche "onion/clean architecture" puriste mais on s'en fout!)
+        -documenter pqoi on met Serializable seulement au niveau le plus concret
     -unification des exceptions 400? avec un test contrat pr les 2 cas
-    -codes pr les errs de validation
-    -documenter pqoi on met Serializable seulement au niveau le plus concret
+        -codes pr les errs de validation
     -valider pr nonnull les collections dt on fait une copie ds le cstr
     -pagination + criteria search?
     -e2e tst sans stubs
