@@ -36,8 +36,6 @@ then:
 
     response {
         status 201
-        headers {
-            contentType("application/json;charset=UTF-8")
-        }
+        headers {}
     }
 }
