@@ -1,11 +1,11 @@
-package contracts
+package contracts.fr.cla.ddd.metamodel.exampleapp.expo.conference
 
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
-    name("contract-for-when-total-cost-exceeds-budget")
+    name("contract-for-when-total-cost-does-not-exceed-budget")
     description """
-Failure scenario when scheduling a conference
+Success scenario when scheduling a conference
  
 ```
 given:
@@ -13,11 +13,11 @@ given:
 and:
  the conference's has a talk that costs 400 euros 
 and:
- the conference's has a talk that costs 700 euros 
+ the conference's has a talk that costs 600 euros 
 when:
  the user tries to schedule the conference
 then:
- it is rejected
+ it is accepted
 ```
  
 """
@@ -26,7 +26,7 @@ then:
         urlPath('/example-app/conferences/')
         body(
             budget: 1000,
-            costs: [400, 700]
+            costs: [400, 600]
         )
         headers {
             contentType("application/json;charset=UTF-8")
@@ -35,7 +35,7 @@ then:
     }
 
     response {
-        status 400
+        status 201
         headers {}
     }
 }
