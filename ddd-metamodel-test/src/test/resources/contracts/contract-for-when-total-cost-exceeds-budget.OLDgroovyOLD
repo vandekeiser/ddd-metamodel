@@ -1,0 +1,50 @@
+Contract.make {
+    name("contract-for-when-total-cost-exceeds-budget")
+    description """
+Represents a rejection scenario for scheduling a conference
+ 
+```
+given:
+ the conference's budget is 1000 euros 
+and:
+ the conference's has a talk that costs 400 euros 
+and:
+ the conference's has a talk that costs 700 euros 
+when:
+ the user tries to schedule the conference
+then:
+ it is rejected
+```
+ 
+"""
+//    curl -v
+//    -XPOST
+//    -H "Content-Type: application/json;charset=UTF-8"
+//    -H "Accept: application/json;charset=UTF-8"
+//    --data '{"budget":1000, "costs":[400, 700]}'
+//    "localhost:8080/example-app/conferences/"
+    request {
+        method 'POST'
+        urlPath('/example-app/conferences/') {
+
+        }
+        body(
+            budget: 1000,
+            costs: [400, 700]
+        )
+        headers {
+            contentType("application/json;charset=UTF-8")
+            accept("application/json;charset=UTF-8")
+        }
+    }
+
+    response {
+        status 400
+        headers {
+            contentType("application/json;charset=UTF-8")
+        }
+        body(
+            "InvalidCommandOrQueryException:{commandOrQuery: ScheduleConferenceCommand{conferenceId:7a071232-b278-4148-8932-f64e3a470e46, budget:1000, costs:[400, 700]}, cause:{invalidObject: SrtConference{id: 7a071232-b278-4148-8932-f64e3a470e46, version: 0, budget: 1000, talks: [SrtTalk{cost: 400}, SrtTalk{cost: 700}]}, message: Invalid object}, causes: [fr.cla.ddd.metamodel.domain.validation.ConstraintViolatedException: total cost must not exceed budget]}"
+        )
+    }
+}
