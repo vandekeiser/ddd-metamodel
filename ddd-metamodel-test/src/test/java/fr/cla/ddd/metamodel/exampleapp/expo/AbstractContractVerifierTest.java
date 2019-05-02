@@ -28,14 +28,14 @@ public abstract class AbstractContractVerifierTest {
     @BeforeEach
     public void setup() {
         setupRestAssured();
-        mockApplicationService__make_it_just_do_applicative_validation();
+        mockApplicationService__makeItJustDoApplicativeValidation();
     }
 
     private void setupRestAssured() {
         RestAssuredMockMvc.webAppContextSetup(ctx);
     }
 
-    private void mockApplicationService__make_it_just_do_applicative_validation() {
+    private void mockApplicationService__makeItJustDoApplicativeValidation() {
         Mockito.doAnswer(
             justDoApplicativeValidation()
         ).when(applicationService).scheduleConference(any(ScheduleConferenceCommand.class));
