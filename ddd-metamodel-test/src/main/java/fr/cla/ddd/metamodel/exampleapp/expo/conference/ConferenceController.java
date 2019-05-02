@@ -15,12 +15,12 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
 @RestController
 @RequestMapping("/example-app/conferences")
-public class ConferenceResource {
+public class ConferenceController {
 
     private final ScheduleConference scheduleConference;
     private final ViewConferenceDetails viewConferenceDetails;
 
-    public ConferenceResource(ScheduleConference scheduleConference, ViewConferenceDetails viewConferenceDetails) {
+    public ConferenceController(ScheduleConference scheduleConference, ViewConferenceDetails viewConferenceDetails) {
         this.scheduleConference = requireNonNull(scheduleConference);
         this.viewConferenceDetails = requireNonNull(viewConferenceDetails);
     }

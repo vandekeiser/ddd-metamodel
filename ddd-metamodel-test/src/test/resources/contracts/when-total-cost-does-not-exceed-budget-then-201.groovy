@@ -5,13 +5,13 @@ import org.springframework.cloud.contract.spec.Contract
 Contract.make {
     name("contract-for-when-total-cost-does-not-exceed-budget")
     description """
-Represents the success scenario for scheduling a conference
+Success scenario when scheduling a conference
  
 ```
 given:
  the conference's budget is 1000 euros 
 and:
- the conference's has a talk that cost<s 400 euros 
+ the conference's has a talk that costs 400 euros 
 and:
  the conference's has a talk that costs 600 euros 
 when:

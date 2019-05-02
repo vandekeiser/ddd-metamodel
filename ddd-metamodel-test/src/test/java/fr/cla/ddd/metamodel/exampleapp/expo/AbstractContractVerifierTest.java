@@ -3,22 +3,17 @@ package fr.cla.ddd.metamodel.exampleapp.expo;
 import fr.cla.ddd.metamodel.appli.validation.ApplicativeValidations;
 import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConference;
 import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConferenceCommand;
-import fr.cla.ddd.metamodel.exampleapp.expo.conference.ConferenceResource;
+import fr.cla.ddd.metamodel.exampleapp.expo.conference.ConferenceController;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.stubbing.Answer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder;
+import org.springframework.web.context.WebApplicationContext;
 
 import static org.mockito.Mockito.any;
 
@@ -26,18 +21,27 @@ import static org.mockito.Mockito.any;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 public abstract class AbstractContractVerifierTest {
 
-    @Autowired private ConferenceResource conferenceResource;
-    @MockBean private ScheduleConference scheduleConference;
+    @Autowired private WebApplicationContext ctx;
+    @Autowired private ConferenceController controller;
+    @MockBean private ScheduleConference applicationService;
 
     @BeforeEach
     public void setup() {
-        Mockito.doAnswer(validateApplicatively()).when(scheduleConference).scheduleConference(any(ScheduleConferenceCommand.class));
-
-        StandaloneMockMvcBuilder standaloneMockMvcBuilder = MockMvcBuilders.standaloneSetup(conferenceResource);
-        RestAssuredMockMvc.standaloneSetup(standaloneMockMvcBuilder);
+        setupRestAssured();
+        mockApplicationService__make_it_just_do_applicative_validation();
     }
 
-    private Answer<Void> validateApplicatively() {
+    private void setupRestAssured() {
+        RestAssuredMockMvc.webAppContextSetup(ctx);
+    }
+
+    private void mockApplicationService__make_it_just_do_applicative_validation() {
+        Mockito.doAnswer(
+            justDoApplicativeValidation()
+        ).when(applicationService).scheduleConference(any(ScheduleConferenceCommand.class));
+    }
+
+    private Answer<Void> justDoApplicativeValidation() {
         return invocationOnMock -> {
             ScheduleConferenceCommand cmd = invocationOnMock.getArgument(0);
             ApplicativeValidations.validateApplicatively(cmd, ScheduleConferenceCommand::createConference);
