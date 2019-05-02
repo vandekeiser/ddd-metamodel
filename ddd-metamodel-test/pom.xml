@@ -14,6 +14,9 @@
 
     <properties>
         <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
+        <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+        <spring-cloud-contract.version>2.1.1.RELEASE</spring-cloud-contract.version>
+        <swagger-request-validator.version>2.2.2</swagger-request-validator.version>
     </properties>
 
     <dependencyManagement>
@@ -22,6 +25,14 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -87,6 +98,13 @@
             <!--<artifactId>swagger-request-validator-restassured</artifactId>-->
             <!--<version>${swagger-request-validator.version}</version>-->
         <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-contract-verifier</artifactId>
+            <version>${spring-cloud-contract.version}</version>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>com.h2database</groupId>
