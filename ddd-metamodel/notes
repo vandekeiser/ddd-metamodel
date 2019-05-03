@@ -18,16 +18,14 @@ modules + whitebox testing:
 
 
 TODOs:
-    -documenter de façon centralisée les //TODO eqh
     -meilleurs exemple d'equatables? (ex. cf. EJ pr CE?)
-    -VO: ce qui rest a VF pas fait par javac c'est surtt l'immutabilite
-        -equalsverifier: j'aime pas comment ils changent les chps prives..
     -factor types ds openapi
     -fix jigsaw runtime warning (wasn't here with j11)
     -Constraint.messageIfViolated: String -> Supplier<String> pr ouvrir la porte à de l'interpolation
     -split AbstractValidationEx -> global/individual? mais et le app-level?
     -tst de concurrence/agregat!
-    -documenter les trafeoffs:
+    -documenter les choix/trafeoffs:
+        -documenter de façon centralisée les //TODO eqh
         -(ref eqhash) que bien sûr on veut pas faire Hibernate."unproxify" ds domain...
         -la raison (pragmatique) pr laquelle on préfère des getters au pattern interest/inform
             -rexp de moi et de 1 ou 2 collegues
@@ -42,6 +40,8 @@ TODOs:
                 (argument supplémentaire qui marche souvent: si on accepte les annots jpa, pqoi pas hib/ehcache/jackson/...)
             (ce n'est pas l'approche "onion/clean architecture" puriste mais on s'en fout!)
         -documenter pqoi on met Serializable seulement au niveau le plus concret
+        -VO: ce qui rest a VF pas fait par javac c'est surtt l'immutabilite
+                -equalsverifier: j'aime pas comment ils changent les chps prives..
     -unification des exceptions 400? avec un test contrat pr les 2 cas
         -codes pr les errs de validation
     -pagination + criteria search?
