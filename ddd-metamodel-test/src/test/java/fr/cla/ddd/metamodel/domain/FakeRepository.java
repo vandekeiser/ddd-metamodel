@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.exampleapp.domain;
+package fr.cla.ddd.metamodel.domain;
 
 import fr.cla.ddd.metamodel.domain.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.domain.EntityId;
@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 
-public abstract class InMemoryRepository<
+public abstract class FakeRepository<
     A extends AbstractAggregateRoot<A, I>,
     I extends EntityId
 > {

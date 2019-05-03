@@ -1,7 +1,7 @@
 package fr.cla.ddd.metamodel.exampleapp.appli;
 
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
-import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.InMemorySrtConferences;
+import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.FakeSrtConferences;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConferences;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ScheduleConferenceTest {
 
-    private final SrtConferences conferences = new InMemorySrtConferences();
+    private final SrtConferences conferences = new FakeSrtConferences();
     private final ScheduleConference scheduleConference = new ScheduleConference(conferences);
 
     @Test

@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.exampleapp.expo;
+package fr.cla.ddd.metamodel.expo;
 
 import fr.cla.ddd.metamodel.appli.validation.ApplicativeValidations;
 import fr.cla.ddd.metamodel.exampleapp.appli.ScheduleConference;

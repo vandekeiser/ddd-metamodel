@@ -2,13 +2,13 @@ package fr.cla.ddd.metamodel.exampleapp.domain.equatability.canequal;
 
 import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
-import fr.cla.ddd.metamodel.exampleapp.domain.InMemoryRepository;
+import fr.cla.ddd.metamodel.exampleapp.domain.FakeRepository;
 
 
 @DDD.RepositoryImpl
 @org.springframework.stereotype.Service
-public class InMemoryCeConferences
-extends InMemoryRepository<CeConference, ConferenceId>
+public class FakeCeConferences
+extends FakeRepository<CeConference, ConferenceId>
 implements CeConferences {
 
 

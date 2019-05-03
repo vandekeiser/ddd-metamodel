@@ -1,5 +1,6 @@
-package fr.cla.ddd.metamodel;
+package fr.cla.ddd.metamodel.domain;
 
+import fr.cla.ddd.metamodel.DDD;
 import fr.cla.ddd.metamodel.domain.AbstractEntity;
 import fr.cla.ddd.metamodel.domain.AbstractValueObject;
 import fr.cla.ddd.metamodel.domain.EntityId;
