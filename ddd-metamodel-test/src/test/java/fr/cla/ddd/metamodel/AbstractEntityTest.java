@@ -28,7 +28,7 @@ public class AbstractEntityTest {
     }
 
     @Test
-    public void should_not_instantiate_with_invalid_value() {
+    public void constructor_should_throw_when_invalid_parameters() {
         assertThrows(InvalidObjectException.class, () ->
             new Entity3(new Entity3Id(randomUUID().toString()), -1)
         );
@@ -36,7 +36,7 @@ public class AbstractEntityTest {
     }
 
     @Test
-    public void should_not_set_invalid_value() {
+    public void setters_should_throw_when_invalid_parameters() {
         Entity3 e3 = new Entity3(new Entity3Id(randomUUID().toString()), 0);
 
         assertThrows(InvalidObjectException.class, () ->

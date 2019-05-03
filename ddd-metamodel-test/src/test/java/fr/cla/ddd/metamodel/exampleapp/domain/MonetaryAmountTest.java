@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class MonetaryAmountTest {
 
     @Test
-    public void should_not_instantiate_invalid() {
+    public void constructor_should_throw_when_invalid_parameters() {
         assertThrows(InvalidObjectException.class, () ->
             new MonetaryAmount(-1)
         );
@@ -18,7 +18,7 @@ public class MonetaryAmountTest {
     }
 
     @Test
-    public void should_instantiate_valid() {
+    public void constructor_should_not_throw_when_valid_parameters() {
         assertDoesNotThrow(() ->
             new MonetaryAmount(0)
         );

@@ -25,7 +25,7 @@ public class AbstractValueObjectTest {
     }
 
     @Test
-    public void should_not_instantiate_invalid() {
+    public void constructor_should_throw_when_invalid_parameters() {
         assertThrows(InvalidObjectException.class, () ->
             new ValueObject3(-1)
         );

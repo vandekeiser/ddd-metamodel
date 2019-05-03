@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SdtConferenceTest {
 
     @Test
-    public void should_not_instantiate_invalid() {
+    public void constructor_should_throw_when_invalid_parameters() {
         assertThrows(InvalidObjectException.class, () ->
             new SdtConference(
                 new ConferenceId(),
@@ -21,6 +21,18 @@ public class SdtConferenceTest {
                 new SdtTalk(new MonetaryAmount(500)),
                 new SdtTalk(new MonetaryAmount(500)),
                 new SdtTalk(new MonetaryAmount(1))
+            )
+        );
+    }
+
+    @Test
+    public void constructor_should_not_throw_when_valid_parameters() {
+        assertDoesNotThrow(() ->
+            new SdtConference(
+                new ConferenceId(),
+                new MonetaryAmount(1000),
+                new SdtTalk(new MonetaryAmount(500)),
+                new SdtTalk(new MonetaryAmount(500))
             )
         );
     }
@@ -53,18 +65,6 @@ public class SdtConferenceTest {
             assertThat(overflow.getMessage()).isEqualTo("java.lang.ArithmeticException: integer overflow");
             assertThat(overflow.getCause()).isInstanceOf(ArithmeticException.class);
         }
-    }
-
-    @Test
-    public void should_instantiate_valid_CeConference() {
-        assertDoesNotThrow(() ->
-            new SdtConference(
-                new ConferenceId(),
-                new MonetaryAmount(1000),
-                new SdtTalk(new MonetaryAmount(500)),
-                new SdtTalk(new MonetaryAmount(500))
-            )
-        );
     }
 
 }

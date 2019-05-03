@@ -24,7 +24,6 @@ TODOs:
         -equalsverifier: j'aime pas comment ils changent les chps prives..
     -factor types ds openapi
     -fix jigsaw runtime warning (wasn't here with j11)
-    -"should_not_instantiate" -> "should_throw"
     -Constraint.messageIfViolated: String -> Supplier<String> pr ouvrir la porte à de l'interpolation
     -split AbstractValidationEx -> global/individual? mais et le app-level?
     -tst de concurrence/agregat!
