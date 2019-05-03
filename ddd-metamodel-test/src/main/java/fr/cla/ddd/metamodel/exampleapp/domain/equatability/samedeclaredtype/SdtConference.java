@@ -29,7 +29,7 @@ public class SdtConference extends AbstractAggregateRoot<SdtConference, Conferen
     }
 
     public SdtConference(ConferenceId id, MonetaryAmount budget, Set<SdtTalk> talks) throws InvalidObjectException {
-        super(SdtConference.class, id, Equatability.SAME_DECLARED_CLASS);
+        super(SdtConference.class, id, Equatability.SAME_DECLARED_TYPE);
         this.budget = budget;
         this.talks = defensiveCopy(talks);
         validate();
@@ -71,7 +71,7 @@ public class SdtConference extends AbstractAggregateRoot<SdtConference, Conferen
     //Unfortunately this is required by JPA. Don't use.
     @SuppressWarnings("unused")
     SdtConference() { //TODO eqh: private KO! (without lazy proxies, private is fine)
-        super(SdtConference.class, Equatability.SAME_DECLARED_CLASS);
+        super(SdtConference.class, Equatability.SAME_DECLARED_TYPE);
         this.budget = null;
         this.talks = null;
     }

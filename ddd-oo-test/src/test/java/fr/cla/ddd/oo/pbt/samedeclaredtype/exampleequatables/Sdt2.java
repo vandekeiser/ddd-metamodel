@@ -13,12 +13,12 @@ public class Sdt2 extends Equatable<Sdt2> {
     protected final Value x;
 
     public Sdt2(Value x) {
-        super(Sdt2.class, Equatability.SAME_DECLARED_CLASS);
+        super(Sdt2.class, Equatability.SAME_DECLARED_TYPE);
         this.x = x;
     }
 
     public Sdt2(Class<? extends Sdt2> type, Value x) {
-        super(type, Equatability.SAME_DECLARED_CLASS);
+        super(type, Equatability.SAME_DECLARED_TYPE);
         this.x = x;
     }
 

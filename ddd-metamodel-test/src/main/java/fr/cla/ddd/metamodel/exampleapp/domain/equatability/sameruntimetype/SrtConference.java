@@ -28,7 +28,7 @@ public class SrtConference extends AbstractAggregateRoot<SrtConference, Conferen
     }
 
     public SrtConference(ConferenceId id, MonetaryAmount budget, Set<SrtTalk> talks) throws InvalidObjectException {
-        super(SrtConference.class, id, Equatability.SAME_RUNTIME_CLASS);
+        super(SrtConference.class, id, Equatability.SAME_RUNTIME_TYPE);
         this.budget = budget;
         this.talks = defensiveCopy(talks);
         validate();
@@ -63,7 +63,7 @@ public class SrtConference extends AbstractAggregateRoot<SrtConference, Conferen
     public String toString() {
         return String.format(
             "%s{id: %s, version: %s, budget: %s, talks: %s}",
-            //Use getClass (instead of getDeclaredType) in toString as well to be coherent with Equatability.SAME_RUNTIME_CLASS
+            //Use getClass (instead of getDeclaredType) in toString as well to be coherent with Equatability.SAME_RUNTIME_TYPE
             getClass().getSimpleName(), getId(), getVersion(), getBudget(), getTalks()
         );
     }
@@ -72,7 +72,7 @@ public class SrtConference extends AbstractAggregateRoot<SrtConference, Conferen
     //Unfortunately this is required by JPA. Don't use.
     @SuppressWarnings("unused")
     SrtConference() { //TODO eqh: private KO! (without lazy proxies, private is fine)
-        super(SrtConference.class, Equatability.SAME_RUNTIME_CLASS);
+        super(SrtConference.class, Equatability.SAME_RUNTIME_TYPE);
         this.budget = null;
         this.talks = null;
     }

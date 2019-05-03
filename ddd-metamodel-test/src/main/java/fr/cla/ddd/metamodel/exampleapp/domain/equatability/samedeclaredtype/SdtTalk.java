@@ -18,7 +18,7 @@ public class SdtTalk extends AbstractEntity<SdtTalk, TalkId> {
     }
 
     public SdtTalk(TalkId id, MonetaryAmount cost) throws InvalidObjectException {
-        super(SdtTalk.class, id, Equatability.SAME_DECLARED_CLASS);
+        super(SdtTalk.class, id, Equatability.SAME_DECLARED_TYPE);
         this.cost = cost;
         validate();
     }
@@ -45,7 +45,7 @@ public class SdtTalk extends AbstractEntity<SdtTalk, TalkId> {
     //Unfortunately this is required by JPA. Don't use.
     @SuppressWarnings("unused")
     private SdtTalk() {
-        super(SdtTalk.class, Equatability.SAME_DECLARED_CLASS);
+        super(SdtTalk.class, Equatability.SAME_DECLARED_TYPE);
         this.cost = null;
     }
 

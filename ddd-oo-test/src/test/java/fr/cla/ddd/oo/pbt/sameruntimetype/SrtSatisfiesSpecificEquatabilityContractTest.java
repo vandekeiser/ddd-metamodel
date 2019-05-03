@@ -22,7 +22,7 @@ extends ArbitrarySrts {
             p.x.getClass().equals(p.y.getClass())
         )
         .as(
-            "Expected equal SAME_RUNTIME_CLASS Equatables to have equal runtime classes. Actual: %n" +
+            "Expected equal SAME_RUNTIME_TYPE Equatables to have equal runtime classes. Actual: %n" +
             "    p.x: %s%n" +
             "    p.y: %s%n" +
             "    p.x.equals(p.y): %b%n" +
@@ -47,7 +47,7 @@ extends ArbitrarySrts {
             p.x.equals(p.y)
         )
         .as(
-            "Expected SAME_RUNTIME_CLASS Equatables with different runtime classes to not be equal. Actual: %n" +
+            "Expected SAME_RUNTIME_TYPE Equatables with different runtime classes to not be equal. Actual: %n" +
                 "    p.x: %s%n" +
                 "    p.y: %s%n" +
                 "    p.x.equals(p.y): %b%n" +

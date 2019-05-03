@@ -18,7 +18,7 @@ public class SrtTalk extends AbstractEntity<SrtTalk, TalkId> {
     }
 
     public SrtTalk(TalkId id, MonetaryAmount cost) throws InvalidObjectException {
-        super(SrtTalk.class, id, Equatability.SAME_RUNTIME_CLASS);
+        super(SrtTalk.class, id, Equatability.SAME_RUNTIME_TYPE);
         this.cost = cost;
         validate();
     }
@@ -38,7 +38,7 @@ public class SrtTalk extends AbstractEntity<SrtTalk, TalkId> {
     public String toString() {
         return String.format(
             "%s{cost: %s}",
-            //Use getClass (instead of getDeclaredType) in toString as well to be coherent with Equatability.SAME_RUNTIME_CLASS
+            //Use getClass (instead of getDeclaredType) in toString as well to be coherent with Equatability.SAME_RUNTIME_TYPE
             getClass().getSimpleName(), cost
         );
     }
@@ -46,7 +46,7 @@ public class SrtTalk extends AbstractEntity<SrtTalk, TalkId> {
     //Unfortunately this is required by JPA. Don't use.
     @SuppressWarnings("unused")
     private SrtTalk() {
-        super(SrtTalk.class, Equatability.SAME_RUNTIME_CLASS);
+        super(SrtTalk.class, Equatability.SAME_RUNTIME_TYPE);
         this.cost = null;
     }
 

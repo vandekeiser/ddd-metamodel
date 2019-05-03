@@ -22,7 +22,7 @@ extends ArbitrarySdts {
             p.x.getDeclaredType().equals(p.y.getClass())
         )
         .as(
-            "Expected equal SAME_DECLARED_CLASS Equatables to have equal declared classes. Actual: %n" +
+            "Expected equal SAME_DECLARED_TYPE Equatables to have equal declared classes. Actual: %n" +
                 "    p.x: %s%n" +
                 "    p.y: %s%n" +
                 "    p.x.equals(p.y): %b%n" +
@@ -47,7 +47,7 @@ extends ArbitrarySdts {
             p.x.equals(p.y)
         )
         .as(
-            "Expected SAME_DECLARED_CLASS Equatables with different declared classes to not be equal. Actual: %n" +
+            "Expected SAME_DECLARED_TYPE Equatables with different declared classes to not be equal. Actual: %n" +
                 "    p.x: %s%n" +
                 "    p.y: %s%n" +
                 "    p.x.equals(p.y): %b%n" +

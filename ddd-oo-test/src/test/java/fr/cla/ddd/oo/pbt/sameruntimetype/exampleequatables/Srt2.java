@@ -13,12 +13,12 @@ public class Srt2 extends Equatable<Srt2> {
     protected final Value x;
 
     public Srt2(Value x) {
-        super(Srt2.class, Equatability.SAME_RUNTIME_CLASS);
+        super(Srt2.class, Equatability.SAME_RUNTIME_TYPE);
         this.x = x;
     }
 
     public Srt2(Class<? extends Srt2> type, Value x) {
-        super(type, Equatability.SAME_RUNTIME_CLASS);
+        super(type, Equatability.SAME_RUNTIME_TYPE);
         this.x = x;
     }
 

@@ -88,7 +88,7 @@ public abstract class Equatable<T extends Equatable<T>> {
          * Simple but fails if the class is replaced by a proxy (eg. by Hibernate).
          * Also of course not as flexible as CAN_EQUAL (but that is rarely required).
          */
-        SAME_RUNTIME_CLASS {
+        SAME_RUNTIME_TYPE {
             @Override protected boolean areEquatable(
                 Equatable<?> thisObj, Class<?> thisObjType,
                 Equatable<?> thatObj, Class<?> thatObjType
@@ -120,10 +120,10 @@ public abstract class Equatable<T extends Equatable<T>> {
         /**
          * Objects areEquatable iff they have equal {@code this.type}.
          *
-         * Simple and unlike SAME_RUNTIME_CLASS, doesn't fail if the class is replaced by a proxy (eg. by Hibernate).
+         * Simple and unlike SAME_RUNTIME_TYPE, doesn't fail if the class is replaced by a proxy (eg. by Hibernate).
          * Also of course not as flexible as CAN_EQUAL (but that is rarely required).
          */
-        SAME_DECLARED_CLASS {
+        SAME_DECLARED_TYPE {
             @Override protected boolean areEquatable(
                 Equatable<?> thisObj, Class<?> thisObjType,
                 Equatable<?> thatObj, Class<?> thatObjType
@@ -135,7 +135,7 @@ public abstract class Equatable<T extends Equatable<T>> {
         /**
          * Objects areEquatable iff they are instances of each other's {@code type}.
          *
-         * Simple and unlike SAME_RUNTIME_CLASS, doesn't fail if the class is replaced by a proxy (eg. by Hibernate).
+         * Simple and unlike SAME_RUNTIME_TYPE, doesn't fail if the class is replaced by a proxy (eg. by Hibernate).
          * Also of course not as flexible as CAN_EQUAL (but that is rarely required).
          * TODO: vraiment moins flexible?
          */
@@ -156,7 +156,7 @@ public abstract class Equatable<T extends Equatable<T>> {
          * Objects areEquatable iff they {@code canEqual} each other.
          *
          * The most flexible pattern, initially from Effective Java (nice article about the EJ "canEqual" pattern: https://www.artima.com/lejava/articles/equality.html).
-         * Unlike SAME_RUNTIME_CLASS, doesn't fail if the class is replaced by a proxy (eg. by Hibernate).
+         * Unlike SAME_RUNTIME_TYPE, doesn't fail if the class is replaced by a proxy (eg. by Hibernate).
          *
          * Allows distinguishing derived classes that:
          * <ul>
@@ -178,7 +178,7 @@ public abstract class Equatable<T extends Equatable<T>> {
         },
         ;
 
-        public static final Equatability DEFAULT = SAME_DECLARED_CLASS;
+        public static final Equatability DEFAULT = SAME_DECLARED_TYPE;
 
         /**
          * Don't allow just any concrete types to be equal, as this can break the reflexive/symmetric/transitive contract
