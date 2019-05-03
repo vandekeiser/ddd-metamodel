@@ -64,6 +64,7 @@ TODOs:
         -->NPE si un des talks est null...
         -->de facon plus generale il faut VF ca a chq fois qu'on accepte un array mais aussi une collection! comme ds wires/checkNoNulls!
         -->rename defensiveCopy->defensiveCopyOrNull, introduire checkNoNulls, ...
+        -->attention de ne pas tomber ds le pb des validators qui doivent s'exclurent les uns les autres --> VF ttes les nullites en mm tps
 
 
 
