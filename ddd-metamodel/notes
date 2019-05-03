@@ -57,6 +57,11 @@ TODOs:
         -codes pr les errs de validation
     -pagination + criteria search?
     -e2e tst sans stubs
+    -NPE vs validation: y'a encore un trou ds la raquette:
+        public IiConference(ConferenceId id, MonetaryAmount budget, IiTalk... talks) throws InvalidObjectException {
+                this(id, budget, Set.of(talks));
+        }
+        -->NPE si un des talks est null...
 
 
 
