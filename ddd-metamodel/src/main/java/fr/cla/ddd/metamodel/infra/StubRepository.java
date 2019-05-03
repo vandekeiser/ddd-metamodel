@@ -1,4 +1,4 @@
-package fr.cla.ddd.metamodel.exampleapp.infra;
+package fr.cla.ddd.metamodel.infra;
 
 import fr.cla.ddd.metamodel.domain.AbstractAggregateRoot;
 import fr.cla.ddd.metamodel.domain.EntityId;

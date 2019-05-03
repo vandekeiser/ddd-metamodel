@@ -6,7 +6,7 @@ import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConference;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtConferences;
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtTalk;
-import fr.cla.ddd.metamodel.exampleapp.infra.StubRepository;
+import fr.cla.ddd.metamodel.infra.StubRepository;
 import org.springframework.context.annotation.Profile;
 
 
