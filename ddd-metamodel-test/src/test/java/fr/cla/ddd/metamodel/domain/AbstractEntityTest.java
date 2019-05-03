@@ -1,9 +1,6 @@
 package fr.cla.ddd.metamodel.domain;
 
 import fr.cla.ddd.metamodel.DDD;
-import fr.cla.ddd.metamodel.domain.AbstractEntity;
-import fr.cla.ddd.metamodel.domain.AbstractValueObject;
-import fr.cla.ddd.metamodel.domain.EntityId;
 import fr.cla.ddd.metamodel.domain.validation.Constraints;
 import fr.cla.ddd.metamodel.domain.validation.InvalidObjectException;
 import fr.cla.ddd.metamodel.domain.validation.Validator;
