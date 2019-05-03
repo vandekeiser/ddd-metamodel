@@ -62,6 +62,7 @@ TODOs:
                 this(id, budget, Set.of(talks));
         }
         -->NPE si un des talks est null...
+        -->de facon plus generale il faut VF ca a chq fois qu'on accepte un array mais aussi une collection! comme ds wires/checkNoNulls!
 
 
 
