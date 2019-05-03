@@ -25,6 +25,17 @@ TODOs:
     -split AbstractValidationEx -> global/individual? mais et le app-level?
     -tst de concurrence/agregat!
     -documenter les choix/trafeoffs:
+        -choix structurants:
+            -4 layers au lieu de 2
+            -"top-level domain class" pr verifs par le compilateur plutot que dependant d'un outil tiers; vf le nom ds POEAA.
+                -stabilité de l'identité (vs. generation tardive)
+                -semantique egalité pb souvent raté en java et souvent problematique en jpa
+                -approche ddd defensif
+                -pas d'annots, persistence.xml ds infra
+            -on autorise les getters, le pattern interest/inform n'ayant pas ds mon xp été probante
+            -typologie des tests par layer
+            -typologie de la validation par layer
+            -metamodele pr découverte documentation
         -documenter de façon centralisée les //TODO eqh
         -(ref eqhash) que bien sûr on veut pas faire Hibernate."unproxify" ds domain...
         -la raison (pragmatique) pr laquelle on préfère des getters au pattern interest/inform
