@@ -8,7 +8,6 @@ import fr.cla.ddd.metamodel.domain.validation.Validator;
 import fr.cla.ddd.metamodel.exampleapp.domain.ConferenceId;
 import fr.cla.ddd.metamodel.exampleapp.domain.MonetaryAmount;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import static java.util.Collections.emptySet;
@@ -40,7 +39,7 @@ public class CeConference extends AbstractAggregateRoot<CeConference, Conference
     }
 
     public Set<CeTalk> getTalks() {
-        return new HashSet<>(talks);
+        return defensiveCopy(talks);
     }
 
     @Override

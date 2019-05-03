@@ -10,7 +10,6 @@ import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtCo
 import fr.cla.ddd.metamodel.exampleapp.domain.equatability.sameruntimetype.SrtTalk;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -77,7 +76,7 @@ public class SrtConferenceDetails extends AbstractValueObject<SrtConferenceDetai
     }
 
     public Set<SrtTalk> getTalks() {
-        return new HashSet<>(talks);
+        return defensiveCopy(talks);
     }
 
 }
